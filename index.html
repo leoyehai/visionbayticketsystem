@@ -1786,7 +1786,6 @@
         <span class="arch-pill">三重權限隔離</span>
         <span class="arch-pill">FortiGate / FortiAnalyzer（資安事件）</span>
         <span class="arch-pill">Telstra Connect / PCCW（電信電路）</span>
-        <span class="arch-pill">NIST AI 合規性</span>
       </div>
     </div>
     <div class="arch-connector">▼ 承載</div>
@@ -1801,7 +1800,6 @@
               <span class="arch-hint">⊙ 查看相關事件（維運 12件）</span>
           </div>
         <div class="arch-pills">
-          <span class="arch-pill">Rafay (GPU PaaS)</span>
           <span class="arch-pill">Slurm 調度</span>
           <span class="arch-pill">Token 精密計費</span>
           <span class="arch-pill">LLM / BERT 效能驗證</span>
@@ -1824,7 +1822,6 @@
         <div class="arch-pills">
           <span class="arch-pill">NVIDIA B300 GPU 叢集</span>
           <span class="arch-pill">NVLink 縱向擴展</span>
-          <span class="arch-pill">Kubernetes (CaaS)</span>
           <span class="arch-pill">InfiniBand / Spectrum-X</span>
           <span class="arch-pill">Row Remapper（ECC 記憶體修復）</span>
           <span class="arch-pill">PXE 無狀態開機架構（客戶資料保護風險）</span>
@@ -1868,7 +1865,7 @@
     </div>
   </div>
 
-  <div class="section-title">系統關聯架構圖 <span style="color:var(--muted);font-size:10px">依實際事件證據繪製節點間依賴關係，非理論架構</span></div>
+  <div class="section-title" id="sysrel-diagram">系統關聯架構圖 <span style="color:var(--muted);font-size:10px">依實際事件證據繪製節點間依賴關係，非理論架構</span></div>
   <div class="arch-callout">此圖依全部 88 起事件證據繪製 13 個系統節點、15 條依賴關係，<strong>由下而上依 L1→L5 分層排列</strong>（最底層 L1 Facility → 最上層 L4 Workload，本圖無 L5 節點），呼應上方技術堆疊的分層邏輯；<strong>GPU Node（L3）為承上啟下的中樞</strong>。圖中以粗虛線框明顯區分 <strong style="color:var(--danger)">☁️ CloudOps 運算平台</strong>（頂部 L4，僅 BCM／NFS4）與 <strong style="color:var(--accent2)">🏗️ InfraOps 實體基礎設施</strong>（L3–L1，涵蓋 GPU/Fabric、網路、設施共 11 個節點）。每條連線上的 VOTS 工單編號可點擊，會於新分頁開啟對應的 Jira 頁面。</div>
   <div class="chart-box" style="margin-bottom:32px;overflow-x:auto">
     <svg viewBox="0 -36 950 580" style="width:100%;min-width:700px;height:auto" xmlns="http://www.w3.org/2000/svg">
@@ -1999,6 +1996,371 @@
       <span><span style="color:var(--rma);font-weight:700">L5</span> Security（本圖無對應節點）</span>
     </div>
   </div>
+
+
+
+  <div class="section-title">CMDB CI 清冊 <span style="color:var(--muted);font-size:10px">依全部 88 起事件證據反向建立的配置項目清單，非完整 294 節點資產盤點</span></div>
+  <div class="arch-callout">⚠️ <strong>範圍說明</strong>：本頁僅收錄「曾出現在 Jira 工單中、有明確主機名稱可辨識」的 Configuration Item（CI），共 27 台節點、40 筆事件關聯，佔全叢集 294 台節點（288 GPU + 6 CPU）的 9.2%。其餘未曾開單的節點視為健康狀態，未列入本頁。此清冊定位為「事件驅動的風險型 CMDB 視圖」，非正式資產管理系統的替代品。</div>
+
+  <div class="sla-hero">
+    <div class="stat-card">
+      <div class="stat-label">已識別 CI 節點數</div>
+      <div class="stat-value" style="color:var(--accent2)">27 台</div>
+      <div class="stat-sub">佔全叢集 294 台節點的 9.2%</div>
+    </div>
+    <div class="stat-card danger-top">
+      <div class="stat-label">🔴 重複故障・仍有進行中工單</div>
+      <div class="stat-value" style="color:var(--danger)">4 台</div>
+      <div class="stat-sub">gpusrv061／023／222／053</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">🟠🟡 曾重複故障（已解決）</div>
+      <div class="stat-value" style="color:var(--warn)">4 台</div>
+      <div class="stat-sub">gpusrv181／003／225／171／154 等</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">🟢 單次事件（已解決）</div>
+      <div class="stat-value" style="color:var(--ok)">18 台</div>
+      <div class="stat-sub">佔已識別 CI 的 66.7%</div>
+    </div>
+  </div>
+
+  <div class="field-callout" style="margin-bottom:32px">
+    <h4>📌 CI 健康分級定義</h4>
+    <ul>
+      <li><strong>🔴 重複故障・進行中</strong>：累計 2 次以上事件，且目前仍有未解決工單，建議優先安排深度健檢</li>
+      <li><strong>🟠 已二次 RMA</strong>：累計 2 次以上事件，且已完成硬體更換（換料），列入料件品質觀察名單</li>
+      <li><strong>🟡 重複但已解決</strong>：累計 2 次以上事件，目前狀態已全數解決，僅供歷史參照</li>
+      <li><strong>🟢 單次事件</strong>：僅出現 1 次事件記錄且已解決，屬正常範疇</li>
+    </ul>
+  </div>
+
+  <div class="section-title" style="font-size:15px">運算節點 CI（依風險等級排序）</div>
+  <table class="gov-table" style="margin-bottom:16px">
+    <thead><tr><th>CI 名稱</th><th>健康分級</th><th>累計事件數</th><th>累計停機</th><th>目前狀態</th><th>相關工單</th></tr></thead>
+    <tbody>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv061</td>
+        <td>🔴 重複故障・進行中</td>
+        <td>5</td>
+        <td>4.0 hr</td>
+        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-42" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-42</a> <a href="https://visionbay.atlassian.net/browse/VOTS-6" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-6</a> <a href="https://visionbay.atlassian.net/browse/VOTS-18" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-18</a> <a href="https://visionbay.atlassian.net/browse/VOTS-20" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-20</a> <a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-161</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv023</td>
+        <td>🔴 重複故障・進行中</td>
+        <td>4</td>
+        <td>11.0 hr</td>
+        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-34" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-34</a> <a href="https://visionbay.atlassian.net/browse/VOTS-38" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-38</a> <a href="https://visionbay.atlassian.net/browse/VOTS-159" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-159</a> <a href="https://visionbay.atlassian.net/browse/VOTS-163" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-163</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv181</td>
+        <td>🟠 已二次RMA</td>
+        <td>3</td>
+        <td>105.8 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-33" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-33</a> <a href="https://visionbay.atlassian.net/browse/VOTS-48" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-48</a> <a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-150</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv003</td>
+        <td>🟡 重複但已解決</td>
+        <td>2</td>
+        <td>24.7 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-30" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-30</a> <a href="https://visionbay.atlassian.net/browse/VOTS-122" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-122</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv225</td>
+        <td>🟡 重複但已解決</td>
+        <td>2</td>
+        <td>0.2 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-40" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-40</a> <a href="https://visionbay.atlassian.net/browse/VOTS-43" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-43</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv171</td>
+        <td>🟡 重複但已解決</td>
+        <td>2</td>
+        <td>12.6 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-29" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-29</a> <a href="https://visionbay.atlassian.net/browse/VOTS-124" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-124</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv154</td>
+        <td>🟡 重複但已解決</td>
+        <td>2</td>
+        <td>5.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-32" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-32</a> <a href="https://visionbay.atlassian.net/browse/VOTS-128" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-128</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv222</td>
+        <td>🔴 重複故障・進行中</td>
+        <td>1</td>
+        <td>0.0 hr</td>
+        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-151" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-151</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv053</td>
+        <td>🔴 重複故障・進行中</td>
+        <td>1</td>
+        <td>0.0 hr</td>
+        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-162" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-162</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv160</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>101.3 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-24" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-24</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv232</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>96.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-25" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-25</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv177</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>17.6 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-160" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-160</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv120</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>24.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-12" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-12</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv123</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>24.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-46" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-46</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv173</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>14.9 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-147" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-147</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv097</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>1.9 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-133" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-133</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv040</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>1.9 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-28" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-28</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv252</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>4.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-8" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-8</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv246</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>8.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-7" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-7</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv274</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>8.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-9" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-9</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv255</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.3 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-39" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-39</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv178</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.3 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-152" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-152</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv065</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.2 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-23" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-23</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv135</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.5 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-21" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-21</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv184</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-50" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-50</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv153</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-92" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-92</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv251</td>
+        <td>🟢 單次事件</td>
+        <td>1</td>
+        <td>0.0 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-100" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-100</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="arch-callout" style="margin-bottom:32px">💡 <strong>gpusrv061 補充說明</strong>：前 4 起事件（06/08–06/10）後已完成整機更換，物理硬體已非原機；本次 VOTS-161（7/14）為更換後新機台首次異常，是否代表同批次料件問題尚待觀察，不宜直接視為「原機延續故障」。</div>
+
+  <div class="section-title" style="font-size:15px">網路／設施 CI</div>
+  <table class="gov-table" style="margin-bottom:16px">
+    <thead><tr><th>CI 名稱</th><th>健康分級</th><th>累計事件數</th><th>累計停機</th><th>目前狀態</th><th>相關工單</th></tr></thead>
+    <tbody>
+      <tr><td style="font-family:var(--mono);font-weight:600">Border02</td><td>🟢 單次事件（邊界交換器）</td><td>1</td><td>1.0 hr</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-13" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-13</a></td></tr>
+      <tr><td style="font-family:var(--mono);font-weight:600">ib-leaf03</td><td>🟢 單次事件（IB Leaf 交換器）</td><td>1</td><td>0.0 hr</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-22" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-22</a></td></tr>
+      <tr><td style="font-family:var(--mono);font-weight:600">ib-spine10</td><td>🟢 單次事件（IB Spine 交換器）</td><td>1</td><td>0.2 hr</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-41" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-41</a></td></tr>
+      <tr><td style="font-family:var(--mono);font-weight:600">oob-leaf3</td><td>🟢 單次事件（OOB 管理交換器）</td><td>1</td><td>0.2 hr</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-26" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-26</a></td></tr>
+      <tr><td style="font-family:var(--mono);font-weight:600">CDU Switch</td><td>🟢 單次事件（CDU 網路埠）</td><td>1</td><td>0.0 hr</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-104" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-104</a></td></tr>
+      <tr><td style="font-family:var(--mono);font-weight:600">CDU（液冷單元，群組）</td><td>🟡 多次事件（設施設備）</td><td>7</td><td>—</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px;color:var(--muted)">詳見事件明細篩選</td></tr>
+      <tr><td style="font-family:var(--mono);font-weight:600">PDU（配電單元，群組）</td><td>🟡 多次事件（設施設備）</td><td>6</td><td>—</td><td style="color:var(--ok);font-weight:600">正常運作</td><td style="font-size:11px;color:var(--muted)">詳見事件明細篩選</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">CI 關聯圖 <span style="color:var(--muted);font-size:10px">由下而上依 L1→L3 排列，呼應上方系統關聯架構圖之分層邏輯</span></div>
+  <div class="chart-box" style="margin-bottom:32px;overflow-x:auto">
+    <svg viewBox="0 0 950 480" style="width:100%;min-width:700px;height:auto" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="ciarrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L6,3 L0,6 Z" fill="var(--muted)"/>
+        </marker>
+      </defs>
+
+      <!-- layer bands (top→bottom = L3→L1, matching bottom-up read order) -->
+      <rect x="0" y="8" width="950" height="260" fill="var(--danger)" opacity="0.045"/>
+      <rect x="0" y="278" width="950" height="90" fill="var(--accent2)" opacity="0.045"/>
+      <rect x="0" y="378" width="950" height="70" fill="var(--warn)" opacity="0.045"/>
+
+      <!-- Compute Node CI (L3) -->
+      <rect x="40" y="20" width="220" height="130" rx="10" fill="var(--surface)" stroke="var(--danger)" stroke-width="2"/>
+      <text x="150" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--danger)">🔴 高風險（4 台）</text>
+      <text x="150" y="62" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv061</text>
+      <text x="150" y="82" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv023</text>
+      <text x="150" y="102" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv222</text>
+      <text x="150" y="122" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv053</text>
+      <text x="150" y="142" text-anchor="middle" font-size="9.5" fill="var(--muted)">進行中工單</text>
+
+      <rect x="280" y="20" width="180" height="130" rx="10" fill="var(--surface)" stroke="var(--warn)" stroke-width="2"/>
+      <text x="370" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--warn)">🟠 已二次 RMA（1 台）</text>
+      <text x="370" y="70" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv181</text>
+      <text x="370" y="92" text-anchor="middle" font-size="9.5" fill="var(--muted)">25 天內二度換 Tray</text>
+      <text x="370" y="108" text-anchor="middle" font-size="9.5" fill="var(--muted)">6,349 分鐘（全站最高）</text>
+
+      <rect x="480" y="20" width="220" height="130" rx="10" fill="var(--surface)" stroke="#f7b731" stroke-width="2"/>
+      <text x="590" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="#a16207">🟡 重複已解決（4 台）</text>
+      <text x="590" y="62" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv003 · gpusrv225</text>
+      <text x="590" y="82" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv171 · gpusrv154</text>
+      <text x="590" y="104" text-anchor="middle" font-size="9.5" fill="var(--muted)">狀態已全數解決</text>
+
+      <rect x="720" y="20" width="200" height="130" rx="10" fill="var(--surface)" stroke="var(--ok)" stroke-width="2"/>
+      <text x="820" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--ok)">🟢 單次事件（18 台）</text>
+      <text x="820" y="64" text-anchor="middle" font-size="9.5" fill="var(--muted)">gpusrv120／065／135／040</text>
+      <text x="820" y="80" text-anchor="middle" font-size="9.5" fill="var(--muted)">255／252／246／274／160</text>
+      <text x="820" y="96" text-anchor="middle" font-size="9.5" fill="var(--muted)">232／123／184／153／097</text>
+      <text x="820" y="112" text-anchor="middle" font-size="9.5" fill="var(--muted)">173／178／177／251</text>
+      <text x="820" y="132" text-anchor="middle" font-size="9" fill="var(--muted)">（已收合，詳見上方 CI 清冊表格）</text>
+
+      <!-- Network(L2) -> Compute(L3) edges, pointing upward -->
+      <line x1="150" y1="288" x2="150" y2="150" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)" stroke-dasharray="4,3"/>
+      <line x1="255" y1="288" x2="370" y2="150" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)" stroke-dasharray="4,3"/>
+      <line x1="400" y1="288" x2="590" y2="150" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)" stroke-dasharray="4,3"/>
+      <line x1="545" y1="288" x2="820" y2="150" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)" stroke-dasharray="4,3"/>
+      <line x1="695" y1="288" x2="820" y2="150" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)" stroke-dasharray="4,3"/>
+
+      <!-- Network CI (L2) -->
+      <rect x="60" y="288" width="110" height="42" rx="8" fill="var(--surface)" stroke="var(--accent2)" stroke-width="1.8"/>
+      <text x="115" y="314" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--accent2)">Border02</text>
+      <rect x="200" y="288" width="110" height="42" rx="8" fill="var(--surface)" stroke="var(--accent2)" stroke-width="1.8"/>
+      <text x="255" y="314" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--accent2)">ib-leaf03</text>
+      <rect x="340" y="288" width="120" height="42" rx="8" fill="var(--surface)" stroke="var(--accent2)" stroke-width="1.8"/>
+      <text x="400" y="314" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--accent2)">ib-spine10</text>
+      <rect x="490" y="288" width="110" height="42" rx="8" fill="var(--surface)" stroke="var(--accent2)" stroke-width="1.8"/>
+      <text x="545" y="314" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--accent2)">oob-leaf3</text>
+      <rect x="630" y="288" width="130" height="42" rx="8" fill="var(--surface)" stroke="var(--accent2)" stroke-width="1.8"/>
+      <text x="695" y="314" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--accent2)">CDU Switch</text>
+
+      <!-- Facility(L1) -> Network(L2) edges, pointing upward -->
+      <line x1="380" y1="388" x2="150" y2="330" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)"/>
+      <line x1="400" y1="388" x2="400" y2="330" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)"/>
+      <line x1="540" y1="388" x2="695" y2="330" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)"/>
+      <line x1="480" y1="388" x2="545" y2="330" stroke="var(--muted)" stroke-width="1.2" marker-end="url(#ciarrow)" stroke-dasharray="4,3"/>
+
+      <!-- Facility CI (L1) -->
+      <rect x="330" y="388" width="130" height="42" rx="8" fill="var(--surface)" stroke="var(--warn)" stroke-width="1.8"/>
+      <text x="395" y="414" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">CDU（7 件事件）</text>
+      <rect x="490" y="388" width="130" height="42" rx="8" fill="var(--surface)" stroke="var(--warn)" stroke-width="1.8"/>
+      <text x="555" y="414" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)">PDU（6 件事件）</text>
+
+      <text x="475" y="465" text-anchor="middle" font-size="10" fill="var(--muted)">虛線＝概念性支撐關係（設施/網路供給運算節點），非逐台驗證之實體佈線圖；實線可信度較高（來自事件文字明確提及）</text>
+
+      <!-- band labels + L-badges drawn last so they always render on top -->
+      <g style="paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round">
+        <text x="14" y="26" font-size="13" font-weight="800" fill="var(--danger)">L3</text>
+        <text x="40" y="26" font-size="12" font-weight="700" fill="var(--danger)">運算節點 CI</text>
+        <text x="14" y="296" font-size="13" font-weight="800" fill="var(--accent2)">L2</text>
+        <text x="40" y="296" font-size="12" font-weight="700" fill="var(--accent2)">網路 CI</text>
+        <text x="14" y="396" font-size="13" font-weight="800" fill="var(--warn)">L1</text>
+        <text x="40" y="396" font-size="12" font-weight="700" fill="var(--warn)">設施 CI</text>
+      </g>
+    </svg>
+  </div>
+
 
 </div><div class="tab-panel" id="tab-workflow">
 
@@ -3561,6 +3923,8 @@
     <h4>📌 總結</h4>
     <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">本季最貴的教訓集中在 <strong>Platform Engineering 的 P1</strong>：備品管理與 PXE 防呆這兩項若及早到位，本季 88 起事件中至少可避免 VOTS-150（6,339 分）與 VOTS-143 級別的重大風險。AIOps 這邊則是「從人工判讀走向系統輔助」的機會——目前本站所有分類、關聯、預測都仍是人工／LLM 協同完成，尚未產品化為可重複使用的能力。</p>
   </div>
+
+
 
 
 </div></div></div><div class="drawer-overlay" id="drawer-overlay"></div>

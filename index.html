@@ -992,19 +992,22 @@
   </table>
   <div class="arch-callout" style="margin-bottom:32px">💡 7 個節點／設備累計貢獻 <strong>19 件事件（21.8%）</strong>與 <strong>9,803 分鐘停機（23.3%）</strong>；gpusrv181（二次 RMA，6,349 分）與 gpusrv023（4 度異常，含 7/14 同日兩起）為目前風險最高的兩個節點，建議優先排入下次維護窗口深度健檢。</div>
 
-  <div class="section-title">改善建議與下一步</div>
+  <div class="section-title">改善建議與下一步 <span style="color:var(--muted);font-size:10px">聚焦需要管理層決策/資源投入的項目，技術執行細節請見「SOP 手冊」</span></div>
   <div class="charts-row" style="margin-bottom:32px">
-    <div class="chart-box">
-      <h3>技鋼現場備品水位</h3>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7">VOTS-150 反覆維修節點暫無現場 GPU tray 備品，Downtime 已達 3 天。客戶已正式升級：要求「現場維修能力」或「備品水位」二擇一改善。請技鋼提供現場零件級備品清單（CX8、connector 等）。</p>
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3>🔴 建議與供應商協商備品水位</h3>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：本季單一節點（gpusrv181）因現場無備品，延宕近 4.5 天才完成更換，單一事件就佔了全季停機的 15%。這不是技術問題，是供應鏈問題。</p>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否編列預算與廠商協商提高關鍵料件（GPU Tray）現場備品水位？若不投資，類似延宕預期會重演，直接反映在 SLA 數字上。</p>
     </div>
-    <div class="chart-box">
-      <h3>換料後驗證 SOP</h3>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7">比照 VOTS-147／VOTS-126 經驗，GPU Tray 更換後須同步更新 BCM NIC MAC 對照表。換料驗證順序：BMC 偵測 → PXE/MAC 更新 → PXE boot → GPU 偵測（nvidia-smi / dcgmi diag）。換料前主動提供已執行診斷結果給技鋼，避免到場重工。</p>
+    <div class="chart-box" style="border-left:3px solid var(--warn)">
+      <h3>🟠 建議正式書面告知客戶架構限制</h3>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：目前架構下，伺服器重啟會清除本機資料，這件事客戶可能不知情。若客戶自行重啟導致資料遺失，會變成信任問題而非技術問題。</p>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否授權以正式書面（而非口頭）通知客戶此架構限制？主動告知的成本遠低於事後被動處理客訴。</p>
     </div>
-    <div class="chart-box">
-      <h3>資料保存與客戶溝通</h3>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7">PXE stateless 開機架構下 reboot 會清除本地資料（VOTS-143 R1），建議正式書面通知客戶此架構限制。計畫性停機排程保留彈性緩衝，執行前再次與客戶/廠商做最終確認（VOTS-141 經驗）。VOTS-136 BMC 時區問題持續請技鋼校時，避免影響 IPMI log 判讀。</p>
+    <div class="chart-box" style="border-left:3px solid var(--accent)">
+      <h3>🟡 建議提前規劃下一代機台交付檢查機制</h3>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：288 節點交付當週一次暴露 11 起問題，事後才緊急處理。若下一代機台（GB300）規模更大，同樣模式重演的代價會更高。</p>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否同意將本季發現的問題整理為正式的「交付前檢查清單」，作為下一次大型交付的驗收標準？這是把本季的教訓轉化為資產，而不是繳學費就算了。</p>
     </div>
   </div>
 

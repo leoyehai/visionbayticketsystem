@@ -563,6 +563,7 @@
   <div class="nav-tab" data-tab="itil"><span class="nav-tab-icon">🛡</span>ITIL 維運</div>
   <div class="nav-tab" data-tab="beforeafter"><span class="nav-tab-icon">🔄</span>前後對比</div>
   <div class="nav-tab" data-tab="risk"><span class="nav-tab-icon">🔮</span>預測與風險</div>
+  <div class="nav-tab" data-tab="orgreq"><span class="nav-tab-icon">🧩</span>AIOps／Platform 需求</div>
 </nav>
 
 <div class="page">
@@ -3345,10 +3346,10 @@
   <table class="gov-table" style="margin-bottom:32px">
     <thead><tr><th>分類</th><th>事件數</th><th>平均單起停機</th><th>累計停機占比</th><th>風險等級</th></tr></thead>
     <tbody>
-      <tr><td><span class="badge hw">硬體</span></td><td>36</td><td>714 分</td><td>75.6%</td><td><span class="case-sev p1">高</span></td></tr>
-      <tr><td><span class="badge net">網路</span></td><td>29</td><td>214 分</td><td>18.3%</td><td><span class="case-sev p2">中</span></td></tr>
-      <tr><td><span class="badge cool">設施</span></td><td>9</td><td>217 分</td><td>5.7%</td><td><span class="case-sev p3">中低</span></td></tr>
-      <tr><td><span class="badge ops">維運</span></td><td>7</td><td>19 分</td><td>0.4%</td><td><span class="case-sev p4">低</span></td></tr>
+      <tr><td><span class="badge hw">硬體</span></td><td>37</td><td>876 分</td><td>76.8%</td><td><span class="case-sev p1">高</span></td></tr>
+      <tr><td><span class="badge net">網路</span></td><td>30</td><td>210 分</td><td>14.9%</td><td><span class="case-sev p2">中</span></td></tr>
+      <tr><td><span class="badge cool">設施</span></td><td>9</td><td>217 分</td><td>4.6%</td><td><span class="case-sev p3">中低</span></td></tr>
+      <tr><td><span class="badge ops">維運</span></td><td>12</td><td>126 分</td><td>3.6%</td><td><span class="case-sev p4">低</span></td></tr>
     </tbody>
   </table>
 
@@ -3412,6 +3413,22 @@
         <td style="font-size:11.5px;color:var(--muted)">7/1-7/4 交付週單獨貢獻 11 件事件；建議交付前導入標準化健康檢查 checklist</td>
         <td><a href="https://visionbay.atlassian.net/browse/VOTS-118" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-118</a>~<a href="https://visionbay.atlassian.net/browse/VOTS-128" target="_blank" style="color:var(--accent2);text-decoration:none">128</a></td>
       </tr>
+      <tr>
+        <td>多重 GPU Xid 併發，DRAM Uncorrectable 累計偏高</td>
+        <td><span class="case-sev p2">中</span></td>
+        <td><span class="case-sev p1">高</span></td>
+        <td style="color:var(--danger)">待原廠判定</td>
+        <td style="font-size:11.5px;color:var(--muted)">10.227.0.61 同時出現 Xid 48/171/63/94/154，DRAM Uncorrectable 累計達 16 次，已請原廠評估 RMA 門檻</td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-161</a></td>
+      </tr>
+      <tr>
+        <td>疑似已知 NVIDIA 開源核心驅動 NVLink Hang 缺陷</td>
+        <td><span class="case-sev p2">中</span></td>
+        <td><span class="case-sev p2">中</span></td>
+        <td style="color:var(--danger)">排查中</td>
+        <td style="font-size:11.5px;color:var(--muted)">節點異常重啟後遺失 Disk 開機選項僅能 PXE 開機；需評估修復或降版策略，避免重複觸發</td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-162" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-162</a></td>
+      </tr>
     </tbody>
   </table>
 
@@ -3442,6 +3459,106 @@
       <li><strong>大型交付／變更活動前後 72 小時</strong> → 應提高監控頻率與待命人力，歷史顯示此期間事件密度顯著較高</li>
     </ul>
   </div>
+
+</div><div class="tab-panel" id="tab-orgreq">
+
+  <div class="section-title">AIOps ／ Platform Engineering 需求分析 <span style="color:var(--muted);font-size:10px">依全部 88 起事件之實際痛點，反推兩個研發團隊的產品需求</span></div>
+  <div class="arch-callout">依 Software R&D 組織架構：<strong style="color:var(--accent)">☁️ AIOps</strong>（外部導向：agent、異常偵測、RCA、預測分析）與 <strong style="color:var(--accent2)">🏗️ Platform Engineering</strong>（內部導向：可擴展性、監控/SRE、自動化/DevOps）。以下需求皆從本站 88 起真實事件的重複痛點反推而來，非憑空規劃。</div>
+
+  <div class="section-title" style="font-size:15px;color:var(--accent)">☁️ AIOps 需求（agent／異常偵測／RCA／預測分析）</div>
+  <div class="charts-row" style="margin-bottom:16px">
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3>🎯 P1・GPU 健康趨勢預測</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：VOTS-151／153／161 皆顯示 ECC DRAM Uncorrectable 累計值與 Row Remapper Pending 狀態早於故障發生前即可觀測</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：建立 DCGM 指標趨勢模型，當 DRAM Uncorrectable 累計、Row Remapper Pending 超過門檻時主動預警，提前判定 RMA 需求，而非等 GPU 掉卡才反應</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3>🎯 P1・重複故障節點自動偵測</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：gpusrv181（3 度異常）、gpusrv023（4 度異常）、gpusrv061（4 度異常）皆為人工事後盤點才發現的重複模式</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：Agent 於工單建立當下自動比對節點歷史，30 天內第 2 次開單即自動標記「重複故障」旗標並觸發深度健檢流程，而非留給人工事後歸納</p>
+    </div>
+  </div>
+  <div class="charts-row" style="margin-bottom:16px">
+    <div class="chart-box" style="border-left:3px solid var(--warn)">
+      <h3>🔧 P2・跨系統 RCA 輔助關聯</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：VOTS-133（GPU+OS+BMC 跨層根因）、VOTS-142（VLAN／接孔／fabric 隔離等多個中間推論才找到真因 inband IP 誤設）</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：建立跨工具鏈（DCGM＋Syslog＋BMS）症狀關聯知識庫，Agent 主動比對歷史相似案例的最終根因路徑，縮短中間推論次數</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--warn)">
+      <h3>🔧 P2・工單自動分類與派工</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：本站目前分類（硬體/網路/設施/維運）、工具鏈對應、P1-P4 分級、Tier 歸屬皆為人工／人工協同 LLM 判讀產生</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：於 Jira 建單當下由 Agent 依標題/描述自動完成分類、優先級判定與初步派工建議，人工僅需確認而非從零判讀</p>
+    </div>
+  </div>
+  <div class="charts-row" style="margin-bottom:32px">
+    <div class="chart-box" style="border-left:3px solid var(--accent)">
+      <h3>📊 P3・SLA／風險預測儀表板正式化</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：本站「預測與風險」頁籤目前為人工＋簡單趨勢外推，非正式時間序列模型</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：將現有月度 SLA 趨勢、P1-P4 分布、Day0-2 長尾分析等指標產品化為正式預測模型，取代人工季度回顧</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px;color:var(--accent2)">🏗️ Platform Engineering 需求（可擴展性／監控-SRE／自動化-DevOps）</div>
+  <div class="charts-row" style="margin-bottom:16px">
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3>🎯 P1・備品水位管理系統</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：VOTS-150 現場無 GPU Tray 備品，延宕近 4.5 天（6,339 分鐘，佔全季停機近 15%），為本站最大宗痛點</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：建立關鍵料件（GPU Tray、CX8、光纖模組）庫存追蹤與自動補貨觸發機制，避免單一節點延宕拖累整體 SLA</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3>🎯 P1・PXE 開機安全防呆機制</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：VOTS-143 發現 GPU Server Reboot 因 PXE stateless 架構清除客戶資料，屬叢集級重大風險，目前僅靠 SOP 人工提醒</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：於 BCM/PXE 平台層級建立技術防呆（如強制 Hard Disk boot 優先權檢查），而非僅依賴人工遵循 SOP，杜絕重演可能</p>
+    </div>
+  </div>
+  <div class="charts-row" style="margin-bottom:16px">
+    <div class="chart-box" style="border-left:3px solid var(--warn)">
+      <h3>🔧 P2・共享儲存主動監控</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：VOTS-138 NFS4 使用率被動發現已達 98%，屬於被動踩雷式管理</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：建立 85% warning／92% critical 主動告警並整合進 BCM 監控平台，取代客戶通報才發現的模式</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--warn)">
+      <h3>🔧 P2・大規模交付前自動健檢平台</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：288 節點全量交付週單一週內暴露 11 起技術缺口（VOTS-118~128），事後才彙整為 checklist</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：將 IB/BMC/RAID/PXE 等交付前檢查項目自動化為一鍵健檢平台，於 GB300 等下一代大規模交付前主動攔截，而非事後補救</p>
+    </div>
+  </div>
+  <div class="charts-row" style="margin-bottom:32px">
+    <div class="chart-box" style="border-left:3px solid var(--accent2)">
+      <h3>⚙️ P3・Netris 自動化衝突防護</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：VOTS-131／142 手動網路變更遭 Netris agent 靜默 rollback，造成工程師誤判「沒修好」</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：建立標準化「維護模式」開關，工程師介入時自動暫停對應 agent 而非要求手動下指令停用</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--accent2)">
+      <h3>⚙️ P3・監控工具鏈整合平台</h3>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6"><strong>證據</strong>：現行監控橫跨 BMS／DCGM／UFM／Netris／FiMo／InTouch／Syslog 等 7+ 套獨立系統，缺乏單一入口</p>
+      <p style="font-size:12px;color:var(--text);line-height:1.6"><strong>需求</strong>：建立 Single-Pane-of-Glass 整合監控平台，降低 NOC 值班人員跨系統切換與人工比對的認知負擔</p>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">兩團隊優先序總覽</div>
+  <table class="gov-table" style="margin-bottom:32px">
+    <thead><tr><th>團隊</th><th>P1（本季必做）</th><th>P2（下季規劃）</th><th>P3（長期方向）</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span style="color:var(--accent);font-weight:700">☁️ AIOps</span></td>
+        <td style="font-size:12px">GPU 健康趨勢預測、重複故障自動偵測</td>
+        <td style="font-size:12px">跨系統 RCA 輔助、工單自動分類與派工</td>
+        <td style="font-size:12px">SLA／風險預測儀表板正式化</td>
+      </tr>
+      <tr>
+        <td><span style="color:var(--accent2);font-weight:700">🏗️ Platform Engineering</span></td>
+        <td style="font-size:12px">備品水位管理系統、PXE 開機安全防呆</td>
+        <td style="font-size:12px">共享儲存主動監控、大規模交付健檢平台</td>
+        <td style="font-size:12px">Netris 自動化衝突防護、監控工具鏈整合</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="field-callout" style="margin-bottom:32px">
+    <h4>📌 總結</h4>
+    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">本季最貴的教訓集中在 <strong>Platform Engineering 的 P1</strong>：備品管理與 PXE 防呆這兩項若及早到位，本季 88 起事件中至少可避免 VOTS-150（6,339 分）與 VOTS-143 級別的重大風險。AIOps 這邊則是「從人工判讀走向系統輔助」的機會——目前本站所有分類、關聯、預測都仍是人工／LLM 協同完成，尚未產品化為可重複使用的能力。</p>
+  </div>
+
 
 </div></div></div><div class="drawer-overlay" id="drawer-overlay"></div>
 <div class="drawer" id="detail-drawer">

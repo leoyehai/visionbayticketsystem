@@ -588,8 +588,8 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
-      <div class="stat-value" style="color:var(--danger)">5 件</div>
-      <div class="stat-sub">VOTS-150 歷經 4.5 天延宕後已於 7/14 解決</div>
+      <div class="stat-value" style="color:var(--danger)">6 件</div>
+      <div class="stat-sub">新增 VOTS-164（客戶專線 BGP Down，高優先級）</div>
     </div>
   </div>
 
@@ -607,7 +607,7 @@
     <div class="chart-box" style="border-left:3px solid var(--danger)">
       <h3 style="color:var(--danger)">☁️ CloudOps <span style="font-weight:400;color:var(--muted);font-size:11px">運算平台（維運）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
-        <div><div style="font-size:22px;font-weight:700;color:var(--danger);font-family:var(--mono)">12 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 13.8%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--danger);font-family:var(--mono)">12 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 13.6%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">25.3 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 3.6%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.9951%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
@@ -621,7 +621,7 @@
     <div class="chart-box" style="border-left:3px solid var(--accent2)">
       <h3 style="color:var(--accent2)">🏗️ InfraOps <span style="font-weight:400;color:var(--muted);font-size:11px">實體基礎設施（硬體＋網路＋設施）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
-        <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">75 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 86.2%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">76 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 86.4%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">676.0 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 96.4%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.870%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
@@ -632,7 +632,7 @@
         </div>
         <div class="cat-card" data-cat="net">
           <div class="cat-icon net">🌐</div>
-          <div class="cat-info"><div class="cat-name">網路</div><div class="cat-stats">29 件 · 103.43 hr</div></div>
+          <div class="cat-info"><div class="cat-name">網路</div><div class="cat-stats">30 件 · 103.43 hr</div></div>
         </div>
         <div class="cat-card" data-cat="cool">
           <div class="cat-icon cool">❄️</div>
@@ -825,9 +825,9 @@
     </div>
   </div>
 
-  <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 87 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
+  <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 88 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
   <div class="sla-hero">
-    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">17 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 596.7 hr</div></div>
+    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">18 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 596.7 hr</div></div>
     <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">26 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 100.9 hr</div></div>
     <div class="sla-card p3"><div class="sla-badge">P3 警告</div><div class="sla-time" id="p3-count">10 件</div><div class="sla-desc">停機 1–99 分｜累計 3.7 hr</div></div>
     <div class="sla-card p4"><div class="sla-badge">P4 一般</div><div class="sla-time" id="p4-count">34 件</div><div class="sla-desc">無記錄停機、已完成或例行性事件</div></div>
@@ -846,10 +846,10 @@
     <div class="chart-box">
       <h3>事件數分布</h3>
       <div class="bar-section" style="margin-bottom:0">
-        <div class="bar-row"><div class="bar-label" style="color:var(--danger)">P1</div><div class="bar-track"><div class="bar-fill" style="width:19.5%;background:linear-gradient(90deg,var(--danger),var(--danger))"></div></div><div class="bar-val">17 件（19.5%）</div></div>
-        <div class="bar-row"><div class="bar-label" style="color:var(--warn)">P2</div><div class="bar-track"><div class="bar-fill" style="width:29.9%;background:linear-gradient(90deg,var(--warn),var(--warn))"></div></div><div class="bar-val">26 件（29.9%）</div></div>
-        <div class="bar-row"><div class="bar-label" style="color:var(--accent)">P3</div><div class="bar-track"><div class="bar-fill" style="width:11.5%;background:linear-gradient(90deg,var(--accent),var(--accent))"></div></div><div class="bar-val">10 件（11.5%）</div></div>
-        <div class="bar-row"><div class="bar-label" style="color:var(--muted)">P4</div><div class="bar-track"><div class="bar-fill" style="width:39.1%;background:linear-gradient(90deg,var(--muted),var(--muted))"></div></div><div class="bar-val">34 件（39.1%）</div></div>
+        <div class="bar-row"><div class="bar-label" style="color:var(--danger)">P1</div><div class="bar-track"><div class="bar-fill" style="width:20.5%;background:linear-gradient(90deg,var(--danger),var(--danger))"></div></div><div class="bar-val">18 件（20.5%）</div></div>
+        <div class="bar-row"><div class="bar-label" style="color:var(--warn)">P2</div><div class="bar-track"><div class="bar-fill" style="width:29.5%;background:linear-gradient(90deg,var(--warn),var(--warn))"></div></div><div class="bar-val">26 件（29.5%）</div></div>
+        <div class="bar-row"><div class="bar-label" style="color:var(--accent)">P3</div><div class="bar-track"><div class="bar-fill" style="width:11.4%;background:linear-gradient(90deg,var(--accent),var(--accent))"></div></div><div class="bar-val">10 件（11.4%）</div></div>
+        <div class="bar-row"><div class="bar-label" style="color:var(--muted)">P4</div><div class="bar-track"><div class="bar-fill" style="width:38.6%;background:linear-gradient(90deg,var(--muted),var(--muted))"></div></div><div class="bar-val">34 件（38.6%）</div></div>
       </div>
     </div>
     <div class="chart-box">
@@ -866,7 +866,7 @@
 
   <div class="charts-row" style="margin-bottom:8px">
     <div class="chart-box">
-      <h3 style="color:var(--danger)">🔴 P1 緊急（17 件）</h3>
+      <h3 style="color:var(--danger)">🔴 P1 緊急（18 件）</h3>
       <div class="tool-links" data-p="P1" style="max-height:160px;overflow-y:auto"></div>
     </div>
     <div class="chart-box">
@@ -887,6 +887,10 @@
 
   <div class="section-title">未解決事件追蹤 <span style="color:var(--muted);font-size:10px">暫不列入 SLA 停機分鐘數，持續追蹤中</span></div>
   <div class="charts-row" style="margin-bottom:32px">
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3 style="color:var(--danger)">🚨 進行中・高優先級 — <a href="https://visionbay.atlassian.net/browse/VOTS-164" target="_blank" style="color:inherit;text-decoration:none">VOTS-164</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>客戶端專線 BGP Down</strong><br>開始日：7/14 19:18　分類：網路　Jira 優先級：高<br>客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊盡速確認狀態並排除，目前為本站唯一 Jira 原生「高」優先級之進行中事件。</p>
+    </div>
     <div class="chart-box">
       <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-136" target="_blank" style="color:inherit;text-decoration:none">VOTS-136</a></h3>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>BMC 時區現為 UTC 0:00</strong><br>開始日：7/7　分類：維運<br>配置調整需求（非停機事件），需請技鋼重新校時；影響既有 IPMI log 時間戳記準確性。</p>
@@ -910,7 +914,7 @@
     <div class="stat-card danger-top">
       <div class="stat-label">RMA 相關事件數</div>
       <div class="stat-value warn">7 件</div>
-      <div class="stat-sub">佔累計 87 件事件的 8.0%</div>
+      <div class="stat-sub">佔累計 88 件事件的 8.0%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">已完成 RMA 更換</div>
@@ -1832,7 +1836,7 @@
       <div class="arch-layer" data-filtercat="net" style="--layer-color:var(--accent2)">
         <div class="arch-layer-head">
           <span class="arch-code">L2</span><span class="arch-icon">🌐</span><span class="arch-title">IT Infra 系統網絡</span>
-          <span class="arch-hint">⊙ 查看相關事件（網路 29件）</span>
+          <span class="arch-hint">⊙ 查看相關事件（網路 30件）</span>
         </div>
         <div class="arch-pills">
           <span class="arch-pill">Netris (SDN 織網)</span>
@@ -1865,7 +1869,7 @@
   </div>
 
   <div class="section-title">系統關聯架構圖 <span style="color:var(--muted);font-size:10px">依實際事件證據繪製節點間依賴關係，非理論架構</span></div>
-  <div class="arch-callout">此圖依全部 87 起事件證據繪製 13 個系統節點、15 條依賴關係，<strong>由下而上依 L1→L5 分層排列</strong>（最底層 L1 Facility → 最上層 L4 Workload，本圖無 L5 節點），呼應上方技術堆疊的分層邏輯；<strong>GPU Node（L3）為承上啟下的中樞</strong>。圖中以粗虛線框明顯區分 <strong style="color:var(--danger)">☁️ CloudOps 運算平台</strong>（頂部 L4，僅 BCM／NFS4）與 <strong style="color:var(--accent2)">🏗️ InfraOps 實體基礎設施</strong>（L3–L1，涵蓋 GPU/Fabric、網路、設施共 11 個節點）。每條連線上的 VOTS 工單編號可點擊，會於新分頁開啟對應的 Jira 頁面。</div>
+  <div class="arch-callout">此圖依全部 88 起事件證據繪製 13 個系統節點、15 條依賴關係，<strong>由下而上依 L1→L5 分層排列</strong>（最底層 L1 Facility → 最上層 L4 Workload，本圖無 L5 節點），呼應上方技術堆疊的分層邏輯；<strong>GPU Node（L3）為承上啟下的中樞</strong>。圖中以粗虛線框明顯區分 <strong style="color:var(--danger)">☁️ CloudOps 運算平台</strong>（頂部 L4，僅 BCM／NFS4）與 <strong style="color:var(--accent2)">🏗️ InfraOps 實體基礎設施</strong>（L3–L1，涵蓋 GPU/Fabric、網路、設施共 11 個節點）。每條連線上的 VOTS 工單編號可點擊，會於新分頁開啟對應的 Jira 頁面。</div>
   <div class="chart-box" style="margin-bottom:32px;overflow-x:auto">
     <svg viewBox="0 -36 950 580" style="width:100%;min-width:700px;height:auto" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -2631,7 +2635,7 @@
   </div>
 
   <div id="itil-toolchain" class="itil-panel">
-    <div class="section-title">整合式監控工具鏈與權限矩陣 <span style="color:var(--muted);font-size:10px">依全部 87 起事件自動彙整對應工單</span></div>
+    <div class="section-title">整合式監控工具鏈與權限矩陣 <span style="color:var(--muted);font-size:10px">依全部 88 起事件自動彙整對應工單</span></div>
     <div class="tool-grid">
       <div class="tool-card"><div class="tool-icon hw">🖥</div><div><div class="tool-name">BMS (MegaRAC) / GPM</div><div class="tool-desc">底層硬體指標監控（功耗、溫度）及 SEL 日誌收集</div><div class="tool-links" data-tool="bms"></div></div></div>
       <div class="tool-card"><div class="tool-icon hw">🩺</div><div><div class="tool-name">NVIDIA DCGM / nvidia-smi</div><div class="tool-desc">GPU 層級 Xid 錯誤分類、ECC / Row Remapper 狀態診斷</div><div class="tool-links" data-tool="dcgm"></div></div></div>
@@ -2639,7 +2643,7 @@
       <div class="tool-card"><div class="tool-icon net">📶</div><div><div class="tool-name">NVIDIA UFM</div><div class="tool-desc">InfiniBand 網路遙測與拓撲管理，偵測 IB 鏈路異常</div><div class="tool-links" data-tool="ufm"></div></div></div>
       <div class="tool-card"><div class="tool-icon net">🛰</div><div><div class="tool-name">Netris</div><div class="tool-desc">SDN 織網配置自動化，並提供網路層封包監控與流量診斷</div><div class="tool-links" data-tool="netris"></div></div></div>
       <div class="tool-card"><div class="tool-icon cool">📋</div><div><div class="tool-name">Syslog Server</div><div class="tool-desc">集中收集 OS 層日誌，抓取排程衝突與設定錯誤</div><div class="tool-links" data-tool="syslog"></div></div></div>
-      <div class="tool-card"><div class="tool-icon ops">🎫</div><div><div class="tool-name">Jira</div><div class="tool-desc">工單管理系統，貫穿 Backlog → Done 全流程事件追蹤</div><div class="tool-links tool-links-empty">全部 87 件事件皆經此系統追蹤</div></div></div>
+      <div class="tool-card"><div class="tool-icon ops">🎫</div><div><div class="tool-name">Jira</div><div class="tool-desc">工單管理系統，貫穿 Backlog → Done 全流程事件追蹤</div><div class="tool-links tool-links-empty">全部 88 件事件皆經此系統追蹤</div></div></div>
       <div class="tool-card"><div class="tool-icon mgmt">⚙️</div><div><div class="tool-name">BCM (Base Command Manager)</div><div class="tool-desc">節點 Provisioning／PXE MAC 綁定（cmsh）／SLURM License Pool 管理，288 節點交付逐台驗證平台</div><div class="tool-links" data-tool="bcm"></div></div></div>
       <div class="tool-card"><div class="tool-icon mgmt">📖</div><div><div class="tool-name">Confluence</div><div class="tool-desc">維運知識庫與 SOP 存放，工程師排查前必查索引</div><div class="tool-links tool-links-empty">知識庫承接全部事件之 Lesson Learned</div></div></div>
       <div class="tool-card"><div class="tool-icon cool">🌡️</div><div><div class="tool-name">FiMo (CMS/BMS)</div><div class="tool-desc">機房環境／電力（UPS、發電機、應急電源）／空調／冰水系統監控（L1 Facility DCIM）</div><div class="tool-links" data-tool="fimo"></div></div></div>
@@ -2966,7 +2970,7 @@
   </div>
 
   <div id="itil-governance" class="itil-panel">
-    <div class="section-title">多方權責治理矩陣 <span style="color:var(--muted);font-size:10px">依 NOC Architecture SOP v2 四方角色分工，依全部 87 起事件自動彙整歸屬</span></div>
+    <div class="section-title">多方權責治理矩陣 <span style="color:var(--muted);font-size:10px">依 NOC Architecture SOP v2 四方角色分工，依全部 88 起事件自動彙整歸屬</span></div>
     <table class="gov-table">
       <thead><tr><th>角色</th><th>核心職責範圍</th><th>協作方式</th><th>相關事件</th></tr></thead>
       <tbody>
@@ -2997,7 +3001,7 @@
       </tbody>
     </table>
 
-    <div class="arch-callout" style="margin-top:12px">💡 分類原則：<strong>廠務工程師</strong>＝設施類（cool）事件全數 9 件；<strong>架構師/Vendor Support</strong>＝高優先級或需 Vendor RMA 之架構性事件（VOTS-143／VOTS-147）；<strong>NOC</strong>＝以通報／追蹤／基本操作為主之事件；其餘技術排查事件（硬體/網路/部分維運）皆歸屬<strong>維運工程師</strong>。此為依現有 87 起事件內容之推論分類，非 Jira 原生欄位。</div>
+    <div class="arch-callout" style="margin-top:12px">💡 分類原則：<strong>廠務工程師</strong>＝設施類（cool）事件全數 9 件；<strong>架構師/Vendor Support</strong>＝高優先級或需 Vendor RMA 之架構性事件（VOTS-143／VOTS-147）；<strong>NOC</strong>＝以通報／追蹤／基本操作為主之事件；其餘技術排查事件（硬體/網路/部分維運）皆歸屬<strong>維運工程師</strong>。此為依現有 88 起事件內容之推論分類，非 Jira 原生欄位。</div>
   </div>
 
   <div id="itil-change" class="itil-panel">
@@ -3237,7 +3241,7 @@
       <div class="ba-item"><div class="ba-item-icon">🎯</div><div><strong>準時完成 288 台 GPU 伺服器全量交付</strong>，並在高強度驗證中提前抓出、修復多項潛在問題，不留到客戶端才爆發</div></div>
       <div class="ba-item"><div class="ba-item-icon">🛡</div><div><strong>主動發現並排除一項可能導致客訴的重大資料風險</strong>，且已建立防呆機制、零再犯，同步列為下一代叢集的必要驗收條件</div></div>
       <div class="ba-item"><div class="ba-item-icon">🩺</div><div>維運團隊診斷能力全面升級，異常應變從「事後補救」轉為「主動預防」，並將經驗系統化沉澱供全團隊複用</div></div>
-      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 87 起事件，<strong>SLA 由 99.76% 提升至 99.86%</strong>，穩定優於 99.5% 目標門檻</div></div>
+      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 88 起事件，<strong>SLA 由 99.76% 提升至 99.86%</strong>，穩定優於 99.5% 目標門檻</div></div>
     </div>
   </div>
 
@@ -3295,13 +3299,13 @@
   </div>
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 總結給長官的一句話</h4>
-    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">Q3 最關鍵的成果是<strong>排除了一項可能導致客訴的叢集級資料遺失風險</strong>，並將本季發現的問題全數轉化為標準作業程序，為下一代 GB300 叢集的更大規模交付預先降低風險。整體 SLA 從 99.76% 提升至 99.86%，累計 87 起事件中有 3 起需第三線（架構師/原廠）介入，顯示維運團隊自主處理能力持續提升；<strong>唯一美中不足是 gpusrv181 因備品短缺二度延宕近 4.5 天</strong>，是本季最需要優先向廠商追究改善的一項營運缺口。</p>
+    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">Q3 最關鍵的成果是<strong>排除了一項可能導致客訴的叢集級資料遺失風險</strong>，並將本季發現的問題全數轉化為標準作業程序，為下一代 GB300 叢集的更大規模交付預先降低風險。整體 SLA 從 99.76% 提升至 99.86%，累計 88 起事件中有 3 起需第三線（架構師/原廠）介入，顯示維運團隊自主處理能力持續提升；<strong>唯一美中不足是 gpusrv181 因備品短缺二度延宕近 4.5 天</strong>，是本季最需要優先向廠商追究改善的一項營運缺口。</p>
   </div>
 
 
 </div><div class="tab-panel" id="tab-risk">
 
-  <div class="section-title">預測分析與風險控管 <span style="color:var(--muted);font-size:10px">依全部 87 起歷史事件推導，非正式統計模型，供決策參考</span></div>
+  <div class="section-title">預測分析與風險控管 <span style="color:var(--muted);font-size:10px">依全部 88 起歷史事件推導，非正式統計模型，供決策參考</span></div>
   <div class="arch-callout">本頁彙整歷史事件的頻率、嚴重度與重複模式，產生趨勢預測、風險評分與觀察名單。所有推論皆可追溯至具體 VOTS 工單，非黑箱演算法輸出。</div>
 
   <div class="section-title" style="font-size:15px">SLA 趨勢預測</div>
@@ -3596,7 +3600,8 @@ const INCIDENTS = [
   {date:'07/14',cat:'ops',title:'10.227.0.177 gpu_xid_error/0000:9a:00/154 等問題',down:'1054',prio:'中',p:'P1',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'dmesg 確認 Xid 94（GSP Contained）與 Xid 154（GPU Reset Required）；經原廠確認後排除',lesson:'Xid 94 + Xid 154 併發且 GPU 進入 ERR! 狀態時，應同步請原廠評估 RMA 門檻，避免僅處理單一 Xid 代碼而遺漏根因。',tool:'dcgm',owner:'tier2',jira:'VOTS-160'},
   {date:'07/14',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv061-2（10.227.0.61）',action:'dmesg 確認 Xid 48（DBE）+ Xid 171（HBM Uncorrectable）+ Xid 63（Row Remapper Pending）+ Xid 94/154 併發；查詢 remapped_rows 確認 1 筆 Uncorrectable Pending，請原廠確認 RMA 標準',lesson:'多重 Xid（48/171/63/94/154）併發且 DRAM Uncorrectable 累計達 16 次時，應優先假設硬體劣化並加速 RMA 判定流程，避免逐一排查單一 Xid 代碼延誤處置。',tool:'dcgm',owner:'tier2',jira:'VOTS-161'},
   {date:'07/14',cat:'ops',title:'10.227.0.53 異常重啟（NVLink RPC 失敗）',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv053（10.227.0.53）',action:'kernel log 確認 NVRM rpcSendMessage/knvlinkUpdatePostRxDetectLinkMask 失敗，比對已知 NVIDIA 開源核心驅動 NVLink hang 問題；因異常重啟已無 Disk OS 開機選項，僅能選 PXE 開機',lesson:'節點異常重啟後若遺失 Disk 開機選項僅能 PXE 開機，應建立標準排查流程判斷是否為已知驅動缺陷，並評估修復或降版策略，避免重複觸發同類異常重啟。',tool:'dcgm',owner:'tier3',jira:'VOTS-162'},
-  {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled，排查 IB 鏈路異常原因',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），應併入同節點歷史紀錄一併檢視，評估是否為單一硬體劣化前兆而非各自獨立事件。',tool:'ufm',owner:'tier2',jira:'VOTS-163'}
+  {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled，排查 IB 鏈路異常原因',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），應併入同節點歷史紀錄一併檢視，評估是否為單一硬體劣化前兆而非各自獨立事件。',tool:'ufm',owner:'tier2',jira:'VOTS-163'},
+  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down',down:'0',prio:'高',p:'P1',status:'wip',scope:'客戶端專線（BGP 對接）',action:'客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊盡速確認狀態並排除',lesson:'客戶端專線層級的 BGP 中斷屬高優先級事件，需第一時間跨團隊（網路+客戶對接）同步通報，避免因對外連線問題延誤客戶端工作負載。',tool:'netris',owner:'tier2',jira:'VOTS-164'}
 ];
 
 const CAT_LABEL = {hw:'硬體',net:'網路',cool:'設施',ops:'維運',fw:'韌體',danger:'故障',env:'環境'};

@@ -3605,57 +3605,69 @@
     </div>
   </div>
 
-  <div class="section-title" style="margin-top:8px">關鍵痛點與達成效益（Q2 → Q3） <span style="color:var(--muted);font-size:10px">聚焦已解決之營運風險與具體效益，技術細節請見「SOP 手冊」與「事件明細」</span></div>
+  <div class="section-title" style="margin-top:8px">關鍵痛點與達成效益（Q2 → Q3） <span style="color:var(--muted);font-size:10px">聚焦已解決之營運風險與具體效益，並對應 ITIL 七大指導原則，技術細節請見「SOP 手冊」與「事件明細」</span></div>
   <div class="ba-tech-grid">
     <div class="ba-tech-card">
-      <div class="ba-tech-title">🔴 現場備品水位不足（本季最大宗）</div>
-      <div class="ba-row">
-        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>同一節點（gpusrv181）25 天內二度需要更換 GPU Tray，第二次因現場無備品，硬生生延宕 <strong>4.5 天</strong>才完成更換，單一事件就佔本季累計停機的 15%</div>
-        <div class="ba-cell a"><div class="ba-cell-label">效益</div>問題雖已解決，但徹底暴露供應鏈韌性缺口；已列為下一步重點改善項目，將推動與廠商協商提高現場關鍵料件（GPU Tray）備品水位，避免同類延宕重演</div>
-      </div>
-    </div>
-    <div class="ba-tech-card">
-      <div class="ba-tech-title">🔴 客戶資料遺失風險（重大）</div>
-      <div class="ba-row">
-        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>GPU 伺服器只要重啟，客戶存放在機台上的資料就會被清空，且此風險先前完全未被察覺，屬於可能導致客訴與信任危機的叢集級風險</div>
-        <div class="ba-cell a"><div class="ba-cell-label">效益</div>根因已查明並取得證據，建立兩步驟標準防呆流程後<strong>零再犯</strong>；此教訓已列入 GB300 新機驗收之必要檢查項目，避免同樣風險複製到下一代叢集</div>
-      </div>
-    </div>
-    <div class="ba-tech-card">
-      <div class="ba-tech-title">🟠 GPU 故障排查耗時</div>
-      <div class="ba-row">
-        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>GPU 硬體故障過去全靠工程師人工判讀，容易誤判、拖長停機時間，也難以判斷是否真的需要換料（RMA）</div>
-        <div class="ba-cell a"><div class="ba-cell-label">效益</div>導入標準化診斷工具後，近期多起 GPU 異常皆能快速定位並判斷是否需換料，<strong>減少不必要的重工與待料時間</strong></div>
-      </div>
-    </div>
-    <div class="ba-tech-card">
-      <div class="ba-tech-title">🟠 大型交付易出包</div>
-      <div class="ba-row">
-        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>288 節點全量交付當下沒有事先檢查機制，交付當週一次暴露 11 起技術問題，臨時搶修、影響交付觀感</div>
-        <div class="ba-cell a"><div class="ba-cell-label">效益</div>問題已彙整為交付前標準檢查清單，<strong>下一次大型交付（如 GB300）可提前攔截同類問題</strong>，避免交付期間集中爆發、影響客戶信心</div>
-      </div>
-    </div>
-    <div class="ba-tech-card">
-      <div class="ba-tech-title">🟡 現場排查誤判「沒修好」</div>
-      <div class="ba-row">
-        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>工程師手動調整網路設定後，系統會自動把它改回去，讓人誤以為問題沒解決，白白浪費排查時間</div>
-        <div class="ba-cell a"><div class="ba-cell-label">效益</div>建立標準作業步驟後，此類誤判<strong>已完全消除</strong>，排查效率提升</div>
-      </div>
-    </div>
-    <div class="ba-tech-card">
-      <div class="ba-tech-title">🟡 廠商到場重工</div>
-      <div class="ba-row">
-        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>硬體維修廠商到場後常常要重新排查一次已經做過的檢測，多花時間也多一段停機</div>
-        <div class="ba-cell a"><div class="ba-cell-label">效益</div>建立標準交接清單、報修前先提供既有診斷結果，<strong>可縮短廠商到場後的重工時間與停機時長</strong></div>
-      </div>
-    </div>
-    <div class="ba-tech-card">
-      <div class="ba-tech-title">🟢 儲存空間爆滿風險</div>
+      <div class="ba-tech-title">🟢 儲存空間爆滿風險 <span class="op-badge infraops" style="background:rgba(220,38,38,.08);color:var(--text);border-color:var(--border)">原則1・聚焦價值</span></div>
       <div class="ba-row">
         <div class="ba-cell b"><div class="ba-cell-label">痛點</div>共享儲存空間過去要等客戶反映才知道快滿了（曾一度逼近 98%），屬於被動式管理，有服務中斷風險</div>
         <div class="ba-cell a"><div class="ba-cell-label">效益</div>清理後使用率已降至 <strong>42%</strong>，並提出主動告警門檻建議，<strong>從被動踩雷改為主動預防</strong></div>
       </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Focus on Value</strong>：從客戶角度出發主動預防中斷，而非等問題發生才被動補救，維護信任價值</div>
     </div>
+    <div class="ba-tech-card">
+      <div class="ba-tech-title">🟡 現場排查誤判「沒修好」 <span class="op-badge infraops" style="background:rgba(22,163,74,.12);color:var(--ok);border-color:rgba(22,163,74,.3)">原則2・立足現有</span></div>
+      <div class="ba-row">
+        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>工程師手動調整網路設定後，系統會自動把它改回去，讓人誤以為問題沒解決，白白浪費排查時間</div>
+        <div class="ba-cell a"><div class="ba-cell-label">效益</div>建立標準作業步驟後，此類誤判<strong>已完全消除</strong>，排查效率提升</div>
+      </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Start Where You Are</strong>：善用既有指令（暫停自動化 agent）先行止血，不等待長期架構調整</div>
+    </div>
+    <div class="ba-tech-card">
+      <div class="ba-tech-title">🟠 大型交付易出包 <span class="op-badge infraops" style="background:rgba(242,153,74,.15);color:var(--warn);border-color:rgba(242,153,74,.3)">原則3・迭代回饋</span></div>
+      <div class="ba-row">
+        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>288 節點全量交付當下沒有事先檢查機制，交付當週一次暴露 11 起技術問題，臨時搶修、影響交付觀感</div>
+        <div class="ba-cell a"><div class="ba-cell-label">效益</div>問題已彙整為交付前標準檢查清單，<strong>下一次大型交付（如 GB300）可提前攔截同類問題</strong>，避免交付期間集中爆發、影響客戶信心</div>
+      </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Progress Iteratively with Feedback</strong>：本季 11 起問題轉化為下一輪交付的迭代改善素材，而非重複繳學費</div>
+    </div>
+    <div class="ba-tech-card">
+      <div class="ba-tech-title">🟡 廠商到場重工 <span class="op-badge infraops" style="background:rgba(220,38,38,.12);color:var(--danger);border-color:rgba(220,38,38,.3)">原則4・協作透明</span></div>
+      <div class="ba-row">
+        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>硬體維修廠商到場後常常要重新排查一次已經做過的檢測，多花時間也多一段停機</div>
+        <div class="ba-cell a"><div class="ba-cell-label">效益</div>建立標準交接清單、報修前先提供既有診斷結果，<strong>可縮短廠商到場後的重工時間與停機時長</strong></div>
+      </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Collaborate and Promote Visibility</strong>：主動與廠商共享診斷資訊，讓交接過程公開透明而非各自為政</div>
+    </div>
+    <div class="ba-tech-card">
+      <div class="ba-tech-title">🔴 現場備品水位不足（本季最大宗） <span class="op-badge infraops" style="background:rgba(155,81,224,.12);color:var(--rma);border-color:rgba(155,81,224,.3)">原則5・整體思考</span></div>
+      <div class="ba-row">
+        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>同一節點（gpusrv181）25 天內二度需要更換 GPU Tray，第二次因現場無備品，硬生生延宕 <strong>4.5 天</strong>才完成更換，單一事件就佔本季累計停機的 15%</div>
+        <div class="ba-cell a"><div class="ba-cell-label">效益</div>問題雖已解決，但徹底暴露供應鏈韌性缺口；已列為下一步重點改善項目，將推動與廠商協商提高現場關鍵料件（GPU Tray）備品水位，避免同類延宕重演</div>
+      </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Think and Work Holistically</strong>：問題根源在供應鏈上游，不能只靠現場工程師排查解決，需檢視上下游銜接點</div>
+    </div>
+    <div class="ba-tech-card">
+      <div class="ba-tech-title">🔴 客戶資料遺失風險（重大） <span class="op-badge infraops" style="background:rgba(8,145,178,.12);color:var(--accent2);border-color:rgba(8,145,178,.3)">原則6・簡單務實</span></div>
+      <div class="ba-row">
+        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>GPU 伺服器只要重啟，客戶存放在機台上的資料就會被清空，且此風險先前完全未被察覺，屬於可能導致客訴與信任危機的叢集級風險</div>
+        <div class="ba-cell a"><div class="ba-cell-label">效益</div>根因已查明並取得證據，建立兩步驟標準防呆流程後<strong>零再犯</strong>；此教訓已列入 GB300 新機驗收之必要檢查項目，避免同樣風險複製到下一代叢集</div>
+      </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Keep It Simple and Practical</strong>：兩步驟 checklist 即可避免重大風險，無需複雜工具或長期方案</div>
+    </div>
+    <div class="ba-tech-card">
+      <div class="ba-tech-title">🟠 GPU 故障排查耗時 <span class="op-badge infraops" style="background:rgba(37,99,235,.12);color:var(--accent);border-color:rgba(37,99,235,.3)">原則7・優化自動化</span></div>
+      <div class="ba-row">
+        <div class="ba-cell b"><div class="ba-cell-label">痛點</div>GPU 硬體故障過去全靠工程師人工判讀，容易誤判、拖長停機時間，也難以判斷是否真的需要換料（RMA）</div>
+        <div class="ba-cell a"><div class="ba-cell-label">效益</div>導入標準化診斷工具後，近期多起 GPU 異常皆能快速定位並判斷是否需換料，<strong>減少不必要的重工與待料時間</strong></div>
+      </div>
+      <div style="font-size:10.5px;color:var(--muted);margin-top:8px">💡 呼應 <strong>Optimize and Automate</strong>：DCGM/nvidia-smi 標準化工具鏈取代人工判讀，屬於安全前提下的流程自動化</div>
+    </div>
+  
+  </div>
+  <div class="field-callout" style="margin-bottom:32px">
+    <h4>📌 ITIL 七大原則對應總覽</h4>
+    <p style="font-size:12px;color:var(--muted);line-height:1.7;margin:0">本季 7 項關鍵痛點恰好完整對應 ITIL 七大指導原則的每一項，顯示本季改善並非零散補洞，而是系統性地涵蓋了「價值聚焦→立足現有→迭代回饋→協作透明→整體思考→簡單務實→優化自動化」的完整改善光譜。完整七大原則案例分析請見「ITIL 維運」頁籤之「ITIL 指引」子頁。</p>
   </div>
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 總結給長官的一句話</h4>
@@ -3811,16 +3823,56 @@
     </div>
   </div>
 
-  <div class="section-title" style="font-size:15px">早期預警指標（Leading Indicators）</div>
-  <div class="sop-card">
-    <h3>建議納入主動監控告警的前兆訊號</h3>
-    <ul>
-      <li><strong>GPU ECC/Row Remapper Pending 狀態持續超過一次維護週期未套用</strong> → 提高後續 DBE/Xid 錯誤機率（依 VOTS-151 模式）</li>
-      <li><strong>NFS4／共享儲存使用率超過 85%</strong> → 應觸發主動清理告警，避免重演 VOTS-138 被動式發現</li>
-      <li><strong>同一節點 30 天內第 2 次 Jira 工單</strong> → 自動標記「重複故障」旗標，觸發深度健檢而非僅修復症狀（依 gpusrv061／gpusrv181 模式）</li>
-      <li><strong>RMA 換料後 30 天內同節點再開單</strong> → 自動觸發料件品質溯源流程，而非視為獨立新事件（依 gpusrv181 / VOTS-150 教訓）</li>
-      <li><strong>大型交付／變更活動前後 72 小時</strong> → 應提高監控頻率與待命人力，歷史顯示此期間事件密度顯著較高</li>
-    </ul>
+  <div class="section-title" style="font-size:15px">早期預警指標（Leading Indicators） <span style="color:var(--muted);font-size:10px">工程師視角：看到什麼、代表什麼、該做什麼</span></div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--danger)"></div>
+      <div>
+        <div class="flow-num">🔍 巡檢時看到：ECC / Row Remapper 連續兩次維護週期仍是 Pending</div>
+        <div class="flow-body"><code>nvidia-smi -q -d ECC,ROW_REMAPPER</code> 若顯示 Pending 狀態拖過一次維護窗口沒套用，代表這張卡離下次 DBE/Xid 錯誤不遠了（VOTS-151 就是這樣爆的）。<strong>別再往後排</strong>：直接排進下一次可執行的重啟時段，不要等到真的掉卡才處理。</div>
+        <div class="flow-tag">🛠️ NVIDIA DCGM／nvidia-smi</div><div class="flow-tag">📊 ECC.DBE_Volatile_Total ／ ROW_REMAPPER.PendingRemapping</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--danger)"></div>
+      <div>
+        <div class="flow-num">🔍 巡檢時看到：同一節點 30 天內第 2 張工單</div>
+        <div class="flow-body">不管兩張單症狀像不像，先假設是同一個硬體在劣化（gpusrv061、gpusrv023、gpusrv181 都是這樣）。<strong>不要只修表面症狀</strong>：這時候該排整機深度健檢，而不是照著上一張單的做法再修一次就結案。</div>
+        <div class="flow-tag">🛠️ Jira（VOTS 工單系統）</div><div class="flow-tag">📊 同節點 30 天內開單次數</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--warn)"></div>
+      <div>
+        <div class="flow-num">🔍 剛換完料：RMA 換料後 30 天內同節點又開單</div>
+        <div class="flow-body">先別急著當成新問題排查。<strong>回頭查一下料件批號</strong>：是不是同一批次還有其他節點用了同批料件？gpusrv181 就是 25 天內二度換 Tray，這種狀況值得往料件品質方向查，不是每次都是「運氣不好」。</div>
+        <div class="flow-tag">🛠️ Jira ＋ BCM 資產紀錄</div><div class="flow-tag">📊 換料日期至再開單日期間隔天數</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--warn)"></div>
+      <div>
+        <div class="flow-num">🔍 監控看到：NFS4／共享儲存使用率逼近 85%</div>
+        <div class="flow-body">不要等客戶反映才動作（VOTS-138 就是拖到98%才處理）。<strong>85% 就先手動清一次</strong>，92% 一定要當天處理完，別留到隔天早班。</div>
+        <div class="flow-tag">🛠️ BCM 監控平台／Syslog</div><div class="flow-tag">📊 NFS4 Disk Usage %</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--warn)"></div>
+      <div>
+        <div class="flow-num">🔍 診斷時看到：多個 Xid 代碼同時出現（例如 48+171+63+94+154）</div>
+        <div class="flow-body">單一 Xid 代碼可能只是雜訊，但<strong>多個 Xid 一起出現通常代表硬體真的在壞</strong>（VOTS-161 就是這樣，DRAM Uncorrectable 累計還到 16 次）。不要一個一個查文件對應處理方式，直接當作硬體劣化案例上報，請原廠評估 RMA。</div>
+        <div class="flow-tag">🛠️ NVIDIA DCGM／dmesg</div><div class="flow-tag">📊 併發 Xid Error Code 數量 ／ DRAM Uncorrectable 累計次數</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--accent)"></div>
+      <div>
+        <div class="flow-num">🔍 交付／大型變更前後 72 小時</div>
+        <div class="flow-body">這段時間事件密度歷史上都特別高（288節點交付週一次爆了11起）。<strong>這段時間值班別排最少人力那班</strong>，寧可人多備而不用，也不要真的爆量時人手不夠。</div>
+        <div class="flow-tag">🛠️ Jira／排班系統（無自動化監控工具，屬人工排程判斷）</div><div class="flow-tag">📊 單位時間事件密度（events／72hr）</div>
+      </div>
+    </div>
   </div>
 
 </div><div class="tab-panel" id="tab-orgreq">

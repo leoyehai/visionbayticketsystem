@@ -579,8 +579,8 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">7 月已解決事件數</div>
-      <div class="stat-value" style="font-size:28px">23</div>
-      <div class="stat-sub">另有 6 件仍在處理中</div>
+      <div class="stat-value" style="font-size:28px">29</div>
+      <div class="stat-sub">另有 4 件仍在處理中</div>
     </div>
     <div class="stat-card danger-top">
       <div class="stat-label">7 月累計停機分鐘</div>
@@ -589,8 +589,8 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
-      <div class="stat-value" style="color:var(--danger)">6 件</div>
-      <div class="stat-sub">VOTS-161／163 已於 7/15 解決；新增 VOTS-165／166／167</div>
+      <div class="stat-value" style="color:var(--danger)">4 件</div>
+      <div class="stat-sub">VOTS-166/167/168/169/170/171 網卡命名問題已全數解決</div>
     </div>
   </div>
 
@@ -904,13 +904,25 @@
       <h3 style="color:var(--danger)">🔴 進行中 — <a href="https://visionbay.atlassian.net/browse/VOTS-153" target="_blank" style="color:inherit;text-decoration:none">VOTS-153</a></h3>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.23 GPU6（0000:f3:00）gpu_xid_error（Xid 48 等）</strong><br>開始日：7/13　分類：硬體<br>ECC DRAM Uncorrectable 累計達 165 次、Channel Repair Pending，已提交確認是否符合 RMA 門檻，待原廠回覆。</p>
     </div>
-    <div class="chart-box">
-      <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:inherit;text-decoration:none">VOTS-167</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.177 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 21:57　分類：網路<br>ibdev2netdev 確認少了 mlx5_2/mlx5_3，另 mlx5_7/8/9/10 顯示 Down；與 VOTS-166 同型態問題，該節點先前亦曾因 VOTS-160 開單，列入重點觀察。</p>
+    <div class="chart-box" style="border-left:3px solid var(--ok)">
+      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:inherit;text-decoration:none">VOTS-167</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-171" target="_blank" style="color:inherit;text-decoration:none">VOTS-171</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.177 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 21:57　分類：網路<br><strong>根因確認：非硬體缺陷</strong>，Konst 透過網卡重新命名（renaming）已修復；為 6 台同批次節點問題之一（VOTS-166/167/168/169/170/171）。</p>
     </div>
-    <div class="chart-box">
-      <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-166" target="_blank" style="color:inherit;text-decoration:none">VOTS-166</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.23 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 18:49　分類：網路<br>ibdev2netdev 確認少了 2 張網卡（mlx5_2/mlx5_3），另有 mlx5_7/8/9/10 顯示 Down，排查中。</p>
+    <div class="chart-box" style="border-left:3px solid var(--ok)">
+      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-166" target="_blank" style="color:inherit;text-decoration:none">VOTS-166</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.23 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 18:49　分類：網路<br>與同批次其餘節點相同根因，Konst 透過網卡重新命名修復，非硬體缺陷。</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--ok)">
+      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-168" target="_blank" style="color:inherit;text-decoration:none">VOTS-168</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.61 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 22:44　分類：網路<br>同批次網卡缺失問題，Konst 透過網卡重新命名已修復。</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--ok)">
+      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-169" target="_blank" style="color:inherit;text-decoration:none">VOTS-169</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.181 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 22:33　分類：網路<br>同批次網卡缺失問題，Konst 透過網卡重新命名已修復。</p>
+    </div>
+    <div class="chart-box" style="border-left:3px solid var(--ok)">
+      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-170" target="_blank" style="color:inherit;text-decoration:none">VOTS-170</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.66 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 22:44　分類：網路<br>同批次網卡缺失問題，Konst 透過網卡重新命名已修復。</p>
     </div>
     <div class="chart-box">
       <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-145" target="_blank" style="color:inherit;text-decoration:none">VOTS-145</a></h3>
@@ -4149,8 +4161,12 @@ const INCIDENTS = [
   {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'1042',prio:'中',p:'P2',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled；Johnny 7/15 09:16 現場重新插拔收發器（transceiver re-seat）後鏈路恢復正常',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），最終確認為收發器接觸不良，非同一根因；仍應併入同節點歷史紀錄一併觀察是否為硬體劣化前兆。',tool:'ufm',owner:'tier2',jira:'VOTS-163'},
   {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down',down:'95',prio:'高',p:'P1',status:'fixed',scope:'客戶端專線（BGP 對接）',action:'客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊確認狀態並排除，19:18 通報 → 20:59 解決',lesson:'客戶端專線層級的 BGP 中斷屬高優先級事件，需第一時間跨團隊（網路+客戶對接）同步通報；本次 1 小時 41 分鐘內排除，展現跨團隊快速應變能力。',tool:'netris',owner:'tier2',jira:'VOTS-164'},
   {date:'07/15',cat:'hw',title:'10.227.1.28 gpu_xid_error/0000:fa:00/79（GPU fallen off the bus）',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv283（10.227.1.28）',action:'kernel log 確認 Xid 79（GPU has fallen off the bus）並觸發 uvm 全域致命錯誤，需 OS reboot 復原；排查自動重啟原因並評估能否避免觸發，防止用戶資料被清除',lesson:'GPU fallen off the bus（Xid 79）常伴隨自動重啟，與 VOTS-143 資料保存性風險同類，處置前應先確認是否會清除客戶資料。',tool:'dcgm',owner:'tier2',jira:'VOTS-165'},
-  {date:'07/15',cat:'net',title:'10.227.1.23 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'open',scope:'10.227.1.23',action:'ibdev2netdev 確認少了 mlx5_2/mlx5_3 共 2 張網卡，另 mlx5_7/8/9/10 顯示 Down，排查網卡缺失與鏈路異常原因',lesson:'多張網卡同時缺失／Down 需優先排除是否為 PCIe 插槽或匯流排層級問題，避免逐一排查單張網卡延誤處置。',tool:'ufm',owner:'tier2',jira:'VOTS-166'},
-  {date:'07/15',cat:'net',title:'10.227.0.177 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'open',scope:'10.227.0.177',action:'ibdev2netdev 確認少了 mlx5_2/mlx5_3，另 mlx5_7/8/9/10 顯示 Down；與 VOTS-166 同型態問題，同時段兩節點皆出現相同網卡缺失現象',lesson:'短時間內兩台不同節點出現相同的網卡缺失組合（mlx5_2/mlx5_3），應排查是否為同批次硬體或韌體共通問題，而非各自獨立事件。',tool:'ufm',owner:'tier2',jira:'VOTS-167'}
+  {date:'07/15',cat:'net',title:'10.227.1.23 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.1.23',action:'ibdev2netdev 確認少了 mlx5_2/mlx5_3 共 2 張網卡，另 mlx5_7/8/9/10 顯示 Down；經與其餘 5 台同批次節點比對，確認根因為網卡命名問題，Konst 透過網卡重新命名修復',lesson:'多張網卡同時缺失／Down 需優先排除是否為 PCIe 插槽或匯流排層級問題，避免逐一排查單張網卡延誤處置。',tool:'ufm',owner:'tier2',jira:'VOTS-166'},
+  {date:'07/15',cat:'net',title:'10.227.0.177 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.177',action:'ibdev2netdev 確認少了 mlx5_2/mlx5_3，另 mlx5_7/8/9/10 顯示 Down；Konst 透過網卡重新命名修復（追蹤單 VOTS-171）',lesson:'短時間內多台不同節點出現相同的網卡缺失組合（mlx5_2/mlx5_3），最終確認為網卡命名問題而非硬體缺陷；提醒此類「多節點同型態」異常應優先懷疑設定/命名層級問題。',tool:'ufm',owner:'tier2',jira:'VOTS-167'},
+  {date:'07/15',cat:'net',title:'10.227.0.61 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.61',action:'同批次網卡缺失問題，Konst 透過網卡重新命名修復',lesson:'同批次 6 台節點同型態網卡命名問題，建議建立網卡命名基準檢查，避免重複開票排查。',tool:'ufm',owner:'tier2',jira:'VOTS-168'},
+  {date:'07/15',cat:'net',title:'10.227.0.181 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.181',action:'同批次網卡缺失問題，Konst 透過網卡重新命名修復',lesson:'同批次 6 台節點同型態網卡命名問題，建議建立網卡命名基準檢查，避免重複開票排查。',tool:'ufm',owner:'tier2',jira:'VOTS-169'},
+  {date:'07/15',cat:'net',title:'10.227.0.66 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.66',action:'同批次網卡缺失問題，Konst 透過網卡重新命名修復',lesson:'同批次 6 台節點同型態網卡命名問題，建議建立網卡命名基準檢查，避免重複開票排查。',tool:'ufm',owner:'tier2',jira:'VOTS-170'},
+  {date:'07/15',cat:'net',title:'10.227.0.177 網卡故障 mlx5_2/mlx5_3（追蹤單）',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.177',action:'VOTS-167 之追蹤單，確認 Konst 透過網卡重新命名修復',lesson:'同一節點問題重複開票，建議合併追蹤避免重工。',tool:'ufm',owner:'tier2',jira:'VOTS-171'}
 ];
 
 const CAT_LABEL = {hw:'硬體',net:'網路',cool:'設施',ops:'維運',fw:'韌體',danger:'故障',env:'環境'};

@@ -570,36 +570,36 @@
 
 <div class="tab-panel active" id="tab-overview">
 
-  <div class="section-title">Executive Summary <span style="color:var(--muted);font-size:10px">7 月截至 7/15：叢集整體穩定運行，SLA 持續達標</span></div>
+  <div class="section-title">Executive Summary <span style="color:var(--muted);font-size:10px">7 月截至 7/14：叢集整體穩定運行，SLA 持續達標</span></div>
   <div class="sla-hero">
     <div class="stat-card highlight">
       <div class="stat-label">7 月 SLA（全月基準）</div>
-      <div class="stat-value green" id="sla-counter">99.90%</div>
+      <div class="stat-value green" id="sla-counter">99.89%</div>
       <div class="stat-sub">目標 ≥ 99.5%，解約門檻 95%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">7 月已解決事件數</div>
-      <div class="stat-value" style="font-size:28px">29</div>
+      <div class="stat-value" style="font-size:28px">22</div>
       <div class="stat-sub">另有 4 件仍在處理中</div>
     </div>
     <div class="stat-card danger-top">
       <div class="stat-label">7 月累計停機分鐘</div>
-      <div class="stat-value warn">12,675</div>
-      <div class="stat-sub">≈ 211.3 hr</div>
+      <div class="stat-value warn">14,377</div>
+      <div class="stat-sub">≈ 239.6 hr</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
       <div class="stat-value" style="color:var(--danger)">4 件</div>
-      <div class="stat-sub">VOTS-166/167/168/169/170/171 網卡命名問題已全數解決</div>
+      <div class="stat-sub">新增 VOTS-165：GPU 掉卡＋疑似自動重啟風險（比照 VOTS-143 檢查）</div>
     </div>
   </div>
 
   <div class="field-callout">
     <h4>📌 本月重點</h4>
     <ul>
-      <li>5 月 → 7 月 SLA 走勢（99.92% → 99.84% → 99.91%），7 月受 VOTS-150 長時間延宕影響略有下修，但仍優於目標門檻</li>
+      <li>5 月 → 7 月 SLA 走勢（99.92% → 99.84% → 99.89%），7 月受 VOTS-150／161／163 等多起延宕影響略有下修，但仍優於目標門檻</li>
       <li>7 月停機以「硬體」分類為主，VOTS-150（gpusrv181 GPU 掉卡）因現場備品不足延宕近 4.5 天（6,339 分鐘），為單月最大宗</li>
-      <li>7/14 新增 3 起事件（VOTS-161/162/163）；7/15 VOTS-161（重啟套用 Remapping）、VOTS-163（收發器 re-seat）已恢復正常，VOTS-162 排查中；同日新增 VOTS-165（gpusrv283 GPU fallen off the bus）</li>
+      <li>7/15 新增 VOTS-165：GPU 掉卡且客戶明確要求防止自動重啟清空資料，比照 VOTS-143 等級優先處理；VOTS-161/163 已於 7/15 上午解決</li>
     </ul>
   </div>
 
@@ -651,7 +651,7 @@
     <tbody>
       <tr><td>5 月</td><td>10</td><td>10,302</td><td>171.7 hr</td><td>99.92%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>6 月</td><td>52</td><td>19,884</td><td>331.4 hr</td><td>99.84%</td><td style="color:var(--ok)">✅ 達標</td></tr>
-      <tr><td>7 月（截至 7/14，全月基準）</td><td>25</td><td>11,891</td><td>198.2 hr</td><td>99.91%</td><td style="color:var(--ok)">✅ 達標</td></tr>
+      <tr><td>7 月（截至 7/15，全月基準）</td><td>27</td><td>14,377</td><td>239.6 hr</td><td>99.89%</td><td style="color:var(--ok)">✅ 達標</td></tr>
     </tbody>
   </table>
 
@@ -668,17 +668,17 @@
       <text x="44" y="99" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">99.75%</text>
       <text x="44" y="136.5" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">99.625%</text>
       <text x="44" y="174" text-anchor="end" font-size="11" fill="var(--danger)" font-family="var(--mono)">99.5% 目標</text>
-      <polygon points="120,44 350,68 580,47 580,170 120,170" fill="var(--accent2)" opacity="0.08"/>
-      <polyline points="120,44 350,68 580,47" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polygon points="120,44 350,68 580,53 580,170 120,170" fill="var(--accent2)" opacity="0.08"/>
+      <polyline points="120,44 350,68 580,53" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       <circle cx="120" cy="44" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
       <circle cx="350" cy="68" r="5" fill="var(--warn)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="580" cy="47" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="580" cy="53" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
       <text x="120" y="29" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.92%</text>
       <text x="350" y="87" text-anchor="middle" font-size="13" font-weight="700" fill="var(--warn)" font-family="var(--mono)">99.84%</text>
-      <text x="580" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.91%</text>
+      <text x="580" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.89%</text>
       <text x="120" y="188" text-anchor="middle" font-size="12" fill="var(--text)">5 月</text>
       <text x="350" y="188" text-anchor="middle" font-size="12" fill="var(--text)">6 月</text>
-      <text x="580" y="188" text-anchor="middle" font-size="12" fill="var(--text)">7 月（截至 7/14，全月基準）</text>
+      <text x="580" y="188" text-anchor="middle" font-size="12" fill="var(--text)">7 月（截至 7/15，全月基準）</text>
     </svg>
   </div>
   <div class="chart-box" style="margin-bottom:32px">
@@ -826,7 +826,7 @@
     </div>
   </div>
 
-  <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 88 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
+  <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 89 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
   <div class="sla-hero">
     <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">18 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 596.7 hr</div></div>
     <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">26 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 100.9 hr</div></div>
@@ -888,58 +888,34 @@
 
   <div class="section-title">未解決事件追蹤 <span style="color:var(--muted);font-size:10px">暫不列入 SLA 停機分鐘數，持續追蹤中</span></div>
   <div class="charts-row" style="margin-bottom:32px">
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3 style="color:var(--danger)">🚨 待辦事項・客戶要求防止資料遺失 — <a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:inherit;text-decoration:none">VOTS-165</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.28 GPU 掉卡（Xid 79，GPU fallen off bus）</strong><br>開始日：7/15 09:53　分類：硬體<br>客戶明確要求確認自動重啟原因，並評估能否防止觸發自動重啟避免用戶資料被清空——與 VOTS-143 PXE stateless 資料保存性風險同一等級，需優先處理。</p>
+    </div>
     <div class="chart-box">
       <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-136" target="_blank" style="color:inherit;text-decoration:none">VOTS-136</a></h3>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>BMC 時區現為 UTC 0:00</strong><br>開始日：7/7　分類：維運<br>配置調整需求（非停機事件），需請技鋼重新校時；影響既有 IPMI log 時間戳記準確性。</p>
     </div>
     <div class="chart-box">
+      <h3 style="color:var(--warn)">🔧 處理中 — <a href="https://visionbay.atlassian.net/browse/VOTS-151" target="_blank" style="color:inherit;text-decoration:none">VOTS-151</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.222 gpu_xid_error 48（DBE）</strong><br>開始日：7/11　分類：硬體<br>Row Remapper 已標記 Pending，排程於下次重啟套用並持續觀察 ECC 狀態。</p>
+    </div>
+    <div class="chart-box">
+      <h3 style="color:var(--warn)">🔧 處理中 — <a href="https://visionbay.atlassian.net/browse/VOTS-153" target="_blank" style="color:inherit;text-decoration:none">VOTS-153</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.23 gpu_xid_error 48（DRAM Uncorrectable 累計 165）</strong><br>開始日：7/13　分類：硬體<br>Channel Repair Pending，確認是否符合 RMA 門檻中。</p>
+    </div>
+    <div class="chart-box">
       <h3 style="color:var(--danger)">🔴 進行中 — <a href="https://visionbay.atlassian.net/browse/VOTS-162" target="_blank" style="color:inherit;text-decoration:none">VOTS-162</a></h3>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.53 異常重啟（NVLink RPC 失敗）</strong><br>開始日：7/14 07:44　分類：維運<br>疑似為已知 NVIDIA 開源核心驅動 NVLink hang 問題，因異常重啟已無 Disk 開機選項，僅能 PXE 開機，排查中。</p>
     </div>
-    <div class="chart-box">
-      <h3 style="color:var(--danger)">🔴 進行中 — <a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:inherit;text-decoration:none">VOTS-165</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv283（10.227.1.28）GPU fallen off the bus（Xid 79）</strong><br>開始日：7/15 09:53　分類：維運<br>GPU 掉出匯流排後觸發自動重啟，排查中；需確認能否防止自動重啟以避免用戶資料被清除。</p>
-    </div>
-    <div class="chart-box">
-      <h3 style="color:var(--danger)">🔴 進行中 — <a href="https://visionbay.atlassian.net/browse/VOTS-153" target="_blank" style="color:inherit;text-decoration:none">VOTS-153</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.23 GPU6（0000:f3:00）gpu_xid_error（Xid 48 等）</strong><br>開始日：7/13　分類：硬體<br>ECC DRAM Uncorrectable 累計達 165 次、Channel Repair Pending，已提交確認是否符合 RMA 門檻，待原廠回覆。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--ok)">
-      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:inherit;text-decoration:none">VOTS-167</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-171" target="_blank" style="color:inherit;text-decoration:none">VOTS-171</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.177 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 21:57　分類：網路<br><strong>根因確認：非硬體缺陷</strong>，Konst 透過網卡重新命名（renaming）已修復；為 6 台同批次節點問題之一（VOTS-166/167/168/169/170/171）。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--ok)">
-      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-166" target="_blank" style="color:inherit;text-decoration:none">VOTS-166</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.23 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 18:49　分類：網路<br>與同批次其餘節點相同根因，Konst 透過網卡重新命名修復，非硬體缺陷。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--ok)">
-      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-168" target="_blank" style="color:inherit;text-decoration:none">VOTS-168</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.61 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 22:44　分類：網路<br>同批次網卡缺失問題，Konst 透過網卡重新命名已修復。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--ok)">
-      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-169" target="_blank" style="color:inherit;text-decoration:none">VOTS-169</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.181 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 22:33　分類：網路<br>同批次網卡缺失問題，Konst 透過網卡重新命名已修復。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--ok)">
-      <h3 style="color:var(--ok)">🟢 已解決 — <a href="https://visionbay.atlassian.net/browse/VOTS-170" target="_blank" style="color:inherit;text-decoration:none">VOTS-170</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.66 缺少 mlx5_2／mlx5_3 兩張網卡</strong><br>開始日：7/15 22:44　分類：網路<br>同批次網卡缺失問題，Konst 透過網卡重新命名已修復。</p>
-    </div>
-    <div class="chart-box">
-      <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-145" target="_blank" style="color:inherit;text-decoration:none">VOTS-145</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>Tier1/Tier2 維運流程、溝通做法與 SLA 支援對齊</strong><br>開始日：7/13　分類：流程（非停機事件）<br>與康斯特對齊三方分工（Tier1 康斯特／Tier2 亞灣／Tier3 供應商）、進單分級（L1–L4）與 SLA 回應時限，7/15 持續更新中。</p>
-    </div>
-    <div class="chart-box">
-      <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-144" target="_blank" style="color:inherit;text-decoration:none">VOTS-144</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>Konst CPU 需求（collector／proxy／PXE 共 3 台）</strong><br>分類：需求（非停機事件）<br>PXE 已交付；collector 待完成 static route 設定、proxy 待確認 daemon 協定與白名單設定。</p>
-    </div>
   </div>
 
-  <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–07/14，依事件內容判讀之 RMA 相關工單</span></div>
+  <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–07/15，依事件內容判讀之 RMA 相關工單</span></div>
   <div class="sla-hero">
     <div class="stat-card danger-top">
       <div class="stat-label">RMA 相關事件數</div>
       <div class="stat-value warn">7 件</div>
-      <div class="stat-sub">佔累計 88 件事件的 8.0%</div>
+      <div class="stat-sub">佔累計 89 件事件的 7.9%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">已完成 RMA 更換</div>
@@ -1060,7 +1036,7 @@
           <th data-col="3">停機(分) <span class="sort-arrow">↕</span></th>
           <th data-col="4">優先 <span class="sort-arrow">↕</span></th>
           <th data-col="5">狀態 <span class="sort-arrow">↕</span></th>
-          <th data-col="6">Jira <span class="sort-arrow">↕</span></th>
+          <th>Jira</th>
           <th>影響範圍</th>
           <th>改善行動</th>
           <th>Lesson Learned</th>
@@ -1892,7 +1868,7 @@
   </div>
 
   <div class="section-title" id="sysrel-diagram">系統關聯架構圖 <span style="color:var(--muted);font-size:10px">依實際事件證據繪製節點間依賴關係，非理論架構</span></div>
-  <div class="arch-callout">此圖依全部 88 起事件證據繪製 13 個系統節點、15 條依賴關係，<strong>由下而上依 L1→L5 分層排列</strong>（最底層 L1 Facility → 最上層 L4 Workload，本圖無 L5 節點），呼應上方技術堆疊的分層邏輯；<strong>GPU Node（L3）為承上啟下的中樞</strong>。圖中以粗虛線框明顯區分 <strong style="color:var(--danger)">☁️ CloudOps 運算平台</strong>（頂部 L4，僅 BCM／NFS4）與 <strong style="color:var(--accent2)">🏗️ InfraOps 實體基礎設施</strong>（L3–L1，涵蓋 GPU/Fabric、網路、設施共 11 個節點）。每條連線上的 VOTS 工單編號可點擊，會於新分頁開啟對應的 Jira 頁面。</div>
+  <div class="arch-callout">此圖依全部 89 起事件證據繪製 13 個系統節點、15 條依賴關係，<strong>由下而上依 L1→L5 分層排列</strong>（最底層 L1 Facility → 最上層 L4 Workload，本圖無 L5 節點），呼應上方技術堆疊的分層邏輯；<strong>GPU Node（L3）為承上啟下的中樞</strong>。圖中以粗虛線框明顯區分 <strong style="color:var(--danger)">☁️ CloudOps 運算平台</strong>（頂部 L4，僅 BCM／NFS4）與 <strong style="color:var(--accent2)">🏗️ InfraOps 實體基礎設施</strong>（L3–L1，涵蓋 GPU/Fabric、網路、設施共 11 個節點）。每條連線上的 VOTS 工單編號可點擊，會於新分頁開啟對應的 Jira 頁面。</div>
   <div class="chart-box" style="margin-bottom:32px;overflow-x:auto">
     <svg viewBox="0 -36 950 580" style="width:100%;min-width:700px;height:auto" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -2025,29 +2001,29 @@
 
 
 
-  <div class="section-title">CMDB CI 清冊 <span style="color:var(--muted);font-size:10px">依全部 88 起事件證據反向建立的配置項目清單，非完整 294 節點資產盤點</span></div>
-  <div class="arch-callout">⚠️ <strong>範圍說明</strong>：本頁僅收錄「曾出現在 Jira 工單中、有明確主機名稱可辨識」的 Configuration Item（CI），共 27 台節點、40 筆事件關聯，佔全叢集 294 台節點（288 GPU + 6 CPU）的 9.2%。其餘未曾開單的節點視為健康狀態，未列入本頁。此清冊定位為「事件驅動的風險型 CMDB 視圖」，非正式資產管理系統的替代品。</div>
+  <div class="section-title">CMDB CI 清冊 <span style="color:var(--muted);font-size:10px">依全部 89 起事件證據反向建立的配置項目清單，非完整 294 節點資產盤點</span></div>
+  <div class="arch-callout">⚠️ <strong>範圍說明</strong>：本頁僅收錄「曾出現在 Jira 工單中、有明確主機名稱可辨識」的 Configuration Item（CI），共 28 台節點、41 筆事件關聯，佔全叢集 294 台節點（288 GPU + 6 CPU）的 9.5%。其餘未曾開單的節點視為健康狀態，未列入本頁。此清冊定位為「事件驅動的風險型 CMDB 視圖」，非正式資產管理系統的替代品。</div>
 
   <div class="sla-hero">
     <div class="stat-card">
       <div class="stat-label">已識別 CI 節點數</div>
-      <div class="stat-value" style="color:var(--accent2)">27 台</div>
-      <div class="stat-sub">佔全叢集 294 台節點的 9.2%</div>
+      <div class="stat-value" style="color:var(--accent2)">28 台</div>
+      <div class="stat-sub">佔全叢集 294 台節點的 9.5%</div>
     </div>
     <div class="stat-card danger-top">
-      <div class="stat-label">🔴 重複故障・仍有進行中工單</div>
-      <div class="stat-value" style="color:var(--danger)">4 台</div>
-      <div class="stat-sub">gpusrv061／023／222／053</div>
+      <div class="stat-label">🔴 目前仍有進行中工單</div>
+      <div class="stat-value" style="color:var(--danger)">3 台</div>
+      <div class="stat-sub">gpusrv222／053／283（新增）</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">🟠🟡 曾重複故障（已解決）</div>
-      <div class="stat-value" style="color:var(--warn)">4 台</div>
-      <div class="stat-sub">gpusrv181／003／225／171／154 等</div>
+      <div class="stat-value" style="color:var(--warn)">7 台</div>
+      <div class="stat-sub">gpusrv181／061／023／003／225／171／154</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">🟢 單次事件（已解決）</div>
       <div class="stat-value" style="color:var(--ok)">18 台</div>
-      <div class="stat-sub">佔已識別 CI 的 66.7%</div>
+      <div class="stat-sub">佔已識別 CI 的 64.3%</div>
     </div>
   </div>
 
@@ -2067,18 +2043,18 @@
     <tbody>
       <tr>
         <td style="font-family:var(--mono);font-weight:600">gpusrv061</td>
-        <td>🔴 重複故障・進行中</td>
+        <td>🟡 重複已解決（5 件）</td>
         <td>5</td>
-        <td>4.0 hr</td>
-        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td>27.3 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
         <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-42" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-42</a> <a href="https://visionbay.atlassian.net/browse/VOTS-6" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-6</a> <a href="https://visionbay.atlassian.net/browse/VOTS-18" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-18</a> <a href="https://visionbay.atlassian.net/browse/VOTS-20" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-20</a> <a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-161</a></td>
       </tr>
       <tr>
         <td style="font-family:var(--mono);font-weight:600">gpusrv023</td>
-        <td>🔴 重複故障・進行中</td>
+        <td>🟡 重複已解決（4 件）</td>
         <td>4</td>
-        <td>11.0 hr</td>
-        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td>27.5 hr</td>
+        <td style="color:var(--ok);font-weight:600">正常運作</td>
         <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-34" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-34</a> <a href="https://visionbay.atlassian.net/browse/VOTS-38" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-38</a> <a href="https://visionbay.atlassian.net/browse/VOTS-159" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-159</a> <a href="https://visionbay.atlassian.net/browse/VOTS-163" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-163</a></td>
       </tr>
       <tr>
@@ -2123,7 +2099,7 @@
       </tr>
       <tr>
         <td style="font-family:var(--mono);font-weight:600">gpusrv222</td>
-        <td>🔴 重複故障・進行中</td>
+        <td>🔴 單次事件・進行中</td>
         <td>1</td>
         <td>0.0 hr</td>
         <td style="color:var(--danger);font-weight:600">進行中</td>
@@ -2131,11 +2107,19 @@
       </tr>
       <tr>
         <td style="font-family:var(--mono);font-weight:600">gpusrv053</td>
-        <td>🔴 重複故障・進行中</td>
+        <td>🔴 單次事件・進行中</td>
         <td>1</td>
         <td>0.0 hr</td>
         <td style="color:var(--danger);font-weight:600">進行中</td>
         <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-162" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-162</a></td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono);font-weight:600">gpusrv283</td>
+        <td>🔴 單次事件・進行中（新增）</td>
+        <td>1</td>
+        <td>0.0 hr</td>
+        <td style="color:var(--danger);font-weight:600">進行中</td>
+        <td style="font-size:11px"><a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-165</a></td>
       </tr>
       <tr>
         <td style="font-family:var(--mono);font-weight:600">gpusrv160</td>
@@ -2315,12 +2299,11 @@
 
       <!-- Compute Node CI (L3) -->
       <rect x="40" y="20" width="220" height="130" rx="10" fill="var(--surface)" stroke="var(--danger)" stroke-width="2"/>
-      <text x="150" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--danger)">🔴 高風險（4 台）</text>
-      <text x="150" y="62" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv061</text>
-      <text x="150" y="82" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv023</text>
-      <text x="150" y="102" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv222</text>
-      <text x="150" y="122" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv053</text>
-      <text x="150" y="142" text-anchor="middle" font-size="9.5" fill="var(--muted)">進行中工單</text>
+      <text x="150" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--danger)">🔴 進行中（3 台）</text>
+      <text x="150" y="66" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv222</text>
+      <text x="150" y="86" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv053</text>
+      <text x="150" y="106" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv283（新）</text>
+      <text x="150" y="126" text-anchor="middle" font-size="9.5" fill="var(--muted)">單次事件，尚未解決</text>
 
       <rect x="280" y="20" width="180" height="130" rx="10" fill="var(--surface)" stroke="var(--warn)" stroke-width="2"/>
       <text x="370" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--warn)">🟠 已二次 RMA（1 台）</text>
@@ -2329,9 +2312,9 @@
       <text x="370" y="108" text-anchor="middle" font-size="9.5" fill="var(--muted)">6,349 分鐘（全站最高）</text>
 
       <rect x="480" y="20" width="220" height="130" rx="10" fill="var(--surface)" stroke="#f7b731" stroke-width="2"/>
-      <text x="590" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="#a16207">🟡 重複已解決（4 台）</text>
-      <text x="590" y="62" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv003 · gpusrv225</text>
-      <text x="590" y="82" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv171 · gpusrv154</text>
+      <text x="590" y="40" text-anchor="middle" font-size="11.5" font-weight="800" fill="#a16207">🟡 重複已解決（6 台）</text>
+      <text x="590" y="62" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv061 · gpusrv023</text>
+      <text x="590" y="82" text-anchor="middle" font-size="10.5" font-family="var(--mono)" fill="var(--text)">gpusrv003／225／171／154</text>
       <text x="590" y="104" text-anchor="middle" font-size="9.5" fill="var(--muted)">狀態已全數解決</text>
 
       <rect x="720" y="20" width="200" height="130" rx="10" fill="var(--surface)" stroke="var(--ok)" stroke-width="2"/>
@@ -3023,7 +3006,7 @@
   </div>
 
   <div id="itil-toolchain" class="itil-panel">
-    <div class="section-title">整合式監控工具鏈與權限矩陣 <span style="color:var(--muted);font-size:10px">依全部 88 起事件自動彙整對應工單</span></div>
+    <div class="section-title">整合式監控工具鏈與權限矩陣 <span style="color:var(--muted);font-size:10px">依全部 89 起事件自動彙整對應工單</span></div>
     <div class="tool-grid">
       <div class="tool-card"><div class="tool-icon hw">🖥</div><div><div class="tool-name">BMS (MegaRAC) / GPM</div><div class="tool-desc">底層硬體指標監控（功耗、溫度）及 SEL 日誌收集</div><div class="tool-links" data-tool="bms"></div></div></div>
       <div class="tool-card"><div class="tool-icon hw">🩺</div><div><div class="tool-name">NVIDIA DCGM / nvidia-smi</div><div class="tool-desc">GPU 層級 Xid 錯誤分類、ECC / Row Remapper 狀態診斷</div><div class="tool-links" data-tool="dcgm"></div></div></div>
@@ -3031,7 +3014,7 @@
       <div class="tool-card"><div class="tool-icon net">📶</div><div><div class="tool-name">NVIDIA UFM</div><div class="tool-desc">InfiniBand 網路遙測與拓撲管理，偵測 IB 鏈路異常</div><div class="tool-links" data-tool="ufm"></div></div></div>
       <div class="tool-card"><div class="tool-icon net">🛰</div><div><div class="tool-name">Netris</div><div class="tool-desc">SDN 織網配置自動化，並提供網路層封包監控與流量診斷</div><div class="tool-links" data-tool="netris"></div></div></div>
       <div class="tool-card"><div class="tool-icon cool">📋</div><div><div class="tool-name">Syslog Server</div><div class="tool-desc">集中收集 OS 層日誌，抓取排程衝突與設定錯誤</div><div class="tool-links" data-tool="syslog"></div></div></div>
-      <div class="tool-card"><div class="tool-icon ops">🎫</div><div><div class="tool-name">Jira</div><div class="tool-desc">工單管理系統，貫穿 Backlog → Done 全流程事件追蹤</div><div class="tool-links tool-links-empty">全部 88 件事件皆經此系統追蹤</div></div></div>
+      <div class="tool-card"><div class="tool-icon ops">🎫</div><div><div class="tool-name">Jira</div><div class="tool-desc">工單管理系統，貫穿 Backlog → Done 全流程事件追蹤</div><div class="tool-links tool-links-empty">全部 89 件事件皆經此系統追蹤</div></div></div>
       <div class="tool-card"><div class="tool-icon mgmt">⚙️</div><div><div class="tool-name">BCM (Base Command Manager)</div><div class="tool-desc">節點 Provisioning／PXE MAC 綁定（cmsh）／SLURM License Pool 管理，288 節點交付逐台驗證平台</div><div class="tool-links" data-tool="bcm"></div></div></div>
       <div class="tool-card"><div class="tool-icon mgmt">📖</div><div><div class="tool-name">Confluence</div><div class="tool-desc">維運知識庫與 SOP 存放，工程師排查前必查索引</div><div class="tool-links tool-links-empty">知識庫承接全部事件之 Lesson Learned</div></div></div>
       <div class="tool-card"><div class="tool-icon cool">🌡️</div><div><div class="tool-name">FiMo (CMS/BMS)</div><div class="tool-desc">機房環境／電力（UPS、發電機、應急電源）／空調／冰水系統監控（L1 Facility DCIM）</div><div class="tool-links" data-tool="fimo"></div></div></div>
@@ -3358,7 +3341,7 @@
   </div>
 
   <div id="itil-governance" class="itil-panel">
-    <div class="section-title">多方權責治理矩陣 <span style="color:var(--muted);font-size:10px">依 NOC Architecture SOP v2 四方角色分工，依全部 88 起事件自動彙整歸屬</span></div>
+    <div class="section-title">多方權責治理矩陣 <span style="color:var(--muted);font-size:10px">依 NOC Architecture SOP v2 四方角色分工，依全部 89 起事件自動彙整歸屬</span></div>
     <table class="gov-table">
       <thead><tr><th>角色</th><th>核心職責範圍</th><th>協作方式</th><th>相關事件</th></tr></thead>
       <tbody>
@@ -3389,7 +3372,7 @@
       </tbody>
     </table>
 
-    <div class="arch-callout" style="margin-top:12px">💡 分類原則：<strong>廠務工程師</strong>＝設施類（cool）事件全數 9 件；<strong>架構師/Vendor Support</strong>＝高優先級或需 Vendor RMA 之架構性事件（VOTS-143／VOTS-147）；<strong>NOC</strong>＝以通報／追蹤／基本操作為主之事件；其餘技術排查事件（硬體/網路/部分維運）皆歸屬<strong>維運工程師</strong>。此為依現有 88 起事件內容之推論分類，非 Jira 原生欄位。</div>
+    <div class="arch-callout" style="margin-top:12px">💡 分類原則：<strong>廠務工程師</strong>＝設施類（cool）事件全數 9 件；<strong>架構師/Vendor Support</strong>＝高優先級或需 Vendor RMA 之架構性事件（VOTS-143／VOTS-147）；<strong>NOC</strong>＝以通報／追蹤／基本操作為主之事件；其餘技術排查事件（硬體/網路/部分維運）皆歸屬<strong>維運工程師</strong>。此為依現有 89 起事件內容之推論分類，非 Jira 原生欄位。</div>
   </div>
 
   <div id="itil-change" class="itil-panel">
@@ -3629,7 +3612,7 @@
       <div class="ba-item"><div class="ba-item-icon">🎯</div><div><strong>準時完成 288 台 GPU 伺服器全量交付</strong>，並在高強度驗證中提前抓出、修復多項潛在問題，不留到客戶端才爆發</div></div>
       <div class="ba-item"><div class="ba-item-icon">🛡</div><div><strong>主動發現並排除一項可能導致客訴的重大資料風險</strong>，且已建立防呆機制、零再犯，同步列為下一代叢集的必要驗收條件</div></div>
       <div class="ba-item"><div class="ba-item-icon">🩺</div><div>維運團隊診斷能力全面升級，異常應變從「事後補救」轉為「主動預防」，並將經驗系統化沉澱供全團隊複用</div></div>
-      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 88 起事件，<strong>SLA 由 99.76% 提升至 99.86%</strong>，穩定優於 99.5% 目標門檻</div></div>
+      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 89 起事件，<strong>SLA 由 99.76% 提升至 99.86%</strong>，穩定優於 99.5% 目標門檻</div></div>
     </div>
   </div>
 
@@ -3699,13 +3682,13 @@
   </div>
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 總結給長官的一句話</h4>
-    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">Q3 最關鍵的成果是<strong>排除了一項可能導致客訴的叢集級資料遺失風險</strong>，並將本季發現的問題全數轉化為標準作業程序，為下一代 GB300 叢集的更大規模交付預先降低風險。整體 SLA 從 99.76% 提升至 99.86%，累計 88 起事件中有 3 起需第三線（架構師/原廠）介入，顯示維運團隊自主處理能力持續提升；<strong>唯一美中不足是 gpusrv181 因備品短缺二度延宕近 4.5 天</strong>，是本季最需要優先向廠商追究改善的一項營運缺口。</p>
+    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">Q3 最關鍵的成果是<strong>排除了一項可能導致客訴的叢集級資料遺失風險</strong>，並將本季發現的問題全數轉化為標準作業程序，為下一代 GB300 叢集的更大規模交付預先降低風險。整體 SLA 從 99.76% 提升至 99.86%，累計 89 起事件中有 3 起需第三線（架構師/原廠）介入，顯示維運團隊自主處理能力持續提升；<strong>唯一美中不足是 gpusrv181 因備品短缺二度延宕近 4.5 天</strong>，是本季最需要優先向廠商追究改善的一項營運缺口。</p>
   </div>
 
 
 </div><div class="tab-panel" id="tab-risk">
 
-  <div class="section-title">預測分析與風險控管 <span style="color:var(--muted);font-size:10px">依全部 88 起歷史事件推導，非正式統計模型，供決策參考</span></div>
+  <div class="section-title">預測分析與風險控管 <span style="color:var(--muted);font-size:10px">依全部 89 起歷史事件推導，非正式統計模型，供決策參考</span></div>
   <div class="arch-callout">本頁彙整歷史事件的頻率、嚴重度與重複模式，產生趨勢預測、風險評分與觀察名單。所有推論皆可追溯至具體 VOTS 工單，非黑箱演算法輸出。</div>
 
   <div class="section-title" style="font-size:15px">SLA 趨勢預測</div>
@@ -3719,19 +3702,19 @@
       <line x1="50" y1="180" x2="650" y2="180" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="5,4"/>
       <text x="44" y="24" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">100.0%</text>
       <text x="44" y="184" text-anchor="end" font-size="11" fill="var(--danger)" font-family="var(--mono)">99.5% 目標</text>
-      <polyline points="120,45.6 300,71.2 480,48.8" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <polyline points="480,48.8 600,55" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
+      <polyline points="120,45.6 300,71.2 480,55.2" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="480,55.2 600,60" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
       <circle cx="120" cy="45.6" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
       <circle cx="300" cy="71.2" r="5" fill="var(--warn)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="480" cy="48.8" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="600" cy="55" r="5" fill="var(--rma)" stroke="var(--surface)" stroke-width="2" stroke-dasharray="2,2"/>
+      <circle cx="480" cy="55.2" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="600" cy="60" r="5" fill="var(--rma)" stroke="var(--surface)" stroke-width="2" stroke-dasharray="2,2"/>
       <text x="120" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.92%</text>
       <text x="300" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)" font-family="var(--mono)">99.84%</text>
-      <text x="480" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.91%</text>
-      <text x="600" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="var(--rma)" font-family="var(--mono)">≈99.9%？</text>
+      <text x="480" y="41" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.89%</text>
+      <text x="600" y="45" text-anchor="middle" font-size="12" font-weight="700" fill="var(--rma)" font-family="var(--mono)">≈99.9%？</text>
       <text x="120" y="205" text-anchor="middle" font-size="12" fill="var(--text)">5 月</text>
       <text x="300" y="205" text-anchor="middle" font-size="12" fill="var(--text)">6 月</text>
-      <text x="480" y="205" text-anchor="middle" font-size="12" fill="var(--text)">7 月（截至 7/14）</text>
+      <text x="480" y="205" text-anchor="middle" font-size="12" fill="var(--text)">7 月（截至 7/15）</text>
       <text x="600" y="205" text-anchor="middle" font-size="12" fill="var(--rma)">8 月（預測）</text>
     </svg>
   </div>
@@ -3905,8 +3888,8 @@
 
 </div><div class="tab-panel" id="tab-orgreq">
 
-  <div class="section-title">AIOps ／ Platform Engineering 需求分析 <span style="color:var(--muted);font-size:10px">依全部 88 起事件之實際痛點，反推兩個研發團隊的產品需求</span></div>
-  <div class="arch-callout">依 Software R&D 組織架構：<strong style="color:var(--accent)">☁️ AIOps</strong>（外部導向：agent、異常偵測、RCA、預測分析）與 <strong style="color:var(--accent2)">🏗️ Platform Engineering</strong>（內部導向：可擴展性、監控/SRE、自動化/DevOps）。以下需求皆從本站 88 起真實事件的重複痛點反推而來，非憑空規劃。</div>
+  <div class="section-title">AIOps ／ Platform Engineering 需求分析 <span style="color:var(--muted);font-size:10px">依全部 89 起事件之實際痛點，反推兩個研發團隊的產品需求</span></div>
+  <div class="arch-callout">依 Software R&D 組織架構：<strong style="color:var(--accent)">☁️ AIOps</strong>（外部導向：agent、異常偵測、RCA、預測分析）與 <strong style="color:var(--accent2)">🏗️ Platform Engineering</strong>（內部導向：可擴展性、監控/SRE、自動化/DevOps）。以下需求皆從本站 89 起真實事件的重複痛點反推而來，非憑空規劃。</div>
 
   <div class="section-title" style="font-size:15px;color:var(--accent)">☁️ AIOps 需求（agent／異常偵測／RCA／預測分析）</div>
   <div class="charts-row" style="margin-bottom:16px">
@@ -3999,7 +3982,7 @@
   </table>
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 總結</h4>
-    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">本季最貴的教訓集中在 <strong>Platform Engineering 的 P1</strong>：備品管理與 PXE 防呆這兩項若及早到位，本季 88 起事件中至少可避免 VOTS-150（6,339 分）與 VOTS-143 級別的重大風險。AIOps 這邊則是「從人工判讀走向系統輔助」的機會——目前本站所有分類、關聯、預測都仍是人工／LLM 協同完成，尚未產品化為可重複使用的能力。</p>
+    <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">本季最貴的教訓集中在 <strong>Platform Engineering 的 P1</strong>：備品管理與 PXE 防呆這兩項若及早到位，本季 89 起事件中至少可避免 VOTS-150（6,339 分）與 VOTS-143 級別的重大風險。AIOps 這邊則是「從人工判讀走向系統輔助」的機會——目前本站所有分類、關聯、預測都仍是人工／LLM 協同完成，尚未產品化為可重複使用的能力。</p>
   </div>
 
 
@@ -4151,22 +4134,16 @@ const INCIDENTS = [
   {date:'07/08',cat:'hw',title:'【硬體/維運】GPU Server Reboot 會清除客戶資料 — 已暫停所有可能觸發重啟之動作',down:'0',prio:'高',p:'P1',status:'fixed',scope:'全叢集所有可能觸發重啟之維運動作',action:'已暫停所有可能觸發重啟之動作，並展開客戶資料保護機制盤點',lesson:'PXE 無狀態開機架構下，任何重啟皆可能清除客戶資料；此風險應正式書面告知客戶，並列入維護前置確認清單（尚未取得正式書面通知紀錄）。',tool:'bcm',owner:'tier3',jira:'VOTS-143'},
   {date:'07/09',cat:'hw',title:'10.227.0.173 GPU2 NVLink 異常',down:'894',prio:'高',p:'P1',status:'rma',scope:'gpusrv173（10.227.0.173）',action:'執行 GPU Tray RMA 更換並完成 NVLink 驗證',lesson:'NVLink 異常經診斷確認為硬體瑕疵時，應盡速啟動 RMA 流程，避免延長停機時間。',tool:'dcgm',owner:'tier3',jira:'VOTS-147'},
   {date:'07/10',cat:'hw',title:'10.227.0.181 GPU 掉卡',down:'6339',prio:'中',p:'P1',status:'fixed',scope:'gpusrv181（10.227.0.181）',action:'BMC cold power cycle 無效，判定硬體層級故障，最終完成 GPU Tray 更換並恢復正常',lesson:'現場備品不足導致同節點第二次 RMA 案延宕近 4.5 天，凸顯備品水位管理與現場維修能力為關鍵改善項目。',tool:'dcgm',owner:'tier2',jira:'VOTS-150'},
-  {date:'07/11',cat:'hw',title:'10.227.0.222 gpu_xid_error/0000:da:00/48 問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv222（10.227.0.222）',action:'Row Remapper 已標記待處理（Pending），排程於下次重啟套用並持續觀察 ECC 狀態',lesson:'Xid 48 雙位元不可修正錯誤通常需搭配 Row Remapping 機制，應排程於下次維護窗口套用重啟。',tool:'dcgm',owner:'tier2',jira:'VOTS-151'},
+  {date:'07/11',cat:'hw',title:'10.227.0.222 gpu_xid_error/0000:da:00/48 問題',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv222（10.227.0.222）',action:'Row Remapper 已標記待處理（Pending），排程於下次重啟套用並持續觀察 ECC 狀態',lesson:'Xid 48 雙位元不可修正錯誤通常需搭配 Row Remapping 機制，應排程於下次維護窗口套用重啟。',tool:'dcgm',owner:'tier2',jira:'VOTS-151'},
   {date:'07/12',cat:'ops',title:'10.227.0.178 gpu_xid_error/0000:da:00/149 問題',down:'18',prio:'中',p:'P3',status:'fixed',scope:'gpusrv178（10.227.0.178）',action:'機器已自行完成修復，僅需進行記錄後再觀察',lesson:'部分 Xid 事件屬於 Nonfatal 且可自行復原，仍應完整記錄以利後續趨勢分析判斷是否為潛在硬體劣化前兆。',tool:'dcgm',owner:'tier2',jira:'VOTS-152'},
-  {date:'07/13',cat:'hw',title:'10.227.1.23 gpu_xid_error/0000:f3:00/48 問題',down:'353',prio:'中',p:'P2',status:'open',scope:'10.227.1.23（256-288 網段節點，非 gpusrv023）',action:'查詢 ECC/ROW_REMAPPER 狀態，DRAM Uncorrectable 累計 165、Channel Repair Pending，確認是否符合 RMA 門檻',lesson:'ECC DRAM Uncorrectable 累計值偏高且 Channel Repair Pending 為 Yes 時，應優先判定是否已達 RMA 門檻，避免延誤換料時機。',tool:'dcgm',owner:'tier2',jira:'VOTS-153'},
+  {date:'07/13',cat:'hw',title:'10.227.1.23 gpu_xid_error/0000:f3:00/48 問題',down:'353',prio:'中',p:'P2',status:'wip',scope:'10.227.1.23（256-288 網段節點，非 gpusrv023）',action:'查詢 ECC/ROW_REMAPPER 狀態，DRAM Uncorrectable 累計 165、Channel Repair Pending，確認是否符合 RMA 門檻',lesson:'ECC DRAM Uncorrectable 累計值偏高且 Channel Repair Pending 為 Yes 時，應優先判定是否已達 RMA 門檻，避免延誤換料時機。',tool:'dcgm',owner:'tier2',jira:'VOTS-153'},
   {date:'07/14',cat:'ops',title:'10.227.0.23 node_lost / lost heart beat 等問題',down:'330',prio:'中',p:'P2',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'機器被錯誤重啟，系統被恢復至原始設定，已排查並確認節點恢復回報',lesson:'節點心跳中斷應第一時間排除是否為誤重啟操作所致，並檢討重啟操作的權限與確認機制，避免誤觸發。',tool:'bms',owner:'noc',jira:'VOTS-159'},
   {date:'07/14',cat:'ops',title:'10.227.0.177 gpu_xid_error/0000:9a:00/154 等問題',down:'1054',prio:'中',p:'P1',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'dmesg 確認 Xid 94（GSP Contained）與 Xid 154（GPU Reset Required）；經原廠確認後排除',lesson:'Xid 94 + Xid 154 併發且 GPU 進入 ERR! 狀態時，應同步請原廠評估 RMA 門檻，避免僅處理單一 Xid 代碼而遺漏根因。',tool:'dcgm',owner:'tier2',jira:'VOTS-160'},
-  {date:'07/14',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'0',prio:'中',p:'P2',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'dmesg 確認 Xid 48（DBE）+ Xid 171（HBM Uncorrectable）+ Xid 63（Row Remapper Pending）+ Xid 94/154 併發；技鋼確認符合 RMA 標準後，7/15 節點重啟套用 Row Remapping，remapped row 已無 Pending，恢復正常，暫不需更換硬體',lesson:'多重 Xid（48/171/63/94/154）併發且 DRAM Uncorrectable 累計達 16 次時，應優先假設硬體劣化並加速 RMA 判定流程；本案經重啟套用 Remapping 後即恢復，顯示並非所有高 Xid 計數案例都需實體更換。',tool:'dcgm',owner:'tier2',jira:'VOTS-161'},
+  {date:'07/14',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'1399',prio:'中',p:'P1',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'dmesg 確認 Xid 48（DBE）+ Xid 171（HBM Uncorrectable）+ Xid 63（Row Remapper Pending）+ Xid 94/154 併發；查詢 remapped_rows 確認 1 筆 Uncorrectable Pending，經原廠確認 RMA 標準後排除',lesson:'多重 Xid（48/171/63/94/154）併發且 DRAM Uncorrectable 累計達 16 次時，應優先假設硬體劣化並加速 RMA 判定流程，避免逐一排查單一 Xid 代碼延誤處置。',tool:'dcgm',owner:'tier2',jira:'VOTS-161'},
+  {date:'07/15',cat:'hw',title:'10.227.1.28 gpu_xid_error/0000:fa:00/79 等問題（GPU fallen off bus）',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv283（10.227.1.28）',action:'dmesg 確認 Xid 79（GPU has fallen off the bus）併發 NVLink postRxDetLinkMask 失敗，客戶要求確認自動重啟原因並評估能否防止觸發自動重啟避免用戶資料被清空',lesson:'Xid 79 GPU 掉卡若伴隨自動重啟，需比照 VOTS-143 PXE stateless 資料保存性風險同步檢查，避免自動復原機制反而造成客戶資料遺失。',tool:'dcgm',owner:'tier2',jira:'VOTS-165'},
   {date:'07/14',cat:'ops',title:'10.227.0.53 異常重啟（NVLink RPC 失敗）',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv053（10.227.0.53）',action:'kernel log 確認 NVRM rpcSendMessage/knvlinkUpdatePostRxDetectLinkMask 失敗，比對已知 NVIDIA 開源核心驅動 NVLink hang 問題；因異常重啟已無 Disk OS 開機選項，僅能選 PXE 開機',lesson:'節點異常重啟後若遺失 Disk 開機選項僅能 PXE 開機，應建立標準排查流程判斷是否為已知驅動缺陷，並評估修復或降版策略，避免重複觸發同類異常重啟。',tool:'dcgm',owner:'tier3',jira:'VOTS-162'},
-  {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'1042',prio:'中',p:'P2',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled；Johnny 7/15 09:16 現場重新插拔收發器（transceiver re-seat）後鏈路恢復正常',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），最終確認為收發器接觸不良，非同一根因；仍應併入同節點歷史紀錄一併觀察是否為硬體劣化前兆。',tool:'ufm',owner:'tier2',jira:'VOTS-163'},
-  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down',down:'95',prio:'高',p:'P1',status:'fixed',scope:'客戶端專線（BGP 對接）',action:'客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊確認狀態並排除，19:18 通報 → 20:59 解決',lesson:'客戶端專線層級的 BGP 中斷屬高優先級事件，需第一時間跨團隊（網路+客戶對接）同步通報；本次 1 小時 41 分鐘內排除，展現跨團隊快速應變能力。',tool:'netris',owner:'tier2',jira:'VOTS-164'},
-  {date:'07/15',cat:'hw',title:'10.227.1.28 gpu_xid_error/0000:fa:00/79（GPU fallen off the bus）',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv283（10.227.1.28）',action:'kernel log 確認 Xid 79（GPU has fallen off the bus）並觸發 uvm 全域致命錯誤，需 OS reboot 復原；排查自動重啟原因並評估能否避免觸發，防止用戶資料被清除',lesson:'GPU fallen off the bus（Xid 79）常伴隨自動重啟，與 VOTS-143 資料保存性風險同類，處置前應先確認是否會清除客戶資料。',tool:'dcgm',owner:'tier2',jira:'VOTS-165'},
-  {date:'07/15',cat:'net',title:'10.227.1.23 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.1.23',action:'ibdev2netdev 確認少了 mlx5_2/mlx5_3 共 2 張網卡，另 mlx5_7/8/9/10 顯示 Down；經與其餘 5 台同批次節點比對，確認根因為網卡命名問題，Konst 透過網卡重新命名修復',lesson:'多張網卡同時缺失／Down 需優先排除是否為 PCIe 插槽或匯流排層級問題，避免逐一排查單張網卡延誤處置。',tool:'ufm',owner:'tier2',jira:'VOTS-166'},
-  {date:'07/15',cat:'net',title:'10.227.0.177 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.177',action:'ibdev2netdev 確認少了 mlx5_2/mlx5_3，另 mlx5_7/8/9/10 顯示 Down；Konst 透過網卡重新命名修復（追蹤單 VOTS-171）',lesson:'短時間內多台不同節點出現相同的網卡缺失組合（mlx5_2/mlx5_3），最終確認為網卡命名問題而非硬體缺陷；提醒此類「多節點同型態」異常應優先懷疑設定/命名層級問題。',tool:'ufm',owner:'tier2',jira:'VOTS-167'},
-  {date:'07/15',cat:'net',title:'10.227.0.61 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.61',action:'同批次網卡缺失問題，Konst 透過網卡重新命名修復',lesson:'同批次 6 台節點同型態網卡命名問題，建議建立網卡命名基準檢查，避免重複開票排查。',tool:'ufm',owner:'tier2',jira:'VOTS-168'},
-  {date:'07/15',cat:'net',title:'10.227.0.181 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.181',action:'同批次網卡缺失問題，Konst 透過網卡重新命名修復',lesson:'同批次 6 台節點同型態網卡命名問題，建議建立網卡命名基準檢查，避免重複開票排查。',tool:'ufm',owner:'tier2',jira:'VOTS-169'},
-  {date:'07/15',cat:'net',title:'10.227.0.66 缺少 mlx5_2／mlx5_3 兩張網卡',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.66',action:'同批次網卡缺失問題，Konst 透過網卡重新命名修復',lesson:'同批次 6 台節點同型態網卡命名問題，建議建立網卡命名基準檢查，避免重複開票排查。',tool:'ufm',owner:'tier2',jira:'VOTS-170'},
-  {date:'07/15',cat:'net',title:'10.227.0.177 網卡故障 mlx5_2/mlx5_3（追蹤單）',down:'0',prio:'中',p:'P3',status:'fixed',scope:'10.227.0.177',action:'VOTS-167 之追蹤單，確認 Konst 透過網卡重新命名修復',lesson:'同一節點問題重複開票，建議合併追蹤避免重工。',tool:'ufm',owner:'tier2',jira:'VOTS-171'}
+  {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'992',prio:'中',p:'P1',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled，排查後已排除 IB 鏈路異常',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），應併入同節點歷史紀錄一併檢視，評估是否為單一硬體劣化前兆而非各自獨立事件。',tool:'ufm',owner:'tier2',jira:'VOTS-163'},
+  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down',down:'95',prio:'高',p:'P1',status:'fixed',scope:'客戶端專線（BGP 對接）',action:'客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊確認狀態並排除，19:18 通報 → 20:59 解決',lesson:'客戶端專線層級的 BGP 中斷屬高優先級事件，需第一時間跨團隊（網路+客戶對接）同步通報；本次 1 小時 41 分鐘內排除，展現跨團隊快速應變能力。',tool:'netris',owner:'tier2',jira:'VOTS-164'}
 ];
 
 const CAT_LABEL = {hw:'硬體',net:'網路',cool:'設施',ops:'維運',fw:'韌體',danger:'故障',env:'環境'};
@@ -4218,7 +4195,7 @@ function goToIncident(jiraId){
 // ── SLA COUNTER ───────────────────────────────────────
 (function(){
   const el=document.getElementById('sla-counter');
-  let v=0, target=99.91;
+  let v=0, target=99.89;
   const step=()=>{ v=Math.min(v+0.4,target); el.textContent=v.toFixed(2)+'%'; if(v<target) requestAnimationFrame(step); };
   setTimeout(()=>requestAnimationFrame(step),400);
 })();

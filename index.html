@@ -564,6 +564,7 @@
   <div class="nav-tab" data-tab="beforeafter"><span class="nav-tab-icon">🔄</span>前後對比</div>
   <div class="nav-tab" data-tab="risk"><span class="nav-tab-icon">🔮</span>預測與風險</div>
   <div class="nav-tab" data-tab="orgreq"><span class="nav-tab-icon">🧩</span>AIOps／Platform 需求</div>
+  <div class="nav-tab" data-tab="dsx"><span class="nav-tab-icon">📐</span>NVIDIA DSX 對照</div>
 </nav>
 
 <div class="page">
@@ -3987,6 +3988,95 @@
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 總結</h4>
     <p style="font-size:13px;color:var(--text);line-height:1.7;margin:0">本季最貴的教訓集中在 <strong>Platform Engineering 的 P1</strong>：備品管理與 PXE 防呆這兩項若及早到位，本季 95 起事件中至少可避免 VOTS-150（6,339 分）與 VOTS-143 級別的重大風險。AIOps 這邊則是「從人工判讀走向系統輔助」的機會——目前本站所有分類、關聯、預測都仍是人工／LLM 協同完成，尚未產品化為可重複使用的能力。</p>
+  </div>
+
+</div><div class="tab-panel" id="tab-dsx">
+
+  <div class="section-title">NVIDIA DSX 必要程序對照 <span style="color:var(--muted);font-size:10px">依 NVIDIA DSX（NCP Software Reference Guide + Requirements for AI Clouds）比對本站 95 起事件之實際落實狀況</span></div>
+  <div class="arch-callout">NVIDIA 於 2026 年 GTC 發表 <strong>DSX</strong>（AI Factory 全端平台），其下 <a href="https://docs.nvidia.com/dsx" target="_blank" style="color:var(--accent2)">NCP Software Reference Guide</a> 與 <a href="https://docs.nvidia.com/dsx/guides/nvidia-requirements-for-ai-clouds/breakfix-requirements" target="_blank" style="color:var(--accent2)">Requirements for AI Clouds</a> 明確定義了 NVIDIA Cloud Partner 應具備的 Break-Fix（故障排除）與 Telemetry（遙測）必要程序。以下逐項比對本站現況，並附實際 VOTS 工單佐證，非憑空對照。</div>
+
+  <div class="section-title" style="font-size:15px">BFX01・Breakfix Lifecycle（故障排除生命週期）</div>
+  <table class="gov-table" style="margin-bottom:16px">
+    <thead><tr><th>必要動作</th><th>本站落實狀況</th><th>證據</th></tr></thead>
+    <tbody>
+      <tr><td>Compute：節點電源循環／VM 重啟</td><td><span class="case-sev p4" style="background:rgba(22,163,74,.15);color:var(--ok)">✅ 已落實</span></td><td style="font-size:11.5px;color:var(--muted)">AC Cycle／冷開機為 SOP 手冊標準流程，見<a href="https://visionbay.atlassian.net/browse/VOTS-6" target="_blank" style="color:var(--accent2)">VOTS-6</a>等多起</td></tr>
+      <tr><td>GPU：單節點 GPU Reset</td><td><span class="case-sev p4" style="background:rgba(22,163,74,.15);color:var(--ok)">✅ 已落實</span></td><td style="font-size:11.5px;color:var(--muted)">dcgmi diag／power cycle 為標準診斷流程，見<a href="https://visionbay.atlassian.net/browse/VOTS-147" target="_blank" style="color:var(--accent2)">VOTS-147</a></td></tr>
+      <tr><td>Maintenance：節點/機櫃回報原廠維護</td><td><span class="case-sev p2" style="background:rgba(242,153,74,.15);color:var(--warn)">⚠️ 部分落實</span></td><td style="font-size:11.5px;color:var(--muted)">透過 Jira 人工報修，非正式 API；已有 RMA 統計追蹤但缺結構化「回報原廠」欄位</td></tr>
+      <tr><td>Cordon：標記節點不可排入新工作負載</td><td><span class="case-sev p1" style="background:rgba(220,38,38,.15);color:var(--danger)">❌ 尚未落實</span></td><td style="font-size:11.5px;color:var(--muted)">本站 95 起事件中<strong>無任何工單明確記錄「Cordon」步驟</strong>，故障節點排查期間是否仍可能被排入工作負載不明確</td></tr>
+      <tr><td>Replace：健康門檻觸發換料請求</td><td><span class="case-sev p4" style="background:rgba(22,163,74,.15);color:var(--ok)">✅ 已落實</span></td><td style="font-size:11.5px;color:var(--muted)">RMA 統計頁籤完整追蹤 7 件換料案例，含 <a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2)">VOTS-150</a> 二次 RMA</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">BFX02・Breakfix Events（故障事件查詢）</div>
+  <table class="gov-table" style="margin-bottom:16px">
+    <thead><tr><th>NVIDIA 要求欄位</th><th>本站對應</th><th>落實狀況</th></tr></thead>
+    <tbody>
+      <tr><td>Ticket open / update / close date</td><td>Jira created／updated／resolutiondate</td><td><span style="color:var(--ok);font-weight:600">✅ 完整</span></td></tr>
+      <tr><td>Hardware Stable Identifier（節點 ID）</td><td>scope 欄位（gpusrv### / IP）</td><td><span style="color:var(--ok);font-weight:600">✅ 完整</span></td></tr>
+      <tr><td>Hardware category/type（GPU／風扇／連接器）</td><td>cat 分類（硬體/網路/設施/維運）</td><td><span style="color:var(--warn);font-weight:600">⚠️ 較粗略</span>，未細分至零件層級</td></tr>
+      <tr><td>Maintenance/Error/fault description</td><td>title + action 欄位</td><td><span style="color:var(--ok);font-weight:600">✅ 完整</span></td></tr>
+      <tr><td>Action（處置分類，如 GPU 修復）</td><td>action + lesson 欄位（文字描述）</td><td><span style="color:var(--warn);font-weight:600">⚠️ 非結構化</span>，未用標準代碼分類</td></tr>
+      <tr><td>Node Handover Date（節點部署日期）</td><td>—</td><td><span style="color:var(--danger);font-weight:600">❌ 未追蹤</span>，無法計算節點「服役天數」對故障率的影響</td></tr>
+      <tr><td>Provider Account ID / Ticket ID</td><td>Jira VOTS-### 工單號</td><td><span style="color:var(--ok);font-weight:600">✅ 完整</span></td></tr>
+    </tbody>
+  </table>
+  <div class="arch-callout" style="margin-bottom:32px">💡 缺少 <strong>Node Handover Date</strong> 是本站最大的結構性缺口——沒有這個欄位，就無法回答「gpusrv181 是不是本來就是舊機/新機」「本季故障是否集中在特定交付批次」這類問題，也難以正式對接 NVIDIA DSX 的 Breakfix API。</div>
+
+  <div class="section-title" style="font-size:15px">BFX03・Diagnostics（診斷資訊）</div>
+  <table class="gov-table" style="margin-bottom:16px">
+    <thead><tr><th>必要資訊</th><th>本站落實狀況</th><th>證據</th></tr></thead>
+    <tbody>
+      <tr><td>硬體序號（機箱／主機板／網卡／CPU／GPU）</td><td><span class="case-sev p2" style="background:rgba(242,153,74,.15);color:var(--warn)">⚠️ 個案記錄，非系統化</span></td><td style="font-size:11.5px;color:var(--muted)">僅 <a href="https://visionbay.atlassian.net/browse/VOTS-48" target="_blank" style="color:var(--accent2)">VOTS-48</a> 等少數工單記錄 SN（如 GQG5R8312A0046），多數工單未留存序號</td></tr>
+      <tr><td>韌體版本檢查（運算節點／NVSwitch）</td><td><span class="case-sev p2" style="background:rgba(242,153,74,.15);color:var(--warn)">⚠️ 有 SOP 但非例行</span></td><td style="font-size:11.5px;color:var(--muted)">BMC SKU 刷新為 SOP 條目，但屬事後排查手段，非交付前／定期基線檢查</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">Break-Fix 架構：Tenant Domain vs Infrastructure Operator Domain</div>
+  <div class="arch-callout">NVIDIA DSX 明確要求 Break-Fix 應區分兩個網域：<strong>Tenant Domain（TD）</strong>——客戶端持續回報健康狀態並嘗試自行復原；<strong>Infrastructure Operator Domain（IOD）</strong>——維運方持續離線健康檢查（BMC 查詢溫度、DPU 心跳、日誌監控）並在客戶回報後接手修復。</div>
+  <table class="gov-table" style="margin-bottom:32px">
+    <thead><tr><th>DSX 定義角色</th><th>本站對應現況</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>TD・持續 in-band 健康檢查</strong><br><span style="font-size:11px;color:var(--muted)">客戶端定時回報節點健康</span></td>
+        <td style="font-size:12px"><span style="color:var(--danger);font-weight:600">❌ 未落實</span>：本站事件多為客戶端「發現異常才通報」（如 <a href="https://visionbay.atlassian.net/browse/VOTS-138" target="_blank" style="color:var(--accent2)">VOTS-138</a> NFS 使用率 98% 才通報），非定時心跳主動回報</td>
+      </tr>
+      <tr>
+        <td><strong>TD・Tenant Remediation</strong><br><span style="font-size:11px;color:var(--muted)">客戶端可自行排除輕微問題</span></td>
+        <td style="font-size:12px"><span style="color:var(--warn);font-weight:600">⚠️ 部分落實</span>：客戶端會回報但排除動作仍由維運團隊執行，未見客戶端自主 PCIe GPU Reset 案例</td>
+      </tr>
+      <tr>
+        <td><strong>IOD・持續離線健康檢查</strong><br><span style="font-size:11px;color:var(--muted)">BMC 溫度查詢、DPU 心跳、日誌監控</span></td>
+        <td style="font-size:12px"><span style="color:var(--ok);font-weight:600">✅ 已落實</span>：BMS(MegaRAC)/GPM 監控涵蓋此範疇，工具鏈頁籤已列出對應工單</td>
+      </tr>
+      <tr>
+        <td><strong>IOD・Node Remediation</strong><br><span style="font-size:11px;color:var(--muted)">自動化程度盡可能提高</span></td>
+        <td style="font-size:12px"><span style="color:var(--warn);font-weight:600">⚠️ 部分落實</span>：本站 95 起事件的修復流程仍高度仰賴人工／人工協同 LLM 判讀，未見自動化 remediation pipeline（呼應「AIOps／Platform 需求」頁籤 P1 建議）</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">Telemetry Requirements（遙測要求）</div>
+  <div class="section-sub">NVIDIA DSX 要求 NCP 提供的必要日誌類型，逐項比對本站工具鏈涵蓋狀況</div>
+  <table class="gov-table" style="margin-bottom:32px">
+    <thead><tr><th>NVIDIA 要求日誌</th><th>本站對應</th><th>涵蓋狀況</th></tr></thead>
+    <tbody>
+      <tr><td>Fabric Manager logs（NVLink domain）</td><td>DCGM／nvidia-smi 部分涵蓋</td><td><span style="color:var(--warn);font-weight:600">⚠️ 部分</span></td></tr>
+      <tr><td>Subnet Manager logs（NVLink domain）</td><td>—</td><td><span style="color:var(--danger);font-weight:600">❌ 未涵蓋</span></td></tr>
+      <tr><td>UFM Event logs</td><td>NVIDIA UFM（工具鏈已列 7 件相關事件）</td><td><span style="color:var(--ok);font-weight:600">✅ 已涵蓋</span></td></tr>
+      <tr><td>Switch syslogs／kernel logs</td><td>Syslog Server（僅 1 件事件關聯，涵蓋率偏低）</td><td><span style="color:var(--warn);font-weight:600">⚠️ 偏低</span></td></tr>
+      <tr><td>BMC SEL logs</td><td>BMS(MegaRAC)/GPM（18 件相關事件）</td><td><span style="color:var(--ok);font-weight:600">✅ 已涵蓋</span></td></tr>
+      <tr><td>VPC Flow logs（ingress/egress）</td><td>Netris（部分涵蓋網路層）</td><td><span style="color:var(--warn);font-weight:600">⚠️ 部分</span></td></tr>
+      <tr><td>OpenTelemetry 統一傳輸（&lt;120 秒延遲）</td><td>—</td><td><span style="color:var(--danger);font-weight:600">❌ 未涵蓋</span>，現行 7+ 套工具各自獨立，無統一 OTel pipeline</td></tr>
+    </tbody>
+  </table>
+
+  <div class="field-callout" style="margin-bottom:32px">
+    <h4>📌 總結：3 項優先補強建議</h4>
+    <ul>
+      <li><strong>補上 Node Handover Date</strong>：每台節點納管時即記錄部署日期，才能回答「故障是否與服役時間相關」，也是對接 NVIDIA Breakfix API（BFX02）的前提</li>
+      <li><strong>建立 Cordon 機制</strong>：故障節點排查期間應有明確「不可排入新工作負載」標記，目前 95 起事件中無一筆記錄此步驟，屬於流程斷點</li>
+      <li><strong>統一遙測傳輸層</strong>：現行 BMS／DCGM／UFM／Netris／Syslog 等工具各自獨立，建議評估導入 OpenTelemetry 作為統一傳輸協議，同時補齊 Subnet Manager／Fabric Manager 完整日誌，為未來對接 NVIDIA DSX Telemetry 要求做準備</li>
+    </ul>
   </div>
 
 

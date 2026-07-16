@@ -601,28 +601,28 @@
   </div>
 
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
-    <h4 style="margin:0 0 10px;font-size:14px;color:var(--danger)">🔔 給長官：本季 3 組「重複發現」需要特別注意</h4>
-    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 10px">單一事件靠工程師排查就好，但同一個問題反覆出現代表背後有系統性原因，不是靠「再修一次」能解決的。以下 3 組是本季最值得管理層關注的重複模式：</p>
+    <h4 style="margin:0 0 10px;font-size:14px;color:var(--danger)">🔔 給長官：本週 3 大重大事項</h4>
+    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 10px">單一事件靠工程師排查就好，但同一個問題反覆出現代表背後有系統性原因，不是靠「再修一次」能解決的。以下是本週最值得管理層關注的 3 件事：</p>
     <table class="gov-table" style="margin-bottom:0">
-      <thead><tr><th>重複發現</th><th>規模</th><th>代表的問題</th><th>建議</th></tr></thead>
+      <thead><tr><th>事項</th><th>規模</th><th>代表的問題</th><th>建議</th></tr></thead>
       <tbody>
         <tr>
-          <td><strong>7/15 晚間 6 節點同時缺網卡</strong></td>
-          <td>18:36～22:35 集中爆發，6 張工單</td>
-          <td>不是個別硬體壞掉，是<strong>系統性的網卡命名/驅動問題</strong>，很可能跟同一批次的重啟或更新有關</td>
-          <td>應追查是否有共同觸發動作（批次重啟／韌體更新），否則同樣情況會再發生在其他節點</td>
+          <td><strong>VOTS-164 海纜斷線，持續追蹤中</strong></td>
+          <td>7/14 至今未解決，<strong>無 ETR（預估 20~200 天）</strong></td>
+          <td>非我方問題（SJC2 台新海纜斷裂），但<strong>客戶端持續倚賴臨時 1G 過渡線路</strong>，屬長期風險</td>
+          <td>非技術團隊可控，但應定期向客戶／管理層同步是方修復進度，避免資訊斷層</td>
         </tr>
         <tr>
-          <td><strong>gpusrv181 累計 4 次事件</strong></td>
-          <td>25 天內二度更換 GPU Tray，本季唯一二次 RMA 節點</td>
-          <td>可能是<strong>同批料件品質問題</strong>，不是運氣不好</td>
-          <td>建議追查該節點兩次更換的料件批號是否相同，若相同應擴大檢查同批其他節點</td>
+          <td><strong>gpusrv283 同一張卡連續 2 次異常</strong></td>
+          <td>7/15（GPU 掉卡）→ 7/16（同插槽 PCIe 降速），<strong>同一張卡 0000:fa:00.0</strong></td>
+          <td>短期內同插槽二度異常，<strong>可能是卡體或插槽本身劣化</strong></td>
+          <td>建議優先安排整機健檢，若第 3 次異常應直接視為換料案例，不宜再視為獨立事件排查</td>
         </tr>
         <tr>
-          <td><strong>gpusrv061 累計 6 次事件</strong></td>
-          <td>本季出現次數最多的單一節點，含 1 次整機更換</td>
-          <td>整機更換後仍再次出現異常，需確認<strong>新機台是否為同批次料件</strong></td>
-          <td>列入長期觀察名單，若第三度出現問題應視為機台品質而非單點故障</td>
+          <td><strong>Row Remapper Pending 批次案例</strong></td>
+          <td>7/16 同日 2 起（VOTS-176、178），不同節點</td>
+          <td>同型態早期預警指標同日集中出現，<strong>可能是同批次 GPU 料件的共通品質趨勢</strong></td>
+          <td>建議一併追查兩節點 GPU 是否為同批次交付，若是應擴大排查同批其他節點</td>
         </tr>
       </tbody>
     </table>

@@ -580,8 +580,8 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">7 月已解決事件數</div>
-      <div class="stat-value" style="font-size:28px">26</div>
-      <div class="stat-sub">另有 6 件仍在處理中</div>
+      <div class="stat-value" style="font-size:28px">25</div>
+      <div class="stat-sub">另有 7 件仍在處理中</div>
     </div>
     <div class="stat-card danger-top">
       <div class="stat-label">7 月累計停機分鐘</div>
@@ -590,18 +590,14 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
-      <div class="stat-value" style="color:var(--danger)">6 件</div>
-      <div class="stat-sub">7/15 晚間多節點網卡命名異常批次事件（VOTS-166/167）</div>
+      <div class="stat-value" style="color:var(--danger)">7 件</div>
+      <div class="stat-sub">VOTS-164 海纜斷線無 ETR，持續追蹤是方修復進度</div>
     </div>
   </div>
 
-  <div class="field-callout">
-    <h4>📌 本月重點</h4>
-    <ul>
-      <li>5 月 → 7 月 SLA 走勢（99.92% → 99.84% → 99.89%），7 月受 VOTS-150／161／163 等多起延宕影響略有下修，但仍優於目標門檻</li>
-      <li>7 月停機以「硬體」分類為主，VOTS-150（gpusrv181 GPU 掉卡）因現場備品不足延宕近 4.5 天（6,339 分鐘），為單月最大宗</li>
-      <li>7/15 新增 VOTS-165：GPU 掉卡且客戶明確要求防止自動重啟清空資料，比照 VOTS-143 等級優先處理；VOTS-161/163 已於 7/15 上午解決</li>
-    </ul>
+  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--warn);border-left-width:4px;background:rgba(242,153,74,.04)">
+    <h4 style="margin:0 0 6px;font-size:14px;color:var(--warn)">🔭 持續追蹤中：客戶端專線 BGP Down（海纜斷線，非我方問題）</h4>
+    <p style="font-size:12.5px;color:var(--text);line-height:1.7;margin:0">7/14 <a href="https://visionbay.atlassian.net/browse/VOTS-164" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-164</a>：19:18 通報後我方 <strong>1 小時 41 分鐘內完成根因判定</strong>——Border02、介面、光模組皆正常，確認問題在對端傳輸段，是方已於隔日確認為 <strong>SJC2 台新海纜斷裂（近樟宜海纜站約 27km 處），目前無 ETR（預估 20~200 天）</strong>。我方已診斷完畢且無需人工介入（線路恢復後 BGP 自動重建），但客戶端仍持續倚賴是方調度的臨時 1G 過渡線路，<strong>此案應持續追蹤是方修復進度，不宜視為已完全解決</strong>。</p>
   </div>
 
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
@@ -889,6 +885,10 @@
 
   <div class="section-title">未解決事件追蹤 <span style="color:var(--muted);font-size:10px">暫不列入 SLA 停機分鐘數，持續追蹤中</span></div>
   <div class="charts-row" style="margin-bottom:32px">
+    <div class="chart-box" style="border-left:3px solid var(--warn)">
+      <h3 style="color:var(--warn)">🔭 持續追蹤・第三方海纜斷線 — <a href="https://visionbay.atlassian.net/browse/VOTS-164" target="_blank" style="color:inherit;text-decoration:none">VOTS-164</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>客戶端專線 BGP Down（SJC2 台新海纜斷裂，近樟宜約 27km）</strong><br>開始日：7/14 19:18　分類：網路<br>我方系統確認正常，根因為上游電信商海纜斷裂，<strong>目前無 ETR（預估 20~200 天）</strong>。是方已調度臨時 1G 線路供客戶過渡，需持續追蹤是方修復進度、RCA 與臨時線路頻寬狀況。</p>
+    </div>
     <div class="chart-box" style="border-left:3px solid var(--danger)">
       <h3 style="color:var(--danger)">🚨 待辦事項・客戶要求防止資料遺失 — <a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:inherit;text-decoration:none">VOTS-165</a></h3>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.28 GPU 掉卡（Xid 79，GPU fallen off bus）</strong><br>開始日：7/15 09:53　分類：硬體<br>客戶明確要求確認自動重啟原因，並評估能否防止觸發自動重啟避免用戶資料被清空——與 VOTS-143 PXE stateless 資料保存性風險同一等級，需優先處理。</p>
@@ -4288,7 +4288,7 @@ const INCIDENTS = [
   {date:'07/15',cat:'ops',title:'10.227.0.177 網路卡故障 mlx5_2/mlx5_3（第二次通報）',down:'22',prio:'中',p:'P3',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'與 VOTS-167 同節點同問題之重複通報，透過網卡重新命名（udev rule）已修復',lesson:'VOTS-167 與本案為同節點重複開單，建議同節點同時段的多張工單應合併處理並於根因分析時視為單一事件，避免統計上被重複計算。',tool:'netris',owner:'tier2',jira:'VOTS-171'},
   {date:'07/14',cat:'ops',title:'10.227.0.53 異常重啟（NVLink RPC 失敗）',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv053（10.227.0.53）',action:'kernel log 確認 NVRM rpcSendMessage/knvlinkUpdatePostRxDetectLinkMask 失敗，比對已知 NVIDIA 開源核心驅動 NVLink hang 問題；因異常重啟已無 Disk OS 開機選項，僅能選 PXE 開機',lesson:'節點異常重啟後若遺失 Disk 開機選項僅能 PXE 開機，應建立標準排查流程判斷是否為已知驅動缺陷，並評估修復或降版策略，避免重複觸發同類異常重啟。',tool:'dcgm',owner:'tier3',jira:'VOTS-162'},
   {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'992',prio:'中',p:'P1',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled，排查後已排除 IB 鏈路異常',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），應併入同節點歷史紀錄一併檢視，評估是否為單一硬體劣化前兆而非各自獨立事件。',tool:'ufm',owner:'tier2',jira:'VOTS-163'},
-  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down',down:'95',prio:'高',p:'P1',status:'fixed',scope:'客戶端專線（BGP 對接）',action:'客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊確認狀態並排除，19:18 通報 → 20:59 解決',lesson:'客戶端專線層級的 BGP 中斷屬高優先級事件，需第一時間跨團隊（網路+客戶對接）同步通報；本次 1 小時 41 分鐘內排除，展現跨團隊快速應變能力。',tool:'netris',owner:'tier2',jira:'VOTS-164'}
+  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down - 海纜斷線，持續追蹤中',down:'95',prio:'高',p:'P1',status:'wip',scope:'客戶端專線（BGP 對接，Konst AS45104）',action:'19:18 通報，Border02 診斷確認我方路由器/介面/光模組皆正常，BFD 偵測傳輸路徑失效；20:59 是方確認根因為 SJC2 台新海纜（距樟宜海纜站約 27km）斷裂，非我方設備問題；是方已調度臨時 1G 台港新線路供客戶過渡使用',lesson:'⚠️ 本案根因為上游電信商海纜斷裂，屬第三方不可控因素，目前無 ETR（預估 20~200 天），需持續追蹤是方修復進度、RCA 報告與客戶臨時線路頻寬狀況，不宜視為「已排除」。我方 Border02 將於線路恢復後自動重建 BGP，無需人工介入。另需留意此為近期第 3 次同對端（192.168.88.161）BGP 異常（另兩次為 7/2 VRF 遷移期間、7/11），建議持續觀察是否為對端線路穩定性問題。',tool:'netris',owner:'tier2',jira:'VOTS-164'}
 ];
 
 const CAT_LABEL = {hw:'硬體',net:'網路',cool:'設施',ops:'維運',fw:'韌體',danger:'故障',env:'環境'};

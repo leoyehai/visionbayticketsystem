@@ -580,8 +580,8 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">7 月已解決事件數</div>
-      <div class="stat-value" style="font-size:28px">28</div>
-      <div class="stat-sub">另有 5 件仍在處理中（已依 Jira 同步）</div>
+      <div class="stat-value" style="font-size:28px">26</div>
+      <div class="stat-sub">另有 6 件仍在處理中</div>
     </div>
     <div class="stat-card danger-top">
       <div class="stat-label">7 月累計停機分鐘</div>
@@ -590,8 +590,8 @@
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
-      <div class="stat-value" style="color:var(--danger)">5 件</div>
-      <div class="stat-sub">VOTS-165／136／151／153／162（VOTS-166/167 已於 7/15 修復並同步）</div>
+      <div class="stat-value" style="color:var(--danger)">6 件</div>
+      <div class="stat-sub">7/15 晚間多節點網卡命名異常批次事件（VOTS-166/167）</div>
     </div>
   </div>
 
@@ -601,7 +601,6 @@
       <li>5 月 → 7 月 SLA 走勢（99.92% → 99.84% → 99.89%），7 月受 VOTS-150／161／163 等多起延宕影響略有下修，但仍優於目標門檻</li>
       <li>7 月停機以「硬體」分類為主，VOTS-150（gpusrv181 GPU 掉卡）因現場備品不足延宕近 4.5 天（6,339 分鐘），為單月最大宗</li>
       <li>7/15 新增 VOTS-165：GPU 掉卡且客戶明確要求防止自動重啟清空資料，比照 VOTS-143 等級優先處理；VOTS-161/163 已於 7/15 上午解決</li>
-      <li>🚨 7/14 VOTS-164 客戶端 BGP Down，根因確認為 SJC2 台新海纜中斷（尚無 ETR，估 20-200 天），目前僅靠臨時 1G 線路過渡，詳見下方「給長官」專區</li>
     </ul>
   </div>
 
@@ -628,41 +627,6 @@
           <td>本季出現次數最多的單一節點，含 1 次整機更換</td>
           <td>整機更換後仍再次出現異常，需確認<strong>新機台是否為同批次料件</strong></td>
           <td>列入長期觀察名單，若第三度出現問題應視為機台品質而非單點故障</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.06)">
-    <h4 style="margin:0 0 10px;font-size:14px;color:var(--danger)">🚨 給長官：客戶端 BGP 中斷 — Jira 已「解決」不代表根因已排除，仍需緊盯是方進度 — <a href="https://visionbay.atlassian.net/browse/VOTS-164" target="_blank" style="color:inherit;text-decoration:none;font-size:12px;font-weight:600">VOTS-164 ↗</a></h4>
-    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 10px">7/14 19:18 客戶端專線 BGP Down，Jira 工單於 20:59 標記「已解決」，<strong>但這僅代表 BGP session 已透過臨時線路復原，不代表問題根源已排除</strong>。7/15 上午是方正式回覆：本次根因為 <strong>SJC2 台新海纜</strong>，於距離樟宜海纜站約 27 km 處發生海底光纜中斷，目前<strong>無 ETR（估計 20～200 天，須以 Carrier 公告為準）</strong>。亞灣端 Border Router、介面、光模組皆已確認正常，問題確定位於是方傳輸段，非我方設備或路由設定問題。</p>
-    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 10px">目前僅依靠是方調度的<strong>臨時 1G 台港新線路</strong>維持客戶連線，屬於過渡性方案而非根本修復；若海纜修復期程拉長，需評估臨時線路頻寬是否足以支撐客戶長期使用。這是一個「儀表板顯示綠燈、實際風險仍是黃／紅燈」的典型案例，建議管理層知悉並列入每週追蹤，而非視為已結案的一般事件。</p>
-    <table class="gov-table" style="margin-bottom:0">
-      <thead><tr><th>追蹤項目</th><th>負責方</th><th>現況</th><th>下一步</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>海纜修復進度 / ETR</strong></td>
-          <td style="color:var(--danger);font-weight:600">是方</td>
-          <td>無正式 ETR，預估 20～200 天</td>
-          <td>需主動、定期（建議每週）向是方索取修復進度更新，不宜被動等待通知</td>
-        </tr>
-        <tr>
-          <td><strong>正式 RCA 報告</strong></td>
-          <td style="color:var(--danger);font-weight:600">是方客服</td>
-          <td>尚未提供</td>
-          <td>持續追蹤，取得後同步更新本工單並歸檔</td>
-        </tr>
-        <tr>
-          <td><strong>臨時線路使用狀況／頻寬需求</strong></td>
-          <td>Konst（客戶）</td>
-          <td>臨時 1G 線路已上線</td>
-          <td>確認客戶實際頻寬需求是否被滿足，評估長期過渡方案</td>
-        </tr>
-        <tr>
-          <td><strong>亞灣端設備狀態</strong></td>
-          <td style="color:var(--ok)">亞灣（已確認）</td>
-          <td>Border02、介面、光模組正常</td>
-          <td>持續監控 BGP session（swp27），線路恢復後預期自動重建，暫無需調整</td>
         </tr>
       </tbody>
     </table>
@@ -929,9 +893,9 @@
       <h3 style="color:var(--danger)">🚨 待辦事項・客戶要求防止資料遺失 — <a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:inherit;text-decoration:none">VOTS-165</a></h3>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.1.28 GPU 掉卡（Xid 79，GPU fallen off bus）</strong><br>開始日：7/15 09:53　分類：硬體<br>客戶明確要求確認自動重啟原因，並評估能否防止觸發自動重啟避免用戶資料被清空——與 VOTS-143 PXE stateless 資料保存性風險同一等級，需優先處理。</p>
     </div>
-    <div class="chart-box" style="border-left:3px solid var(--ok)">
-      <h3 style="color:var(--ok)">✅ 已修復（原待辦已同步）— <a href="https://visionbay.atlassian.net/browse/VOTS-166" target="_blank" style="color:inherit;text-decoration:none">VOTS-166</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:inherit;text-decoration:none">VOTS-167</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>多節點同時缺 mlx5_2/mlx5_3 網卡</strong><br>開始日：7/15 18:36～21:46　分類：維運<br>與同時段另外 4 件事件（VOTS-168~171）同屬一批系統性網卡命名/列舉異常，已透過網卡重新命名（udev rule）修復，Jira 狀態已同步為「已解決」。</p>
+    <div class="chart-box" style="border-left:3px solid var(--danger)">
+      <h3 style="color:var(--danger)">🔌 待辦事項・批次現象（2 件） — <a href="https://visionbay.atlassian.net/browse/VOTS-166" target="_blank" style="color:inherit;text-decoration:none">VOTS-166</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:inherit;text-decoration:none">VOTS-167</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>多節點同時缺 mlx5_2/mlx5_3 網卡</strong><br>開始日：7/15 18:36～21:46　分類：維運<br>與同時段另外 4 件已解決事件（VOTS-168~171）同屬一批系統性網卡命名/列舉異常，這兩件尚待確認是否同樣可透過網卡重新命名排除。</p>
     </div>
     <div class="chart-box">
       <h3 style="color:var(--warn)">⏳ 待辦事項 — <a href="https://visionbay.atlassian.net/browse/VOTS-136" target="_blank" style="color:inherit;text-decoration:none">VOTS-136</a></h3>
@@ -4106,12 +4070,37 @@
     </tbody>
   </table>
 
+  <div class="section-title" style="font-size:15px">缺口對應建議：NVIDIA DSX OS 開源元件</div>
+  <div class="arch-callout">NVIDIA 已將 <strong>DSX OS</strong>（源自 DGX Cloud 內部維運經驗）以開源形式釋出於 GitHub，模組化元件可依需求漸進導入，不須整套部署。以下針對前述 3 項明確缺口，逐項對應可用的開源元件。</div>
+  <table class="gov-table" style="margin-bottom:16px">
+    <thead><tr><th>缺口</th><th>對應 DSX OS 開源元件</th><th>元件功能</th><th>是否需要原廠協助</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>無 Cordon 機制</strong></td>
+        <td><a href="https://github.com/NVIDIA/NVSentinel" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">NVSentinel</a></td>
+        <td style="font-size:11.5px;color:var(--muted)">開源、Kubernetes-native 的 GPU 監控與故障修復工具，官方案例明確為「每台 GPU 節點皆受監控，故障節點自動隔離並修復」，與 Cordon 需求高度吻合</td>
+        <td><span style="color:var(--ok);font-weight:600">🟢 可自主導入</span><br><span style="font-size:11px;color:var(--muted)">開源、文件標榜「漸進式採用」，但需先確認叢集是否已 K8s 化（本站目前以 BCM/PXE 裸機管理為主，非全面 K8s），若否需先補齊 K8s 層才能發揮效果</span></td>
+      </tr>
+      <tr>
+        <td><strong>無 Node Handover Date</strong></td>
+        <td><a href="https://github.com/NVIDIA/infra-controller" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">NICo（NVIDIA Infra Controller）</a></td>
+        <td style="font-size:11.5px;color:var(--muted)">API 驅動的裸機生命週期管理，官方描述明確要求「每次租戶轉換都必須可稽核」，天生會記錄節點交付/移轉時間戳</td>
+        <td><span style="color:var(--danger);font-weight:600">🔴 建議原廠協助</span><br><span style="font-size:11px;color:var(--muted)">完整功能（硬體級租戶隔離）需搭配 NVIDIA BlueField DPU + DOCA Platform Framework，屬硬體層整合，建議先確認現有 288 節點是否已具備 DPU，若無則需採購規劃，適合與 NVIDIA 業務窗口討論導入路徑</span></td>
+      </tr>
+      <tr>
+        <td><strong>無統一遙測傳輸層</strong></td>
+        <td><a href="https://github.com/NVIDIA/dsx-exchange" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">DSX Exchange</a>（事件匯流排）</td>
+        <td style="font-size:11.5px;color:var(--muted)">NATS-based 事件匯流排，用於串接 compute／network／power／cooling 各系統訊號；官方文件亦提及「BMS 廠商需依此規範將機電資料發布至 DSX Event Bus」</td>
+        <td><span style="color:var(--warn);font-weight:600">🟡 視範圍而定</span><br><span style="font-size:11px;color:var(--muted)">串接既有 BMS(MegaRAC)/DCGM/UFM 等純 IT 工具可自主導入；但若要串接機房 BMS（電力/空調）發布資料至 DSX Event Bus，官方文件明確指名由「System Integrators 與 BMS 廠商」執行，此段建議尋求 NVIDIA 或整合商協助</span></td>
+      </tr>
+    </tbody>
+  </table>
   <div class="field-callout" style="margin-bottom:32px">
-    <h4>📌 總結：3 項優先補強建議</h4>
+    <h4>📌 總結：優先順序建議</h4>
     <ul>
-      <li><strong>補上 Node Handover Date</strong>：每台節點納管時即記錄部署日期，才能回答「故障是否與服役時間相關」，也是對接 NVIDIA Breakfix API（BFX02）的前提</li>
-      <li><strong>建立 Cordon 機制</strong>：故障節點排查期間應有明確「不可排入新工作負載」標記，目前 95 起事件中無一筆記錄此步驟，屬於流程斷點</li>
-      <li><strong>統一遙測傳輸層</strong>：現行 BMS／DCGM／UFM／Netris／Syslog 等工具各自獨立，建議評估導入 OpenTelemetry 作為統一傳輸協議，同時補齊 Subnet Manager／Fabric Manager 完整日誌，為未來對接 NVIDIA DSX Telemetry 要求做準備</li>
+      <li><strong>第一步（可自主）</strong>：導入 NVSentinel 補上 Cordon 機制，這是唯一 3 項中不涉及新硬體採購、且開源可直接試用的項目</li>
+      <li><strong>第二步（需評估）</strong>：盤點現有節點是否已具備 BlueField DPU，若尚未配置，NICo 帶來的 Node Handover Date 追蹤效益需與硬體投資一併評估，建議與 NVIDIA 原廠窗口討論導入時程</li>
+      <li><strong>第三步（分階段）</strong>：遙測統一可先從 IT 系統（DCGM/UFM/BMS）著手自主串接，機房 BMS／電力／空調系統的 DSX Event Bus 整合則建議留待有專責系統整合商或原廠協助時再啟動，避免自行摸索延誤機電系統穩定性</li>
     </ul>
   </div>
 
@@ -4271,15 +4260,15 @@ const INCIDENTS = [
   {date:'07/14',cat:'ops',title:'10.227.0.177 gpu_xid_error/0000:9a:00/154 等問題',down:'1054',prio:'中',p:'P1',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'dmesg 確認 Xid 94（GSP Contained）與 Xid 154（GPU Reset Required）；經原廠確認後排除',lesson:'Xid 94 + Xid 154 併發且 GPU 進入 ERR! 狀態時，應同步請原廠評估 RMA 門檻，避免僅處理單一 Xid 代碼而遺漏根因。',tool:'dcgm',owner:'tier2',jira:'VOTS-160'},
   {date:'07/14',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'1399',prio:'中',p:'P1',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'dmesg 確認 Xid 48（DBE）+ Xid 171（HBM Uncorrectable）+ Xid 63（Row Remapper Pending）+ Xid 94/154 併發；查詢 remapped_rows 確認 1 筆 Uncorrectable Pending，經原廠確認 RMA 標準後排除',lesson:'多重 Xid（48/171/63/94/154）併發且 DRAM Uncorrectable 累計達 16 次時，應優先假設硬體劣化並加速 RMA 判定流程，避免逐一排查單一 Xid 代碼延誤處置。',tool:'dcgm',owner:'tier2',jira:'VOTS-161'},
   {date:'07/15',cat:'hw',title:'10.227.1.28 gpu_xid_error/0000:fa:00/79 等問題（GPU fallen off bus）',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv283（10.227.1.28）',action:'dmesg 確認 Xid 79（GPU has fallen off the bus）併發 NVLink postRxDetLinkMask 失敗，客戶要求確認自動重啟原因並評估能否防止觸發自動重啟避免用戶資料被清空',lesson:'Xid 79 GPU 掉卡若伴隨自動重啟，需比照 VOTS-143 PXE stateless 資料保存性風險同步檢查，避免自動復原機制反而造成客戶資料遺失。',tool:'dcgm',owner:'tier2',jira:'VOTS-165'},
-  {date:'07/15',cat:'ops',title:'10.227.1.23 少了 mlx5_2/mlx5_3 網卡',down:'0',prio:'中',p:'P2',status:'fixed',scope:'10.227.1.23（256-288 網段節點）',action:'ibdev2netdev 確認 mlx5_10/7/8/9 埠口皆顯示 Down，僅 mlx5_2/mlx5_3 完全未列出，經排查為網卡命名/列舉異常，已透過 udev rule 重新命名修復',lesson:'網卡列舉異常（missing device）與埠口 Down 應分開判讀，前者可能是驅動/命名問題而非實體損壞，需先排查再考慮換料。',tool:'netris',owner:'tier2',jira:'VOTS-166'},
-  {date:'07/15',cat:'ops',title:'10.227.0.177 網卡故障 mlx5_2/mlx5_3（讀不到）',down:'0',prio:'中',p:'P2',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'ibdev2netdev 確認讀不到 mlx5_2/mlx5_3，與同批多節點同時間出現相同現象，確認為系統性網卡命名/列舉問題，已透過網卡重新命名（udev rule）修復',lesson:'同一時段（21:29-22:35）多達 5 個節點同時回報同款網卡缺失問題，強烈提示為系統性驅動/命名問題而非個別硬體故障，應優先排查共同觸發因子（如批次重啟、驅動更新）。',tool:'netris',owner:'tier2',jira:'VOTS-167'},
+  {date:'07/15',cat:'ops',title:'10.227.1.23 少了 mlx5_2/mlx5_3 網卡',down:'0',prio:'中',p:'P2',status:'open',scope:'10.227.1.23（256-288 網段節點）',action:'ibdev2netdev 確認 mlx5_10/7/8/9 埠口皆顯示 Down，僅 mlx5_2/mlx5_3 完全未列出，排查網卡列舉異常原因',lesson:'網卡列舉異常（missing device）與埠口 Down 應分開判讀，前者可能是驅動/命名問題而非實體損壞，需先排查再考慮換料。',tool:'netris',owner:'tier2',jira:'VOTS-166'},
+  {date:'07/15',cat:'ops',title:'10.227.0.177 網卡故障 mlx5_2/mlx5_3（讀不到）',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv177（10.227.0.177）',action:'ibdev2netdev 確認讀不到 mlx5_2/mlx5_3，與同批多節點同時間出現相同現象，疑似系統性網卡命名/列舉問題',lesson:'同一時段（21:29-22:35）多達 5 個節點同時回報同款網卡缺失問題，強烈提示為系統性驅動/命名問題而非個別硬體故障，應優先排查共同觸發因子（如批次重啟、驅動更新）。',tool:'netris',owner:'tier2',jira:'VOTS-167'},
   {date:'07/15',cat:'ops',title:'10.227.0.61 網路卡故障 mlx5_2/mlx5_3',down:'23',prio:'中',p:'P3',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'ibdev2netdev 確認網卡列舉異常，透過網卡重新命名（udev rule）已修復',lesson:'網卡重新命名（非換料）即可修復，證實為系統性命名/列舉問題；gpusrv061 已是本季第 6 次出現在事件記錄中，惟本次與硬體劣化無關。',tool:'netris',owner:'tier2',jira:'VOTS-168'},
   {date:'07/15',cat:'ops',title:'10.227.0.181 網路卡故障 mlx5_2/mlx5_3',down:'73',prio:'中',p:'P2',status:'fixed',scope:'gpusrv181（10.227.0.181）',action:'ibdev2netdev 確認網卡列舉異常，透過網卡重新命名（udev rule）已修復',lesson:'gpusrv181 本季第 4 次出現事件記錄（前 3 次為 GPU Tray 相關），本次為網卡命名問題與先前硬體案例無直接關聯，不應併入同一根因假設。',tool:'netris',owner:'tier2',jira:'VOTS-169'},
   {date:'07/15',cat:'ops',title:'10.227.0.66 網路卡故障 mlx5_2/mlx5_3',down:'122',prio:'中',p:'P2',status:'fixed',scope:'gpusrv066（10.227.0.66）',action:'ibdev2netdev 確認網卡列舉異常，透過網卡重新命名（udev rule）已修復',lesson:'同批次事件中停機時間最長者，建議後續排查是否此節點的 udev 規則損壞程度較其他節點更嚴重。',tool:'netris',owner:'tier2',jira:'VOTS-170'},
   {date:'07/15',cat:'ops',title:'10.227.0.177 網路卡故障 mlx5_2/mlx5_3（第二次通報）',down:'22',prio:'中',p:'P3',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'與 VOTS-167 同節點同問題之重複通報，透過網卡重新命名（udev rule）已修復',lesson:'VOTS-167 與本案為同節點重複開單，建議同節點同時段的多張工單應合併處理並於根因分析時視為單一事件，避免統計上被重複計算。',tool:'netris',owner:'tier2',jira:'VOTS-171'},
   {date:'07/14',cat:'ops',title:'10.227.0.53 異常重啟（NVLink RPC 失敗）',down:'0',prio:'中',p:'P2',status:'wip',scope:'gpusrv053（10.227.0.53）',action:'kernel log 確認 NVRM rpcSendMessage/knvlinkUpdatePostRxDetectLinkMask 失敗，比對已知 NVIDIA 開源核心驅動 NVLink hang 問題；因異常重啟已無 Disk OS 開機選項，僅能選 PXE 開機',lesson:'節點異常重啟後若遺失 Disk 開機選項僅能 PXE 開機，應建立標準排查流程判斷是否為已知驅動缺陷，並評估修復或降版策略，避免重複觸發同類異常重啟。',tool:'dcgm',owner:'tier3',jira:'VOTS-162'},
   {date:'07/14',cat:'ops',title:'10.227.0.23 ibp240s0 (mlx5_10) IB 埠 Down',down:'992',prio:'中',p:'P1',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'ibstat 確認 mlx5_10 port 1 (ibp240s0) State: Down、Physical state: Disabled，排查後已排除 IB 鏈路異常',lesson:'同節點（10.227.0.23）短期內連續出現心跳中斷（VOTS-159）與 IB 埠異常（本案），應併入同節點歷史紀錄一併檢視，評估是否為單一硬體劣化前兆而非各自獨立事件。',tool:'ufm',owner:'tier2',jira:'VOTS-163'},
-  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down（根因：SJC2 台新海纜中斷，尚無 ETR）',down:'95',prio:'緊急',p:'P1',status:'fixed',scope:'客戶端專線（BGP 對接）／Konst',action:'19:18 通報 → 20:59 以臨時 1G 台港新線路復原 BGP session（Jira 標記已解決）；7/15 是方正式回覆根因為 SJC2 台新海纜於距樟宜站約 27km 處斷裂，目前無 ETR（估計 20-200 天，須以 Carrier 公告為準）。亞灣端設備已確認正常，問題位於是方傳輸段，持續向是方追蹤修復進度與正式 RCA',lesson:'⚠️ Ticket 狀態「已解決」只反映當下 BGP session 已用臨時線路復原，不代表根因（海纜中斷）已排除；此類跨電信商基礎設施事故需與 Jira 狀態脫鉤，另立長期追蹤機制並定期向是方催進度，避免管理層誤判為已結案。',tool:'netris',owner:'tier2',jira:'VOTS-164'}
+  {date:'07/14',cat:'net',title:'【緊急】客戶端專線 BGP Down',down:'95',prio:'高',p:'P1',status:'fixed',scope:'客戶端專線（BGP 對接）',action:'客戶端回報專線 BGP down，已通知 Jean、Lawrence Chen、Tony Lin 協助網路團隊確認狀態並排除，19:18 通報 → 20:59 解決',lesson:'客戶端專線層級的 BGP 中斷屬高優先級事件，需第一時間跨團隊（網路+客戶對接）同步通報；本次 1 小時 41 分鐘內排除，展現跨團隊快速應變能力。',tool:'netris',owner:'tier2',jira:'VOTS-164'}
 ];
 
 const CAT_LABEL = {hw:'硬體',net:'網路',cool:'設施',ops:'維運',fw:'韌體',danger:'故障',env:'環境'};

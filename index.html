@@ -603,33 +603,61 @@
     </ul>
   </div>
 
-  <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–07/14，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
+  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
+    <h4 style="margin:0 0 10px;font-size:14px;color:var(--danger)">🔔 給長官：本季 3 組「重複發現」需要特別注意</h4>
+    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 10px">單一事件靠工程師排查就好，但同一個問題反覆出現代表背後有系統性原因，不是靠「再修一次」能解決的。以下 3 組是本季最值得管理層關注的重複模式：</p>
+    <table class="gov-table" style="margin-bottom:0">
+      <thead><tr><th>重複發現</th><th>規模</th><th>代表的問題</th><th>建議</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>7/15 晚間 6 節點同時缺網卡</strong></td>
+          <td>18:36～22:35 集中爆發，6 張工單</td>
+          <td>不是個別硬體壞掉，是<strong>系統性的網卡命名/驅動問題</strong>，很可能跟同一批次的重啟或更新有關</td>
+          <td>應追查是否有共同觸發動作（批次重啟／韌體更新），否則同樣情況會再發生在其他節點</td>
+        </tr>
+        <tr>
+          <td><strong>gpusrv181 累計 4 次事件</strong></td>
+          <td>25 天內二度更換 GPU Tray，本季唯一二次 RMA 節點</td>
+          <td>可能是<strong>同批料件品質問題</strong>，不是運氣不好</td>
+          <td>建議追查該節點兩次更換的料件批號是否相同，若相同應擴大檢查同批其他節點</td>
+        </tr>
+        <tr>
+          <td><strong>gpusrv061 累計 6 次事件</strong></td>
+          <td>本季出現次數最多的單一節點，含 1 次整機更換</td>
+          <td>整機更換後仍再次出現異常，需確認<strong>新機台是否為同批次料件</strong></td>
+          <td>列入長期觀察名單，若第三度出現問題應視為機台品質而非單點故障</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–07/15，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
   <div class="charts-row" style="margin-bottom:32px">
     <div class="chart-box" style="border-left:3px solid var(--danger)">
       <h3 style="color:var(--danger)">☁️ CloudOps <span style="font-weight:400;color:var(--muted);font-size:11px">運算平台（維運）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
-        <div><div style="font-size:22px;font-weight:700;color:var(--danger);font-family:var(--mono)">12 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 13.6%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">25.3 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 3.6%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.9951%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--danger);font-family:var(--mono)">18 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 18.9%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">69.1 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 9.3%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.9868%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
       <div class="cat-grid" style="margin-bottom:0">
         <div class="cat-card" data-cat="ops">
           <div class="cat-icon ops">🛠️</div>
-          <div class="cat-info"><div class="cat-name">維運</div><div class="cat-stats">12 件 · 25.25 hr</div></div>
+          <div class="cat-info"><div class="cat-name">維運</div><div class="cat-stats">18 件 · 69.10 hr</div></div>
         </div>
       </div>
     </div>
     <div class="chart-box" style="border-left:3px solid var(--accent2)">
       <h3 style="color:var(--accent2)">🏗️ InfraOps <span style="font-weight:400;color:var(--muted);font-size:11px">實體基礎設施（硬體＋網路＋設施）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
-        <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">76 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 86.4%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">677.6 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 96.4%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.870%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">77 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 81.1%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">677.6 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 90.7%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.871%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
       <div class="cat-grid" style="margin-bottom:0">
         <div class="cat-card" data-cat="hw">
           <div class="cat-icon hw">🖥️</div>
-          <div class="cat-info"><div class="cat-name">硬體</div><div class="cat-stats">37 件 · 540.10 hr</div></div>
+          <div class="cat-info"><div class="cat-name">硬體</div><div class="cat-stats">38 件 · 540.10 hr</div></div>
         </div>
         <div class="cat-card" data-cat="net">
           <div class="cat-icon net">🌐</div>
@@ -642,7 +670,7 @@
       </div>
     </div>
   </div>
-  <div class="arch-callout" style="margin-bottom:32px">💡 此分組下 InfraOps 幾乎涵蓋全部技術性故障（86.4% 事件、96.4% 停機），CloudOps 僅剩維運類的流程性/GPU監控事件，停機影響仍相對輕微（3.6%）。硬體類單月因 VOTS-150 二次 RMA 延宕，累計停機由 434.45 hr 大幅推升至 540.1 hr，凸顯備品水位對整體 SLA 的直接影響。點擊任一子分類卡片可跳轉至事件明細並套用篩選。</div>
+  <div class="arch-callout" style="margin-bottom:32px">💡 CloudOps 佔比從 13.6% 上升至 18.9%，主因 7/15 晚間 6 節點網卡命名批次事件全數歸類為維運類；儘管件數增加，CloudOps 停機影響仍相對輕微（9.3%）。InfraOps 依然是主要停機貢獻者（90.7%），硬體類單月因 VOTS-150 二次 RMA 延宕，累計停機由 434.45 hr 大幅推升至 540.1 hr，凸顯備品水位對整體 SLA 的直接影響。點擊任一子分類卡片可跳轉至事件明細並套用篩選。</div>
 
   <div class="section-title">月度 SLA 趨勢</div>
   <div class="section-sub">SLA = (總節點時數 − 停機時數) / 總節點時數 ｜ 目標 99.5%，解約門檻 95%</div>
@@ -1800,12 +1828,12 @@
 
     <div class="arch-group" style="--group-color:var(--danger)">
       <div class="arch-group-label">☁️ CloudOps 運算平台</div>
-      <div class="arch-group-sub">12 件事件（13.8%）· 25.3 hr 停機</div>
+      <div class="arch-group-sub">18 件事件（18.9%）· 69.1 hr 停機</div>
 
       <div class="arch-layer" data-filtercat="ops" style="--layer-color:var(--accent)">
           <div class="arch-layer-head">
               <span class="arch-code">L4</span><span class="arch-icon">🧮</span><span class="arch-title">Workload 應用負載</span>
-              <span class="arch-hint">⊙ 查看相關事件（維運 12件）</span>
+              <span class="arch-hint">⊙ 查看相關事件（維運 18件）</span>
           </div>
         <div class="arch-pills">
           <span class="arch-pill">Slurm 調度</span>
@@ -1819,12 +1847,12 @@
 
     <div class="arch-group" style="--group-color:var(--accent2)">
       <div class="arch-group-label">🏗️ InfraOps 實體基礎設施</div>
-      <div class="arch-group-sub">76 件事件（86.4%）· 677.6 hr 停機</div>
+      <div class="arch-group-sub">77 件事件（81.1%）· 677.6 hr 停機</div>
 
       <div class="arch-layer" data-filtercat="hw" style="--layer-color:var(--danger)">
         <div class="arch-layer-head">
           <span class="arch-code">L3</span><span class="arch-icon">⚡</span><span class="arch-title">GPU / Fabric 算力</span>
-          <span class="arch-hint">⊙ 查看相關事件（硬體 37件）</span>
+          <span class="arch-hint">⊙ 查看相關事件（硬體 38件）</span>
         </div>
         <div class="arch-pills">
           <span class="arch-pill">NVIDIA B300 GPU 叢集</span>

@@ -4095,13 +4095,33 @@
       </tr>
     </tbody>
   </table>
-  <div class="field-callout" style="margin-bottom:32px">
-    <h4>📌 總結：優先順序建議</h4>
-    <ul>
-      <li><strong>第一步（可自主）</strong>：導入 NVSentinel 補上 Cordon 機制，這是唯一 3 項中不涉及新硬體採購、且開源可直接試用的項目</li>
-      <li><strong>第二步（需評估）</strong>：盤點現有節點是否已具備 BlueField DPU，若尚未配置，NICo 帶來的 Node Handover Date 追蹤效益需與硬體投資一併評估，建議與 NVIDIA 原廠窗口討論導入時程</li>
-      <li><strong>第三步（分階段）</strong>：遙測統一可先從 IT 系統（DCGM/UFM/BMS）著手自主串接，機房 BMS／電力／空調系統的 DSX Event Bus 整合則建議留待有專責系統整合商或原廠協助時再啟動，避免自行摸索延誤機電系統穩定性</li>
-    </ul>
+
+  <div class="section-title" style="font-size:15px">🎯 優先順序建議</div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--ok)"></div>
+      <div>
+        <div class="flow-num">第一步：導入 NVSentinel，補上 Cordon 機制 <span style="display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(22,163,74,.15);color:var(--ok);margin-left:6px">🟢 可自主導入</span></div>
+        <div class="flow-body">3 項缺口中唯一<strong>不涉及新硬體採購</strong>、開源可直接試用的項目。建議立即排入下季度 sprint，作為驗證團隊自動化維運能力的第一個里程碑。</div>
+        <div class="flow-tag">👤 自行執行</div><div class="flow-tag">⏱️ 預估 1 季內可上線</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--warn)"></div>
+      <div>
+        <div class="flow-num">第二步：盤點 BlueField DPU 現況，評估 NICo 導入 <span style="display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(242,153,74,.15);color:var(--warn);margin-left:6px">🟡 需評估</span></div>
+        <div class="flow-body">先盤點 288 節點是否已具備 DPU；若尚未配置，Node Handover Date 追蹤效益需與硬體投資金額一併評估後才能拍板，<strong>建議先約 NVIDIA 原廠窗口討論導入時程與成本</strong>，不建議自行摸索部署。</div>
+        <div class="flow-tag">👤 需 NVIDIA 原廠協助</div><div class="flow-tag">⏱️ 預估需 1-2 季規劃期</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-dot" style="background:var(--accent)"></div>
+      <div>
+        <div class="flow-num">第三步：遙測分階段整合 <span style="display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(37,99,235,.15);color:var(--accent);margin-left:6px">🔵 分階段進行</span></div>
+        <div class="flow-body"><strong>Phase A（可自主）</strong>：IT 系統（DCGM／UFM／BMS）先自行串接。<strong>Phase B（需協助）</strong>：機房 BMS／電力／空調系統要接進 DSX Event Bus，官方文件明確指名由專責系統整合商或原廠執行，<strong>不建議自行摸索</strong>，避免影響機電系統穩定性。</div>
+        <div class="flow-tag">👤 Phase A 自行／Phase B 需整合商</div><div class="flow-tag">⏱️ 長期規劃項目</div>
+      </div>
+    </div>
   </div>
 
 

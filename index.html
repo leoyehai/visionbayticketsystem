@@ -4176,6 +4176,18 @@
 
 
 
+  <div class="section-title" style="font-size:18px;font-weight:800;text-transform:none;letter-spacing:normal;font-family:var(--sans);color:var(--text)">📊 分析與建議</div>
+  <div class="field-callout" style="margin-bottom:32px">
+    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 12px">從上方 49 項需求的覆蓋狀況可歸納出以下重點：</p>
+    <ul style="font-size:12.5px;color:var(--text);line-height:1.9">
+      <li><strong>Breakfix 章節覆蓋最完整（3/3）</strong>：本站日常維運已高度貼合 NVIDIA 的故障排除生命週期要求，下方 BFX01-03 逐項細部比對即針對此章節深入分析。</li>
+      <li><strong>Network 章節有 2 項明確缺口值得留意</strong>：<span style="font-family:var(--mono);color:var(--accent2)">NET04（Connection to NVIDIA CorpIT Network）</span>與<span style="font-family:var(--mono);color:var(--accent2)">NET05（Connection to DGXC Storage）</span>皆為 0 件，這兩項是實際網路連通性需求（非純架構文件），若屬於既定合作路徑上的必要項目，建議主動確認是否已布建或列入規劃，而非被動等待事件觸發才發現缺口。</li>
+      <li><strong>Capacity 章節有 2 項 API 層級缺口</strong>：<span style="font-family:var(--mono);color:var(--accent2)">CAP02（Resource Governance API Metrics）</span>與<span style="font-family:var(--mono);color:var(--accent2)">CAP03（Resource Discovery APIs）</span>皆為 0 件，呼應「AIOps／Platform 需求」頁籤已提出的自動化缺口——目前資源治理與探索仍仰賴人工，尚未有 API 化的證據。</li>
+      <li><strong>Storage／Data Movement 大量 0 件不宜直接解讀為缺口</strong>：23 項 Storage 需求中僅 1 項有工單，多屬 LDAP、Snapshots、Root-Squash 等一次性架構決策，本來就不會產生「事件」；若要確認落實狀況，應對照建置文件或架構決策紀錄，而非僅依賴本頁的 Jira 事件證據。</li>
+    </ul>
+    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:12px 0 0">下方 BFX01-03 針對 Breakfix 生命週期、事件查詢欄位、診斷資訊三個子項目做更細部的逐條比對，並延伸至 Break-Fix 架構模型與 Telemetry 要求。</p>
+  </div>
+
   <div class="section-title" style="font-size:15px">BFX01・Breakfix Lifecycle（故障排除生命週期）</div>
   <table class="gov-table" style="margin-bottom:16px">
     <thead><tr><th>必要動作</th><th>本站落實狀況</th><th>證據</th></tr></thead>

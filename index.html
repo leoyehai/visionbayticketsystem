@@ -4255,6 +4255,57 @@
 
 
 
+  <div class="section-title" style="font-size:15px">NCP 需求覆蓋清單 <span style="color:var(--muted);font-size:10px">依 NVIDIA DGX Cloud Breakfix / Network / Storage 需求規格，逐項比對本站 Jira 事件證據 ｜ 可搜尋，點列展開查看相關工單</span></div>
+  <div class="arch-callout">此清單依 NVIDIA NCP（NVIDIA Cloud Partner）Breakfix／Network／Storage 需求規格拆解為 49 項細部需求，逐一比對是否有 VOTS 工單可作為「已落實」證據。<strong>⚠️ 重要提醒</strong>：事件數為 0 不必然代表營運缺口——多數 Storage／Data Movement 類需求屬於架構設計或既有配置（如 LDAP、Snapshots、Root-Squash），本來就不會產生「事件工單」，僅供對照參考，不宜直接解讀為「未做到」。</div>
+
+  <div class="sla-hero">
+    <div class="stat-card">
+      <div class="stat-label">需求項目總數</div>
+      <div class="stat-value" style="color:var(--accent2)" id="ncp-stat-total">49 項</div>
+      <div class="stat-sub">橫跨 7 大章節</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">有工單證據</div>
+      <div class="stat-value" style="color:var(--ok)" id="ncp-stat-covered">12 項</div>
+      <div class="stat-sub">24.5%　共 93 筆工單關聯</div>
+    </div>
+    <div class="stat-card danger-top">
+      <div class="stat-label">無工單證據</div>
+      <div class="stat-value" style="color:var(--warn)" id="ncp-stat-gap">36 項</div>
+      <div class="stat-sub">多數為架構/配置類需求，非營運缺口</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">總計工單關聯數</div>
+      <div class="stat-value" style="color:var(--accent)" id="ncp-stat-tickets">93 筆</div>
+      <div class="stat-sub">單一工單可能對應多項需求</div>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-ncp-filter="all">全部章節</button>
+    <button class="filter-btn" data-ncp-filter="Breakfix">Breakfix</button>
+    <button class="filter-btn" data-ncp-filter="Network">Network</button>
+    <button class="filter-btn" data-ncp-filter="Storage">Storage</button>
+    <button class="filter-btn" data-ncp-filter="Data Movement">Data Movement</button>
+    <button class="filter-btn" data-ncp-filter="DGXC-Managed Storage">DGXC-Managed Storage</button>
+    <button class="filter-btn" data-ncp-filter="Capacity">Capacity</button>
+    <button class="filter-btn" data-ncp-filter="Out of Scope">Out of Scope</button>
+    <input class="search-box" type="text" id="ncp-search" placeholder="搜尋需求代碼／名稱／工單…">
+  </div>
+
+  <div class="table-wrap" style="margin-bottom:16px">
+    <table id="ncp-table">
+      <thead><tr><th style="width:70px">代碼</th><th>需求名稱</th><th style="width:150px">章節</th><th style="width:90px">事件數</th><th style="width:24px"></th></tr></thead>
+      <tbody id="ncp-tbody"></tbody>
+    </table>
+  </div>
+  <div id="ncp-empty" style="display:none;text-align:center;padding:32px;color:var(--muted);font-family:var(--mono);font-size:12px">沒有符合條件的需求項目</div>
+
+  <script id="ncp-req-data" type="application/json">
+[{"id": "BFX01", "name": "Breakfix Lifecycle", "desc": "節點電源循環/VM重置、GPU重置、維護退回、Cordon標記不可排程、Host更換申請", "section": "Breakfix", "count": 33, "tickets": [{"key": "VOTS-178", "summary": "10.227.0.228 gpu_xid_error/0000:9a:00/171等問題", "status": "待辦事項 (ASSIGNED)"}, {"key": "VOTS-176", "summary": "10.227.0.6 gpu_xid_error/0000:76:00/48等問題", "status": "待辦事項 (ASSIGNED)"}, {"key": "VOTS-175", "summary": "10.227.1.28 gpu_xid_error/0000:fa:00/79等問題", "status": "待辦事項 (ASSIGNED)"}, {"key": "VOTS-165", "summary": "10.227.1.28 gpu_xid_error/0000:fa:00/79等問題", "status": "進行中 (In-Progress)"}, {"key": "VOTS-162", "summary": "10.227.0.53 異常重啟", "status": "進行中 (In-Progress)"}, {"key": "VOTS-161", "summary": "10.227.0.61 gpu_xid_error/0000:da:00/48等問題", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-160", "summary": "10.227.0.177 gpu_xid_error/0000:9a:00/154等問題", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-153", "summary": "10.227.1.23 gpu_xid_error/0000:f3:00/48等問題", "status": "進行中 (In-Progress)"}, {"key": "VOTS-152", "summary": "10.227.0.178 gpu_xid_error/0000:da:00/149問題", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-151", "summary": "10.227.0.222 gpu_xid_error/0000:da:00/48問題", "status": "進行中 (In-Progress)"}, {"key": "VOTS-150", "summary": "10.227.0.181 GPU掉卡", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-143", "summary": "【硬體/維運】GPU Server Reboot 會清除客戶資料 — 已暫停所有可能觸發重啟之動作", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-142", "summary": "【網路】PXE Server (10.227.14.25) 無法連通閘道 — 已解決（根因：inband IP 誤設於 OOB 網卡）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-133", "summary": "10.227.0.97 GPU 顯卡異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-132", "summary": "[RMA] 現場備品管理方式與領料流程確認", "status": "進行中 (In-Progress)"}, {"key": "VOTS-128", "summary": "Node 154 (10.227.0.153) CX8 網卡 + GPU Node 硬體更換 — Johnny 現場處理中", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-124", "summary": "Node 171 (10.227.0.153) 重啟測試 — BMC 連線異常 + mlx5_bond_0 速率異常排查", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-109", "summary": "F01 與 F02 機櫃 PDU 斷電測試 ", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-106", "summary": "PDU 重新上電作業與 GPM 抓取異常排除", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-103", "summary": "第 287 台節點料件更換與回歸納管", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-100", "summary": "gpusrv251 GPU Tray 硬體更換與鏈路指標恢復驗證", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-48", "summary": "gpusrv181 故障修復與 RMA 驗證交付，完成 GPU Tray 備品替換後確認 SN 為 GQG5R8312A0046", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-46", "summary": "gpusrv123 執行軟體重啟（Warm Boot）後依然偵測不到 GPU 裝置，判定為深層電氣狀態損毀導致暫存器無法重置", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-33", "summary": "gpusrv181 電源拔插作業", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-29", "summary": "gpusrv171 接口引導失敗", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-28", "summary": "gpusrv040 偵測不到 CX8 GPU", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-24", "summary": "gpusrv160 GPU 掉卡 (Xid 79)", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-18", "summary": "gpusrv061 更換整機", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-15", "summary": "風扇模式調整（手動→自動）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-9", "summary": "GPU temp reach to 83 degree", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-8", "summary": "GPU lost ", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-4", "summary": "過熱掉卡，技鋼已讀取log傳回總部分析中", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-3", "summary": "CX8 GPU 丢了， 需要重新插拔一下GPU tray，重新插拔後降速", "status": "已解決 (RESOLVED)"}]}, {"id": "BFX02", "name": "Breakfix Events", "desc": "查詢節點/機櫃維護事件、退役通知、維修歷史/狀態", "section": "Breakfix", "count": 2, "tickets": [{"key": "VOTS-145", "summary": "[維運] tier1 & tier 2 維運流程/溝通做法/SLA支援", "status": "待辦事項 (ASSIGNED)"}, {"key": "VOTS-99", "summary": "B300 Incident Tracking", "status": "進行中 (In-Progress)"}]}, {"id": "BFX03", "name": "Diagnostics", "desc": "硬體序號識別（機殼/主機板/網卡/CPU/GPU）、韌體版本檢視", "section": "Breakfix", "count": 15, "tickets": [{"key": "VOTS-171", "summary": "10.227.0.177 網路卡故障mlx5_2 mlx5_3", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-170", "summary": "10.227.0.66 網路卡故障mlx5_2 mlx5_3", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-169", "summary": "10.227.0.181 網路卡故障mlx5_2 mlx5_3", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-168", "summary": "10.227.0.61 網路卡故障mlx5_2 mlx5_3", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-167", "summary": "10.227.0.177 網卡故障mlx5_2 mlx5_3", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-166", "summary": "10.227.1.23 少了 mlx5_2/ mlx5_3  2張網卡", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-136", "summary": "BMC 時區現為 UTC 0:00", "status": "待辦事項 (ASSIGNED)"}, {"key": "VOTS-126", "summary": "BF3 網卡更換後無法 PXE Boot — 需聯繫 NVIS 確認開機機制", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-40", "summary": "gpusrv225/226 網線接反", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-39", "summary": "gpusrv255 BMC 不通", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-31", "summary": "刷取 SKU sensor 類韌體", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-27", "summary": "BMC SKU 刷新設定（24台）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-23", "summary": "gpusrv065 CX8 網卡損壞", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-12", "summary": "gpusrv120/132 硬體異常需調整", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-11", "summary": "BF3 網卡未識別/未亮燈（多台）", "status": "已解決 (RESOLVED)"}]}, {"id": "NET01", "name": "Backend Switch Fabric API", "desc": "各運算節點連接核心的後端網路交換器拓樸資訊（leaf/spine/core）", "section": "Network", "count": 15, "tickets": [{"key": "VOTS-163", "summary": "10.227.0.23 ibp240s0 down", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-122", "summary": "gpusrv003 IB Link Down（已解決）+ BGP/BFD 客戶端無回應 + BMC 153 連線異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-93", "summary": "18/1 埠口鏈路品質（BER）異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-47", "summary": "管理伺服器（S17/S11/S12）路徑物理改線作業，將管理路徑從 BF3 DPU 遷移至主機 Onboard 1G 埠口", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-43", "summary": "gpusrv225 PCIE 鏈路偏離", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-41", "summary": "ib-spine10 port-28 鏈路異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-38", "summary": "gpusrv023 IB 端口異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-36", "summary": "IB-SW 交換機異常亮橘燈", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-25", "summary": "gpusrv232 鏈路不穩（燈號自滅）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-22", "summary": "ib-leaf03 PSU8 電源報錯", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-21", "summary": "gpusrv135 IB 鏈路時通時不通", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-20", "summary": "gpusrv061 管理通訊排除", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-17", "summary": "多節點至 Leaf 交換器不通", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-13", "summary": "Border02 收發器燈不亮", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-1", "summary": "PCIE downlink deviation", "status": "已解決 (RESOLVED)"}]}, {"id": "NET02", "name": "NVLink Domain API", "desc": "支援NVLink的運算節點回傳所屬NVLink網域唯一識別碼", "section": "Network", "count": 3, "tickets": [{"key": "VOTS-147", "summary": "10.227.0.173 GPU2 Nvlink 異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-34", "summary": "gpusrv023 頻發 NVLink 錯誤", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-5", "summary": "節點多次出現nvlink 的error 需要更換GPU Tray", "status": "已解決 (RESOLVED)"}]}, {"id": "NET03", "name": "Non-Conflicting IP Space Allocation", "desc": "BYOIP、Stable IP、DoD位址空間、路由廣告支援", "section": "Network", "count": 9, "tickets": [{"key": "VOTS-177", "summary": "[Change] CPU 分配異動 - 康斯特CPU需求 + 亞灣內部CPU需求 (P2P表/IP Assignment表異動)", "status": "待辦事項 (ASSIGNED)"}, {"key": "VOTS-164", "summary": "【緊急】客戶端專線 BGP Down - 需確認狀態", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-127", "summary": "【網路】新 VRF (Vrf_6) 缺 VPN pool 精準回程路由，VPN 使用者僅能連 BCM 無法直達 GPU/CPU", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-120", "summary": "ASN/BGP 對接 + gpusr001/IBoIP 路由問題 + 288 節點全量交付準備（7/1 晚間～7/2 凌晨）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-119", "summary": "GPU 節點 InfiniBand (100.126.0.0/16) 網段無路由，ping 100% 遺失", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-118", "summary": "VPN 10.227 網段路由異常 + 逐台交付決策與 P2P Checklist 強制化", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-116", "summary": "TAN 網路 IP 分配更新與 MMR 櫃位光纖重拉作業", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-110", "summary": " 客戶端網路架構方案最終確認 ", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-10", "summary": "多節點 IP 不通（041/046/063）", "status": "已解決 (RESOLVED)"}]}, {"id": "NET04", "name": "Connection to NVIDIA CorpIT Network", "desc": "Private Cloud Interconnect + VIF + BGP連接NVIDIA CorpIT網路", "section": "Network", "count": 0, "tickets": []}, {"id": "NET05", "name": "Connection to DGXC Storage", "desc": "Private Cloud Interconnect + VIF + BGP連接DGXC on-prem物件儲存", "section": "Network", "count": 0, "tickets": []}, {"id": "NET06", "name": "Cluster Local Internet Access", "desc": "叢集對外公網存取，固定Egress NAT IP池，備援上聯路徑", "section": "Network", "count": 1, "tickets": [{"key": "VOTS-179", "summary": "10G公網客戶實測效能僅有2G, 影響客戶集群運行效率", "status": "待辦事項 (ASSIGNED)"}]}, {"id": "DIR01", "name": "File Service UID/GID Quota", "desc": "檔案系統層級配額設定、per uid/gid覆寫、使用量統計", "section": "Storage", "count": 2, "tickets": [{"key": "VOTS-138", "summary": "【維運】NFS4（/home、/cm/shared）空間使用率達 98%，清理 NVIS validation 資料後降至 42%", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-50", "summary": "gpusrv184 與 gpusrv153 部署異常，包含磁碟配置缺失、OS 被抹除與 BIOS TPM 配置套用失敗", "status": "已解決 (RESOLVED)"}]}, {"id": "DIR02", "name": "Must Be NFS Storage", "desc": "NFSv4通訊協定共享儲存，POSIX權限存取控制", "section": "Storage", "count": 0, "tickets": []}, {"id": "DIR03", "name": "Snapshots", "desc": "檔案系統快照/還原功能", "section": "Storage", "count": 0, "tickets": []}, {"id": "DIR04", "name": "LDAP", "desc": "與NVIDIA管理的LDAP整合", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS01", "name": "Provisioning APIs", "desc": "儲存供應可透過廠商或NCP portal/API", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS02", "name": "Performance", "desc": "依需求提供最低頻寬與IOPS", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS03", "name": "Integration", "desc": "K8s CSI支援；Breakfix API回報儲存問題", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS04", "name": "Quota Support", "desc": "檔案系統/目錄層級配額與使用量統計", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS05", "name": "Upgrade, Maintenance", "desc": "維護排程、可延後最多2週、升級應無中斷", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS06", "name": "RDMA Memory Protection", "desc": "RDMA記憶體保護授權金鑰機制", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS07", "name": "Parallel High Speed Filesystem", "desc": "支援數千用戶端同時存取的平行高速檔案系統", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS08", "name": "Single File System Size", "desc": "單一檔案系統至少1PiB，可擴展至>10PiB", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS09", "name": "Multiple Filesystems", "desc": "總容量內可有多個檔案系統，最小50TiB", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS10", "name": "Filesystem Expansion", "desc": "線上擴充容量/inode/IO效能且效能線性擴展", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS11", "name": "Client", "desc": "客戶端安裝方式、DKMS套件、ARM64相容性", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS12", "name": "Quota (User, Project & Group)", "desc": "軟/硬配額，uid/gid/專案層級", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS13", "name": "Root-Squash", "desc": "可隨時啟用/停用/管理root-squash", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS14", "name": "Flock", "desc": "支援flock掛載", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS15", "name": "Ability to Audit Changes", "desc": "檔案系統稽核異動記錄，依uid/gid追蹤", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS16", "name": "HA", "desc": "後端關鍵元件故障時服務持續可用", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS17", "name": "Multi-Node Coherency", "desc": "1秒內完成屬性/dentry cache更新失效", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS18", "name": "Client Multipathing", "desc": "客戶端至儲存伺服器多路徑", "section": "Storage", "count": 0, "tickets": []}, {"id": "HSS19", "name": "LDAP (for NFS)", "desc": "NFS服務與NVIDIA LDAP整合", "section": "Storage", "count": 0, "tickets": []}, {"id": "DMS01", "name": "Dedicated K8s Cluster", "desc": "Data Mover專用k8s叢集", "section": "Data Movement", "count": 0, "tickets": []}, {"id": "DMS02", "name": "Data Mover Nodes (CPU)", "desc": "專用CPU節點，高效能網路", "section": "Data Movement", "count": 0, "tickets": []}, {"id": "DMS03", "name": "Access to Same GPU Storage", "desc": "Data Mover節點掛載與GPU節點相同檔案系統", "section": "Data Movement", "count": 0, "tickets": []}, {"id": "DMS04", "name": "Access to NVIDIA Corp Net", "desc": "專線連接NVIDIA corp net", "section": "Data Movement", "count": 0, "tickets": []}, {"id": "DMS05", "name": "Stable Egress IP", "desc": "穩定IP供NVIDIA服務白名單", "section": "Data Movement", "count": 0, "tickets": []}, {"id": "STG01", "name": "Operating System Support", "desc": "支援DGXC自帶OS映像部署（bare-metal/VM）", "section": "DGXC-Managed Storage", "count": 0, "tickets": []}, {"id": "STG02", "name": "Drive Sanitization Policy", "desc": "租戶間硬碟加密抹除，含break/fix略過機制", "section": "DGXC-Managed Storage", "count": 0, "tickets": []}, {"id": "STG03", "name": "Stable IP Assignment", "desc": "儲存節點靜態IP在生命週期內保持穩定", "section": "DGXC-Managed Storage", "count": 0, "tickets": []}, {"id": "STG04", "name": "Out-of-Band Failure Detection", "desc": "頻外偵測裝置/網路/記憶體/硬碟故障", "section": "DGXC-Managed Storage", "count": 2, "tickets": [{"key": "VOTS-101", "summary": "OOB 網路鏈路斷連引發監控失靈與 GPM 納管受阻", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-26", "summary": "oob-leaf3 PSU2 報錯", "status": "已解決 (RESOLVED)"}]}, {"id": "STG05", "name": "Topology Observability", "desc": "故障域拓樸可視性，支援跨故障域佈建", "section": "DGXC-Managed Storage", "count": 0, "tickets": []}, {"id": "STG06", "name": "BlueField/DPU Support", "desc": "BlueField-based JBOF系統生命週期管理", "section": "DGXC-Managed Storage", "count": 0, "tickets": []}, {"id": "CAP01", "name": "Governance Metrics", "desc": "Delivered/Healthy/Reserved/Total Active核心指標", "section": "Capacity", "count": 3, "tickets": [{"key": "VOTS-121", "summary": "7/2 288 台節點全量交付 + RAID 配置爭議決策", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-102", "summary": "GPU 叢集作業系統最終驗證與連通性測試", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-92", "summary": "gpusrv153 部署成功與交機", "status": "已解決 (RESOLVED)"}]}, {"id": "CAP02", "name": "Resource Governance API Metrics", "desc": "節點層級健康狀態、實例ID、時間戳等資訊", "section": "Capacity", "count": 0, "tickets": []}, {"id": "CAP03", "name": "Resource Discovery APIs", "desc": "新交付容量可透過集中式API發現", "section": "Capacity", "count": 0, "tickets": []}, {"id": "CAP04", "name": "Logical Compartmentalization & Resource Isolation", "desc": "資源邏輯/實體隔離、容量預留、拓樸區塊原子分配", "section": "Capacity", "count": 1, "tickets": [{"key": "VOTS-144", "summary": "[需求] Konst CPU 需求", "status": "待辦事項 (ASSIGNED)"}]}, {"id": "CAP05", "name": "Unified Health & Lifecycle APIs", "desc": "實體主機與邏輯運算單元健康狀態單一真實來源", "section": "Capacity", "count": 7, "tickets": [{"key": "VOTS-159", "summary": "10.227.0.23 node_lost/lost heart beat等問題", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-42", "summary": "gpusrv061 主機當機", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-32", "summary": "gpusrv154-160 節點離線（訊息未傳達）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-30", "summary": "gpusrv003 健康檢查失敗當機", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-16", "summary": "多節點（016/076等）無法開機", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-7", "summary": "機器是Down 掉的狀態", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-6", "summary": "machine Down ", "status": "已解決 (RESOLVED)"}]}, {"id": "FAC", "name": "設施/機電（文件未涵蓋）", "desc": "CDU、PDU、液冷管路、機櫃散熱等設施層事件，非本需求文件涵蓋範圍", "section": "Out of Scope", "count": 12, "tickets": [{"key": "VOTS-141", "summary": "【設施】3F F02 機櫃 CDU 顯示異常，7/9 更換作業已取消，待客戶新增修改事項排查完成後另訂時間", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-131", "summary": "PDU 異常查修 — Netris 網路層阻擋封包抓取，待釐清硬體/網路根因", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-115", "summary": "資安機櫃散熱調整引發 VPN 服務中斷與緊急切換", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-104", "summary": "CDU Switch Port 開通與管理連線優化", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-94", "summary": "GPM OOB Discovery 與 CDU 納管進度", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-51", "summary": "CDU 異常 ARP 廣播問題追蹤，監控顯示 CDU 持續發送大量 ARP 請求，疑似網路協定棧異常", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-49", "summary": "B02 機櫃液冷管路維修，修復水管物理折損並重新開機恢復運作", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-44", "summary": "3F CDU 管路優化", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-37", "summary": "40台伺服器險些過溫（值班操作失誤）", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-35", "summary": "A01/A02 機櫃上水觀測與逐排開機", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-19", "summary": "CDU IP 衝突影響交換器運作", "status": "已解決 (RESOLVED)"}, {"key": "VOTS-14", "summary": "CDU/PDU IP 未設定（SU1-SU2）", "status": "已解決 (RESOLVED)"}]}]
+  </script>
+
+
 </div></div></div><div class="drawer-overlay" id="drawer-overlay"></div>
 <div class="drawer" id="detail-drawer">
   <button class="drawer-close" id="drawer-close">✕</button>
@@ -4824,6 +4875,107 @@ document.querySelectorAll('.bar-row[data-cat]').forEach(row=>{
     showToast(`已篩選：${CAT_LABEL[cat]}`);
   });
 });
+
+
+// ── NCP REQUIREMENT MANIFEST ──────────────────────────
+(function(){
+  const dataEl = document.getElementById('ncp-req-data');
+  if(!dataEl) return;
+  const NCP_DATA = JSON.parse(dataEl.textContent);
+  const tbody = document.getElementById('ncp-tbody');
+  const emptyEl = document.getElementById('ncp-empty');
+  const searchInput = document.getElementById('ncp-search');
+  let activeSection = 'all';
+
+  const sectionZh = {
+    'Breakfix':'Breakfix', 'Network':'Network', 'Storage':'Storage',
+    'Data Movement':'Data Movement', 'DGXC-Managed Storage':'DGXC-Managed Storage',
+    'Capacity':'Capacity', 'Out of Scope':'Out of Scope'
+  };
+
+  function ncpStatusClass(status){
+    if(status.includes('已解決') || status.toUpperCase().includes('RESOLVED')) return 'fixed';
+    if(status.includes('進行中') || status.toUpperCase().includes('PROGRESS')) return 'wip';
+    return 'open';
+  }
+
+  document.querySelectorAll('.filter-btn[data-ncp-filter]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeSection = btn.dataset.ncpFilter;
+      document.querySelectorAll('.filter-btn[data-ncp-filter]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      renderNcp();
+    });
+  });
+  searchInput.addEventListener('input', renderNcp);
+
+  function renderNcp(){
+    const q = searchInput.value.trim().toLowerCase();
+    tbody.innerHTML = '';
+    let shown = 0;
+
+    NCP_DATA.forEach(d=>{
+      if(activeSection !== 'all' && d.section !== activeSection) return;
+      if(q){
+        const hay = (d.id+' '+d.name+' '+d.desc+' '+d.tickets.map(t=>t.key+' '+t.summary).join(' ')).toLowerCase();
+        if(!hay.includes(q)) return;
+      }
+      shown++;
+
+      const row = document.createElement('tr');
+      row.style.cursor = 'pointer';
+      const count = d.count;
+      let badge;
+      if(d.id === 'FAC'){
+        badge = `<span style="color:var(--rma);font-weight:700">${count} 件</span>`;
+      } else if(count > 0){
+        badge = `<span style="color:var(--ok);font-weight:700">✅ ${count} 件</span>`;
+      } else {
+        badge = `<span style="color:var(--muted)">— 0 件</span>`;
+      }
+      row.innerHTML = `
+        <td style="font-family:var(--mono);font-weight:700;color:var(--accent2)">${d.id}</td>
+        <td><div style="font-weight:600">${d.name}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${d.desc}</div></td>
+        <td style="font-size:11.5px;color:var(--muted)">${sectionZh[d.section]||d.section}</td>
+        <td>${badge}</td>
+        <td style="text-align:center;color:var(--muted)" class="ncp-chev">▸</td>
+      `;
+
+      const detailRow = document.createElement('tr');
+      detailRow.style.display = 'none';
+      const detailCell = document.createElement('td');
+      detailCell.colSpan = 5;
+      detailCell.style.background = 'var(--surface2)';
+      detailCell.style.padding = '10px 18px';
+      if(d.tickets.length === 0){
+        detailCell.innerHTML = `<div style="color:var(--muted);font-size:12px;font-style:italic;padding:6px 0">此需求項目目前無 Jira 事件對應，屬於待補證據或尚未觸發的需求類別。</div>`;
+      } else {
+        detailCell.innerHTML = d.tickets.map(t=>`
+          <div style="display:flex;gap:12px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--border);font-size:12px">
+            <a href="https://visionbay.atlassian.net/browse/${t.key}" target="_blank" style="font-family:var(--mono);color:var(--accent2);flex:0 0 74px;font-size:11.5px;font-weight:700;text-decoration:none">${t.key}</a>
+            <span style="color:var(--text);flex:1;line-height:1.5">${t.summary}</span>
+            <span class="status ${ncpStatusClass(t.status)}" style="flex:0 0 auto">${t.status.replace(/\\(.*\\)/,'').trim()}</span>
+          </div>
+        `).join('').replace('border-top:1px dashed var(--border)','border-top:none').replace(/(<div style="display:flex[^"]*)"/,'$1;border-top:none"');
+      }
+      detailRow.appendChild(detailCell);
+
+      row.addEventListener('click', ()=>{
+        const isOpen = detailRow.style.display !== 'none';
+        detailRow.style.display = isOpen ? 'none' : 'table-row';
+        row.querySelector('.ncp-chev').textContent = isOpen ? '▸' : '▾';
+        row.querySelector('.ncp-chev').style.color = isOpen ? 'var(--muted)' : 'var(--accent2)';
+      });
+
+      tbody.appendChild(row);
+      tbody.appendChild(detailRow);
+    });
+
+    emptyEl.style.display = shown === 0 ? 'block' : 'none';
+  }
+
+  renderNcp();
+})();
 
 </script>
 

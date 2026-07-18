@@ -601,31 +601,33 @@
   </div>
 
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
-    <h4 style="margin:0 0 10px;font-size:14px;color:var(--danger)">🔔 給長官：本週 3 大重大事項</h4>
-    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 10px">單一事件靠工程師排查就好，但同一個問題反覆出現代表背後有系統性原因，不是靠「再修一次」能解決的。以下是本週最值得管理層關注的 3 件事：</p>
-    <table class="gov-table" style="margin-bottom:0">
-      <thead><tr><th>事項</th><th>規模</th><th>代表的問題</th><th>建議</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>VOTS-164 海纜斷線，持續追蹤中</strong></td>
-          <td>7/14 至今未解決，<strong>無 ETR（預估 20~200 天）</strong></td>
-          <td>非我方問題（SJC2 台新海纜斷裂），但<strong>客戶端持續倚賴臨時 1G 過渡線路</strong>，屬長期風險</td>
-          <td>非技術團隊可控，但應定期向客戶／管理層同步是方修復進度，避免資訊斷層</td>
-        </tr>
-        <tr>
-          <td><strong>gpusrv283 同一張卡連續 2 次異常</strong></td>
-          <td>7/15（GPU 掉卡）→ 7/16（同插槽 PCIe 降速），<strong>同一張卡 0000:fa:00.0</strong></td>
-          <td>短期內同插槽二度異常，<strong>可能是卡體或插槽本身劣化</strong></td>
-          <td>建議優先安排整機健檢，若第 3 次異常應直接視為換料案例，不宜再視為獨立事件排查</td>
-        </tr>
-        <tr>
-          <td><strong>Row Remapper Pending 批次案例</strong></td>
-          <td>7/16 同日 2 起（VOTS-176、178），不同節點</td>
-          <td>同型態早期預警指標同日集中出現，<strong>可能是同批次 GPU 料件的共通品質趨勢</strong></td>
-          <td>建議一併追查兩節點 GPU 是否為同批次交付，若是應擴大排查同批其他節點</td>
-        </tr>
-      </tbody>
-    </table>
+    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 3 件事</h4>
+
+    <div style="display:flex;gap:12px;margin-bottom:14px">
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">RMA案件「什麼算修好」跟客戶認知不一樣，需要拍板</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">客戶認為要驗證通過才算完成，我們認為廠商換完檢查就算完成。這個落差直接影響停機時數怎麼算，客戶目前不接受我們提的方案，需要找人定案後再跟客戶談。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px;margin-bottom:14px">
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--warn);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">海纜斷了，還要等20~200天修好</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">不是我們的問題，但客戶一直用臨時線路頂著，時間拖越長風險越高。建議定期跟客戶同步進度，不要讓對方覺得沒人管。</div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:12px">
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">3</div>
+      <div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">同一台機器（gpusrv177）這季壞第4次了</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">建議安排整機健檢，別再一次一次單獨修，很可能是這台機器本身有問題。</div>
+      </div>
+    </div>
+
+    </div>
   </div>
 
   <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–07/18，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
@@ -1038,6 +1040,37 @@
       <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：288 節點交付當週一次暴露 11 起問題，事後才緊急處理。若下一代機台（GB300）規模更大，同樣模式重演的代價會更高。</p>
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否同意將本季發現的問題整理為正式的「交付前檢查清單」，作為下一次大型交付的驗收標準？這是把本季的教訓轉化為資產，而不是繳學費就算了。</p>
     </div>
+  </div>
+
+  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
+    <h4 style="margin:0 0 10px;font-size:14px;color:var(--danger)">🚨 待決議・「維護完成」與「停機結束」定義與客戶認知落差</h4>
+    <p style="font-size:12.5px;color:var(--text);line-height:1.8;margin:0 0 12px">此議題直接關係到 SLA 停機時間如何計算，是 <a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-150</a>（6,339 分鐘、全站最高停機事件）延宕的核心爭議點之一，目前尚未定案。</p>
+    <table class="gov-table" style="margin-bottom:12px">
+      <thead><tr><th>面向</th><th>內容</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="white-space:nowrap"><strong>客戶認知</strong>（康斯特）</td>
+          <td style="font-size:12px">設備更換後仍需<strong>由客戶完成驗證</strong>，確認可正常使用後才算維護完成</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap"><strong>我方現行理解</strong></td>
+          <td style="font-size:12px">廠商（技鋼）完成更換及基本檢查後，即可視為維護完成</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap"><strong>落差核心</strong></td>
+          <td style="font-size:12px">「維護完成」與「停機結束」是否需以<strong>客戶驗證結果</strong>為準</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap"><strong>現場實際流程</strong></td>
+          <td style="font-size:12px">硬體異常 → 停機排查 → 確認需換料 → 廠商 RMA → 新設備開機/連線/硬體狀態確認 → 異常排除後恢復服務；若更換後仍無法正常使用，實際上不能算 RMA 已完成（細節待 Johnny、Gary 補充現場流程）</td>
+        </tr>
+        <tr>
+          <td style="white-space:nowrap"><strong>建議定義</strong>（尚未定案）</td>
+          <td style="font-size:12px">拆分兩階段：① 設備更換後，我方依既定檢查項目確認服務恢復 → <strong>停止計算停機時間</strong>，狀態改為「服務已恢復，待客戶驗證」；② 客戶驗證通過後才正式結案。優點是聚焦「客戶實際服務是否恢復」而非「設備本身是否換完」<br><span style="color:var(--danger);font-weight:600">⚠️ 康斯特目前不接受此定義</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px;color:var(--muted);line-height:1.7;margin:0"><strong>下一步</strong>：待 Johnny、Gary 補充現場 RMA 流程細節；團隊討論建議定義是否需調整；後續評估是否需 Frank 或相關人員定案後，再與康斯特正式詳談。</p>
   </div>
 
 </div><div class="tab-panel" id="tab-incidents">

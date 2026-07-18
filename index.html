@@ -626,8 +626,6 @@
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">建議安排整機健檢，別再一次一次單獨修，很可能是這台機器本身有問題。</div>
       </div>
     </div>
-
-    </div>
   </div>
 
   <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–07/18，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
@@ -4594,6 +4592,7 @@ document.querySelectorAll('.nav-tab').forEach(tab=>{
     document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
     tab.classList.add('active');
     document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+    window.scrollTo(0,0);
   });
 });
 

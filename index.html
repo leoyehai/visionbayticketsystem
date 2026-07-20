@@ -591,7 +591,7 @@
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
       <div class="stat-value" style="color:var(--danger)">18 件</div>
-      <div class="stat-sub">7/20 單日新增 7 件：機櫃網路批次（#65~72）＋CDU 異常影響 8 台節點</div>
+      <div class="stat-sub">7/20 新增 7 件：CDU 過熱根因確認影響 16 台節點＋5 台 GPU Xid 待處理</div>
     </div>
   </div>
 
@@ -654,7 +654,7 @@
       <div class="cat-grid" style="margin-bottom:0">
         <div class="cat-card" data-cat="hw">
           <div class="cat-icon hw">🖥️</div>
-          <div class="cat-info"><div class="cat-name">硬體</div><div class="cat-stats">42 件 · 540.10 hr</div></div>
+          <div class="cat-info"><div class="cat-name">硬體</div><div class="cat-stats">38 件 · 540.10 hr</div></div>
         </div>
         <div class="cat-card" data-cat="net">
           <div class="cat-icon net">🌐</div>
@@ -662,7 +662,7 @@
         </div>
         <div class="cat-card" data-cat="cool">
           <div class="cat-icon cool">❄️</div>
-          <div class="cat-info"><div class="cat-name">設施</div><div class="cat-stats">9 件 · 32.50 hr</div></div>
+          <div class="cat-info"><div class="cat-name">設施</div><div class="cat-stats">13 件 · 32.50 hr</div></div>
         </div>
       </div>
     </div>
@@ -825,8 +825,8 @@
 
   <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 108 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
   <div class="sla-hero">
-    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">18 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 596.7 hr</div></div>
-    <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">26 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 100.9 hr</div></div>
+    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">26 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 596.7 hr</div></div>
+    <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">36 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 100.9 hr</div></div>
     <div class="sla-card p3"><div class="sla-badge">P3 警告</div><div class="sla-time" id="p3-count">10 件</div><div class="sla-desc">停機 1–99 分｜累計 3.7 hr</div></div>
     <div class="sla-card p4"><div class="sla-badge">P4 一般</div><div class="sla-time" id="p4-count">34 件</div><div class="sla-desc">無記錄停機、已完成或例行性事件</div></div>
   </div>
@@ -864,11 +864,11 @@
 
   <div class="charts-row" style="margin-bottom:8px">
     <div class="chart-box">
-      <h3 style="color:var(--danger)">🔴 P1 緊急（18 件）</h3>
+      <h3 style="color:var(--danger)">🔴 P1 緊急（26 件）</h3>
       <div class="tool-links" data-p="P1" style="max-height:160px;overflow-y:auto"></div>
     </div>
     <div class="chart-box">
-      <h3 style="color:var(--warn)">🟠 P2 重大（26 件）</h3>
+      <h3 style="color:var(--warn)">🟠 P2 重大（36 件）</h3>
       <div class="tool-links" data-p="P2" style="max-height:160px;overflow-y:auto"></div>
     </div>
   </div>
@@ -890,12 +890,12 @@
       <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>客戶端專線 BGP Down（SJC2 台新海纜斷裂，近樟宜約 27km）</strong><br>開始日：7/14 19:18　分類：網路<br>我方系統確認正常，根因為上游電信商海纜斷裂，<strong>目前無 ETR（預估 20~200 天）</strong>。是方已調度臨時 1G 線路供客戶過渡，需持續追蹤是方修復進度、RCA 與臨時線路頻寬狀況。</p>
     </div>
     <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3 style="color:var(--danger)">🚨 設施批次・影響 8 台節點 — <a href="https://visionbay.atlassian.net/browse/VOTS-189" target="_blank" style="color:inherit;text-decoration:none">VOTS-189</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>Rack-3F-H02 #137-144 CDU 異常</strong><br>開始日：7/20 16:45　分類：硬體<br>CDU 顯示異常，影響範圍涵蓋整排 8 台節點，屬設施層級高風險案例，建議優先排查 CDU 本身而非逐台檢查。</p>
+      <h3 style="color:var(--danger)">🚨 根因確認・CDU 過熱影響 16 台節點 — <a href="https://visionbay.atlassian.net/browse/VOTS-189" target="_blank" style="color:inherit;text-decoration:none">VOTS-189</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-186" target="_blank" style="color:inherit;text-decoration:none">186</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-187" target="_blank" style="color:inherit;text-decoration:none">187</a> / <a href="https://visionbay.atlassian.net/browse/VOTS-188" target="_blank" style="color:inherit;text-decoration:none">188</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>3F-D02＋H02 機櫃 CDU 溫度過高，導致網路模組失效</strong><br>開始日：7/20 15:36　分類：設施（原誤判為個別網卡/CDU 硬體故障，16:00 查明為同一根因）<br>影響範圍 10.227.0.65~72（D02）＋10.227.0.137~144（H02），共 <strong>16 台節點</strong>。16:29 已啟動 Drain 排空任務並通知客戶，原廠預計 7/21 到場查修。<strong style="color:var(--danger)">⚠️ 節點重啟務必透過 BMC 選擇 Disk OS 開機</strong>，避免比照 VOTS-143 資料被意外重置的風險。</p>
     </div>
     <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3 style="color:var(--danger)">🔌 網路批次・同櫃 3 台已開單（共 8 台受影響） — <a href="https://visionbay.atlassian.net/browse/VOTS-186" target="_blank" style="color:inherit;text-decoration:none">VOTS-186</a>/<a href="https://visionbay.atlassian.net/browse/VOTS-187" target="_blank" style="color:inherit;text-decoration:none">187</a>/<a href="https://visionbay.atlassian.net/browse/VOTS-188" target="_blank" style="color:inherit;text-decoration:none">188</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv066／067／068 net_link_down</strong><br>開始日：7/20 15:36　分類：硬體<br>同一機櫃內 #65~72 共 8 台節點皆有相同現象，已開單 3 台，強烈提示為機櫃層級共通因素，應優先排查交換器/線材/供電等共同觸發點。</p>
+      <h3 style="color:var(--danger)">🔧 硬體診斷・5 台 GPU Xid 異常待處理 — <a href="https://visionbay.atlassian.net/browse/VOTS-183" target="_blank" style="color:inherit;text-decoration:none">183</a>/<a href="https://visionbay.atlassian.net/browse/VOTS-184" target="_blank" style="color:inherit;text-decoration:none">184</a>/<a href="https://visionbay.atlassian.net/browse/VOTS-185" target="_blank" style="color:inherit;text-decoration:none">185</a></h3>
+      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>10.227.0.53／1.28 等 5 台機器 gpu_xid_error</strong><br>09:42 Johnny 確認判定為硬體問題，原廠已安排 <strong>7/24 更換其中 2 台 GPU tray</strong>，其餘 3 台（含 gpu 59／222／250）持續辦理 RMA，待確認客戶無任務後執行診斷腳本排除隱憂。</p>
     </div>
     <div class="chart-box" style="border-left:3px solid var(--danger)">
       <h3 style="color:var(--danger)">🚨 待辦事項・客戶要求防止資料遺失 — <a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:inherit;text-decoration:none">VOTS-165</a></h3>
@@ -1914,7 +1914,7 @@
       <div class="arch-layer" data-filtercat="hw" style="--layer-color:var(--danger)">
         <div class="arch-layer-head">
           <span class="arch-code">L3</span><span class="arch-icon">⚡</span><span class="arch-title">GPU / Fabric 算力</span>
-          <span class="arch-hint">⊙ 查看相關事件（硬體 42件）</span>
+          <span class="arch-hint">⊙ 查看相關事件（硬體 38件）</span>
         </div>
         <div class="arch-pills">
           <span class="arch-pill">NVIDIA B300 GPU 叢集（8× Blackwell SXM7／節點）</span>
@@ -4593,10 +4593,10 @@ const INCIDENTS = [
   {date:'07/20',cat:'ops',title:'10.227.0.222 gpu_xid_error/0000:da:00/171 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv222（10.227.0.222，同 VOTS-151 節點）',action:'nvidia-smi 確認 DRAM Uncorrectable 累計 11、Channel Repair Pending=Yes、Remapped Rows Uncorrectable=2/Pending=Yes，已請協助確認是否符合 RMA 標準',lesson:'gpusrv222 短期內第 2 次出現 GPU Xid 異常記錄（VOTS-151、本案），建議併案判定是否為同一張卡持續劣化，避免逐次單獨排查延誤 RMA 判定。',tool:'dcgm',owner:'tier2',jira:'VOTS-183'},
   {date:'07/20',cat:'ops',title:'10.227.0.59 gpu_xid_error/0000:fa:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv059（10.227.0.59）',action:'nvidia-smi 確認 DRAM Uncorrectable=4、Remapped Rows Uncorrectable=1/Pending=Yes，已請協助確認是否符合 RMA 標準',lesson:'DRAM Uncorrectable 已達 4 次且 Row Remapper Pending，屬早期預警指標，建議儘速排入下次維護窗口套用。',tool:'dcgm',owner:'tier2',jira:'VOTS-184'},
   {date:'07/20',cat:'ops',title:'10.227.0.250 gpu_xid_error/0000:da:00/63 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv250（10.227.0.250）',action:'nvidia-smi 確認 Remapped Rows Correctable=6/Pending=Yes（僅可修正錯誤，無 Uncorrectable），已請協助確認是否符合 RMA 標準',lesson:'本案僅為 Correctable 等級 Row Remapper Pending，嚴重度低於同日其他 3 起（VOTS-183/184 皆有 Uncorrectable），建議依嚴重度排序處理優先順序，不宜齊頭並進。',tool:'dcgm',owner:'tier2',jira:'VOTS-185'},
-  {date:'07/20',cat:'hw',title:'#66 net_link_down（同櫃批次現象 #65~72）',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv066（10.227.0.66，同 VOTS-170 節點）',action:'ibstat 確認 mlx5_9 port 1 State: Down、Physical state: Disabled，因同櫃 #65~72 皆有相同現象，需共同排查是否有共通根因',lesson:'同一機櫃內 8 台節點（#65~72）同時出現網路連結中斷，強烈提示為機櫃層級共通因素（如同批交換器埠口/線材/供電），應優先排查共同觸發點而非逐台個別處理。',tool:'ufm',owner:'tier2',jira:'VOTS-186'},
-  {date:'07/20',cat:'hw',title:'#67 net_link_down（同櫃批次現象 #65~72）',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv067（10.227.0.67）',action:'ibstat 確認 mlx5_9 port 1 State: Down、Physical state: Disabled，與 VOTS-186/188 等同櫃節點併案排查',lesson:'併入 VOTS-186 機櫃層級批次事件一併追蹤，避免視為獨立單點事件重複排查。',tool:'ufm',owner:'tier2',jira:'VOTS-187'},
-  {date:'07/20',cat:'hw',title:'#68 net_link_down（同櫃批次現象 #65~72）',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv068（10.227.0.68）',action:'ibstat 確認 mlx5_0 port 1 State: Down、Physical state: Disabled，與 VOTS-186/187 等同櫃節點併案排查',lesson:'併入 VOTS-186 機櫃層級批次事件一併追蹤，避免視為獨立單點事件重複排查。',tool:'ufm',owner:'tier2',jira:'VOTS-188'},
-  {date:'07/20',cat:'hw',title:'Rack-3F-H02 #137-144 CDU 異常',down:'0',prio:'中',p:'P2',status:'open',scope:'3F H02 機櫃 #137-144（8 台節點，設施層級）',action:'CDU 顯示異常，影響範圍涵蓋整排 8 台節點，排查中',lesson:'設施層級（CDU）異常一次影響 8 台節點，屬高風險案例，應比照 VOTS-186 機櫃網路批次事件的處理邏輯，優先排查 CDU 本身而非逐台檢查個別節點。',tool:'intouch',owner:'facility',jira:'VOTS-189'},
+  {date:'07/20',cat:'cool',title:'#66 net_link_down（根因：3F-D02 CDU 溫度過高）',down:'0',prio:'中',p:'P1',status:'wip',scope:'gpusrv066（10.227.0.66，同 VOTS-170 節點）',action:'ibstat 確認 mlx5_9 port 1 Physical state: Disabled；16:00 查明根因為 3F-D02 機櫃 CDU 溫度過高導致網路模組失效，非網卡硬體故障；16:29 已啟動 Drain 排空任務並通知客戶；原廠預計 7/21 到場查修',lesson:'⚠️ 根因為 CDU 過熱、非個別網卡故障，應與 VOTS-187／188／189 併案處理。節點重啟務必透過 BMC 選擇 Disk OS 開機，避免比照 VOTS-143 資料被意外重置的風險。',tool:'intouch',owner:'facility',jira:'VOTS-186'},
+  {date:'07/20',cat:'cool',title:'#67 net_link_down（根因：3F-D02 CDU 溫度過高）',down:'0',prio:'中',p:'P1',status:'wip',scope:'gpusrv067（10.227.0.67）',action:'ibstat 確認 mlx5_9 port 1 Physical state: Disabled；併入 VOTS-186 根因（CDU 過熱），16:29 Drain 排空進行中，原廠預計 7/21 到場',lesson:'併入 VOTS-186／188／189 同一根因事件群組，不應視為獨立網卡故障個別排查。',tool:'intouch',owner:'facility',jira:'VOTS-187'},
+  {date:'07/20',cat:'cool',title:'#68 net_link_down（根因：3F-D02 CDU 溫度過高）',down:'0',prio:'中',p:'P1',status:'wip',scope:'gpusrv068（10.227.0.68）',action:'ibstat 確認 mlx5_0 port 1 Physical state: Disabled；併入 VOTS-186 根因（CDU 過熱），16:29 Drain 排空進行中，原廠預計 7/21 到場',lesson:'併入 VOTS-186／187／189 同一根因事件群組，不應視為獨立網卡故障個別排查。',tool:'intouch',owner:'facility',jira:'VOTS-188'},
+  {date:'07/20',cat:'cool',title:'Rack-3F-H02 #137-144 CDU 溫度過高（根因，連動 VOTS-186~188）',down:'0',prio:'中',p:'P1',status:'wip',scope:'3F-D02／H02 機櫃 #65-72＋#137-144（共 16 台節點，設施層級根因）',action:'16:00 確認 3F-D02、H02 機櫃 CDU 溫度過高導致網路模組失效；16:29 啟動 Drain 排空任務並通知客戶；16:43 Jean 提醒 F02 機櫃過去亦有 CDU 異常紀錄，強調停機前務必備份 job 數據；16:47 確認原廠 7/21 到場查修，⚠️ 節點重啟務必 BMC 選 Disk OS 開機避免資料被重置；17:18 排空進行中；18:21 確認 65~72 網段處理優先級最高',lesson:'本案為 VOTS-186／187／188（net_link_down）之真正根因：CDU 溫度過高 → 網路模組失效 → 網卡顯示 Disabled，非個別硬體故障。一次影響 16 台節點（兩機櫃），屬本季規模最大的設施層級事件，且與 VOTS-143 同樣涉及「重啟資料保存性」風險，應列為重大案例並檢討 CDU 溫度監控告警是否即時。',tool:'intouch',owner:'facility',jira:'VOTS-189'},
   {date:'07/15',cat:'ops',title:'10.227.0.61 網路卡故障 mlx5_2/mlx5_3',down:'23',prio:'中',p:'P3',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'ibdev2netdev 確認網卡列舉異常，透過網卡重新命名（udev rule）已修復',lesson:'網卡重新命名（非換料）即可修復，證實為系統性命名/列舉問題；gpusrv061 已是本季第 6 次出現在事件記錄中，惟本次與硬體劣化無關。',tool:'netris',owner:'tier2',jira:'VOTS-168'},
   {date:'07/15',cat:'ops',title:'10.227.0.181 網路卡故障 mlx5_2/mlx5_3',down:'73',prio:'中',p:'P2',status:'fixed',scope:'gpusrv181（10.227.0.181）',action:'ibdev2netdev 確認網卡列舉異常，透過網卡重新命名（udev rule）已修復',lesson:'gpusrv181 本季第 4 次出現事件記錄（前 3 次為 GPU Tray 相關），本次為網卡命名問題與先前硬體案例無直接關聯，不應併入同一根因假設。',tool:'netris',owner:'tier2',jira:'VOTS-169'},
   {date:'07/15',cat:'ops',title:'10.227.0.66 網路卡故障 mlx5_2/mlx5_3',down:'122',prio:'中',p:'P2',status:'fixed',scope:'gpusrv066（10.227.0.66）',action:'ibdev2netdev 確認網卡列舉異常，透過網卡重新命名（udev rule）已修復',lesson:'同批次事件中停機時間最長者，建議後續排查是否此節點的 udev 規則損壞程度較其他節點更嚴重。',tool:'netris',owner:'tier2',jira:'VOTS-170'},

@@ -4549,6 +4549,18 @@
 
   <div class="arch-callout">本問卷依全部歷史事件彙整之風險模式設計，目的為進駐前確認資料保護、維護窗口、硬體/網路異常應變、機房設施風險、頻寬品質與通知偏好等關鍵事項。填寫完成後點擊底部按鈕，系統會依您的回答自動估算所需準備工作天數。</div>
 
+  <div class="section-title" style="font-size:15px">一、客戶基本資訊</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">客戶／單位名稱</label><input type="text" id="ob-name" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">專案 / 服務名稱</label><input type="text" id="ob-project" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">預計進駐日期</label><input type="date" id="ob-date" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">申請 GPU 數量（節點數）</label><input type="number" id="ob-gpucount" class="ob-input" placeholder="例：8" min="0"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">主要業務聯絡窗口</label><input type="text" id="ob-contact" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">技術／緊急聯絡窗口</label><input type="text" id="ob-techcontact" class="ob-input"></div>
+    </div>
+  </div>
+
   <div class="section-title" style="font-size:15px">💬 業務建議提問清單 <span style="color:var(--muted);font-size:10px">問卷勾選欄位以外，建議業務窗口在客戶會議中一併釐清的軟性問題</span></div>
   <div class="chart-box" style="margin-bottom:24px">
     <h4 style="margin-top:0;color:var(--text)">🎯 業務背景與重要性</h4>
@@ -4626,18 +4638,6 @@
         <div class="ob-opt" data-val="no">不需要，可直接進駐</div>
         <div class="ob-opt" data-val="tbd">待確認</div>
       </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">一、客戶基本資訊</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">客戶／單位名稱</label><input type="text" id="ob-name" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">專案 / 服務名稱</label><input type="text" id="ob-project" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">預計進駐日期</label><input type="date" id="ob-date" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">申請 GPU 數量（節點數）</label><input type="number" id="ob-gpucount" class="ob-input" placeholder="例：8" min="0"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">主要業務聯絡窗口</label><input type="text" id="ob-contact" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">技術／緊急聯絡窗口</label><input type="text" id="ob-techcontact" class="ob-input"></div>
     </div>
   </div>
 

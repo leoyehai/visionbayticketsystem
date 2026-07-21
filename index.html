@@ -587,6 +587,7 @@
   <div class="nav-tab" data-tab="risk"><span class="nav-tab-icon">🔮</span>預測與風險</div>
   <div class="nav-tab" data-tab="orgreq"><span class="nav-tab-icon">🧩</span>AIOps／Platform 需求</div>
   <div class="nav-tab" data-tab="dsx"><span class="nav-tab-icon">📐</span>NVIDIA DSX 對照</div>
+  <div class="nav-tab" data-tab="raci"><span class="nav-tab-icon">🤝</span>團隊權責矩陣</div>
 </nav>
 
 <div class="page">
@@ -4468,7 +4469,69 @@
 
 
 
-</div></div></div><div class="drawer-overlay" id="drawer-overlay"></div>
+</div><div class="tab-panel" id="tab-raci">
+
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">團隊權責矩陣</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">Infra 生命週期（Day 0 → Day 2）跨團隊權責分工，Updated: 2026/07/16</div>
+
+  <div class="arch-callout">執行內容範疇：<strong>只針對 infra（網路／系統／存儲／資安）+ UT</strong>。橫跨 5 個團隊（Business／SCM／Product／Architecture／Operation），依 Day 0（需求到採購）→ Day 1（建置到交接）→ Day 2（維運）三階段，逐項標示各團隊在每個執行內容中的角色深淺。</div>
+
+  <div class="section-title" style="font-size:15px">圖例說明</div>
+  <table class="gov-table" style="margin-bottom:32px;max-width:640px">
+    <thead><tr><th style="width:70px">符號</th><th style="width:110px">角色</th><th>說明</th></tr></thead>
+    <tbody>
+      <tr><td style="text-align:center"><span style="display:inline-block;font-weight:800;font-size:14px;color:var(--danger)">☆☆</span></td><td style="font-weight:700;color:var(--danger)">主要負責</td><td style="font-size:12.5px;color:var(--muted)">決策、主要執行與當責</td></tr>
+      <tr><td style="text-align:center"><span style="display:inline-block;font-weight:800;font-size:14px;color:var(--warn)">☆</span></td><td style="font-weight:700;color:var(--warn)">協同執行</td><td style="font-size:12.5px;color:var(--muted)">共同執行</td></tr>
+      <tr><td style="text-align:center"><span style="display:inline-block;font-weight:800;font-size:14px;color:var(--accent2)">○</span></td><td style="font-weight:700;color:var(--accent2)">參與</td><td style="font-size:12.5px;color:var(--muted)">瞭解、學習或發掘問題</td></tr>
+      <tr><td style="text-align:center"><span style="display:inline-block;font-weight:800;font-size:14px;color:var(--muted)">×</span></td><td style="font-weight:700;color:var(--muted)">無</td><td style="font-size:12.5px;color:var(--muted)">不參與</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">Day 0・需求到採購（Requirement → Procurement）</div>
+  <table class="gov-table" style="margin-bottom:32px">
+    <thead><tr><th>執行內容</th><th style="text-align:center">Business Team</th><th style="text-align:center">SCM Team</th><th style="text-align:center">Product Team</th><th style="text-align:center">Architecture Team</th><th style="text-align:center">Operation Team</th></tr></thead>
+    <tbody>
+      <tr><td>需求蒐集<br><span style="font-size:11px;color:var(--muted)">Requirement Validation</span></td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td></tr>
+      <tr><td>架構設計<br><span style="font-size:11px;color:var(--muted)">Architecture Design & Cost Evaluation & BoM</span></td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td></tr>
+      <tr><td>協商與簽約<br><span style="font-size:11px;color:var(--muted)">Dealing & Contracting</span></td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td></tr>
+      <tr><td>採購<br><span style="font-size:11px;color:var(--muted)">Procurement</span></td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">Day 1・建置到交接（Implementation → Handover）</div>
+  <table class="gov-table" style="margin-bottom:32px">
+    <thead><tr><th>執行內容</th><th style="text-align:center">Business Team</th><th style="text-align:center">SCM Team</th><th style="text-align:center">Product Team</th><th style="text-align:center">Architecture Team</th><th style="text-align:center">Operation Team</th></tr></thead>
+    <tbody>
+      <tr><td>細部設計與建置<br><span style="font-size:11px;color:var(--muted)">Detailed Design & Implementation</span></td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td></tr>
+      <tr><td>專案管理<br><span style="font-size:11px;color:var(--muted)">Project Delivery</span></td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td></tr>
+      <tr><td>上線前驗收<br><span style="font-size:11px;color:var(--muted)">Acceptance</span></td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td></tr>
+      <tr><td>交接<br><span style="font-size:11px;color:var(--muted)">Handover</span></td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-title" style="font-size:15px">Day 2・維運（Operations）</div>
+  <table class="gov-table" style="margin-bottom:32px">
+    <thead><tr><th>執行內容</th><th style="text-align:center">Business Team</th><th style="text-align:center">SCM Team</th><th style="text-align:center">Product Team</th><th style="text-align:center">Architecture Team</th><th style="text-align:center">Operation Team</th></tr></thead>
+    <tbody>
+      <tr><td>維運<br><span style="font-size:11px;color:var(--muted)">customer escalation handling</span></td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td></tr>
+      <tr><td>維運<br><span style="font-size:11px;color:var(--muted)">incident handling & troubleshooting</span></td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--warn);font-weight:800">☆</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td></tr>
+      <tr><td>維運<br><span style="font-size:11px;color:var(--muted)">provisioning changes / routine changes</span></td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--accent2);font-weight:800">○</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td></tr>
+      <tr><td>維運專案管理<br><span style="font-size:11px;color:var(--muted)">operational projects</span></td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--muted);font-weight:800">×</td><td style="text-align:center;color:var(--danger);font-weight:800">☆☆</td></tr>
+    </tbody>
+  </table>
+
+  <div class="field-callout" style="margin-bottom:32px">
+    <h4>📌 觀察重點</h4>
+    <ul>
+      <li><strong>Architecture Team 是 Day 0～1 的核心當責者</strong>：需求蒐集、架構設計、細部設計建置、專案管理、上線前驗收、交接共 6 項中有 5 項為「主要負責」，是整個生命週期前段最吃重的角色。</li>
+      <li><strong>Operation Team 進入 Day 2 後轉為絕對主責</strong>：維運四項全數由 Operation Team 主要負責，Business／SCM／Product Team 在此階段幾乎不參與（僅零星「參與」層級），與本站「CloudOps 運算平台」維運事件的責任歸屬邏輯一致。</li>
+      <li><strong>Business Team 集中在客戶端相關節點</strong>：需求蒐集、協商簽約、交接、客訴升級處理皆為主要負責或協同執行，其餘技術性環節（架構設計、細部建置、日常維運變更）幾乎不參與。</li>
+      <li><strong>SCM Team 角色高度聚焦</strong>：僅在採購（主要負責）與上線前驗收（主要負責）兩個節點吃重，其餘環節多為不參與，反映其專注於供應鏈與品質關卡的定位。</li>
+    </ul>
+  </div>
+
+</div>
+</div></div><div class="drawer-overlay" id="drawer-overlay"></div>
 <div class="drawer" id="detail-drawer">
   <button class="drawer-close" id="drawer-close">✕</button>
   <div id="drawer-content"></div>

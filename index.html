@@ -249,6 +249,16 @@
 
   /* ── WORKFLOW DETAIL ── */
   .field-callout{background:var(--surface2);padding:15px;border-radius:6px;margin-bottom:24px;border:1px solid var(--border)}
+  .ob-input{width:100%;padding:8px 10px;border:1px solid var(--border);border-radius:6px;font-size:13px;font-family:var(--sans);color:var(--text);background:var(--surface);box-sizing:border-box}
+  .ob-input:focus{outline:none;border-color:var(--accent2)}
+  .ob-q{margin-bottom:20px}
+  .ob-q:last-child{margin-bottom:0}
+  .ob-qtext{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px}
+  .ob-hint{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:2px}
+  .ob-opts{display:flex;flex-wrap:wrap;gap:8px}
+  .ob-opt{padding:7px 14px;border:1.5px solid var(--border);border-radius:999px;font-size:12.5px;color:var(--text);cursor:pointer;transition:all .15s;background:var(--surface)}
+  .ob-opt:hover{border-color:var(--accent2)}
+  .ob-opt.selected{background:var(--accent2);border-color:var(--accent2);color:#fff;font-weight:600}
   .field-callout h4{color:var(--warn);margin-bottom:8px;font-size:13px}
   .field-callout ul{margin-left:20px;color:var(--text);font-size:12px;line-height:1.7}
   .stage-list{display:flex;flex-direction:column;gap:18px;margin-bottom:40px}
@@ -588,6 +598,7 @@
   <div class="nav-tab" data-tab="orgreq"><span class="nav-tab-icon">🧩</span>AIOps／Platform 需求</div>
   <div class="nav-tab" data-tab="dsx"><span class="nav-tab-icon">📐</span>NVIDIA DSX 對照</div>
   <div class="nav-tab" data-tab="raci"><span class="nav-tab-icon">🤝</span>團隊權責矩陣</div>
+  <div class="nav-tab" data-tab="onboard"><span class="nav-tab-icon">📝</span>客戶 Onboarding 問卷</div>
 </nav>
 
 <div class="page">
@@ -4531,6 +4542,204 @@
   </div>
 
 </div>
+<div class="tab-panel" id="tab-onboard">
+
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">客戶 Onboarding 問卷</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">B300 GPU 叢集客戶進駐問卷 v1.0，填寫後自動產生預估準備時間</div>
+
+  <div class="arch-callout">本問卷依 VOTS-1～VOTS-199 全部歷史事件彙整之風險模式設計，目的為進駐前確認資料保護、維護窗口、硬體/網路異常應變、機房設施風險、頻寬品質與通知偏好等關鍵事項。填寫完成後點擊底部按鈕，系統會依您的回答自動估算所需準備工作天數。</div>
+
+  <div class="section-title" style="font-size:15px">一、客戶基本資訊</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">客戶／單位名稱</label><input type="text" id="ob-name" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">專案 / 服務名稱</label><input type="text" id="ob-project" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">預計進駐日期</label><input type="date" id="ob-date" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">申請 GPU 數量（節點數）</label><input type="number" id="ob-gpucount" class="ob-input" placeholder="例：8" min="0"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">主要業務聯絡窗口</label><input type="text" id="ob-contact" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">技術／緊急聯絡窗口</label><input type="text" id="ob-techcontact" class="ob-input"></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">二、工作負載與使用情境</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="ob-q"><div class="ob-qtext">2.1 此次使用 B300 叢集的主要用途為何？（可複選）</div>
+      <div class="ob-opts" data-q="usage" data-multi="true">
+        <div class="ob-opt" data-val="pretrain">模型訓練（Pre-training）</div>
+        <div class="ob-opt" data-val="finetune">模型微調（Fine-tuning）</div>
+        <div class="ob-opt" data-val="inference">推論服務（Inference）</div>
+        <div class="ob-opt" data-val="etl">資料前處理 / ETL</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">2.2 工作負載是否為長時間連續運行（單一 Job 超過 24 小時）？<span class="ob-hint">影響維護窗口安排與重開機風險評估（參考 VOTS-143）</span></div>
+      <div class="ob-opts" data-q="longrun">
+        <div class="ob-opt" data-val="yes">是，單一 Job 可能連續運行數天</div>
+        <div class="ob-opt" data-val="no">否，Job 多為短時間、可頻繁中斷重跑</div>
+        <div class="ob-opt" data-val="unsure">不確定，需進一步確認</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">2.3 是否已建立自動 Checkpoint / 續跑機制？</div>
+      <div class="ob-opts" data-q="checkpoint">
+        <div class="ob-opt" data-val="yes">已具備</div>
+        <div class="ob-opt" data-val="no">尚未建立，需要協助評估</div>
+        <div class="ob-opt" data-val="na">不需要（可容忍重跑）</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">三、資料保護與持久化需求</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>重要提醒（參考 VOTS-143）</strong>：B300 GPU Server 於執行重開機（reboot）程序時，節點本機磁碟（非持久化儲存）上的資料將會被清除。</p></div>
+    <div class="ob-q"><div class="ob-qtext">3.1 是否已確認並理解上述「節點重開機將清除本機資料」之風險？</div>
+      <div class="ob-opts" data-q="risk_ack">
+        <div class="ob-opt" data-val="yes">已理解並確認</div>
+        <div class="ob-opt" data-val="no">尚未理解，需要說明</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">3.2 客戶資料 / 模型權重目前規劃儲存於：（可複選）</div>
+      <div class="ob-opts" data-q="storage" data-multi="true">
+        <div class="ob-opt" data-val="local">節點本機磁碟（Local Disk / NVMe）</div>
+        <div class="ob-opt" data-val="nfs">共用儲存（NFS / Shared Storage）</div>
+        <div class="ob-opt" data-val="s3">客戶自建外部儲存（S3 等）</div>
+        <div class="ob-opt" data-val="unplanned">尚未規劃，需協助評估</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">3.3 若因故障排除需要重開機，客戶可接受的資料保留應變方式為？</div>
+      <div class="ob-opts" data-q="reboot_pref">
+        <div class="ob-opt" data-val="backup">可接受作業前先行備份（納入 SLA 計算）</div>
+        <div class="ob-opt" data-val="notify">要求重開機前主動通知並取得同意</div>
+        <div class="ob-opt" data-val="none">無特殊要求，以維運團隊判斷為準</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">四、維護窗口與通知偏好</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="ob-q"><div class="ob-qtext">4.1 客戶可接受的例行維護窗口時段為？</div>
+      <div class="ob-opts" data-q="window">
+        <div class="ob-opt" data-val="night">平日夜間（22:00–06:00）</div>
+        <div class="ob-opt" data-val="weekend">週末／假日</div>
+        <div class="ob-opt" data-val="advance">需提前 N 天預約，無固定時段</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">4.2 客戶希望接收事件通知的管道為？（可複選）</div>
+      <div class="ob-opts" data-q="notify_channel" data-multi="true">
+        <div class="ob-opt" data-val="email">Email</div>
+        <div class="ob-opt" data-val="slack">Slack / Teams（需 Webhook）</div>
+        <div class="ob-opt" data-val="phone">電話（僅限 R1／Critical）</div>
+        <div class="ob-opt" data-val="ticket">客戶自有工單系統（需串接）</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px">
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">R1／Critical 通知時效</label><input type="text" id="ob-r1" class="ob-input" placeholder="例：15 分鐘內"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">R2／High 通知時效</label><input type="text" id="ob-r2" class="ob-input" placeholder="例：1 小時內"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">P3／Medium 通知時效</label><input type="text" id="ob-p3" class="ob-input" placeholder="例：4 小時內"></div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">五、GPU 硬體異常與 RMA 應變期望</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>提醒（參考 VOTS-150、162/165/153/161/176/178）</strong>：GPU 故障需先跑 PD 測試判定是否符合 RMA 門檻，現場常無立即備品，曾出現同批 6 台節點併行 RMA、交期落在 2~3 週後之情形。</p></div>
+    <div class="ob-q"><div class="ob-qtext">5.1 客戶是否理解「GPU 故障需先跑 PD 測試確認是否達 RMA 門檻」之判定流程？</div>
+      <div class="ob-opts" data-q="rma_ack">
+        <div class="ob-opt" data-val="yes">已理解並接受</div>
+        <div class="ob-opt" data-val="no">需要更詳細的說明</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">5.2 若發生 GPU 故障且現場無備品，客戶可接受的降級運行 / 等待時間為？</div>
+      <div class="ob-opts" data-q="degrade">
+        <div class="ob-opt" data-val="accept">可接受降級運行直到備品到位</div>
+        <div class="ob-opt" data-val="immediate">要求立即以其他節點補足，不可降級</div>
+        <div class="ob-opt" data-val="case">需視工作負載重要性個案討論</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">5.4 客戶是否需要 VisionBay 提供備援節點 / 保留容量（Reserved Capacity）？</div>
+      <div class="ob-opts" data-q="reserved">
+        <div class="ob-opt" data-val="yes">需要</div>
+        <div class="ob-opt" data-val="no">不需要</div>
+        <div class="ob-opt" data-val="tbd">待評估</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">六、網路異常與機房設施（冷卻）風險</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>提醒（參考 VOTS-186～189、194～198）</strong>：曾發生單一機櫃 CDU 異常導致溫度過高，造成同機櫃內多達 8 台節點的 IB 網卡同時 Link Down，屬機櫃級群發性事件。</p></div>
+    <div class="ob-q"><div class="ob-qtext">6.1 客戶是否理解機房設施異常可能導致同一機櫃內多節點同時受影響？</div>
+      <div class="ob-opts" data-q="facility_ack">
+        <div class="ob-opt" data-val="yes">已理解，可接受機櫃級批次通知</div>
+        <div class="ob-opt" data-val="no">要求即使機櫃級事件仍需逐節點個別通知</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">6.3 客戶工作負載是否具備跨機櫃／跨節點容錯能力？</div>
+      <div class="ob-opts" data-q="fault_tolerant">
+        <div class="ob-opt" data-val="yes">是，具備容錯機制</div>
+        <div class="ob-opt" data-val="no">否，需協助避免同機櫃集中部署</div>
+        <div class="ob-opt" data-val="unsure">不確定，需進一步確認</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">七、網路頻寬與連線品質期望</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>提醒（參考 VOTS-179）</strong>：曾發生客戶申請 10G 公網頻寬實測僅約 2G，經查為客戶端測速方式所致，複測確認實際頻寬符合規格；建議進駐前即確認雙方測速方法與驗收基準。</p></div>
+    <div style="margin-bottom:12px"><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">申請之公網/專線頻寬規格</label><input type="text" id="ob-bandwidth" class="ob-input" placeholder="例：10G 公網" style="max-width:300px"></div>
+    <div class="ob-q"><div class="ob-qtext">7.2 客戶預計採用的測速工具／驗收方式為？</div>
+      <div class="ob-opts" data-q="speedtest">
+        <div class="ob-opt" data-val="speedtest">Speedtest.net 或同類工具</div>
+        <div class="ob-opt" data-val="iperf">iperf3 / 內部測速工具</div>
+        <div class="ob-opt" data-val="workload">以實際工作負載吞吐量為準</div>
+        <div class="ob-opt" data-val="unsure">尚未決定，需協助建議</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">八、監控與告警接收</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="ob-q"><div class="ob-qtext">8.1 客戶是否需要接收以下告警之通知或摘要？（可複選）</div>
+      <div class="ob-opts" data-q="alerts" data-multi="true">
+        <div class="ob-opt" data-val="xid">GPU Xid 錯誤告警</div>
+        <div class="ob-opt" data-val="ecc">GPU ECC / Row Remapping 告警</div>
+        <div class="ob-opt" data-val="nvlink">NVLink 異常告警</div>
+        <div class="ob-opt" data-val="ib">IB 網卡 Link Down 告警</div>
+        <div class="ob-opt" data-val="cdu">CDU / 機房溫度異常告警</div>
+        <div class="ob-opt" data-val="down">節點 Down / 離線告警</div>
+        <div class="ob-opt" data-val="change">變更管理執行通知</div>
+        <div class="ob-opt" data-val="report">SLA 每月報表</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">8.2 是否需要客戶端專屬監控 Dashboard 存取權限？</div>
+      <div class="ob-opts" data-q="dashboard_access">
+        <div class="ob-opt" data-val="yes">需要</div>
+        <div class="ob-opt" data-val="no">不需要</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title" style="font-size:15px">九、SLA 與升級聯絡窗口</div>
+  <div class="chart-box" style="margin-bottom:24px">
+    <div class="ob-q"><div class="ob-qtext">9.1 本次合作之 SLA 目標為？</div>
+      <div class="ob-opts" data-q="sla_target">
+        <div class="ob-opt" data-val="995">99.5%</div>
+        <div class="ob-opt" data-val="999">99.9%</div>
+        <div class="ob-opt" data-val="9995">99.95%＋</div>
+        <div class="ob-opt" data-val="unsure">依合約另議</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">第一順位升級窗口</label><input type="text" id="ob-esc1" class="ob-input"></div>
+      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">第二順位升級窗口</label><input type="text" id="ob-esc2" class="ob-input"></div>
+    </div>
+    <div style="margin-top:12px"><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">其他特殊需求或備註</label><textarea id="ob-notes" class="ob-input" rows="2" style="resize:vertical"></textarea></div>
+  </div>
+
+  <div style="text-align:center;margin:32px 0">
+    <button id="ob-calc-btn" style="background:var(--accent2);color:#fff;border:none;border-radius:8px;padding:14px 36px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(8,145,178,.3)">📋 產生預估準備時間</button>
+  </div>
+
+  <div id="ob-result" style="display:none;margin-bottom:40px"></div>
+
+</div>
 </div></div><div class="drawer-overlay" id="drawer-overlay"></div>
 <div class="drawer" id="detail-drawer">
   <button class="drawer-close" id="drawer-close">✕</button>
@@ -5230,6 +5439,107 @@ document.querySelectorAll('.bar-row[data-cat]').forEach(row=>{
   }
 
   renderNcp();
+})();
+
+
+// ── ONBOARDING QUESTIONNAIRE ───────────────────────────
+(function(){
+  const obPanel = document.getElementById('tab-onboard');
+  if(!obPanel) return;
+  const state = {};
+
+  obPanel.querySelectorAll('.ob-opts').forEach(group=>{
+    const q = group.dataset.q;
+    const multi = group.dataset.multi === 'true';
+    state[q] = multi ? [] : null;
+    group.querySelectorAll('.ob-opt').forEach(opt=>{
+      opt.addEventListener('click', ()=>{
+        const val = opt.dataset.val;
+        if(multi){
+          if(opt.classList.contains('selected')){
+            opt.classList.remove('selected');
+            state[q] = state[q].filter(v=>v!==val);
+          } else {
+            opt.classList.add('selected');
+            state[q].push(val);
+          }
+        } else {
+          group.querySelectorAll('.ob-opt').forEach(o=>o.classList.remove('selected'));
+          opt.classList.add('selected');
+          state[q] = val;
+        }
+      });
+    });
+  });
+
+  document.getElementById('ob-calc-btn').addEventListener('click', ()=>{
+    let days = 2; // baseline: 帳號建立、基礎網路撥通
+    const items = [{label:'基礎準備（帳號建立、網路撥通、環境檢查）', days:2}];
+
+    const gpuCount = parseInt(document.getElementById('ob-gpucount').value) || 0;
+    if(gpuCount > 100){ days+=3; items.push({label:`GPU 規模 ${gpuCount} 節點（大型容量規劃）`, days:3}); }
+    else if(gpuCount > 32){ days+=2; items.push({label:`GPU 規模 ${gpuCount} 節點（中型容量規劃）`, days:2}); }
+    else if(gpuCount > 8){ days+=1; items.push({label:`GPU 規模 ${gpuCount} 節點（容量規劃）`, days:1}); }
+
+    if(state.longrun === 'yes' && state.checkpoint !== 'yes'){
+      days+=1; items.push({label:'長時間 Job 但未建立 Checkpoint（VOTS-143 重啟資料風險，需協調維護窗口）', days:1});
+    }
+    if(state.risk_ack === 'no'){
+      days+=1; items.push({label:'客戶尚未理解重開機資料清除風險，需安排技術說明會議', days:1});
+    }
+    if(state.storage && state.storage.includes('local') && !(state.storage.includes('nfs')||state.storage.includes('s3'))){
+      days+=2; items.push({label:'資料僅存於本機磁碟且無共用/外部儲存備援，需協助規劃備份方案', days:2});
+    }
+    if(state.reboot_pref === 'notify'){
+      days+=1; items.push({label:'客戶要求重開機前主動通知取得同意，需建立專屬通知流程', days:1});
+    }
+    if(state.notify_channel){
+      if(state.notify_channel.includes('slack')){ days+=1; items.push({label:'需建立 Slack/Teams Webhook 整合', days:1}); }
+      if(state.notify_channel.includes('ticket')){ days+=2; items.push({label:'需與客戶自有工單系統串接', days:2}); }
+    }
+    if(state.reserved === 'yes'){
+      days+=3; items.push({label:'需規劃備援節點／保留容量（Reserved Capacity）', days:3});
+    } else if(state.reserved === 'tbd'){
+      days+=1; items.push({label:'備援容量待評估，需安排容量規劃會議', days:1});
+    }
+    if(state.fault_tolerant === 'no'){
+      days+=1; items.push({label:'客戶無跨機櫃容錯能力，需協助規劃避免同機櫃集中部署', days:1});
+    }
+    if(state.speedtest === 'iperf'){
+      days+=1; items.push({label:'需協調客戶端 iperf3 測速時段與方法', days:1});
+    } else if(state.speedtest === 'unsure'){
+      days+=1; items.push({label:'測速方式尚未決定，需協助建議並確認驗收基準（VOTS-179 案例）', days:1});
+    }
+    if(state.dashboard_access === 'yes'){
+      days+=1; items.push({label:'需建立客戶端專屬監控 Dashboard 帳號', days:1});
+    }
+    if(state.sla_target === '9995'){
+      days+=3; items.push({label:'SLA 目標 99.95%＋，需額外冗餘規劃與驗證測試', days:3});
+    } else if(state.sla_target === '999'){
+      days+=2; items.push({label:'SLA 目標 99.9%，需額外冗餘規劃與驗證測試', days:2});
+    }
+    if(state.rma_ack === 'no'){
+      days+=1; items.push({label:'客戶需要更詳細的 RMA 判定流程說明會議', days:1});
+    }
+
+    const resultEl = document.getElementById('ob-result');
+    const custName = document.getElementById('ob-name').value || '（未填寫客戶名稱）';
+    const itemsHtml = items.map(it=>`
+      <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px">
+        <span style="color:var(--text)">${it.label}</span>
+        <span style="font-family:var(--mono);font-weight:700;color:var(--accent2);white-space:nowrap;padding-left:12px">+${it.days} 天</span>
+      </div>`).join('');
+
+    resultEl.innerHTML = `
+      <div class="chart-box" style="border-left:4px solid var(--accent2);background:rgba(8,145,178,.04)">
+        <h3 style="color:var(--accent2);margin-bottom:4px">📋 ${custName} － 預估準備時間</h3>
+        <div style="font-size:42px;font-weight:800;font-family:var(--mono);color:var(--accent2);margin:14px 0 4px">${days} <span style="font-size:16px;font-weight:600;color:var(--muted)">工作天</span></div>
+        <div style="font-size:11.5px;color:var(--muted);margin-bottom:18px">此為依問卷回答自動估算之準備工作天數，實際時程請與 VisionBay CloudOps 團隊進駐會議中確認</div>
+        <div style="margin-top:8px">${itemsHtml}</div>
+      </div>`;
+    resultEl.style.display = 'block';
+    resultEl.scrollIntoView({behavior:'smooth', block:'start'});
+  });
 })();
 
 </script>

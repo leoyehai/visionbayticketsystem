@@ -5522,6 +5522,10 @@ document.querySelectorAll('.bar-row[data-cat]').forEach(row=>{
       days+=1; items.push({label:'客戶需要更詳細的 RMA 判定流程說明會議', days:1});
     }
 
+    const subtotal = days;
+    const buffer = Math.max(2, Math.ceil(subtotal * 0.3));
+    const total = subtotal + buffer;
+
     const resultEl = document.getElementById('ob-result');
     const custName = document.getElementById('ob-name').value || '（未填寫客戶名稱）';
     const itemsHtml = items.map(it=>`
@@ -5533,9 +5537,21 @@ document.querySelectorAll('.bar-row[data-cat]').forEach(row=>{
     resultEl.innerHTML = `
       <div class="chart-box" style="border-left:4px solid var(--accent2);background:rgba(8,145,178,.04)">
         <h3 style="color:var(--accent2);margin-bottom:4px">📋 ${custName} － 預估準備時間</h3>
-        <div style="font-size:42px;font-weight:800;font-family:var(--mono);color:var(--accent2);margin:14px 0 4px">${days} <span style="font-size:16px;font-weight:600;color:var(--muted)">工作天</span></div>
-        <div style="font-size:11.5px;color:var(--muted);margin-bottom:18px">此為依問卷回答自動估算之準備工作天數，實際時程請與 VisionBay CloudOps 團隊進駐會議中確認</div>
+        <div style="font-size:42px;font-weight:800;font-family:var(--mono);color:var(--accent2);margin:14px 0 4px">${total} <span style="font-size:16px;font-weight:600;color:var(--muted)">工作天</span></div>
+        <div style="font-size:11.5px;color:var(--muted);margin-bottom:18px">此為依問卷回答自動估算之準備工作天數（已含應變緩衝），實際時程請與 VisionBay CloudOps 團隊進駐會議中確認</div>
         <div style="margin-top:8px">${itemsHtml}</div>
+        <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px;font-weight:600">
+          <span style="color:var(--text)">小計</span>
+          <span style="font-family:var(--mono);font-weight:700;color:var(--text);white-space:nowrap;padding-left:12px">${subtotal} 天</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px">
+          <span style="color:var(--warn)">⚠️ 應變緩衝（30%，因應廠商排程延誤／備品交期／跨部門協調等不可控因素）</span>
+          <span style="font-family:var(--mono);font-weight:700;color:var(--warn);white-space:nowrap;padding-left:12px">+${buffer} 天</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;padding:12px 0 0;font-size:14px;font-weight:800">
+          <span style="color:var(--text)">總計（建議對客戶承諾時程）</span>
+          <span style="font-family:var(--mono);color:var(--accent2);white-space:nowrap;padding-left:12px">${total} 天</span>
+        </div>
       </div>`;
     resultEl.style.display = 'block';
     resultEl.scrollIntoView({behavior:'smooth', block:'start'});

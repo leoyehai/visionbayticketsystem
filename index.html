@@ -60,7 +60,7 @@
   }
 
   /* ── LAYOUT ── */
-  .page{max-width:1280px;flex:1;min-width:0;margin:0 auto;padding:32px 24px 64px}
+  .page{max-width:1280px;width:100%;flex:1;min-width:0;box-sizing:border-box;margin:0 auto;padding:32px 24px 64px}
   .tab-panel{display:none}
   .tab-panel.active{display:block;animation:fadeIn .35s ease}
   @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -74,6 +74,7 @@
 
   /* ── SLA HERO ── */
   .sla-hero{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-bottom:32px}
+  .sla-hero>*,.ba-hero>*,.ba-row>*,.ba-sla-row>*,.ba-tech-grid>*,.bar-row>*,.case-grid>*,.cat-grid>*,.charts-row>*,.compare-grid>*,.hist-grid>*,.pillar-grid>*,.principle-grid>*,.sla-grid>*,.tool-grid>*{min-width:0}
   @media(max-width:900px){.sla-hero{grid-template-columns:1fr 1fr}}
   @media(max-width:500px){.sla-hero{grid-template-columns:1fr}}
   .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 22px;position:relative;overflow:hidden}
@@ -413,6 +414,21 @@
   .gov-table th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);padding:10px 14px;text-align:left;background:var(--surface2)}
   .gov-table td{padding:12px 14px;border-bottom:1px solid rgba(15,23,42,.10);vertical-align:top;line-height:1.55}
   .gov-table tr:hover td{background:rgba(37,99,235,.05)}
+  @media(max-width:760px){
+    .gov-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
+    .gov-table td,.gov-table th{white-space:normal;min-width:120px}
+    .page{padding:20px 14px 48px}
+    .stat-card{padding:16px 18px}
+    body{font-size:14px}
+    .chart-box{padding:16px}
+    svg{max-width:100%;height:auto}
+  }
+  @media(max-width:480px){
+    .page{padding:16px 10px 40px}
+    .section-title{font-size:10px}
+    .gov-table{font-size:12px}
+    .gov-table td,.gov-table th{padding:8px 10px;min-width:100px}
+  }
   .gov-role{font-weight:700;color:var(--text)}
   .gov-item{font-size:12px;color:var(--muted);padding:2px 0}
   .gov-item::before{content:'· ';color:var(--accent)}

@@ -606,8 +606,8 @@
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
       <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">今天（7/20）一口氣壞了 16 台機器，是機房層級問題</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">同一機櫃8台網路同時斷線，另一機櫃8台CDU（散熱）異常，不是單台機器壞掉，是整排出問題。已經在查是不是同一批交換器/線材/供電有共通問題，不是逐台修就能解決的。</div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">機房CDU過熱事件根因已確認，16台機器受影響，原廠已到場</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">兩個機櫃CDU（散熱系統）溫度過高，導致網路模組失效，不是網卡本身壞掉。8台節點的網路櫃今天已全數個別開單追蹤，原廠7/21已到場查修。重啟這些機器務必透過BMC選Disk OS開機，不然資料可能被清空（跟之前VOTS-143同樣風險）。</div>
       </div>
     </div>
 

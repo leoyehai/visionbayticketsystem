@@ -4550,31 +4550,83 @@
   <div class="arch-callout">本問卷依全部歷史事件彙整之風險模式設計，目的為進駐前確認資料保護、維護窗口、硬體/網路異常應變、機房設施風險、頻寬品質與通知偏好等關鍵事項。填寫完成後點擊底部按鈕，系統會依您的回答自動估算所需準備工作天數。</div>
 
   <div class="section-title" style="font-size:15px">💬 業務建議提問清單 <span style="color:var(--muted);font-size:10px">問卷勾選欄位以外，建議業務窗口在客戶會議中一併釐清的軟性問題</span></div>
-  <div class="field-callout" style="margin-bottom:32px">
-    <h4 style="margin-top:0">🎯 業務背景與重要性</h4>
-    <ul>
-      <li>此叢集支撐的業務／產品是否為客戶當前最高優先級專案？服務中斷對客戶端商業影響有多大（例如：是否影響對外服務、是否有對客戶自己客戶的 SLA 承諾）？</li>
-      <li>客戶內部是否已有其他團隊使用過類似 GPU 雲端服務（自建機房或其他業者）？過去經驗中最不滿意的地方是什麼？</li>
-      <li>未來 3～6 個月是否有明確的擴容計畫？目前申請的規模是否已是最終規模，還是僅為第一階段？</li>
-    </ul>
+  <div class="chart-box" style="margin-bottom:24px">
+    <h4 style="margin-top:0;color:var(--text)">🎯 業務背景與重要性</h4>
+    <div class="ob-q"><div class="ob-qtext">此叢集支撐的業務是否為客戶當前最高優先級專案？服務中斷對客戶端商業影響有多大？</div>
+      <div class="ob-opts" data-q="biz_priority">
+        <div class="ob-opt" data-val="critical">最高優先級，中斷影響重大</div>
+        <div class="ob-opt" data-val="important">重要但非唯一</div>
+        <div class="ob-opt" data-val="secondary">次要／實驗性質</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">客戶內部是否已有其他團隊使用過類似 GPU 雲端服務？過去經驗中最不滿意的地方？</div>
+      <input type="text" id="biz-past-experience" class="ob-input" placeholder="請填寫過去經驗與痛點（若無則填「無」）">
+    </div>
+    <div class="ob-q"><div class="ob-qtext">未來 3～6 個月是否有明確的擴容計畫？目前申請規模是否為最終規模？</div>
+      <div class="ob-opts" data-q="expansion_plan">
+        <div class="ob-opt" data-val="confirmed">已有明確擴容計畫</div>
+        <div class="ob-opt" data-val="maybe">可能擴容，待評估</div>
+        <div class="ob-opt" data-val="final">目前規模即為最終規模</div>
+      </div>
+    </div>
+
     <h4>🧑‍💻 技術成熟度與內部量能</h4>
-    <ul>
-      <li>客戶端是否有專職維運／基礎架構團隊？或此次為業務／研究團隊直接對接技術細節（會影響溝通複雜度與教育訓練需求）？</li>
-      <li>客戶端對 Kubernetes／Slurm／容器化等工具的熟悉程度？是否需要 VisionBay 協助教育訓練或提供範本？</li>
-      <li>客戶端過去是否曾因為誤操作（如自行重啟節點）導致資料遺失或服務中斷？是否需要額外加強教育宣導？</li>
-    </ul>
+    <div class="ob-q"><div class="ob-qtext">客戶端是否有專職維運／基礎架構團隊？</div>
+      <div class="ob-opts" data-q="biz_ops_team">
+        <div class="ob-opt" data-val="dedicated">有專職團隊</div>
+        <div class="ob-opt" data-val="partial">部分兼任</div>
+        <div class="ob-opt" data-val="none">無，業務／研究團隊直接對接</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">客戶端對 Kubernetes／Slurm／容器化等工具的熟悉程度？</div>
+      <div class="ob-opts" data-q="tech_familiarity">
+        <div class="ob-opt" data-val="expert">熟悉，可自主操作</div>
+        <div class="ob-opt" data-val="moderate">略懂，需部分協助</div>
+        <div class="ob-opt" data-val="none">不熟悉，需完整教育訓練</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">客戶端過去是否曾因誤操作（如自行重啟節點）導致資料遺失或服務中斷？</div>
+      <div class="ob-opts" data-q="past_misop">
+        <div class="ob-opt" data-val="yes">是，曾發生過</div>
+        <div class="ob-opt" data-val="no">否，未曾發生</div>
+        <div class="ob-opt" data-val="unsure">不確定</div>
+      </div>
+    </div>
+
     <h4>💰 商務條件與決策流程</h4>
-    <ul>
-      <li>本次採購的決策鏈是誰？除了眼前窗口，是否還有其他需要簽核或知情的利害關係人（財務、法務、資安）？</li>
-      <li>合約與帳單週期偏好為何？是否需要客製化報表格式（例如依部門/專案拆分計費）？</li>
-      <li>客戶端是否正在與其他雲端服務商比價或並行評估？若有，本次合作的關鍵決勝因素是什麼（價格／效能／SLA／在地支援）？</li>
-    </ul>
+    <div class="ob-q"><div class="ob-qtext">本次採購的決策鏈是誰？除了眼前窗口，是否還有其他需要簽核或知情的利害關係人？</div>
+      <input type="text" id="biz-decision-chain" class="ob-input" placeholder="例：技術窗口 → 部門主管 → 財務／資安審核">
+    </div>
+    <div class="ob-q"><div class="ob-qtext">合約與帳單週期偏好為何？是否需要客製化報表格式？</div>
+      <input type="text" id="biz-billing-pref" class="ob-input" placeholder="例：月結、依部門拆分計費">
+    </div>
+    <div class="ob-q"><div class="ob-qtext">客戶端是否正在與其他雲端服務商比價或並行評估？若有，關鍵決勝因素是什麼？</div>
+      <div class="ob-opts" data-q="competing_vendor">
+        <div class="ob-opt" data-val="yes">是，正在比價／並行評估</div>
+        <div class="ob-opt" data-val="no">否，已確定合作</div>
+        <div class="ob-opt" data-val="unsure">不確定</div>
+      </div>
+      <input type="text" id="biz-win-factor" class="ob-input" placeholder="若在比價，決勝關鍵為？（例：價格／效能／SLA／在地支援）" style="margin-top:8px">
+    </div>
+
     <h4>⚠️ 風險胃納與磨合期預期</h4>
-    <ul>
-      <li>客戶是否理解本叢集為近期新建置服務，磨合期間可能仍有本問卷所列之各類早期異常（可參考「前後對比」頁籤說明現況）？客戶對此的接受度與耐心程度為何？</li>
-      <li>若進駐初期發生非預期停機，客戶內部是否有明確的「可接受」與「不可接受」界線？超過哪個時長會啟動客戶端的緊急應變或升級機制？</li>
-      <li>客戶是否希望在正式簽約前，先安排一次現場參訪或試用期，實地了解機房環境與維運團隊？</li>
-    </ul>
+    <div class="ob-q"><div class="ob-qtext">客戶是否理解本叢集為近期新建置服務，磨合期間可能仍有早期異常？客戶對此的接受度為何？</div>
+      <div class="ob-opts" data-q="risk_tolerance">
+        <div class="ob-opt" data-val="high">已理解，接受度高</div>
+        <div class="ob-opt" data-val="medium">已告知，接受度中等</div>
+        <div class="ob-opt" data-val="low">尚未溝通／接受度低，需加強說明</div>
+      </div>
+    </div>
+    <div class="ob-q"><div class="ob-qtext">若進駐初期發生非預期停機，客戶內部「可接受」與「不可接受」的界線為何？</div>
+      <input type="text" id="biz-downtime-threshold" class="ob-input" placeholder="例：單次超過 30 分鐘即啟動客戶端緊急應變">
+    </div>
+    <div class="ob-q"><div class="ob-qtext">客戶是否希望在正式簽約前，先安排一次現場參訪或試用期？</div>
+      <div class="ob-opts" data-q="visit_request">
+        <div class="ob-opt" data-val="yes">需要現場參訪／試用期</div>
+        <div class="ob-opt" data-val="no">不需要，可直接進駐</div>
+        <div class="ob-opt" data-val="tbd">待確認</div>
+      </div>
+    </div>
   </div>
 
   <div class="section-title" style="font-size:15px">一、客戶基本資訊</div>

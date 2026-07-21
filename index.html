@@ -36,7 +36,7 @@
   header h1 span{background:linear-gradient(90deg,var(--accent2),var(--rma));-webkit-background-clip:text;background-clip:text;color:transparent}
   .logo-bar{background:#ffffff;border-bottom:1px solid var(--border);padding:14px 48px;display:flex;align-items:center}
   .logo-bar-img{height:34px;width:auto;display:block}
-  @media(max-width:640px){.logo-bar{padding:12px 20px}.logo-bar-img{height:26px}header a[href*="docs.google.com"]{position:static!important;display:inline-block;margin-bottom:12px}}
+  @media(max-width:760px){.logo-bar{padding:12px 20px}.logo-bar-img{height:26px}header a[href*="docs.google.com"]{position:static!important;display:inline-block;margin-bottom:12px}}
   .header-sub{color:var(--muted);font-size:13px}
   .header-meta{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap}
   .meta-item{display:flex;flex-direction:column;gap:2px}
@@ -54,7 +54,7 @@
   .nav-tab.active{color:var(--accent2);border-left-color:var(--accent2);background:rgba(8,145,178,.08)}
   @media(max-width:760px){
     .layout{flex-direction:column}
-    #nav-toggle{display:flex!important;position:fixed;top:14px;left:14px;z-index:260;width:40px;height:40px;border-radius:8px;background:var(--surface);border:1px solid var(--border);align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12);color:var(--text)}
+    #nav-toggle{display:flex!important;position:fixed;top:14px;right:14px;z-index:260;width:40px;height:40px;border-radius:8px;background:var(--surface);border:1px solid var(--border);align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12);color:var(--text)}
     .side-nav{position:fixed;left:0;top:0;bottom:0;width:250px;height:100vh;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);z-index:255;border-right:1px solid var(--border);border-bottom:none;box-shadow:2px 0 24px rgba(0,0,0,.18);padding:64px 12px 20px;overflow-x:hidden;overflow-y:auto}
     .side-nav.open{transform:translateX(0)}
     .nav-tab{border-left:2px solid transparent;border-bottom:none;border-radius:0 6px 6px 0;padding:13px 14px;white-space:normal}
@@ -593,7 +593,8 @@
 
 <div class="tab-panel active" id="tab-overview">
 
-  <div class="section-title">Executive Summary <span style="color:var(--muted);font-size:10px">7 月截至 7/21：叢集整體穩定運行，SLA 持續達標</span></div>
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">總覽</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">7 月截至 7/21：叢集整體穩定運行，SLA 持續達標</div>
   <div class="sla-hero">
     <div class="stat-card highlight">
       <div class="stat-label">7 月 SLA（全月基準）</div>
@@ -1132,6 +1133,9 @@
   </div>
 
 </div><div class="tab-panel" id="tab-incidents">
+
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">事件明細</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">全部 114 起事件詳細列表，可搜尋／篩選／依欄位排序</div>
 
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">全部</button>
@@ -1880,13 +1884,17 @@
   </div>
 
 </div><div class="tab-panel" id="tab-timeline">
-  <div class="section-title">事件時間軸 <span style="color:var(--muted);font-size:10px">（點擊展開 Lesson Learned）</span></div>
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">時間軸</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">事件時間軸（點擊展開 Lesson Learned）</div>
   <div class="timeline" id="timeline-container">
     <div class="timeline-track"></div>
   </div>
 </div>
 
 <div class="tab-panel" id="tab-architecture">
+
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">全堆疊架構</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">5 層技術堆疊（L1 基礎機電 → L5 安全治理）與監控／工單／知識三層維運閉環</div>
 
   <div class="arch-callout">
     Visionbay B300 全堆疊架構由 <strong>5 層技術堆疊</strong>（L1 基礎機電 → L5 安全治理）與 <strong>監控／工單／知識</strong> 三層維運閉環組成。以粗虛線框明顯區分兩大維運分類：<strong style="color:var(--danger)">☁️ CloudOps 運算平台</strong>＝L4 Workload（維運，7 件事件），<strong style="color:var(--accent2)">🏗️ InfraOps 實體基礎設施</strong>＝L3 GPU/Fabric＋L2 IT Infra＋L1 Facility（硬體＋網路＋設施，74 件事件）；L5 為跨兩者的橫向治理層，不歸屬任一分類。
@@ -2636,7 +2644,8 @@
 
 </div><div class="tab-panel" id="tab-workflow">
 
-  <div class="section-title">導入前後差異比較（Before / After） <span style="color:var(--muted);font-size:10px">7/13 依 VOTS Ticket System SOP 簡報更新</span></div>
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">流程與工單</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">導入前後差異比較（Before / After），7/13 依 VOTS Ticket System SOP 簡報更新</div>
   <div class="compare-wrap">
     <div class="compare-sub">從人工分散作業，走向標準化、自動化的 VOTS 工單流程</div>
     <div class="compare-grid">
@@ -2857,6 +2866,8 @@
 
 </div><div class="tab-panel" id="tab-sop">
 
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">SOP 手冊</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">依事件證據建立之標準作業程序，可依故障分類篩選查看步驟</div>
 
 
   <div class="sop-card" data-filtercat="hw">
@@ -3190,6 +3201,9 @@
   </div>
 
 </div><div class="tab-panel" id="tab-itil">
+
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">ITIL 維運</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">依 ITIL 框架建立之維運治理模型：三大支柱、NOC/SLA、工具鏈、六大流程與案例解析</div>
 
   <div class="itil-subnav">
     <div class="itil-tab active" onclick="switchItil(&#39;pillars&#39;,this)">三大支柱</div>
@@ -3856,7 +3870,8 @@
 
 </div><div class="tab-panel" id="tab-beforeafter">
 
-  <div class="section-title">維運優化前後對比 <span style="color:var(--muted);font-size:10px">2026 Q2 → 2026 Q3（截至 7/21）給管理層的關鍵重點</span></div>
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">前後對比</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">維運優化前後對比：2026 Q2 → 2026 Q3（截至 7/21）給管理層的關鍵重點</div>
 
   <div class="ba-hero">
     <div class="ba-card before">
@@ -3951,7 +3966,8 @@
 
 </div><div class="tab-panel" id="tab-risk">
 
-  <div class="section-title">預測分析與風險控管 <span style="color:var(--muted);font-size:10px">依全部 114 起歷史事件推導，非正式統計模型，供決策參考</span></div>
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">預測與風險</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">預測分析與風險控管：依全部 114 起歷史事件推導，非正式統計模型，供決策參考</div>
   <div class="arch-callout">本頁彙整歷史事件的頻率、嚴重度與重複模式，產生趨勢預測、風險評分與觀察名單。所有推論皆可追溯至具體 VOTS 工單，非黑箱演算法輸出。</div>
 
   <div class="section-title" style="font-size:15px">SLA 趨勢預測</div>
@@ -4151,7 +4167,8 @@
 
 </div><div class="tab-panel" id="tab-orgreq">
 
-  <div class="section-title">AIOps ／ Platform Engineering 需求分析 <span style="color:var(--muted);font-size:10px">依全部 114 起事件之實際痛點，反推兩個研發團隊的產品需求</span></div>
+  <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">AIOps／Platform 需求</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">AIOps／Platform Engineering 需求分析：依全部 114 起事件之實際痛點，反推兩個研發團隊的產品需求</div>
   <div class="arch-callout">依 Software R&D 組織架構：<strong style="color:var(--accent)">☁️ AIOps</strong>（外部導向：agent、異常偵測、RCA、預測分析）與 <strong style="color:var(--accent2)">🏗️ Platform Engineering</strong>（內部導向：可擴展性、監控/SRE、自動化/DevOps）。以下需求皆從本站 114 起真實事件的重複痛點反推而來，非憑空規劃。</div>
 
   <div class="section-title" style="font-size:15px;color:var(--accent)">☁️ AIOps 需求（agent／異常偵測／RCA／預測分析）</div>

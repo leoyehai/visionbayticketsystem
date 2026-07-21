@@ -54,9 +54,13 @@
   .nav-tab.active{color:var(--accent2);border-left-color:var(--accent2);background:rgba(8,145,178,.08)}
   @media(max-width:760px){
     .layout{flex-direction:column}
-    .side-nav{flex-direction:row;width:100%;height:auto;position:sticky;top:0;overflow-x:auto;overflow-y:hidden;border-right:none;border-bottom:1px solid var(--border);padding:0 12px}
-    .nav-tab{border-left:none;border-bottom:2px solid transparent;border-radius:0;padding:14px 12px}
-    .nav-tab.active{border-left-color:transparent;border-bottom-color:var(--accent2);background:none}
+    #nav-toggle{display:flex!important;position:fixed;top:14px;left:14px;z-index:260;width:40px;height:40px;border-radius:8px;background:var(--surface);border:1px solid var(--border);align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12);color:var(--text)}
+    .side-nav{position:fixed;left:0;top:0;bottom:0;width:250px;height:100vh;transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);z-index:255;border-right:1px solid var(--border);border-bottom:none;box-shadow:2px 0 24px rgba(0,0,0,.18);padding:64px 12px 20px;overflow-x:hidden;overflow-y:auto}
+    .side-nav.open{transform:translateX(0)}
+    .nav-tab{border-left:2px solid transparent;border-bottom:none;border-radius:0 6px 6px 0;padding:13px 14px;white-space:normal}
+    .nav-tab.active{border-left-color:var(--accent2);border-bottom-color:transparent;background:rgba(8,145,178,.08)}
+    .nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:250;opacity:0;pointer-events:none;transition:opacity .25s}
+    .nav-overlay.open{opacity:1;pointer-events:auto}
   }
 
   /* ── LAYOUT ── */
@@ -563,13 +567,15 @@
 </div>
 
 <header>
+  <button id="nav-toggle" aria-label="開啟選單" style="display:none">☰</button>
   <a href="https://docs.google.com/spreadsheets/d/1b2jQI58AIQAwoq-_OmoOXeKqsxSOPc6eOq2JBWDzjZM/edit?hl=zh-tw&amp;gid=0#gid=0" target="_blank" style="position:absolute;top:16px;right:20px;font-size:12px;font-weight:600;color:var(--accent2);text-decoration:none;background:rgba(8,145,178,.08);border:1px solid rgba(8,145,178,.3);border-radius:999px;padding:6px 14px;z-index:2" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">🔗 查看完整試算表</a>
   <h1>B300 全堆疊維運分析與 <span>SLA 報告</span></h1>
   <div class="header-sub">亞灣超算資料中心 &nbsp;·&nbsp; 技術事件彙整、全堆疊架構與服務等級分析</div>
 </header>
 
 <div class="layout">
-<nav class="side-nav">
+<div class="nav-overlay" id="nav-overlay"></div>
+<nav class="side-nav" id="side-nav">
   <div class="nav-tab active" data-tab="overview"><span class="nav-tab-icon">📊</span>總覽</div>
   <div class="nav-tab" data-tab="incidents"><span class="nav-tab-icon">📋</span>事件明細</div>
   <div class="nav-tab" data-tab="timeline"><span class="nav-tab-icon">🕐</span>時間軸</div>
@@ -4660,8 +4666,22 @@ document.querySelectorAll('.nav-tab').forEach(tab=>{
     tab.classList.add('active');
     document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
     window.scrollTo(0,0);
+    closeMobileNav();
   });
 });
+
+// ── MOBILE NAV DRAWER ──────────────────────────────────
+const sideNav = document.getElementById('side-nav');
+const navOverlay = document.getElementById('nav-overlay');
+const navToggle = document.getElementById('nav-toggle');
+function openMobileNav(){ sideNav.classList.add('open'); navOverlay.classList.add('open'); }
+function closeMobileNav(){ sideNav.classList.remove('open'); navOverlay.classList.remove('open'); }
+if(navToggle){
+  navToggle.addEventListener('click',()=>{
+    sideNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+  });
+}
+navOverlay.addEventListener('click', closeMobileNav);
 
 // ── JUMP TO INCIDENT (used by system-relationship diagram) ──
 function goToIncident(jiraId){

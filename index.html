@@ -641,8 +641,8 @@
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
       <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">機房CDU過熱事件根因已確認，16台機器受影響，原廠已到場</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">兩個機櫃CDU（散熱系統）溫度過高，導致網路模組失效，不是網卡本身壞掉。8台節點的網路櫃7/21已全數個別開單追蹤，原廠同日已到場查修。重啟這些機器務必透過BMC選Disk OS開機，不然資料可能被清空（跟之前VOTS-143同樣風險）。</div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">機房CDU過熱事件16台機器已全數開單，其中1台又出新狀況</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">兩個機櫃CDU（散熱系統）溫度過高導致網路模組失效，8台受影響節點7/21已全數個別開單追蹤，原廠已到場查修。但其中一台（gpusrv071）7/21晚間又冒出網卡缺失的新問題，建議列入觀察，確認是不是CDU事件的殘留影響還是獨立新故障。重啟這些機器務必透過BMC選Disk OS開機，不然資料可能被清空（跟之前VOTS-143同樣風險）。</div>
       </div>
     </div>
 

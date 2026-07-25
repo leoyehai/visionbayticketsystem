@@ -659,8 +659,8 @@
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">同期又新增2起GPU掉卡案例，需持續觀察是否與水質事件有牽連</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">VOTS-201（gpusrv232 ECC異常）、VOTS-202（gpusrv101 GPU掉卡）皆為7/22新開單，目前判斷為獨立GPU硬體案例，但因與CDU水質事件時間點接近，建議維運團隊在排查時一併確認節點所在機櫃是否為受影響的8櫃之一。</div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">兩天內連續出現2台機器「8張GPU一次全部掉卡」，型態一模一樣</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">7/23晚上一台、7/24晚上又一台，都是同一時間點8張GPU全部fallen off bus，不是單張卡壞掉。這種「整機全掉」的模式跟平常個別GPU故障不一樣，已經要求排查是不是同批機台的主機板或PCIe有共通瑕疵，不能當成兩件獨立小事處理。另外提醒：本季重複故障次數最高的機器（gpusrv061）這次是第7度出包，建議考慮直接整機換掉，別再一次一次修。</div>
       </div>
     </div>
 

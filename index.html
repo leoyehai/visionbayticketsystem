@@ -1000,23 +1000,23 @@
   <div class="sla-hero">
     <div class="stat-card danger-top">
       <div class="stat-label">RMA 相關事件數</div>
-      <div class="stat-value warn">7 件</div>
-      <div class="stat-sub">佔累計 125 件事件的 5.6%</div>
+      <div class="stat-value warn">24 件</div>
+      <div class="stat-sub">佔累計 125 件事件的 19.2%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">已完成 RMA 更換</div>
-      <div class="stat-value" style="color:var(--ok);font-size:28px">5 件</div>
-      <div class="stat-sub">VOTS-3／25／48／147／150</div>
+      <div class="stat-value" style="color:var(--ok);font-size:28px">7 件</div>
+      <div class="stat-sub">VOTS-3／23／25／48／100／147／150</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">RMA 相關累計停機</div>
-      <div class="stat-value warn">13,415</div>
-      <div class="stat-sub">分鐘（≈223.6 hr）｜佔累計總停機 31.9%</div>
+      <div class="stat-value warn">13,758</div>
+      <div class="stat-sub">分鐘（≈229.3 hr）｜佔累計總停機 29.1%</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">處理中／待確認</div>
-      <div class="stat-value" style="color:var(--danger)">0 件</div>
-      <div class="stat-sub">VOTS-150 已於 7/14 完成更換</div>
+      <div class="stat-label">待確認／處理中</div>
+      <div class="stat-value" style="color:var(--danger)">17 件</div>
+      <div class="stat-sub">⚠️ 較上輪大幅增加，多為近期 GPU Xid/ECC 案例</div>
     </div>
   </div>
   <table class="gov-table" style="margin-bottom:16px">
@@ -1026,10 +1026,28 @@
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-3" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-3</a></td><td>gpusvr040</td><td style="color:var(--ok)">已完成</td><td>400</td><td>GPU Tray 深度清潔與重新鎖附後完成，效能驗證通過</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-25" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-25</a></td><td>gpusrv232</td><td style="color:var(--ok)">已完成</td><td>5,760</td><td>鏈路不穩（燈號自滅），交叉比對後 RMA 替換</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-33" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-33</a> → <a href="https://visionbay.atlassian.net/browse/VOTS-48" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-48</a></td><td>gpusrv181</td><td style="color:var(--ok)">已完成</td><td>10</td><td>電源拔插無效，最終 GPU Tray RMA 替換並驗證交付</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-100" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-100</a></td><td>gpusrv251</td><td style="color:var(--ok)">已完成</td><td>0</td><td>GPU Tray 硬體更換與鏈路指標恢復驗證</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-147" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-147</a></td><td>10.227.0.173</td><td style="color:var(--ok)">已完成</td><td>894</td><td>NVLink 異常，dcgmi/fabricmanager/power cycle 均無效後 RMA 換 Tray</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-150</a></td><td>gpusrv181（10.227.0.181）</td><td style="color:var(--ok)">已完成</td><td style="color:var(--danger);font-weight:700">6,339</td><td>同節點 6/22 才完成上一次 GPU Tray RMA（VOTS-48），此次因現場無備品延宕近 4.5 天才完成第二次更換</td></tr>
+      <tr><td colspan="5" style="background:var(--surface2);font-weight:700;font-size:12px;color:var(--warn);padding:10px 14px">⏳ 待確認是否符合 RMA 標準／處理中（17 件）</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-153" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-153</a></td><td>gpusrv278</td><td style="color:var(--warn)">處理中</td><td>353</td><td>DRAM Uncorrectable 累計 165，待判定 RMA 門檻</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-181" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-181</a></td><td>053／283／278／061／006／228</td><td style="color:var(--warn)">處理中</td><td>0</td><td>6 節點 RMA 彙整單：053／283 已確認 PD Fail，ETA 7/24 換 GPU；其餘待排 PD 測試</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-176" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-176</a></td><td>gpusrv006</td><td style="color:var(--warn)">處理中</td><td>0</td><td>Row Remapper Pending，待判定 RMA 門檻</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-178" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-178</a></td><td>gpusrv228</td><td style="color:var(--warn)">處理中</td><td>0</td><td>Row Remapper Pending，待判定 RMA 門檻</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-183" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-183</a></td><td>gpusrv222</td><td style="color:var(--warn)">待確認</td><td>0</td><td>DRAM Uncorrectable 累計 11，短期內第 2 次異常（同 VOTS-151）</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-184" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-184</a></td><td>gpusrv059</td><td style="color:var(--warn)">待確認</td><td>0</td><td>DRAM Uncorrectable=4，Row Remapper Pending</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-185" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-185</a></td><td>gpusrv250</td><td style="color:var(--warn)">待確認</td><td>0</td><td>Remapped Rows Correctable，嚴重度較低</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-190" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-190</a></td><td>gpusrv017</td><td style="color:var(--warn)">待確認</td><td>0</td><td>DRAM Uncorrectable=30，第 1 次異常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-202" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-202</a></td><td>gpusrv101</td><td style="color:var(--warn)">待確認</td><td>0</td><td>GPU5 fallen off bus</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-203" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-203</a></td><td>gpusrv044</td><td style="color:var(--warn)">待確認</td><td>0</td><td>⚠️ 8 張 GPU 一次全數掉卡，疑主機板/PCIe 層級異常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-204" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-204</a></td><td>gpusrv017</td><td style="color:var(--warn)">待確認</td><td>0</td><td>DRAM Uncorrectable 累計攀升至 46，同節點第 2 次異常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-205" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-205</a></td><td>gpusrv097</td><td style="color:var(--warn)">待確認</td><td>0</td><td>⚠️ 8 張 GPU 一次全數掉卡，與 VOTS-203 型態相同</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-206" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-206</a></td><td>gpusrv061</td><td style="color:var(--warn)">待確認</td><td>0</td><td>本季第 7 次事件記錄，建議評估整機汰換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-208" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-208</a></td><td>gpusrv177</td><td style="color:var(--warn)">待確認</td><td>0</td><td>本季第 5 次事件記錄，建議一併評估整機汰換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-209" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-209</a></td><td>gpusrv024</td><td style="color:var(--warn)">待確認</td><td>0</td><td>DRAM Correctable 累計異常偏高（近 194 萬次）</td></tr>
     </tbody>
   </table>
+  <div class="arch-callout" style="margin-bottom:32px">💡 待確認案例從上輪的 0 件暴增至 <strong>17 件</strong>，主要為近兩週密集出現的 GPU Xid／ECC 早期預警案例尚未走完 PD 測試判定流程。建議加速推動 <a href="#" onclick="document.querySelector('[data-tab=&quot;dsx&quot;]').click();return false" style="color:var(--accent2)">NVIDIA DSX 對照頁籤</a>提及的 NVSentinel 自動化健康檢查與隔離機制，避免大量案例卡在人工判定階段。</div>
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger)">⚠ <strong>gpusrv181 / 10.227.0.181 已完成二次 RMA</strong>：6/20 電源異常 → 6/22 完成第一次 GPU Tray RMA → 7/10 同節點再次掉卡 → 因現場無備品延宕 4.5 天 → 7/14 完成第二次 GPU Tray 更換。同一節點 25 天內兩度更換 GPU Tray，強烈建議追查是否為同批料件品質問題，並將此節點列入長期觀察名單。</div>
 
   <div class="section-title">重複發生的硬體 <span style="color:var(--muted);font-size:10px">同一節點／設備出現 2 次以上事件</span></div>

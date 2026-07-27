@@ -4581,279 +4581,55 @@
 <div class="tab-panel" id="tab-onboard">
 
   <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">客戶問卷</div>
-  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">B300 GPU 叢集客戶進駐問卷 v1.0，填寫後自動產生預估準備時間</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">AI Data Center Requirements Confirmation Document v1.0 ｜ 涵蓋 Pre-Sales → 建置期 → 上線驗收 → 維運期 → 下線退場全生命週期</div>
 
-  <div class="arch-callout">本問卷依全部歷史事件彙整之風險模式設計，目的為進駐前確認資料保護、維護窗口、硬體/網路異常應變、機房設施風險、頻寬品質與通知偏好等關鍵事項。填寫完成後點擊底部按鈕，系統會依您的回答自動估算所需準備工作天數。</div>
+  <div class="arch-callout">本文件依生命週期階段分節，各節包含「確認項目」「範例內容」「備註」。由業務協助客戶於對應欄位填入答案或勾選選項。<span style="color:var(--danger);font-weight:700">紅色標籤</span>為合約前必須確認之項目，<span style="color:var(--warn);font-weight:700">橘色標籤</span>為建議盡早確認以利規劃。全文共 <strong>165 項</strong>確認項目，可搜尋／依階段篩選查看。</div>
 
-  <div class="section-title" style="font-size:15px">一、客戶基本資訊</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">客戶／單位名稱</label><input type="text" id="ob-name" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">專案 / 服務名稱</label><input type="text" id="ob-project" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">預計進駐日期</label><input type="date" id="ob-date" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">申請 GPU 數量（節點數）</label><input type="number" id="ob-gpucount" class="ob-input" placeholder="例：8" min="0"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">主要業務聯絡窗口</label><input type="text" id="ob-contact" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">技術／緊急聯絡窗口</label><input type="text" id="ob-techcontact" class="ob-input"></div>
+  <div class="sla-hero">
+    <div class="stat-card">
+      <div class="stat-label">確認項目總數</div>
+      <div class="stat-value" style="color:var(--accent2)">165 項</div>
+      <div class="stat-sub">橫跨 5 大生命週期階段</div>
+    </div>
+    <div class="stat-card danger-top">
+      <div class="stat-label">[必填] 項目</div>
+      <div class="stat-value" style="color:var(--danger)" id="qn-required-count">— 項</div>
+      <div class="stat-sub">合約前必須確認</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">[建議] 項目</div>
+      <div class="stat-value" style="color:var(--warn)" id="qn-suggested-count">— 項</div>
+      <div class="stat-sub">建議盡早確認以利規劃</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">文件版本</div>
+      <div class="stat-value" style="color:var(--text);font-size:22px">v1.0</div>
+      <div class="stat-sub">VB 與客戶雙方共同填寫確認</div>
     </div>
   </div>
 
-  <div class="section-title" style="font-size:15px">💬 業務建議提問清單 <span style="color:var(--muted);font-size:10px">問卷勾選欄位以外，建議業務窗口在客戶會議中一併釐清的軟性問題</span></div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <h4 style="margin-top:0;color:var(--text)">🎯 業務背景與重要性</h4>
-    <div class="ob-q"><div class="ob-qtext">此叢集支撐的業務是否為客戶當前最高優先級專案？服務中斷對客戶端商業影響有多大？</div>
-      <div class="ob-opts" data-q="biz_priority">
-        <div class="ob-opt" data-val="critical">最高優先級，中斷影響重大</div>
-        <div class="ob-opt" data-val="important">重要但非唯一</div>
-        <div class="ob-opt" data-val="secondary">次要／實驗性質</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">客戶內部是否已有其他團隊使用過類似 GPU 雲端服務？過去經驗中最不滿意的地方？</div>
-      <input type="text" id="biz-past-experience" class="ob-input" placeholder="請填寫過去經驗與痛點（若無則填「無」）">
-    </div>
-    <div class="ob-q"><div class="ob-qtext">未來 3～6 個月是否有明確的擴容計畫？目前申請規模是否為最終規模？</div>
-      <div class="ob-opts" data-q="expansion_plan">
-        <div class="ob-opt" data-val="confirmed">已有明確擴容計畫</div>
-        <div class="ob-opt" data-val="maybe">可能擴容，待評估</div>
-        <div class="ob-opt" data-val="final">目前規模即為最終規模</div>
-      </div>
-    </div>
-
-    <h4>🧑‍💻 技術成熟度與內部量能</h4>
-    <div class="ob-q"><div class="ob-qtext">客戶端是否有專職維運／基礎架構團隊？</div>
-      <div class="ob-opts" data-q="biz_ops_team">
-        <div class="ob-opt" data-val="dedicated">有專職團隊</div>
-        <div class="ob-opt" data-val="partial">部分兼任</div>
-        <div class="ob-opt" data-val="none">無，業務／研究團隊直接對接</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">客戶端對 Kubernetes／Slurm／容器化等工具的熟悉程度？</div>
-      <div class="ob-opts" data-q="tech_familiarity">
-        <div class="ob-opt" data-val="expert">熟悉，可自主操作</div>
-        <div class="ob-opt" data-val="moderate">略懂，需部分協助</div>
-        <div class="ob-opt" data-val="none">不熟悉，需完整教育訓練</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">客戶端過去是否曾因誤操作（如自行重啟節點）導致資料遺失或服務中斷？</div>
-      <div class="ob-opts" data-q="past_misop">
-        <div class="ob-opt" data-val="yes">是，曾發生過</div>
-        <div class="ob-opt" data-val="no">否，未曾發生</div>
-        <div class="ob-opt" data-val="unsure">不確定</div>
-      </div>
-    </div>
-
-    <h4>💰 商務條件與決策流程</h4>
-    <div class="ob-q"><div class="ob-qtext">本次採購的決策鏈是誰？除了眼前窗口，是否還有其他需要簽核或知情的利害關係人？</div>
-      <input type="text" id="biz-decision-chain" class="ob-input" placeholder="例：技術窗口 → 部門主管 → 財務／資安審核">
-    </div>
-    <div class="ob-q"><div class="ob-qtext">合約與帳單週期偏好為何？是否需要客製化報表格式？</div>
-      <input type="text" id="biz-billing-pref" class="ob-input" placeholder="例：月結、依部門拆分計費">
-    </div>
-    <div class="ob-q"><div class="ob-qtext">客戶端是否正在與其他雲端服務商比價或並行評估？若有，關鍵決勝因素是什麼？</div>
-      <div class="ob-opts" data-q="competing_vendor">
-        <div class="ob-opt" data-val="yes">是，正在比價／並行評估</div>
-        <div class="ob-opt" data-val="no">否，已確定合作</div>
-        <div class="ob-opt" data-val="unsure">不確定</div>
-      </div>
-      <input type="text" id="biz-win-factor" class="ob-input" placeholder="若在比價，決勝關鍵為？（例：價格／效能／SLA／在地支援）" style="margin-top:8px">
-    </div>
-
-    <h4>⚠️ 風險胃納與磨合期預期</h4>
-    <div class="ob-q"><div class="ob-qtext">客戶是否理解本叢集為近期新建置服務，磨合期間可能仍有早期異常？客戶對此的接受度為何？</div>
-      <div class="ob-opts" data-q="risk_tolerance">
-        <div class="ob-opt" data-val="high">已理解，接受度高</div>
-        <div class="ob-opt" data-val="medium">已告知，接受度中等</div>
-        <div class="ob-opt" data-val="low">尚未溝通／接受度低，需加強說明</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">若進駐初期發生非預期停機，客戶內部「可接受」與「不可接受」的界線為何？</div>
-      <input type="text" id="biz-downtime-threshold" class="ob-input" placeholder="例：單次超過 30 分鐘即啟動客戶端緊急應變">
-    </div>
-    <div class="ob-q"><div class="ob-qtext">客戶是否希望在正式簽約前，先安排一次現場參訪或試用期？</div>
-      <div class="ob-opts" data-q="visit_request">
-        <div class="ob-opt" data-val="yes">需要現場參訪／試用期</div>
-        <div class="ob-opt" data-val="no">不需要，可直接進駐</div>
-        <div class="ob-opt" data-val="tbd">待確認</div>
-      </div>
-    </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-qn-filter="all">全部階段</button>
+    <button class="filter-btn" data-qn-filter="階段一：建置前需求調查">階段一：建置前需求調查</button>
+    <button class="filter-btn" data-qn-filter="階段二：建置期確認">階段二：建置期確認</button>
+    <button class="filter-btn" data-qn-filter="階段三：上線驗收">階段三：上線驗收</button>
+    <button class="filter-btn" data-qn-filter="階段四：維運期需求">階段四：維運期需求</button>
+    <button class="filter-btn" data-qn-filter="階段五：下線退場">階段五：下線退場</button>
+    <button class="filter-btn" data-qn-filter="required">僅看 [必填]</button>
+    <input class="search-box" type="text" id="qn-search" placeholder="搜尋確認項目／範例內容／備註…">
   </div>
 
-  <div class="section-title" style="font-size:15px">二、工作負載與使用情境</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="ob-q"><div class="ob-qtext">2.1 此次使用 B300 叢集的主要用途為何？（可複選）</div>
-      <div class="ob-opts" data-q="usage" data-multi="true">
-        <div class="ob-opt" data-val="pretrain">模型訓練（Pre-training）</div>
-        <div class="ob-opt" data-val="finetune">模型微調（Fine-tuning）</div>
-        <div class="ob-opt" data-val="inference">推論服務（Inference）</div>
-        <div class="ob-opt" data-val="etl">資料前處理 / ETL</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">2.2 工作負載是否為長時間連續運行（單一 Job 超過 24 小時）？<span class="ob-hint">影響維護窗口安排與重開機風險評估（參考 VOTS-143）</span></div>
-      <div class="ob-opts" data-q="longrun">
-        <div class="ob-opt" data-val="yes">是，單一 Job 可能連續運行數天</div>
-        <div class="ob-opt" data-val="no">否，Job 多為短時間、可頻繁中斷重跑</div>
-        <div class="ob-opt" data-val="unsure">不確定，需進一步確認</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">2.3 是否已建立自動 Checkpoint / 續跑機制？</div>
-      <div class="ob-opts" data-q="checkpoint">
-        <div class="ob-opt" data-val="yes">已具備</div>
-        <div class="ob-opt" data-val="no">尚未建立，需要協助評估</div>
-        <div class="ob-opt" data-val="na">不需要（可容忍重跑）</div>
-      </div>
-    </div>
+  <div class="table-wrap" style="margin-bottom:16px">
+    <table id="qn-table">
+      <thead><tr><th style="width:50px">#</th><th style="width:60px">類別</th><th>確認項目</th><th style="width:130px">小節</th><th style="width:24px"></th></tr></thead>
+      <tbody id="qn-tbody"></tbody>
+    </table>
   </div>
+  <div id="qn-empty" style="display:none;text-align:center;padding:32px;color:var(--muted);font-family:var(--mono);font-size:12px">沒有符合條件的項目</div>
 
-  <div class="section-title" style="font-size:15px">三、資料保護與持久化需求</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>重要提醒（參考 VOTS-143）</strong>：B300 GPU Server 於執行重開機（reboot）程序時，節點本機磁碟（非持久化儲存）上的資料將會被清除。</p></div>
-    <div class="ob-q"><div class="ob-qtext">3.1 是否已確認並理解上述「節點重開機將清除本機資料」之風險？</div>
-      <div class="ob-opts" data-q="risk_ack">
-        <div class="ob-opt" data-val="yes">已理解並確認</div>
-        <div class="ob-opt" data-val="no">尚未理解，需要說明</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">3.2 客戶資料 / 模型權重目前規劃儲存於：（可複選）</div>
-      <div class="ob-opts" data-q="storage" data-multi="true">
-        <div class="ob-opt" data-val="local">節點本機磁碟（Local Disk / NVMe）</div>
-        <div class="ob-opt" data-val="nfs">共用儲存（NFS / Shared Storage）</div>
-        <div class="ob-opt" data-val="s3">客戶自建外部儲存（S3 等）</div>
-        <div class="ob-opt" data-val="unplanned">尚未規劃，需協助評估</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">3.3 若因故障排除需要重開機，客戶可接受的資料保留應變方式為？</div>
-      <div class="ob-opts" data-q="reboot_pref">
-        <div class="ob-opt" data-val="backup">可接受作業前先行備份（納入 SLA 計算）</div>
-        <div class="ob-opt" data-val="notify">要求重開機前主動通知並取得同意</div>
-        <div class="ob-opt" data-val="none">無特殊要求，以維運團隊判斷為準</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">四、維護窗口與通知偏好</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="ob-q"><div class="ob-qtext">4.1 客戶可接受的例行維護窗口時段為？</div>
-      <div class="ob-opts" data-q="window">
-        <div class="ob-opt" data-val="night">平日夜間（22:00–06:00）</div>
-        <div class="ob-opt" data-val="weekend">週末／假日</div>
-        <div class="ob-opt" data-val="advance">需提前 N 天預約，無固定時段</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">4.2 客戶希望接收事件通知的管道為？（可複選）</div>
-      <div class="ob-opts" data-q="notify_channel" data-multi="true">
-        <div class="ob-opt" data-val="email">Email</div>
-        <div class="ob-opt" data-val="slack">Slack / Teams（需 Webhook）</div>
-        <div class="ob-opt" data-val="phone">電話（僅限 P1／Critical）</div>
-        <div class="ob-opt" data-val="ticket">客戶自有工單系統（需串接）</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px">
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">P1／Critical 通知時效</label><input type="text" id="ob-p1" class="ob-input" placeholder="例：15 分鐘內"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">P2／High 通知時效</label><input type="text" id="ob-p2" class="ob-input" placeholder="例：1 小時內"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">P3／Medium 通知時效</label><input type="text" id="ob-p3" class="ob-input" placeholder="例：4 小時內"></div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">五、GPU 硬體異常與 RMA 應變期望</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>提醒（參考 VOTS-150、162/165/153/161/176/178）</strong>：GPU 故障需先跑 PD 測試判定是否符合 RMA 門檻，現場常無立即備品，曾出現同批 6 台節點併行 RMA、交期落在 2~3 週後之情形。</p></div>
-    <div class="ob-q"><div class="ob-qtext">5.1 客戶是否理解「GPU 故障需先跑 PD 測試確認是否達 RMA 門檻」之判定流程？</div>
-      <div class="ob-opts" data-q="rma_ack">
-        <div class="ob-opt" data-val="yes">已理解並接受</div>
-        <div class="ob-opt" data-val="no">需要更詳細的說明</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">5.2 若發生 GPU 故障且現場無備品，客戶可接受的降級運行 / 等待時間為？</div>
-      <div class="ob-opts" data-q="degrade">
-        <div class="ob-opt" data-val="accept">可接受降級運行直到備品到位</div>
-        <div class="ob-opt" data-val="immediate">要求立即以其他節點補足，不可降級</div>
-        <div class="ob-opt" data-val="case">需視工作負載重要性個案討論</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">5.4 客戶是否需要 VisionBay 提供備援節點 / 保留容量（Reserved Capacity）？</div>
-      <div class="ob-opts" data-q="reserved">
-        <div class="ob-opt" data-val="yes">需要</div>
-        <div class="ob-opt" data-val="no">不需要</div>
-        <div class="ob-opt" data-val="tbd">待評估</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">六、網路異常與機房設施（冷卻）風險</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>提醒（參考 VOTS-186～189、194～198）</strong>：曾發生單一機櫃 CDU 異常導致溫度過高，造成同機櫃內多達 8 台節點的 IB 網卡同時 Link Down，屬機櫃級群發性事件。</p></div>
-    <div class="ob-q"><div class="ob-qtext">6.1 客戶是否理解機房設施異常可能導致同一機櫃內多節點同時受影響？</div>
-      <div class="ob-opts" data-q="facility_ack">
-        <div class="ob-opt" data-val="yes">已理解，可接受機櫃級批次通知</div>
-        <div class="ob-opt" data-val="no">要求即使機櫃級事件仍需逐節點個別通知</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">6.3 客戶工作負載是否具備跨機櫃／跨節點容錯能力？</div>
-      <div class="ob-opts" data-q="fault_tolerant">
-        <div class="ob-opt" data-val="yes">是，具備容錯機制</div>
-        <div class="ob-opt" data-val="no">否，需協助避免同機櫃集中部署</div>
-        <div class="ob-opt" data-val="unsure">不確定，需進一步確認</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">七、網路頻寬與連線品質期望</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="field-callout" style="margin-bottom:16px"><p style="font-size:12px;margin:0"><strong>提醒（參考 VOTS-179）</strong>：曾發生客戶申請 10G 公網頻寬實測僅約 2G，經查為客戶端測速方式所致，複測確認實際頻寬符合規格；建議進駐前即確認雙方測速方法與驗收基準。</p></div>
-    <div style="margin-bottom:12px"><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">申請之公網/專線頻寬規格</label><input type="text" id="ob-bandwidth" class="ob-input" placeholder="例：10G 公網" style="max-width:300px"></div>
-    <div class="ob-q"><div class="ob-qtext">7.2 客戶預計採用的測速工具／驗收方式為？</div>
-      <div class="ob-opts" data-q="speedtest">
-        <div class="ob-opt" data-val="speedtest">Speedtest.net 或同類工具</div>
-        <div class="ob-opt" data-val="iperf">iperf3 / 內部測速工具</div>
-        <div class="ob-opt" data-val="workload">以實際工作負載吞吐量為準</div>
-        <div class="ob-opt" data-val="unsure">尚未決定，需協助建議</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">八、監控與告警接收</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="ob-q"><div class="ob-qtext">8.1 客戶是否需要接收以下告警之通知或摘要？（可複選）</div>
-      <div class="ob-opts" data-q="alerts" data-multi="true">
-        <div class="ob-opt" data-val="xid">GPU Xid 錯誤告警</div>
-        <div class="ob-opt" data-val="ecc">GPU ECC / Row Remapping 告警</div>
-        <div class="ob-opt" data-val="nvlink">NVLink 異常告警</div>
-        <div class="ob-opt" data-val="ib">IB 網卡 Link Down 告警</div>
-        <div class="ob-opt" data-val="cdu">CDU / 機房溫度異常告警</div>
-        <div class="ob-opt" data-val="down">節點 Down / 離線告警</div>
-        <div class="ob-opt" data-val="change">變更管理執行通知</div>
-        <div class="ob-opt" data-val="report">SLA 每月報表</div>
-      </div>
-    </div>
-    <div class="ob-q"><div class="ob-qtext">8.2 是否需要客戶端專屬監控 Dashboard 存取權限？</div>
-      <div class="ob-opts" data-q="dashboard_access">
-        <div class="ob-opt" data-val="yes">需要</div>
-        <div class="ob-opt" data-val="no">不需要</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-title" style="font-size:15px">九、SLA 與升級聯絡窗口</div>
-  <div class="chart-box" style="margin-bottom:24px">
-    <div class="ob-q"><div class="ob-qtext">9.1 本次合作之 SLA 目標為？</div>
-      <div class="ob-opts" data-q="sla_target">
-        <div class="ob-opt" data-val="995">99.5%</div>
-        <div class="ob-opt" data-val="999">99.9%</div>
-        <div class="ob-opt" data-val="9995">99.95%＋</div>
-        <div class="ob-opt" data-val="unsure">依合約另議</div>
-      </div>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px">
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">第一順位升級窗口</label><input type="text" id="ob-esc1" class="ob-input"></div>
-      <div><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">第二順位升級窗口</label><input type="text" id="ob-esc2" class="ob-input"></div>
-    </div>
-    <div style="margin-top:12px"><label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">其他特殊需求或備註</label><textarea id="ob-notes" class="ob-input" rows="2" style="resize:vertical"></textarea></div>
-  </div>
-
-  <div style="text-align:center;margin:32px 0">
-    <button id="ob-calc-btn" style="background:var(--accent2);color:#fff;border:none;border-radius:8px;padding:14px 36px;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(8,145,178,.3)">📋 產生預估準備時間</button>
-  </div>
-
-  <div id="ob-result" style="display:none;margin-bottom:40px"></div>
+  <script id="qn-data" type="application/json">
+[{"section": "2.1A 機房與電力", "num": "1", "required": true, "item": "機房地點（縣市/園區/大樓）", "example": "國內, 高雄, 是方機房，高雄市前鎮區復興四路11號", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "2", "required": true, "item": "機房性質（自有/租用IDC/共址）", "example": "☑ 向IDC業者租用機架／機房空間（Colocation）", "note": "影響後續電力、冷卻、門禁等責任歸屬劃分，必須在合約前確認清楚", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "3", "required": false, "item": "機房樓地板面積（m²）", "example": "約200 m²（含走道與操作空間）", "note": "自有機房用戶才會知道此資訊，建議必填；租用/共址用戶請改填：預計機器總數、單台重量與電量", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "4", "required": false, "item": "可用機架數量（現有/預留擴充）", "example": "現有20架，預留10架擴充空間", "note": "建議自有機房為必填；租用IDC者需與IDC業者確認可租用上限", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "5", "required": false, "item": "機架規格", "example": "42U標準機架，深度1000mm", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "6", "required": false, "item": "機架承重上限（kg/架）", "example": "每架承重上限1000 kg", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "7", "required": false, "item": "機房可用總電力容量（kW）", "example": "總供電容量500 kW", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "8", "required": false, "item": "單機架電力上限（kW/架）", "example": "每架最高20 kW", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "9", "required": false, "item": "電源類型（三相/單相，電壓規格）", "example": "單相110/220V or 三相380V", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "10", "required": false, "item": "UPS配置（有/無，容量，切換時間）", "example": "有，容量200 kVA，切換時間<10ms", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "11", "required": false, "item": "備援發電機（有/無，容量，啟動時間）", "example": "有，500 kVA，啟動時間<30 sec", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1A 機房與電力", "num": "12", "required": false, "item": "PDU規格及品牌（智慧型/一般）", "example": "SUNBOX 8孔/1U/30A", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "13", "required": false, "item": "現有冷卻方式", "example": "氣冷", "note": "建議自有機房為必填；若客戶現有氣冷但設備密度高，需提醒散熱不足風險", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "14", "required": false, "item": "機房省電目標值(PUE)", "example": "PUE ≤ 1.4", "note": "PUE=總用電÷IT設備用電，越接近1.0越省電；影響電費與ESG報告", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "15", "required": false, "item": "機房操作溫度範圍（℃）", "example": "冷通道入口溫度18–28℃，熱通道出口溫度<35℃", "note": "建議自有機房為必填", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "16", "required": false, "item": "機房操作濕度範圍（%RH）", "example": "相對濕度40–60 %RH", "note": "濕度過低容易產生靜電損壞設備，過高則有結露風險", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "17", "required": false, "item": "是否支援後門熱交換器（RDHx）或列間空調", "example": "是，為Vertive，每列2台", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "18", "required": false, "item": "是否規劃直接液冷（DLC）或浸沒式冷卻", "example": "是, DLC", "note": "例如配合NVIDIA GB200 NVL72會需要搭配DLC", "phase": "階段一：建置前需求調查"}, {"section": "2.1B 冷卻與散熱", "num": "19", "required": false, "item": "冷卻系統備援設計（N+1/2N）", "example": "N+1備援", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "20", "required": true, "item": "機房認證要求", "example": "Tier III", "note": "ISO27001 / TIA-942 Tier / Uptime Institute Tier", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "21", "required": true, "item": "門禁管制方式", "example": "進出申請+門禁卡", "note": "資安上通常會要求保留申請紀錄≥180天，門禁紀錄≥90天", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "22", "required": true, "item": "消防設備", "example": "氣體滅火系統（FM-200），含定期年度檢測", "note": "資安上通常會要求保留檢測紀錄≥X年", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "23", "required": false, "item": "漏水偵測系統", "example": "有", "note": "液冷的漏水風險高，資安上會關注漏水的告警流程或機制", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "24", "required": false, "item": "DCIM系統（確認品牌）", "example": "有，Vertiv", "note": "可確認如何取得機房環境監控資料", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "25", "required": false, "item": "遠端KVM/帶外管理（IPMI/BMC）需求", "example": "需要", "note": "通常需要可以遠端，在網路規劃時期需納入設計", "phase": "階段一：建置前需求調查"}, {"section": "2.1C 機房管理與安全", "num": "26", "required": false, "item": "機房24/7駐點人員（有/無）", "example": "7x24 or 5x8", "note": "⚠️ SLA計算項目需明確定義「不可抗力」情境（天災/傳染病/恐攻等）之責任歸屬", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "27", "required": true, "item": "伺服器用途（AI訓練/AI推論/HPC/混合）", "example": "主要用於LLM訓練，少數節點用於推論", "note": "以情境規劃資源與網路，避免訓練與推論搶奪資源", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "28", "required": true, "item": "GPU需求（單位：片）", "example": "GPU 80片，NVIDIA DGX B300 (total 80片)", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "29", "required": true, "item": "CPU需求（單位：核心數）", "example": "DUAL 72 core，NVIDIA GRACE Arm Neoverse V2 72-core", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "30", "required": true, "item": "記憶體需求（容量、規格）", "example": "每台2TB DDR5，共20條64GB DIMM", "note": "記憶體容量建議至少為GPU的2倍以上，避免資料預處理成為瓶頸", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "31", "required": true, "item": "伺服器台數（現在/未來擴充規劃）", "example": "現在10台；16個月內20台；30個月內40台", "note": "擴充規劃影響機架預留、電力容量、網路交換器Port數與儲存擴充", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "32", "required": false, "item": "指定品牌", "example": "NVIDIA / Dell / HPE / Supermicro...", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "33", "required": false, "item": "是否需要AI加速卡以外的FPGA/DPU", "example": "", "note": "DPU可將網路加密、儲存I/O等工作從CPU卸載，提升整體效能；FPGA則用於客製推論應用", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "34", "required": false, "item": "單機互連需求（NVLink/NVSwitch）", "example": "NVLink/NVSwitch", "note": "HGX平台內建NVLink/NVSwitch，適合大模型訓練", "phase": "階段一：建置前需求調查"}, {"section": "2.2 設備規格需求", "num": "35", "required": false, "item": "跨機間互連需求（InfiniBand/RoCE）", "example": "InfiniBand NDR 400Gbps", "note": "頻寬與延遲直接決定訓練效率", "phase": "階段一：建置前需求調查"}, {"section": "2.3A 前端網路", "num": "36", "required": true, "item": "對外連線頻寬需求（一般/JupyterLab/SSH）", "example": "評估1 Gbps，預留擴充至10 Gbps空間", "note": "將影響防火牆、WAF、VPN、反向代理與Load Balancer的設計規模", "phase": "階段一：建置前需求調查"}, {"section": "2.3A 前端網路", "num": "37", "required": true, "item": "線路備援需求數量（單線/多ISP）", "example": "雙線路備援，主線中華電信、備線台灣大哥大，同時Active", "note": "若對外線路斷掉，平台可能造成短暫中斷", "phase": "階段一：建置前需求調查"}, {"section": "2.3A 前端網路", "num": "38", "required": true, "item": "專線互聯需求", "example": "是，用於LDAP、日誌系統串接", "note": "需確認對接的系統清單，以及專線由誰負責申請與費用歸屬", "phase": "階段一：建置前需求調查"}, {"section": "2.3A 前端網路", "num": "39", "required": true, "item": "public IP數量需求", "example": "需要8個Public IP，分別用於API Gateway/管理介面/VPN端點/備援線路", "note": "建議請客戶列出每個Public IP的用途", "phase": "階段一：建置前需求調查"}, {"section": "2.3A 前端網路", "num": "40", "required": false, "item": "BGP/AS號碼需求", "example": "暫無", "note": "一般AIDC專案不需要，但多站點/多ISP複雜路由需求則需提前申請", "phase": "階段一：建置前需求調查"}, {"section": "2.3A 前端網路", "num": "41", "required": false, "item": "DDoS防護需求（清洗中心規模）", "example": "需要，採用Cloudflare Magic Transit，清洗容量1 Tbps", "note": "需確認清洗中心部署方式與清洗容量是否符合業務規模", "phase": "階段一：建置前需求調查"}, {"section": "2.3B 後端網路", "num": "42", "required": true, "item": "儲存網路類型（NVMe-oF/iSCSI/NFS/並行檔案系統）", "example": "NFS掛載訓練資料集，NVMe-oF用於儲存checkpoint", "note": "NFS放「訓練要讀的資料」，NVMe-oF放「訓練中要快速存的進度」", "phase": "階段一：建置前需求調查"}, {"section": "2.3B 後端網路", "num": "43", "required": true, "item": "後端網路速率（100G/200G/400G）", "example": "100G，未來擴充時升級至200G", "note": "建議依GPU數量與儲存IOPS需求決定", "phase": "階段一：建置前需求調查"}, {"section": "2.3B 後端網路", "num": "44", "required": false, "item": "後端網路拓樸偏好", "example": "無特別指定，依SI建議", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.3B 後端網路", "num": "45", "required": false, "item": "網路設備品牌偏好", "example": "無指定，但希望有本地原廠支援", "note": "若客戶有既有設備優先沿用同品牌降低管理複雜度", "phase": "階段一：建置前需求調查"}, {"section": "2.3B 後端網路", "num": "46", "required": false, "item": "VLAN規劃需求（隔離策略）", "example": "管理網路、訓練網路、儲存網路各自獨立VLAN", "note": "建議至少將管理、訓練、儲存三類流量分開", "phase": "階段一：建置前需求調查"}, {"section": "2.3B 後端網路", "num": "47", "required": false, "item": "網路備援設計", "example": "通常核心交換器需雙活備援", "note": "LACP多線路綁定提升頻寬與備援；MLAG兩台交換器當一台用；ECMP多路徑負載均衡", "phase": "階段一：建置前需求調查"}, {"section": "2.3C 帶外管理網路（OOB）", "num": "48", "required": true, "item": "帶外管理網路是否獨立實體網路", "example": "BMC管理網路走獨立實體網路", "note": "伺服器OS當機時仍能遠端操作的備用通道，獨立實體網路更安全", "phase": "階段一：建置前需求調查"}, {"section": "2.3C 帶外管理網路（OOB）", "num": "49", "required": false, "item": "遠端Console Server品牌與台數", "example": "", "note": "集中管理所有設備序列埠的設備，機房規模越大越建議導入", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "50", "required": true, "item": "儲存用途分類", "example": "訓練資料集、模型Checkpoint、推論快取都有，另需備份空間", "note": "釐清用途才能避免用錯規格", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "51", "required": true, "item": "總儲存容量需求（TB/PB）", "example": "訓練資料集500TB、Checkpoint 100TB、備份200TB，合計約800TB", "note": "建議保留至少20-30%的緩衝空間", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "52", "required": true, "item": "儲存類型", "example": "NVMe / HDD / 混合", "note": "Flash快但貴，HDD慢但便宜；熱資料建議用Flash，冷資料用HDD省成本", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "53", "required": false, "item": "效能需求", "example": "循序讀取50 GB/s、寫入20 GB/s", "note": "AI訓練以大檔案循序讀寫為主，IOPS相對不重要", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "54", "required": false, "item": "檔案系統類型", "example": "POSIX, S3, GPFS...", "note": "大多數AI框架習慣POSIX檔案系統；物件儲存(S3相容)適合雲端或備份情境", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "55", "required": false, "item": "資料保護等級", "example": "RAID5/6或Erasure Coding（EC 4+2），可容忍2顆硬碟同時故障", "note": "RAID 6是單台機器內部保護；EC 4+2是跨多台機器的保護", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "56", "required": true, "item": "備份策略（本地/異地/雲端冷備援，RPO/RTO要求）", "example": "本地每小時、異地日備；RPO 24小時、RTO 4小時", "note": "這兩個數字決定備份頻率與異地規模，也是SLA的重要依據", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "57", "required": false, "item": "資料分層（熱/溫/冷）自動化需求", "example": "熱資料放Flash、超過90天未存取自動移至HDD", "note": "能有效降低儲存成本，需儲存設備支援分層功能", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "58", "required": false, "item": "儲存擴充計畫（12/24/36個月）", "example": "12個月內擴充至1.5PB，24個月內擴充至3PB", "note": "建議提前確認擴充上限與擴充方式", "phase": "階段一：建置前需求調查"}, {"section": "2.4 儲存規劃", "num": "59", "required": false, "item": "指定儲存品牌", "example": "NetApp / Pure / DDN / VAST / IBM等", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.5A 作業系統與虛擬化", "num": "60", "required": true, "item": "伺服器OS版本", "example": "Ubuntu / RHEL / Rocky / 其他", "note": "AI領域以Ubuntu最普遍，驅動與套件相容性最好", "phase": "階段一：建置前需求調查"}, {"section": "2.5A 作業系統與虛擬化", "num": "61", "required": true, "item": "是否需要虛擬化", "example": "VMware / KVM / 裸機優先", "note": "AI訓練通常建議裸機（效能最好）；需多租戶隔離則推薦虛擬化", "phase": "階段一：建置前需求調查"}, {"section": "2.5A 作業系統與虛擬化", "num": "62", "required": true, "item": "容器化平台需求", "example": "Docker / Kubernetes，K8s最好有版本", "note": "正式生產環境建議搭配Kubernetes管理", "phase": "階段一：建置前需求調查"}, {"section": "2.5A 作業系統與虛擬化", "num": "63", "required": false, "item": "Kubernetes發行版", "example": "RKE2 / OpenShift / K3s / 原生", "note": "RKE2穩定安全性佳；OpenShift功能完整但授權費用高；K3s輕量適合邊緣節點", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "64", "required": true, "item": "AI框架需求", "example": "PyTorch / TensorFlow", "note": "PyTorch目前是AI訓練主流；框架版本影響後續CUDA、驅動版本選擇", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "65", "required": false, "item": "GPU驅動版本要求（CUDA版本）", "example": "NVIDIA Driver 550，CUDA 12.4", "note": "建議先確認AI框架版本，再對齊CUDA與驅動版本", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "66", "required": false, "item": "是否需要MLOps平台", "example": "", "note": "規模小可用MLflow；需視覺化協作介面考慮W&B；需完整Pipeline自動化才需Kubeflow", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "67", "required": false, "item": "模型服務框架（Triton/TorchServe/vLLM/TensorRT-LLM）", "example": "Triton / vLLM / TensorRT-LLM", "note": "vLLM適合LLM推論；Triton適合多種模型混合部署", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "68", "required": false, "item": "資料標注平台需求", "example": "", "note": "資料涉及隱私或機密的客戶通常要求自行部署", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "69", "required": false, "item": "向量資料庫需求（語意搜尋與對照）", "example": "需要Milvus，用於RAG應用的文件檢索", "note": "RAG或語意搜尋需求將需要向量資料庫", "phase": "階段一：建置前需求調查"}, {"section": "2.5B AI/ML平台", "num": "70", "required": false, "item": "特徵工程/資料管線工具", "example": "Spark / Airflow", "note": "資料量大、前處理複雜才需要這類工具", "phase": "階段一：建置前需求調查"}, {"section": "2.5C 監控與可觀測性", "num": "71", "required": true, "item": "基礎設施監控工具（Prometheus/Grafana/Zabbix）", "example": "Prometheus / Grafana / Zabbix", "note": "若客戶已有現有監控系統，優先整合進去而非另起一套", "phase": "階段一：建置前需求調查"}, {"section": "2.5C 監控與可觀測性", "num": "72", "required": true, "item": "GPU監控需求（DCGM/nvidia-smi整合）", "example": "DCGM Exporter", "note": "DCGM做持續監控與告警，監控GPU溫度、使用率、顯存與ECC錯誤", "phase": "階段一：建置前需求調查"}, {"section": "2.5C 監控與可觀測性", "num": "73", "required": false, "item": "網路監控需求（DCIM/UFM）", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.5C 監控與可觀測性", "num": "74", "required": false, "item": "Log集中管理（ELK Stack/Loki/Splunk）", "example": "ELK Stack / Loki / Splunk", "note": "ELK功能強但資源消耗大；Loki輕量適合已有Grafana的環境", "phase": "階段一：建置前需求調查"}, {"section": "2.5D 授權與版權", "num": "75", "required": true, "item": "客戶現有軟體授權清單與數量", "example": "RHEL授權20套、VMware vSphere Enterprise、Oracle DB", "note": "已買授權的可沿用，避免重複購買", "phase": "階段一：建置前需求調查"}, {"section": "2.5D 授權與版權", "num": "76", "required": true, "item": "是否需要SI協助採購軟體授權", "example": "", "note": "OS / 資料庫 / 平台", "phase": "階段一：建置前需求調查"}, {"section": "2.5D 授權與版權", "num": "77", "required": false, "item": "開源軟體使用限制（GPL合規/商業使用聲明）", "example": "", "note": "有些企業法務部門會限制特定授權類型", "phase": "階段一：建置前需求調查"}, {"section": "2.6A 法規遵循", "num": "78", "required": true, "item": "適用法規", "example": "個人資料保護法 / GDPR / ISO 27001 / SOC2 / HIPAA / PCI-DSS", "note": "不同產業適用法規不同，會直接影響系統設計、稽核機制與文件規範", "phase": "階段一：建置前需求調查"}, {"section": "2.6A 法規遵循", "num": "79", "required": true, "item": "是否有政府資安要求（等級保護/政府資安法）", "example": "政府標案，資安等級第三級", "note": "台灣政府機關資安法分為五等級", "phase": "階段一：建置前需求調查"}, {"section": "2.6A 法規遵循", "num": "80", "required": true, "item": "資料主權要求（資料不可離境/限定存放地點）", "example": "", "note": "需確認所有備份、監控、Log等資料的流向，包含第三方SaaS工具", "phase": "階段一：建置前需求調查"}, {"section": "2.6B 存取控制與身份驗證", "num": "81", "required": true, "item": "身份驗證方式", "example": "AD / LDAP / SSO / MFA", "note": "建議所有對外服務都要求開啟，尤其是管理介面", "phase": "階段一：建置前需求調查"}, {"section": "2.6B 存取控制與身份驗證", "num": "82", "required": true, "item": "特權帳號管理", "example": "root與系統管理員帳號", "note": "所有操作留下稽核紀錄，全程可追溯", "phase": "階段一：建置前需求調查"}, {"section": "2.6B 存取控制與身份驗證", "num": "83", "required": true, "item": "零信任架構需求", "example": "", "note": "無論內外網，所有存取都需要身份驗證與授權", "phase": "階段一：建置前需求調查"}, {"section": "2.6B 存取控制與身份驗證", "num": "84", "required": false, "item": "API閘道與金鑰管理（Vault/AWS KMS等）", "example": "Vault / KMS", "note": "集中管理API金鑰、資料庫密碼與TLS憑證", "phase": "階段一：建置前需求調查"}, {"section": "2.6C 網路資安", "num": "85", "required": true, "item": "防火牆需求（硬體/軟體/NGFW，品牌）", "example": "Palo Alto NGFW", "note": "需確認防火牆規則由誰負責維護（客戶自管/SI代管）", "phase": "階段一：建置前需求調查"}, {"section": "2.6C 網路資安", "num": "86", "required": true, "item": "IDS/IPS需求", "example": "", "note": "IDS只偵測不阻擋；IPS會主動阻擋。對外提供API服務建議至少部署IPS", "phase": "階段一：建置前需求調查"}, {"section": "2.6C 網路資安", "num": "87", "required": true, "item": "WAF需求", "example": "", "note": "WAF防護網頁層攻擊（SQL Injection、XSS等）", "phase": "階段一：建置前需求調查"}, {"section": "2.6C 網路資安", "num": "88", "required": true, "item": "VPN連線需求（IPSec/SSL VPN）", "example": "", "note": "需確認VPN使用者範圍、是否搭配MFA", "phase": "階段一：建置前需求調查"}, {"section": "2.6C 網路資安", "num": "89", "required": false, "item": "網路分段隔離策略", "example": "對外服務、管理網路、AI訓練資料網路、業務網路", "note": "建議至少將對外服務、管理網路、訓練資料網路三者分開", "phase": "階段一：建置前需求調查"}, {"section": "2.6D 資料安全", "num": "90", "required": true, "item": "靜態資料加密需求（AES-256）", "example": "", "note": "就算硬碟被偷走也看不到內容，需確認加密金鑰由誰管理", "phase": "階段一：建置前需求調查"}, {"section": "2.6D 資料安全", "num": "91", "required": true, "item": "傳輸中資料加密（TLS版本要求）", "example": "TLS 1.2", "note": "防止資料在傳輸時被中途攔截；較嚴格會要求TLS 1.3", "phase": "階段一：建置前需求調查"}, {"section": "2.6D 資料安全", "num": "92", "required": true, "item": "資料銷毀標準", "example": "DoD 5220.22 / NIST 800-88", "note": "需確認銷毀方式與是否需要第三方出具銷毀憑證", "phase": "階段一：建置前需求調查"}, {"section": "2.6D 資料安全", "num": "93", "required": false, "item": "資料外洩防護（DLP）工具需求", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.6E 資安稽核", "num": "94", "required": true, "item": "稽核日誌保存期限（月）", "example": "3/6個月", "note": "影響儲存容量大小與更新頻率", "phase": "階段一：建置前需求調查"}, {"section": "2.6E 資安稽核", "num": "95", "required": true, "item": "是否需要第三方滲透測試/弱點掃描", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.6E 資安稽核", "num": "96", "required": false, "item": "SOC委外需求", "example": "有", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.6E 資安稽核", "num": "97", "required": false, "item": "資安事件通報程序（SIRT流程確認）", "example": "有，請提出目前做法", "note": "亞灣需要有一定的通報措施，讓客戶跟著亞灣流程走可降低維運loading", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "98", "required": true, "item": "服務可用性目標", "example": "99.9% / 99.99% / 99.999%", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "99", "required": true, "item": "RTO（復原時間目標，小時）", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "100", "required": true, "item": "RPO（復原點目標，小時）", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "101", "required": true, "item": "計畫性停機窗口（每月/季/時段）", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "102", "required": true, "item": "服務等級違約罰則（SLA Penalty計算方式）", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "103", "required": true, "item": "合約期限與付款條件", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "2.7 服務規劃與SLA", "num": "104", "required": false, "item": "DR（災難復原）站點需求", "example": "", "note": "", "phase": "階段一：建置前需求調查"}, {"section": "3.1 進場與施工管理", "num": "3-1", "required": true, "item": "進場人員名單提交方式與期限", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.1 進場與施工管理", "num": "3-2", "required": true, "item": "進場時間限制（工作日/24H，申請流程）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.2 設備安裝驗收基準", "num": "3-3", "required": true, "item": "設備到貨驗收程序（外觀/序號/規格核對）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.2 設備安裝驗收基準", "num": "3-4", "required": true, "item": "網路連通性測試項目（ping/iperf/InfiniBand perftest）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.2 設備安裝驗收基準", "num": "3-5", "required": true, "item": "儲存系統初始化確認（格式化/RAID建立/掛載測試）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.3 軟體部署確認", "num": "3-6", "required": true, "item": "OS映像來源與版本鎖定方式", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.3 軟體部署確認", "num": "3-7", "required": true, "item": "自動化部署工具（Ansible/Terraform/Foreman）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.3 軟體部署確認", "num": "3-8", "required": true, "item": "Kubernetes叢集初始化確認（節點join/CNI選擇）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.3 軟體部署確認", "num": "3-9", "required": true, "item": "GPU Driver/CUDA/cuDNN版本確認清單", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "3.3 軟體部署確認", "num": "3-10", "required": false, "item": "基礎Image掃描（CVE漏洞/CIS Benchmark）", "example": "", "note": "", "phase": "階段二：建置期確認"}, {"section": "4.1 上線要求", "num": "4-1", "required": true, "item": "UAT測試計畫提交期限（上線前幾週）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-2", "required": true, "item": "效能壓力測試基準（GPU利用率/訓練吞吐量tokens/sec）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-3", "required": true, "item": "網路效能驗收標準（頻寬/延遲/封包遺失率）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-4", "required": true, "item": "儲存IOPS/吞吐量驗收基準", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-5", "required": true, "item": "HA容錯移轉測試（模擬節點故障/網路中斷）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-6", "required": true, "item": "安全性驗收（弱點掃描報告/滲透測試結論）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-7", "required": true, "item": "文件驗收清單（架構圖/操作手冊/緊急處理程序）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-8", "required": true, "item": "上線授權簽署流程與簽署人", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.1 上線要求", "num": "4-9", "required": false, "item": "Go-Live Runbook確認（回滾計畫）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.2 模型上線要求", "num": "4-10", "required": true, "item": "首批上線模型清單（名稱/版本/參數量）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.2 模型上線要求", "num": "4-11", "required": true, "item": "模型格式（PyTorch .pt/ONNX/TensorRT .engine）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.2 模型上線要求", "num": "4-12", "required": true, "item": "模型版本控管機制（Git LFS/MLflow Model Registry）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.2 模型上線要求", "num": "4-13", "required": true, "item": "模型授權與智慧財產確認（開源License/自行訓練）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-14", "required": true, "item": "API端點設計（REST/RESTful）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-15", "required": true, "item": "API認證方式（OAuth2/API Key/JWT）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-16", "required": true, "item": "使用者帳號管理（自行管理/委外/SCIM同步）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-17", "required": true, "item": "使用配額管理（GPU時數/Token用量/計費方式）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-18", "required": true, "item": "多租戶隔離需求（Namespace/Resource Quota）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-19", "required": false, "item": "使用者入口網站/自助服務介面需求", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "4.3 使用服務要求", "num": "4-20", "required": false, "item": "用量報表格式與頻率（日報/月報）", "example": "", "note": "", "phase": "階段三：上線驗收"}, {"section": "5.1 日常維運", "num": "5-1", "required": true, "item": "維運服務時間（8×5/12×5/24×7）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.1 日常維運", "num": "5-2", "required": true, "item": "故障通報窗口（電話/系統工單/Line/Teams）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.1 日常維運", "num": "5-3", "required": true, "item": "事件嚴重等級定義（P1~P4標準）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.1 日常維運", "num": "5-4", "required": true, "item": "各等級回應時間（Response/Resolution SLA）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.1 日常維運", "num": "5-5", "required": true, "item": "告警通知對象與升級程序", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.1 日常維運", "num": "5-6", "required": true, "item": "監控儀表板存取權限設定", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.1 日常維運", "num": "5-7", "required": false, "item": "每月維運報告格式（可用率/事件統計/效能趨勢）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.2 變更管理", "num": "5-8", "required": true, "item": "變更申請流程（RFC表單/審核層級）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.2 變更管理", "num": "5-9", "required": true, "item": "緊急變更授權人員清單", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.2 變更管理", "num": "5-10", "required": true, "item": "變更凍結期規定（重要節日/業務高峰）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.2 變更管理", "num": "5-11", "required": false, "item": "變更後驗證程序（Post-Change Verification）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.3 定期維護", "num": "5-12", "required": true, "item": "OS/韌體Patch週期（月/季）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.3 定期維護", "num": "5-13", "required": true, "item": "GPU Driver更新策略（跟進/版本鎖定）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.3 定期維護", "num": "5-14", "required": true, "item": "硬體預防性維護計畫（年度/半年度）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.3 定期維護", "num": "5-15", "required": true, "item": "備份還原測試頻率（月/季）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.3 定期維護", "num": "5-16", "required": false, "item": "GPU效能衰退監控指標（ECC Error/Throttling）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.3 定期維護", "num": "5-17", "required": false, "item": "容量規劃審查週期（半年/年）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.4 備品與維修", "num": "5-18", "required": true, "item": "備品庫存要求（關鍵零件種類與數量）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.4 備品與維修", "num": "5-19", "required": true, "item": "原廠保固期限與範圍確認", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.4 備品與維修", "num": "5-20", "required": true, "item": "硬體故障更換SLA（NBD/4H/其他）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "5.4 備品與維修", "num": "5-21", "required": false, "item": "延保服務採購計畫（合約期屆滿前）", "example": "", "note": "", "phase": "階段四：維運期需求"}, {"section": "6.1 退場規劃", "num": "6-1", "required": true, "item": "退場通知期限（提前幾個月告知）", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.1 退場規劃", "num": "6-2", "required": true, "item": "退場時程與里程碑", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.1 退場規劃", "num": "6-3", "required": true, "item": "服務移轉計畫（遷移至新平台/雲端/關閉）", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.2 資料處置", "num": "6-4", "required": true, "item": "資料匯出格式與交付方式", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.2 資料處置", "num": "6-5", "required": true, "item": "資料保留期限（退場後需保存幾年）", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.2 資料處置", "num": "6-6", "required": true, "item": "資料銷毀方式（DoD標準消磁/物理銷毀）", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.2 資料處置", "num": "6-7", "required": true, "item": "資料銷毀憑證提供", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.2 資料處置", "num": "6-8", "required": false, "item": "模型/訓練資料所有權確認文件", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.3 設備處置", "num": "6-9", "required": true, "item": "設備所有權歸屬（客戶/SI/租賃公司）", "example": "", "note": "", "phase": "階段五：下線退場"}, {"section": "6.3 設備處置", "num": "6-10", "required": true, "item": "設備返還程序（包裝/運輸/簽收）", "example": "", "note": "", "phase": "階段五：下線退場"}]
+  </script>
 
 </div>
 </div></div><div class="drawer-overlay" id="drawer-overlay"></div>
@@ -5593,120 +5369,88 @@ document.querySelectorAll('.bar-row[data-cat]').forEach(row=>{
 })();
 
 
-// ── ONBOARDING QUESTIONNAIRE ───────────────────────────
-(function(){
-  const obPanel = document.getElementById('tab-onboard');
-  if(!obPanel) return;
-  const state = {};
 
-  obPanel.querySelectorAll('.ob-opts').forEach(group=>{
-    const q = group.dataset.q;
-    const multi = group.dataset.multi === 'true';
-    state[q] = multi ? [] : null;
-    group.querySelectorAll('.ob-opt').forEach(opt=>{
-      opt.addEventListener('click', ()=>{
-        const val = opt.dataset.val;
-        if(multi){
-          if(opt.classList.contains('selected')){
-            opt.classList.remove('selected');
-            state[q] = state[q].filter(v=>v!==val);
-          } else {
-            opt.classList.add('selected');
-            state[q].push(val);
-          }
-        } else {
-          group.querySelectorAll('.ob-opt').forEach(o=>o.classList.remove('selected'));
-          opt.classList.add('selected');
-          state[q] = val;
-        }
-      });
+
+// ── CUSTOMER QUESTIONNAIRE (AI DC Requirements Doc) ────
+(function(){
+  const dataEl = document.getElementById('qn-data');
+  if(!dataEl) return;
+  const QN_DATA = JSON.parse(dataEl.textContent);
+  const tbody = document.getElementById('qn-tbody');
+  const emptyEl = document.getElementById('qn-empty');
+  const searchInput = document.getElementById('qn-search');
+  let activeFilter = 'all';
+
+  document.getElementById('qn-required-count').textContent = QN_DATA.filter(d=>d.required).length + ' 項';
+  document.getElementById('qn-suggested-count').textContent = QN_DATA.filter(d=>!d.required).length + ' 項';
+
+  document.querySelectorAll('.filter-btn[data-qn-filter]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeFilter = btn.dataset.qnFilter;
+      document.querySelectorAll('.filter-btn[data-qn-filter]').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      renderQn();
     });
   });
+  searchInput.addEventListener('input', renderQn);
 
-  document.getElementById('ob-calc-btn').addEventListener('click', ()=>{
-    let days = 2; // baseline: 帳號建立、基礎網路撥通
-    const items = [{label:'基礎準備（帳號建立、網路撥通、環境檢查）', days:2}];
+  function renderQn(){
+    const q = searchInput.value.trim().toLowerCase();
+    tbody.innerHTML = '';
+    let shown = 0;
 
-    const gpuCount = parseInt(document.getElementById('ob-gpucount').value) || 0;
-    if(gpuCount > 100){ days+=3; items.push({label:`GPU 規模 ${gpuCount} 節點（大型容量規劃）`, days:3}); }
-    else if(gpuCount > 32){ days+=2; items.push({label:`GPU 規模 ${gpuCount} 節點（中型容量規劃）`, days:2}); }
-    else if(gpuCount > 8){ days+=1; items.push({label:`GPU 規模 ${gpuCount} 節點（容量規劃）`, days:1}); }
+    QN_DATA.forEach(d=>{
+      if(activeFilter === 'required' && !d.required) return;
+      if(activeFilter !== 'all' && activeFilter !== 'required' && d.phase !== activeFilter) return;
+      if(q){
+        const hay = (d.num+' '+d.item+' '+d.example+' '+d.note+' '+d.section).toLowerCase();
+        if(!hay.includes(q)) return;
+      }
+      shown++;
 
-    if(state.longrun === 'yes' && state.checkpoint !== 'yes'){
-      days+=1; items.push({label:'長時間 Job 但未建立 Checkpoint（VOTS-143 重啟資料風險，需協調維護窗口）', days:1});
-    }
-    if(state.risk_ack === 'no'){
-      days+=1; items.push({label:'客戶尚未理解重開機資料清除風險，需安排技術說明會議', days:1});
-    }
-    if(state.storage && state.storage.includes('local') && !(state.storage.includes('nfs')||state.storage.includes('s3'))){
-      days+=2; items.push({label:'資料僅存於本機磁碟且無共用/外部儲存備援，需協助規劃備份方案', days:2});
-    }
-    if(state.reboot_pref === 'notify'){
-      days+=1; items.push({label:'客戶要求重開機前主動通知取得同意，需建立專屬通知流程', days:1});
-    }
-    if(state.notify_channel){
-      if(state.notify_channel.includes('slack')){ days+=1; items.push({label:'需建立 Slack/Teams Webhook 整合', days:1}); }
-      if(state.notify_channel.includes('ticket')){ days+=2; items.push({label:'需與客戶自有工單系統串接', days:2}); }
-    }
-    if(state.reserved === 'yes'){
-      days+=3; items.push({label:'需規劃備援節點／保留容量（Reserved Capacity）', days:3});
-    } else if(state.reserved === 'tbd'){
-      days+=1; items.push({label:'備援容量待評估，需安排容量規劃會議', days:1});
-    }
-    if(state.fault_tolerant === 'no'){
-      days+=1; items.push({label:'客戶無跨機櫃容錯能力，需協助規劃避免同機櫃集中部署', days:1});
-    }
-    if(state.speedtest === 'iperf'){
-      days+=1; items.push({label:'需協調客戶端 iperf3 測速時段與方法', days:1});
-    } else if(state.speedtest === 'unsure'){
-      days+=1; items.push({label:'測速方式尚未決定，需協助建議並確認驗收基準（VOTS-179 案例）', days:1});
-    }
-    if(state.dashboard_access === 'yes'){
-      days+=1; items.push({label:'需建立客戶端專屬監控 Dashboard 帳號', days:1});
-    }
-    if(state.sla_target === '9995'){
-      days+=3; items.push({label:'SLA 目標 99.95%＋，需額外冗餘規劃與驗證測試', days:3});
-    } else if(state.sla_target === '999'){
-      days+=2; items.push({label:'SLA 目標 99.9%，需額外冗餘規劃與驗證測試', days:2});
-    }
-    if(state.rma_ack === 'no'){
-      days+=1; items.push({label:'客戶需要更詳細的 RMA 判定流程說明會議', days:1});
-    }
+      const row = document.createElement('tr');
+      row.style.cursor = 'pointer';
+      const badge = d.required
+        ? '<span style="display:inline-block;padding:2px 8px;border-radius:6px;background:rgba(220,38,38,.15);color:var(--danger);font-weight:700;font-size:10.5px">必填</span>'
+        : '<span style="display:inline-block;padding:2px 8px;border-radius:6px;background:rgba(217,119,6,.15);color:var(--warn);font-weight:700;font-size:10.5px">建議</span>';
+      row.innerHTML = `
+        <td style="font-family:var(--mono);color:var(--muted);font-size:11px">${d.num}</td>
+        <td>${badge}</td>
+        <td style="font-weight:600;font-size:12.5px">${d.item}</td>
+        <td style="font-size:11px;color:var(--muted)">${d.section}</td>
+        <td style="text-align:center;color:var(--muted)" class="qn-chev">▸</td>
+      `;
 
-    const subtotal = days;
-    const buffer = Math.max(2, Math.ceil(subtotal * 0.3));
-    const total = subtotal + buffer;
+      const detailRow = document.createElement('tr');
+      detailRow.style.display = 'none';
+      const detailCell = document.createElement('td');
+      detailCell.colSpan = 5;
+      detailCell.style.background = 'var(--surface2)';
+      detailCell.style.padding = '12px 18px';
+      const exampleHtml = d.example
+        ? `<div style="margin-bottom:8px"><span style="font-size:10.5px;font-weight:700;color:var(--accent2)">範例內容：</span><span style="font-size:12px;color:var(--text)">${d.example}</span></div>`
+        : `<div style="margin-bottom:8px;font-size:11.5px;color:var(--muted);font-style:italic">（待客戶填寫，無範例）</div>`;
+      const noteHtml = d.note
+        ? `<div><span style="font-size:10.5px;font-weight:700;color:var(--muted)">備註：</span><span style="font-size:11.5px;color:var(--muted)">${d.note}</span></div>`
+        : '';
+      detailCell.innerHTML = exampleHtml + noteHtml;
+      detailRow.appendChild(detailCell);
 
-    const resultEl = document.getElementById('ob-result');
-    const custName = document.getElementById('ob-name').value || '（未填寫客戶名稱）';
-    const itemsHtml = items.map(it=>`
-      <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px">
-        <span style="color:var(--text)">${it.label}</span>
-        <span style="font-family:var(--mono);font-weight:700;color:var(--accent2);white-space:nowrap;padding-left:12px">+${it.days} 天</span>
-      </div>`).join('');
+      row.addEventListener('click', ()=>{
+        const isOpen = detailRow.style.display !== 'none';
+        detailRow.style.display = isOpen ? 'none' : 'table-row';
+        row.querySelector('.qn-chev').textContent = isOpen ? '▸' : '▾';
+        row.querySelector('.qn-chev').style.color = isOpen ? 'var(--muted)' : 'var(--accent2)';
+      });
 
-    resultEl.innerHTML = `
-      <div class="chart-box" style="border-left:4px solid var(--accent2);background:rgba(8,145,178,.04)">
-        <h3 style="color:var(--accent2);margin-bottom:4px">📋 ${custName} － 預估準備時間</h3>
-        <div style="font-size:42px;font-weight:800;font-family:var(--mono);color:var(--accent2);margin:14px 0 4px">${total} <span style="font-size:16px;font-weight:600;color:var(--muted)">工作天</span></div>
-        <div style="font-size:11.5px;color:var(--muted);margin-bottom:18px">此為依問卷回答自動估算之準備工作天數（已含應變緩衝），實際時程請與 VisionBay CloudOps 團隊進駐會議中確認</div>
-        <div style="margin-top:8px">${itemsHtml}</div>
-        <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px;font-weight:600">
-          <span style="color:var(--text)">小計</span>
-          <span style="font-family:var(--mono);font-weight:700;color:var(--text);white-space:nowrap;padding-left:12px">${subtotal} 天</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px">
-          <span style="color:var(--warn)">⚠️ 應變緩衝（30%，因應廠商排程延誤／備品交期／跨部門協調等不可控因素）</span>
-          <span style="font-family:var(--mono);font-weight:700;color:var(--warn);white-space:nowrap;padding-left:12px">+${buffer} 天</span>
-        </div>
-        <div style="display:flex;justify-content:space-between;padding:12px 0 0;font-size:14px;font-weight:800">
-          <span style="color:var(--text)">總計（建議對客戶承諾時程）</span>
-          <span style="font-family:var(--mono);color:var(--accent2);white-space:nowrap;padding-left:12px">${total} 天</span>
-        </div>
-      </div>`;
-    resultEl.style.display = 'block';
-    resultEl.scrollIntoView({behavior:'smooth', block:'start'});
-  });
+      tbody.appendChild(row);
+      tbody.appendChild(detailRow);
+    });
+
+    emptyEl.style.display = shown === 0 ? 'block' : 'none';
+  }
+
+  renderQn();
 })();
 
 </script>

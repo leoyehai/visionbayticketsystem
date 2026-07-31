@@ -659,8 +659,8 @@
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">仍在燒的：7台機器目前還在處理中，多為近期新出現的GPU異常</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">前陣子那2起「8張GPU一次全部掉卡」（VOTS-203、205）跟本季重複故障最多的gpusrv061（第7度出包，VOTS-206）目前都還在處理中，尚未結案。加上gpusrv177第5度異常（VOTS-208）、以及3張新的Row Remapper早期預警案例（VOTS-204/209/210），建議持續追蹤這幾張的處理進度。</div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">⚠️ 客戶開始自己在追蹤故障規律了：gpusrv061這台已經第8次出包</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">7/31客戶端在新工單裡直接寫「該節點自7/14、7/22、7/27均有ECC報錯」——這代表客戶不是隨口抱怨，是真的自己在記錄這台機器反覆出問題的時間點，這對信任感是警訊。同一時期gpusrv023也連續2天同一張GPU故障，客戶同樣主動點名。建議這兩台不要再逐次個別修，直接排整機更換，並主動跟客戶說明處理計畫，別等客戶再問第三次。</div>
       </div>
     </div>
 

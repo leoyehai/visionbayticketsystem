@@ -647,7 +647,7 @@
   </div>
 
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
-    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 5 件事</h4>
+    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 3 件事</h4>
 
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
@@ -657,33 +657,18 @@
       </div>
     </div>
     <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--ok);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
-      <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">✅ 回顧：CDU冷卻水質事件全數處理完畢，24起相關事件7/27一次性結案</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">從7/20發現2機櫃CDU過熱，一路查到8機櫃冷卻水混濁泥水的系統性問題，最多曾影響64台機器——這起本季規模最大的設施事件已全數確認解決結案，處理經驗（尤其是「開機成功≠復原完成」這個教訓）已納入標準流程，仍建議持續追蹤廠商是否補交正式書面Root Cause報告。</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">3</div>
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">⚠️ 客戶開始自己在追蹤故障規律了：gpusrv061這台已經第8次出包，還有2台也剛進入第2次</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">7/31客戶端在新工單裡直接寫「該節點自7/14、7/22、7/27均有ECC報錯」——這代表客戶不是隨口抱怨，是真的自己在記錄這台機器反覆出問題的時間點，這對信任感是警訊。同一時期gpusrv023也連續2天同一張GPU故障，客戶同樣主動點名。同一天（7/31）另外還有gpusrv121、gpusrv059也雙雙進入第2次異常，顯示「重複報修」已經不是單一節點的個案，是本週的整體趨勢。建議gpusrv061跟gpusrv023不要再逐次個別修，直接排整機更換，並主動跟客戶說明處理計畫，別等客戶再問第三次。</div>
       </div>
     </div>
 
-    <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">4</div>
+    <div style="display:flex;gap:12px">
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">3</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">RMA案件「什麼算修好」跟客戶認知不一樣，需要拍板</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">客戶認為要驗證通過才算完成，我們認為廠商換完檢查就算完成。這個落差直接影響停機時數怎麼算，客戶目前不接受我們提的方案，需要找人定案後再跟客戶談。</div>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:12px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--warn);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">5</div>
-      <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">海纜斷了，還要等20~200天修好</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">不是我們的問題，但客戶一直用臨時線路頂著，時間拖越長風險越高。建議定期跟客戶同步進度，不要讓對方覺得沒人管。</div>
       </div>
     </div>
   </div>

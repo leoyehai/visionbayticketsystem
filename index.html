@@ -846,7 +846,7 @@
   </div>
   <div class="arch-callout" style="margin-bottom:32px">💡 整合後可清楚看出：硬體類是唯一有明顯波動的分類（6 月降至 99.847%），其餘三類全年幾乎貼著 100% 天花板；這與「風險登記冊」中硬體類平均解決時間為其他分類 3 倍以上的結論一致。</div>
 
-  <div class="section-title">Top 3 停機事件（7 月）</div>
+  <div class="section-title">Top 3 停機事件（累計至今） <span style="color:var(--muted);font-size:10px">8 月至今尚無停機事件，以下為歷史累計最大 3 起</span></div>
   <div class="road-card">
     <div class="road-num" style="color:var(--danger)">01</div>
     <div style="flex:1">
@@ -5441,7 +5441,7 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
 (function(){
   const container=document.getElementById('timeline-container');
   const sorted=[...INCIDENTS].sort((a,b)=>b.date.localeCompare(a.date));
-  const MONTH_NAME={'05':'5 月','06':'6 月','07':'7 月'};
+  const MONTH_NAME={'05':'5 月','06':'6 月','07':'7 月','08':'8 月'};
   let currentMonth=null;
   sorted.forEach((inc,i)=>{
     const month=inc.date.split('/')[0];

@@ -617,10 +617,10 @@
 <div class="tab-panel active" id="tab-overview">
 
   <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">總覽</div>
-  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">8 月截至 8/5：叢集整體穩定運行，SLA 持續達標</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">8 月截至 8/6：叢集整體穩定運行，SLA 持續達標</div>
   <div class="sla-hero">
     <div class="stat-card highlight">
-      <div class="stat-label">8 月 SLA（截至 8/5）</div>
+      <div class="stat-label">8 月 SLA（截至 8/6）</div>
       <div class="stat-value green" id="sla-counter">100.00%</div>
       <div class="stat-sub">目標 ≥ 99.5%，解約門檻 95%</div>
     </div>
@@ -673,7 +673,7 @@
     </div>
   </div>
 
-  <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–08/05，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
+  <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–08/06，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
   <div class="charts-row" style="margin-bottom:32px">
     <div class="chart-box" style="border-left:3px solid var(--danger)">
       <h3 style="color:var(--danger)">☁️ CloudOps <span style="font-weight:400;color:var(--muted);font-size:11px">運算平台（維運）</span></h3>
@@ -722,7 +722,7 @@
       <tr><td>5 月</td><td>10</td><td>10,302</td><td>171.7 hr</td><td>99.92%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>6 月</td><td>52</td><td>19,884</td><td>331.4 hr</td><td>99.84%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>7 月（全月）</td><td>73</td><td>17,112</td><td>285.2 hr</td><td>99.87%</td><td style="color:var(--ok)">✅ 達標</td></tr>
-      <tr><td>8 月（截至 8/5）</td><td>6</td><td>0</td><td>0.0 hr</td><td>100.00%</td><td style="color:var(--ok)">✅ 達標</td></tr>
+      <tr><td>8 月（截至 8/6）</td><td>6</td><td>0</td><td>0.0 hr</td><td>100.00%</td><td style="color:var(--ok)">✅ 達標</td></tr>
     </tbody>
   </table>
 
@@ -978,7 +978,7 @@
     </div>
   </div>
 
-  <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–08/05，依事件內容判讀之 RMA 相關工單</span></div>
+  <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–08/06，依事件內容判讀之 RMA 相關工單</span></div>
   <div class="sla-hero">
     <div class="stat-card danger-top">
       <div class="stat-label">RMA 相關事件數</div>
@@ -3411,7 +3411,7 @@
         <div>
           <div class="flow-num">PHASE 06</div>
           <div class="flow-title">Done（結案）</div>
-          <div class="flow-body">填寫 Lesson Learned 並同步至 Confluence 知識庫。截至 8/5 已累積 22 條 Lesson Learned（page 73170946），形成可複用的維運知識積累，並反向驅動 SOP 手冊更新。</div>
+          <div class="flow-body">填寫 Lesson Learned 並同步至 Confluence 知識庫。截至 8/6 已累積 22 條 Lesson Learned（page 73170946），形成可複用的維運知識積累，並反向驅動 SOP 手冊更新。</div>
           <span class="flow-tag" style="border-color:var(--ok);color:var(--ok)">✓ 22 條 Lesson Learned</span><span class="flow-tag">知識庫同步</span>
         </div>
       </div>
@@ -3792,7 +3792,7 @@
     <div class="principle-grid">
       <div class="principle-card"><div class="principle-num">PRINCIPLE 01</div><div class="principle-title">Focus on Value</div><div class="principle-body">在最關鍵的時機採取行動，聚焦於信任、導入與安全。7/2 全量交付當下為爭取時程維持 RAID 現狀，但 7/3 客戶正式推翻要求調整（VOTS-121）——顯示「價值」須以客戶最終驗收標準為準，而非單方權宜判斷。</div><div class="principle-signal">權宜決策需第一時間取得客戶同意，而非事後補救。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 02</div><div class="principle-title">Start Where You Are</div><div class="principle-body">善用現有工具與流程，不等待完美平台。發現 VOTS-143 資料清除風險後，未待自動化開機判斷機制完成，即以既有 BIOS 手動設定 + grub 確認建立暫行對策，7/13 已於 .23/.222 節點驗證可行。</div><div class="principle-signal">以今日可用的工具（BIOS/grub）先行止血，而非等待長期方案。</div></div>
-      <div class="principle-card"><div class="principle-num">PRINCIPLE 03</div><div class="principle-title">Progress Iteratively with Feedback</div><div class="principle-body">每雙週回顧使用真實案例與指標，以短週期迭代強化 SOP 與知識庫。截至 8/5 已累積 22 條 Lesson Learned，其中 Lesson 21 更直接指出：VOTS-133/141/143 同日密集結案時仍應完整記錄驗證證據，不因效率犧牲稽核軌跡。</div><div class="principle-signal">22 條 Lesson Learned 持續回饋 SOP 與監控規則。</div></div>
+      <div class="principle-card"><div class="principle-num">PRINCIPLE 03</div><div class="principle-title">Progress Iteratively with Feedback</div><div class="principle-body">每雙週回顧使用真實案例與指標，以短週期迭代強化 SOP 與知識庫。截至 8/6 已累積 22 條 Lesson Learned，其中 Lesson 21 更直接指出：VOTS-133/141/143 同日密集結案時仍應完整記錄驗證證據，不因效率犧牲稽核軌跡。</div><div class="principle-signal">22 條 Lesson Learned 持續回饋 SOP 與監控規則。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 04</div><div class="principle-title">Collaborate and Promote Visibility</div><div class="principle-body">Vendor、Visionbay、IDC 三方協作，確保變更對所有利害關係人公開透明。7/13 B300 ops tier1&2 群組即時協調 .23/.222 節點維護重啟，Tony／Johnny 逐台確認並公開回報完成狀態，變更全程可追溯。</div><div class="principle-signal">維護作業於群組即時公開確認，而非單點口頭約定。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 05</div><div class="principle-title">Think and Work Holistically</div><div class="principle-body">檢查上下游銜接點，避免將痛點轉移至其他環節。VOTS-133 GPU Xid 154 觸發後，OS 重啟流程與 BMC Power On 控制間出現短暫異常互動，若僅單獨排查 GPU 或 BMC 均無法定位根因，需跨層（GPU + OS + BMC）整體診斷。</div><div class="principle-signal">跨層根因判斷取代單點排查，減少誤判與重工。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 06</div><div class="principle-title">Keep It Simple and Practical</div><div class="principle-body">簡化流程步驟，使用清楚語言，降低認知負荷。VOTS-143 暫行對策僅兩步驟即可避免重大資料遺失：① 重啟前確認本地 grub 已裝、② 重啟後於 BIOS 手動選 Hard Disk 開機，無需複雜工具即可執行。</div><div class="principle-signal">兩步驟 checklist，現場人員可立即執行不需額外訓練。</div></div>
@@ -3926,7 +3926,7 @@
 </div><div class="tab-panel" id="tab-beforeafter">
 
   <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">前後對比</div>
-  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">維運優化前後對比：2026 Q2 → 2026 Q3（截至 8/5）給管理層的關鍵重點</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">維運優化前後對比：2026 Q2 → 2026 Q3（截至 8/6）給管理層的關鍵重點</div>
 
   <div class="ba-hero">
     <div class="ba-card before">
@@ -3939,7 +3939,7 @@
       <div class="ba-item"><div class="ba-item-icon">🔴</div><div>SLA 99.76%，其中風險項目一度僅 97.65%，尚未達到全面穩定水準</div></div>
     </div>
     <div class="ba-card after">
-      <div class="ba-label">🚀 AFTER — 2026 Q3（截至 8/5）</div>
+      <div class="ba-label">🚀 AFTER — 2026 Q3（截至 8/6）</div>
       <div class="ba-title">Q3 迄今：交付達標＋風險排除期</div>
       <div class="ba-subtitle">關鍵交付里程碑達成，重大風險主動排除</div>
       <div class="ba-item"><div class="ba-item-icon">🎯</div><div><strong>準時完成 288 台 GPU 伺服器全量交付</strong>，並在高強度驗證中提前抓出、修復多項潛在問題，不留到客戶端才爆發</div></div>

@@ -685,7 +685,7 @@
       <div class="cat-grid" style="margin-bottom:0">
         <div class="cat-card" data-cat="ops">
           <div class="cat-icon ops">🛠️</div>
-          <div class="cat-info"><div class="cat-name">維運</div><div class="cat-stats">46 件 · 110.68 hr</div></div>
+          <div class="cat-info"><div class="cat-name">維運</div><div class="cat-stats">46 件 · 119.0 hr</div></div>
         </div>
       </div>
     </div>
@@ -693,7 +693,7 @@
       <h3 style="color:var(--accent2)">🏗️ InfraOps <span style="font-weight:400;color:var(--muted);font-size:11px">實體基礎設施（硬體＋網路＋設施）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
         <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">97 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 67.8%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">677.6 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 90.7%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">677.6 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 85.1%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.871%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
       <div class="cat-grid" style="margin-bottom:0">
@@ -721,7 +721,7 @@
     <tbody>
       <tr><td>5 月</td><td>10</td><td>10,302</td><td>171.7 hr</td><td>99.92%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>6 月</td><td>52</td><td>19,884</td><td>331.4 hr</td><td>99.84%</td><td style="color:var(--ok)">✅ 達標</td></tr>
-      <tr><td>7 月（全月）</td><td>73</td><td>17,112</td><td>285.2 hr</td><td>99.87%</td><td style="color:var(--ok)">✅ 達標</td></tr>
+      <tr><td>7 月（全月）</td><td>73</td><td>17,608</td><td>293.5 hr</td><td>99.86%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>8 月（截至 8/7）</td><td>8</td><td>0</td><td>0.0 hr</td><td>100.00%</td><td style="color:var(--ok)">✅ 達標</td></tr>
     </tbody>
   </table>
@@ -871,7 +871,7 @@
 
   <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 143 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
   <div class="sla-hero">
-    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">38 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 596.7 hr</div></div>
+    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">38 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 688.0 hr</div></div>
     <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">59 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 100.9 hr</div></div>
     <div class="sla-card p3"><div class="sla-badge">P3 警告</div><div class="sla-time" id="p3-count">10 件</div><div class="sla-desc">停機 1–99 分｜累計 3.7 hr</div></div>
     <div class="sla-card p4"><div class="sla-badge">P4 一般</div><div class="sla-time" id="p4-count">34 件</div><div class="sla-desc">無記錄停機、已完成或例行性事件</div></div>
@@ -1975,7 +1975,7 @@
 
     <div class="arch-group" style="--group-color:var(--danger)">
       <div class="arch-group-label">☁️ CloudOps 運算平台</div>
-      <div class="arch-group-sub">42 件事件（30.4%）· 110.7 hr 停機</div>
+      <div class="arch-group-sub">46 件事件（32.2%）· 119.0 hr 停機</div>
 
       <div class="arch-layer" data-filtercat="ops" style="--layer-color:var(--accent)">
           <div class="arch-layer-head">
@@ -1994,7 +1994,7 @@
 
     <div class="arch-group" style="--group-color:var(--accent2)">
       <div class="arch-group-label">🏗️ InfraOps 實體基礎設施</div>
-      <div class="arch-group-sub">97 件事件（67.8%）· 677.6 hr 停機</div>
+      <div class="arch-group-sub">97 件事件（67.8%）· 677.6 hr 停機（佔總停機85.1%）</div>
 
       <div class="arch-layer" data-filtercat="hw" style="--layer-color:var(--danger)">
         <div class="arch-layer-head">
@@ -5023,7 +5023,7 @@ const INCIDENTS = [
   {date:'07/13',cat:'hw',title:'10.227.1.23 gpu_xid_error/0000:f3:00/48 問題',down:'353',prio:'中',p:'P2',status:'fixed',scope:'gpusrv278（10.227.1.23）',action:'查詢 ECC/ROW_REMAPPER 狀態，DRAM Uncorrectable 累計 165、Channel Repair Pending，確認是否符合 RMA 門檻',lesson:'ECC DRAM Uncorrectable 累計值偏高且 Channel Repair Pending 為 Yes 時，應優先判定是否已達 RMA 門檻，避免延誤換料時機。',tool:'dcgm',owner:'tier2',jira:'VOTS-153'},
   {date:'07/14',cat:'ops',title:'10.227.0.23 node_lost / lost heart beat 等問題',down:'330',prio:'中',p:'P2',status:'fixed',scope:'gpusrv023（10.227.0.23）',action:'機器被錯誤重啟，系統被恢復至原始設定，已排查並確認節點恢復回報',lesson:'節點心跳中斷應第一時間排除是否為誤重啟操作所致，並檢討重啟操作的權限與確認機制，避免誤觸發。',tool:'bms',owner:'noc',jira:'VOTS-159'},
   {date:'07/14',cat:'ops',title:'10.227.0.177 gpu_xid_error/0000:9a:00/154 等問題',down:'1054',prio:'中',p:'P1',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'dmesg 確認 Xid 94（GSP Contained）與 Xid 154（GPU Reset Required）；經原廠確認後排除',lesson:'Xid 94 + Xid 154 併發且 GPU 進入 ERR! 狀態時，應同步請原廠評估 RMA 門檻，避免僅處理單一 Xid 代碼而遺漏根因。',tool:'dcgm',owner:'tier2',jira:'VOTS-160'},
-  {date:'07/14',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'1399',prio:'中',p:'P1',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'dmesg 確認 Xid 48（DBE）+ Xid 171（HBM Uncorrectable）+ Xid 63（Row Remapper Pending）+ Xid 94/154 併發；查詢 remapped_rows 確認 1 筆 Uncorrectable Pending，經原廠確認 RMA 標準後排除',lesson:'多重 Xid（48/171/63/94/154）併發且 DRAM Uncorrectable 累計達 16 次時，應優先假設硬體劣化並加速 RMA 判定流程，避免逐一排查單一 Xid 代碼延誤處置。',tool:'dcgm',owner:'tier2',jira:'VOTS-161'},
+  {date:'07/14',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'1895',prio:'中',p:'P1',status:'fixed',scope:'gpusrv061-2（10.227.0.61）',action:'dmesg 確認 Xid 48（DBE）+ Xid 171（HBM Uncorrectable）+ Xid 63（Row Remapper Pending）+ Xid 94/154 併發（觸發時間 7/14 01:49）；7/15 09:25 重啟後確認 remapped row 已無 pending，恢復正常',lesson:'多重 Xid（48/171/63/94/154）併發且 DRAM Uncorrectable 累計達 16 次時，應優先假設硬體劣化並加速 RMA 判定流程，避免逐一排查單一 Xid 代碼延誤處置。⚠️ 本票於 7/17 因新一輪 RMA 時程規劃信件重開追蹤、7/27 才正式結案，但節點本身已於 7/15 09:25 重啟恢復，停機分鐘數採實際故障至重啟恢復區間，不含後續行政追蹤期間。',tool:'dcgm',owner:'tier2',jira:'VOTS-161'},
   {date:'07/15',cat:'hw',title:'10.227.1.28 gpu_xid_error/0000:fa:00/79 等問題（GPU fallen off bus）',down:'0',prio:'中',p:'P2',status:'fixed',scope:'gpusrv283（10.227.1.28）',action:'dmesg 確認 Xid 79（GPU has fallen off the bus）併發 NVLink postRxDetLinkMask 失敗，客戶要求確認自動重啟原因並評估能否防止觸發自動重啟避免用戶資料被清空',lesson:'Xid 79 GPU 掉卡若伴隨自動重啟，需比照 VOTS-143 PXE stateless 資料保存性風險同步檢查，避免自動復原機制反而造成客戶資料遺失。',tool:'dcgm',owner:'tier2',jira:'VOTS-165'},
   {date:'07/15',cat:'ops',title:'10.227.1.23 少了 mlx5_2/mlx5_3 網卡',down:'853',prio:'中',p:'P1',status:'fixed',scope:'10.227.1.23（256-288 網段節點）',action:'ibdev2netdev 確認 mlx5_10/7/8/9 埠口皆顯示 Down，僅 mlx5_2/mlx5_3 完全未列出，經排查後透過網卡重新命名（udev rule）已修復',lesson:'網卡列舉異常（missing device）與埠口 Down 應分開判讀，前者可能是驅動/命名問題而非實體損壞，需先排查再考慮換料。',tool:'netris',owner:'tier2',jira:'VOTS-166'},
   {date:'07/15',cat:'ops',title:'10.227.0.177 網卡故障 mlx5_2/mlx5_3（讀不到）',down:'665',prio:'中',p:'P1',status:'fixed',scope:'gpusrv177（10.227.0.177）',action:'ibdev2netdev 確認讀不到 mlx5_2/mlx5_3，與同批多節點同時間出現相同現象，透過網卡重新命名（udev rule）已修復',lesson:'同一時段（21:29-22:35）多達 5 個節點同時回報同款網卡缺失問題，強烈提示為系統性驅動/命名問題而非個別硬體故障，應優先排查共同觸發因子（如批次重啟、驅動更新）。',tool:'netris',owner:'tier2',jira:'VOTS-167'},

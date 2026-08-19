@@ -617,27 +617,27 @@
 <div class="tab-panel active" id="tab-overview">
 
   <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">總覽</div>
-  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">8 月截至 8/19：叢集整體穩定運行，SLA 持續達標</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">8 月截至 8/19：叢集整體穩定運行，SLA 持續達標，惟餘裕已較先前收窄</div>
   <div class="sla-hero">
     <div class="stat-card highlight">
       <div class="stat-label">8 月 SLA（截至 8/19）</div>
-      <div class="stat-value green" id="sla-counter">99.93%</div>
+      <div class="stat-value green" id="sla-counter">99.69%</div>
       <div class="stat-sub">目標 ≥ 99.5%，解約門檻 95%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">8 月已解決事件數</div>
-      <div class="stat-value" style="font-size:28px">10</div>
-      <div class="stat-sub">另有 24 件仍在處理中</div>
+      <div class="stat-value" style="font-size:28px">20</div>
+      <div class="stat-sub">另有 14 件仍在處理中</div>
     </div>
     <div class="stat-card danger-top">
       <div class="stat-label">8 月累計停機分鐘</div>
-      <div class="stat-value warn">5,259</div>
-      <div class="stat-sub">≈ 87.7 hr｜採「解決時間－開始時間」計算已解決事件</div>
+      <div class="stat-value warn">24,559</div>
+      <div class="stat-sub">≈ 409.3 hr｜採「解決時間－開始時間」計算已解決事件</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
-      <div class="stat-value" style="color:var(--danger)">41 件</div>
-      <div class="stat-sub">⚠️ 8/17～18連續2天網路告警偏高，本季累計已達10起，建議立案調查</div>
+      <div class="stat-value" style="color:var(--danger)">31 件</div>
+      <div class="stat-sub">⚠️ 8月SLA餘裕已從100%收窄至99.69%，需留意月底前是否持續下滑</div>
     </div>
   </div>
 
@@ -685,7 +685,7 @@
       <div class="cat-grid" style="margin-bottom:0">
         <div class="cat-card" data-cat="ops">
           <div class="cat-icon ops">🛠️</div>
-          <div class="cat-info"><div class="cat-name">維運</div><div class="cat-stats">59 件 · 203.9 hr</div></div>
+          <div class="cat-info"><div class="cat-name">維運</div><div class="cat-stats">59 件 · 318.3 hr</div></div>
         </div>
       </div>
     </div>
@@ -693,7 +693,7 @@
       <h3 style="color:var(--accent2)">🏗️ InfraOps <span style="font-weight:400;color:var(--muted);font-size:11px">實體基礎設施（硬體＋網路＋設施）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
         <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">110 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 65.1%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">680.3 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 76.9%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">887.5 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 73.6%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.871%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
       <div class="cat-grid" style="margin-bottom:0">
@@ -703,7 +703,7 @@
         </div>
         <div class="cat-card" data-cat="net">
           <div class="cat-icon net">🌐</div>
-          <div class="cat-info"><div class="cat-name">網路</div><div class="cat-stats">45 件 · 107.7 hr</div></div>
+          <div class="cat-info"><div class="cat-name">網路</div><div class="cat-stats">45 件 · 314.9 hr</div></div>
         </div>
         <div class="cat-card" data-cat="cool">
           <div class="cat-icon cool">❄️</div>
@@ -722,7 +722,7 @@
       <tr><td>5 月</td><td>10</td><td>10,302</td><td>171.7 hr</td><td>99.92%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>6 月</td><td>52</td><td>19,884</td><td>331.4 hr</td><td>99.84%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>7 月（全月）</td><td>73</td><td>17,608</td><td>293.5 hr</td><td>99.86%</td><td style="color:var(--ok)">✅ 達標</td></tr>
-      <tr><td>8 月（截至 8/19）</td><td>34</td><td>5,259</td><td>87.7 hr</td><td>99.93%</td><td style="color:var(--ok)">✅ 達標</td></tr>
+      <tr><td>8 月（截至 8/19）</td><td>34</td><td>24,559</td><td>409.3 hr</td><td>99.69%</td><td style="color:var(--ok)">✅ 達標</td></tr>
     </tbody>
   </table>
 
@@ -872,9 +872,9 @@
   <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 169 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
   <div class="sla-hero">
     <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">42 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 688.0 hr</div></div>
-    <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">71 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 189.2 hr</div></div>
+    <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">71 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 303.6 hr</div></div>
     <div class="sla-card p3"><div class="sla-badge">P3 警告</div><div class="sla-time" id="p3-count">10 件</div><div class="sla-desc">停機 1–99 分｜累計 3.7 hr</div></div>
-    <div class="sla-card p4"><div class="sla-badge">P4 一般</div><div class="sla-time" id="p4-count">44 件</div><div class="sla-desc">⚠️ 標籤為「無停機」但改用實際計算後累計 2.7 hr，P 分級尚未依新停機時間重新校準</div></div>
+    <div class="sla-card p4"><div class="sla-badge">P4 一般</div><div class="sla-time" id="p4-count">44 件</div><div class="sla-desc">⚠️ 標籤為「無停機」但改用實際計算後累計 209.9 hr，P 分級尚未依新停機時間重新校準</div></div>
   </div>
   <div class="field-callout" style="margin-bottom:16px">
     <h4>📌 分級規則（依停機分鐘數與狀態推論，非 Jira 原生 P1-P4 欄位）</h4>
@@ -1975,7 +1975,7 @@
 
     <div class="arch-group" style="--group-color:var(--danger)">
       <div class="arch-group-label">☁️ CloudOps 運算平台</div>
-      <div class="arch-group-sub">59 件事件（34.9%）· 203.9 hr 停機</div>
+      <div class="arch-group-sub">59 件事件（34.9%）· 318.3 hr 停機</div>
 
       <div class="arch-layer" data-filtercat="ops" style="--layer-color:var(--accent)">
           <div class="arch-layer-head">
@@ -1994,7 +1994,7 @@
 
     <div class="arch-group" style="--group-color:var(--accent2)">
       <div class="arch-group-label">🏗️ InfraOps 實體基礎設施</div>
-      <div class="arch-group-sub">110 件事件（65.1%）· 680.3 hr 停機（佔總停機76.9%）</div>
+      <div class="arch-group-sub">110 件事件（65.1%）· 887.5 hr 停機（佔總停機73.6%）</div>
 
       <div class="arch-layer" data-filtercat="hw" style="--layer-color:var(--danger)">
         <div class="arch-layer-head">
@@ -3945,7 +3945,7 @@
       <div class="ba-item"><div class="ba-item-icon">🎯</div><div><strong>準時完成 288 台 GPU 伺服器全量交付</strong>，並在高強度驗證中提前抓出、修復多項潛在問題，不留到客戶端才爆發</div></div>
       <div class="ba-item"><div class="ba-item-icon">🛡</div><div><strong>主動發現並排除一項可能導致客訴的重大資料風險</strong>，且已建立防呆機制、零再犯，同步列為下一代叢集的必要驗收條件</div></div>
       <div class="ba-item"><div class="ba-item-icon">🩺</div><div>維運團隊診斷能力全面升級，異常應變從「事後補救」轉為「主動預防」，並將經驗系統化沉澱供全團隊複用</div></div>
-      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 169 起事件，整體 SLA 為 <strong>99.88%</strong>（8月已解決事件改採「解決時間－開始時間」計算），穩定優於 99.5% 目標門檻</div></div>
+      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 169 起事件，整體 SLA 為 <strong>99.84%</strong>（8月已解決事件改採「解決時間－開始時間」計算），穩定優於 99.5% 目標門檻，惟8月單月餘裕已收窄至99.69%</div></div>
     </div>
   </div>
 
@@ -5068,8 +5068,8 @@ const INCIDENTS = [
   {date:'08/04',cat:'ops',title:'gn-10-227-0-59 gpu_xid_error/0000:fa:00/48 等問題',down:'1356',prio:'中',p:'P2',status:'fixed',scope:'gpusrv059（10.227.0.59，同 VOTS-184／219 節點）',action:'nvidia-smi 確認 DRAM Uncorrectable=12、Remapped Rows Uncorrectable=3/Pending=Yes；dcgmi diag -r 3 確認 GPU7 Fail（Page Retirement/Row Remap 異常，761,936 rows remapped），已確認完成處理',lesson:'gpusrv059 本季第 3 次事件記錄（VOTS-184、219、本案），建議列入重複故障觀察名單。',tool:'dcgm',owner:'tier2',jira:'VOTS-223'},
   {date:'08/04',cat:'ops',title:'gn-10-227-0-17 gpu_xid_error/0000:fa:00/48 等問題',down:'1060',prio:'中',p:'P2',status:'fixed',scope:'gpusrv017（10.227.0.17，同 VOTS-190／204／216 節點）',action:'nvidia-smi 確認 DRAM Uncorrectable=48、Remapped Rows Uncorrectable=1/Pending=Yes；dcgmi diag -r 3 確認 GPU7 Fail（Page Retirement/Row Remap 異常，761,936 rows remapped），已確認完成處理',lesson:'⚠️ gpusrv017 本季已達第 4 次事件記錄（VOTS-190、204、216、本案），為全站重複故障最頻繁節點之一，強烈建議優先排入整機汰換評估，不宜再逐次個別維修。',tool:'dcgm',owner:'tier2',jira:'VOTS-224'},
   {date:'08/05',cat:'hw',title:'10.227.0.26 8 張 GPU 全數同時掉卡（fallen off bus）',down:'0',prio:'中',p:'P1',status:'open',scope:'gn-10-227-0-26（10.227.0.26）',action:'journalctl 確認 8 張 GPU 於同一秒（09:30:51）同時觸發 Xid 79（fallen off bus）+154（Node Reboot Required），nvidia-smi 顯示全數 Unable to determine device handle，已請協助確認是否需要重啟',lesson:'⚠️ 本季第 3 起「單節點 8 GPU 全數同時掉卡」案例（前兩起為 VOTS-203 gpusrv044、VOTS-205 gpusrv097），型態高度一致（同秒觸發、同樣 Xid 79+154），已非個案，強烈建議跨案比對是否為同批機台的主機板／PCIe root complex／電源共通缺陷，並列為重大調查項目。',tool:'dcgm',owner:'tier2',jira:'VOTS-225'},
-  {date:'08/06',cat:'ops',title:'10.227.1.10 gpu_xid_error/0000:7d:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gn-10-227-1-10（10.227.1.10）',action:'dcgmi diag -r 3 確認 GPU3 Page Retirement/Row Remap 異常，累計 7,761,936 rows remapped，DRAM Uncorrectable=3，已請協助判斷是否需要 RMA',lesson:'Row Remap 數量級異常偏高（近776萬次），建議優先排入下次維護窗口。',tool:'dcgm',owner:'tier2',jira:'VOTS-229'},
-  {date:'08/06',cat:'ops',title:'10.227.1.21 gpu_xid_error/0000:7d:00/48+63+94+171 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv121（10.227.1.21，同 VOTS-210／218 節點）',action:'journalctl 確認多重 Xid（48 DBE、63 Row Remapper、94 Contained SM、171 HBM Uncorrectable、154 Drain and Reset），DRAM Uncorrectable累計已達15，已請協助判斷是否需要RMA',lesson:'⚠️ gpusrv121 本季第 3 次異常記錄（VOTS-210、218、本案），症狀持續為多重Xid併發，建議直接判定RMA而非持續觀察。',tool:'dcgm',owner:'tier2',jira:'VOTS-230'},
+  {date:'08/06',cat:'ops',title:'10.227.1.10 gpu_xid_error/0000:7d:00/48 等問題',down:'1029',prio:'中',p:'P2',status:'fixed',scope:'gn-10-227-1-10（10.227.1.10）',action:'dcgmi diag -r 3 確認 GPU3 Page Retirement/Row Remap 異常，累計 7,761,936 rows remapped，DRAM Uncorrectable=3，已請協助判斷是否需要 RMA',lesson:'Row Remap 數量級異常偏高（近776萬次），建議優先排入下次維護窗口。',tool:'dcgm',owner:'tier2',jira:'VOTS-229'},
+  {date:'08/06',cat:'ops',title:'10.227.1.21 gpu_xid_error/0000:7d:00/48+63+94+171 等問題',down:'986',prio:'中',p:'P2',status:'fixed',scope:'gpusrv121（10.227.1.21，同 VOTS-210／218 節點）',action:'journalctl 確認多重 Xid（48 DBE、63 Row Remapper、94 Contained SM、171 HBM Uncorrectable、154 Drain and Reset），DRAM Uncorrectable累計已達15，已請協助判斷是否需要RMA',lesson:'⚠️ gpusrv121 本季第 3 次異常記錄（VOTS-210、218、本案），症狀持續為多重Xid併發，建議直接判定RMA而非持續觀察。',tool:'dcgm',owner:'tier2',jira:'VOTS-230'},
   {date:'08/07',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'0',prio:'中',p:'P1',status:'open',scope:'gpusrv061（10.227.0.61，本季重複故障最高節點）',action:'journalctl 確認多重 Xid（48 DBE、171 HBM Uncorrectable、63 Row Remapper、94 Contained SM×7、154 Drain and Reset），DRAM Uncorrectable累計已達136，Remapped Rows Uncorrectable=4/Pending=Yes，已請協助判斷是否需要RMA',lesson:'⚠️ gpusrv061 本季累計已達第 9 次事件記錄，DRAM Uncorrectable數值持續攀升且遠超一般案例（136次），強烈建議立即安排整機汰換，不宜再等待或重啟觀察。',tool:'dcgm',owner:'tier2',jira:'VOTS-231'},
   {date:'08/07',cat:'ops',title:'10.227.0.16 gpu_xid_error/0000:1a:00/154 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gn-10-227-0-16（10.227.0.16）',action:'journalctl 確認 Xid 94（Contained: GSP）+154（GPU Reset Required），nvidia-smi 顯示 Channel/TPC Repair Pending，已請協助確認是否需要 reset GPU',lesson:'GSP異常案例，建議先嘗試GPU reset，觀察是否需進一步RMA判定。',tool:'dcgm',owner:'tier2',jira:'VOTS-232'},
   {date:'08/08',cat:'ops',title:'10.227.0.149 gpu_xid_error/0000:f3:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gn-10-227-0-149（10.227.0.149）',action:'nvidia-smi 確認 DRAM Uncorrectable=39；dcgmi diag -r 3 確認 GPU6 Fail（Page Retirement/Row Remap 異常，累計7,761,936 rows remapped，與VOTS-229同量級），已請協助判斷是否需要RMA',lesson:'Row Remap數量與VOTS-229幾乎一致（皆為776萬次量級），建議一併檢視是否為同批GPU韌體或料件的共通缺陷模式。',tool:'dcgm',owner:'tier2',jira:'VOTS-233'},
@@ -5079,23 +5079,23 @@ const INCIDENTS = [
   {date:'08/09',cat:'ops',title:'10.227.0.232 gpu_xid_error/0000:9a:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv232（10.227.0.232，同 VOTS-25／201 節點）',action:'journalctl 確認多重 Xid（48 DBE、171 HBM Uncorrectable、63 Row Remapper、94 Contained SM×7、154 Drain and Reset），DRAM Uncorrectable累計已達63，已請協助判斷是否需要RMA',lesson:'gpusrv232 本季第 3 次事件記錄（VOTS-25、201、本案），建議一併列入重複故障觀察名單，該節點6/15曾因燈號自滅完成過一次RMA更換。',tool:'dcgm',owner:'tier2',jira:'VOTS-237'},
   {date:'08/10',cat:'ops',title:'10.227.1.21 gpu_xid_error/0000:7d:00/48 等問題',down:'416',prio:'中',p:'P2',status:'fixed',scope:'gpusrv121（10.227.1.21，同 VOTS-210／218／230 節點）',action:'journalctl 確認 Xid 48（DBE）+171（HBM Uncorrectable）+63（Row Remapper）+94（Contained SM）+154（Drain and Reset），已確認完成處理',lesson:'gpusrv121 本季第 4 次事件記錄（VOTS-210、218、230、本案），持續為重複故障觀察名單成員，建議優先評估整機汰換。',tool:'dcgm',owner:'tier2',jira:'VOTS-238'},
   {date:'08/10',cat:'net',title:'10.227.0.160 GPU7 NVLink Link 1 error（同節點第 3 起）',down:'0',prio:'中',p:'P1',status:'open',scope:'gn-10-227-0-160（10.227.0.160，同 VOTS-221／222 節點）',action:'NVLink error counter 確認 GPU7 Link 1 Effective BER=1e-5（遠高於正常水準）、Symbol Errors=198,750、FEC Errors 各Bin累計逾兆次量級、Link recovery events=1845次，已請協助確認',lesson:'⚠️ 10.227.0.160 本季累計已達第 3 次事件記錄，且皆集中在同一張GPU7的NVLink鏈路（VOTS-221 BER告警→VOTS-222診斷確診nvlink_symbol_err→本案Link 1持續劣化），強烈證實VOTS-222判定之GPU7實體鏈路故障應盡速執行更換，目前僅監控未處理將持續影響訓練穩定性。',tool:'dcgm',owner:'tier2',jira:'VOTS-239'},
-  {date:'08/11',cat:'ops',title:'10.227.0.59 自檢失敗 gpu_error/registcount 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv059（10.227.0.59，同 VOTS-184／219／223 節點）',action:'journalctl 確認 Xid 48（DBE）+171（HBM Uncorrectable）+63（Row Remapper）+94（Contained SM×7）+154（Drain and Reset），已請協助排查',lesson:'gpusrv059 本季第 4 次事件記錄（VOTS-184、219、223、本案），建議與其他重複故障節點一併列入整機汰換評估。',tool:'dcgm',owner:'tier2',jira:'VOTS-240'},
+  {date:'08/11',cat:'ops',title:'10.227.0.59 自檢失敗 gpu_error/registcount 等問題',down:'1046',prio:'中',p:'P2',status:'fixed',scope:'gpusrv059（10.227.0.59，同 VOTS-184／219／223 節點）',action:'journalctl 確認 Xid 48（DBE）+171（HBM Uncorrectable）+63（Row Remapper）+94（Contained SM×7）+154（Drain and Reset），已請協助排查',lesson:'gpusrv059 本季第 4 次事件記錄（VOTS-184、219、223、本案），建議與其他重複故障節點一併列入整機汰換評估。',tool:'dcgm',owner:'tier2',jira:'VOTS-240'},
   {date:'08/11',cat:'ops',title:'10.227.0.59 gpu_xid_error/0000:fa:00/48 等問題（VOTS-240 後續，重啟已恢復）',down:'1035',prio:'中',p:'P2',status:'fixed',scope:'gpusrv059（10.227.0.59，同 VOTS-184／219／223／240 節點）',action:'重啟後執行 dcgmi diag -r 3，結果正常，機器重新上線',lesson:'與 VOTS-240 為同一起事件的後續追蹤單（相隔10分鐘），重啟後診斷通過即恢復服務，惟本季已第5張相關工單，仍建議列入重複故障觀察名單。',tool:'dcgm',owner:'tier2',jira:'VOTS-241'},
   {date:'08/13',cat:'ops',title:'10.227.1.17 gpu_xid_error/0000:f3:00/63 等問題',down:'1204',prio:'中',p:'P2',status:'fixed',scope:'gn-10-227-1-17（10.227.1.17）',action:'Row Remapper Pending案例，重啟後執行 dcgmi diag -r 3（Level 3）測試通過，已確認交付上線',lesson:'Row Remapper Pending早期預警案例，重啟並經完整診斷驗證通過後即可恢復服務。',tool:'dcgm',owner:'tier2',jira:'VOTS-245'},
   {date:'08/14',cat:'net',title:'nv-networking-alarm（tca_dom event，第 1 起）',down:'6',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警並已解決',lesson:'自動化網路監控告警案例，短時間內連續觸發3筆（VOTS-246/247/248），疑似同一輪監控巡檢觸發，建議檢視告警去重邏輯避免單一事件產生多張工單。',tool:'ufm',owner:'tier2',jira:'VOTS-246'},
   {date:'08/14',cat:'net',title:'nv-networking-alarm（tca_dom event，第 2 起）',down:'6',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警並已解決',lesson:'與 VOTS-246／248 為同一輪監控巡檢期間（20秒內）連續觸發之案例，建議檢視告警去重邏輯。',tool:'ufm',owner:'tier2',jira:'VOTS-247'},
   {date:'08/14',cat:'net',title:'nv-networking-alarm（tca_dom event，第 3 起）',down:'6',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警並已解決',lesson:'與 VOTS-246／247 為同一輪監控巡檢期間（1秒內）連續觸發之案例，建議檢視告警去重邏輯，避免單一事件產生多張工單稀釋事件統計意義。',tool:'ufm',owner:'tier2',jira:'VOTS-248'},
   {date:'08/14',cat:'ops',title:'10.227.0.177 gpu_xid_error/0000:9a:00/154 等問題',down:'28',prio:'中',p:'P2',status:'fixed',scope:'gpusrv177（10.227.0.177，本季重複故障節點）',action:'journalctl 確認 Xid 94（Contained: GSP）+154（GPU Reset Required），重啟後執行 dcgmi diag -r 3，8張GPU全數Pass（software/hardware/integration/stress全數通過），已確認交付',lesson:'⚠️ gpusrv177 本季累計已達第 6 次事件記錄，為全站重複故障次數最高節點之一，雖每次皆可透過重啟+完整診斷恢復，仍強烈建議優先評估整機汰換，避免持續佔用維運資源。',tool:'dcgm',owner:'tier2',jira:'VOTS-251'},
-  {date:'08/14',cat:'ops',title:'10.227.0.80 node_lost/lost heart beat 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gn-10-227-0-80（10.227.0.80）',action:'確認節點無負載但有記憶體占用與zombie進程殘留，重啟後恢復，已交付',lesson:'Zombie進程導致心跳遺失案例，建議檢視是否為特定訓練框架異常結束未正確釋放資源所致，可考慮增加zombie進程監控告警提前預警。',tool:'bms',owner:'tier2',jira:'VOTS-252'},
+  {date:'08/14',cat:'ops',title:'10.227.0.80 node_lost/lost heart beat 等問題',down:'3803',prio:'中',p:'P2',status:'fixed',scope:'gn-10-227-0-80（10.227.0.80）',action:'確認節點無負載但有記憶體占用與zombie進程殘留，重啟後恢復，已交付',lesson:'Zombie進程導致心跳遺失案例，建議檢視是否為特定訓練框架異常結束未正確釋放資源所致，可考慮增加zombie進程監控告警提前預警。',tool:'bms',owner:'tier2',jira:'VOTS-252'},
   {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 4 起）',down:'142',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警並已解決',lesson:'與VOTS-246/247/248系列相同型態之自動化網路監控告警，本次分散於全天多個時段觸發（非同一輪巡檢），建議持續追蹤此類告警頻率是否有上升趨勢。',tool:'ufm',owner:'tier2',jira:'VOTS-256'},
-  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 5 起）',down:'0',prio:'低',p:'P4',status:'open',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'自動化網路監控告警案例，待確認是否需要人工介入排查。',tool:'ufm',owner:'tier2',jira:'VOTS-257'},
-  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 6 起）',down:'0',prio:'低',p:'P4',status:'open',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'自動化網路監控告警案例，待確認是否需要人工介入排查。',tool:'ufm',owner:'tier2',jira:'VOTS-258'},
-  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 7 起）',down:'0',prio:'低',p:'P4',status:'open',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'⚠️ 8/17當天已累計5起同型態網路告警（VOTS-256~260），較先前單日3起的頻率明顯上升，建議優先排查是否為特定交換器或鏈路的早期劣化訊號，而非單純視為雜訊。',tool:'ufm',owner:'tier2',jira:'VOTS-259'},
-  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 8 起）',down:'0',prio:'低',p:'P4',status:'open',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'與VOTS-259相隔僅3分鐘再度觸發，建議加速排查根因。',tool:'ufm',owner:'tier2',jira:'VOTS-260'},
+  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 5 起）',down:'2785',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'自動化網路監控告警案例，待確認是否需要人工介入排查。',tool:'ufm',owner:'tier2',jira:'VOTS-257'},
+  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 6 起）',down:'2692',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'自動化網路監控告警案例，待確認是否需要人工介入排查。',tool:'ufm',owner:'tier2',jira:'VOTS-258'},
+  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 7 起）',down:'2652',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'⚠️ 8/17當天已累計5起同型態網路告警（VOTS-256~260），較先前單日3起的頻率明顯上升，建議優先排查是否為特定交換器或鏈路的早期劣化訊號，而非單純視為雜訊。',tool:'ufm',owner:'tier2',jira:'VOTS-259'},
+  {date:'08/17',cat:'net',title:'nv-networking-alarm（tca_dom event，第 8 起）',down:'2649',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'與VOTS-259相隔僅3分鐘再度觸發，建議加速排查根因。',tool:'ufm',owner:'tier2',jira:'VOTS-260'},
   {date:'08/17',cat:'hw',title:'gpusrv142 nvidia driver 無法掛載',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv142（10.227.0.142）',action:'確認 nvidia driver 無法正常掛載，已請協助排查',lesson:'Driver掛載失敗案例，建議確認是否為韌體/驅動版本不相容或核心模組衝突所致。',tool:'bms',owner:'tier2',jira:'VOTS-261'},
   {date:'08/17',cat:'ops',title:'10.227.0.142 gpu_xid_error/0000:fa:00/145 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv142（10.227.0.142，同 VOTS-261 節點）',action:'確認 Xid 145（Row Remapper Failure），已請協助判斷是否需要RMA',lesson:'gpusrv142 同日第2起事件（VOTS-261 driver掛載失敗、本案Xid 145），疑似與先前driver問題有連動，建議併案排查根因是否相同。',tool:'dcgm',owner:'tier2',jira:'VOTS-262'},
-  {date:'08/18',cat:'net',title:'nv-networking-alarm（tca_dom event，第 9 起）',down:'0',prio:'低',p:'P4',status:'open',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'⚠️ 延續8/17趨勢，8/18再度出現2起同型態告警，連續2天皆超過先前單日3起的常態水準，建議提高優先度排查是否為特定交換器或鏈路早期劣化訊號。',tool:'ufm',owner:'tier2',jira:'VOTS-263'},
-  {date:'08/18',cat:'net',title:'nv-networking-alarm（tca_dom event，第 10 起）',down:'0',prio:'低',p:'P4',status:'open',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'與VOTS-263相隔約48分鐘再度觸發，本季累計已達10起同型態告警，建議正式立案調查根因而非個別處理。',tool:'ufm',owner:'tier2',jira:'VOTS-264'},
+  {date:'08/18',cat:'net',title:'nv-networking-alarm（tca_dom event，第 9 起）',down:'853',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'⚠️ 延續8/17趨勢，8/18再度出現2起同型態告警，連續2天皆超過先前單日3起的常態水準，建議提高優先度排查是否為特定交換器或鏈路早期劣化訊號。',tool:'ufm',owner:'tier2',jira:'VOTS-263'},
+  {date:'08/18',cat:'net',title:'nv-networking-alarm（tca_dom event，第 10 起）',down:'805',prio:'低',p:'P4',status:'fixed',scope:'NVIDIA 網路監控告警',action:'tca_dom event，系統自動告警，待確認',lesson:'與VOTS-263相隔約48分鐘再度觸發，本季累計已達10起同型態告警，建議正式立案調查根因而非個別處理。',tool:'ufm',owner:'tier2',jira:'VOTS-264'},
   
   
   {date:'07/21',cat:'cool',title:'#65 當櫃 CDU 異常（根因同 VOTS-189）',down:'0',prio:'中',p:'P1',status:'fixed',scope:'gpusrv065（10.227.0.65）',action:'#65~72 同櫃皆受影響，併入 VOTS-189 CDU 過熱根因統一處理',lesson:'併入 VOTS-189／186／187／188 同一根因事件群組。',tool:'intouch',owner:'facility',jira:'VOTS-194'},

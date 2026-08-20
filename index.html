@@ -723,8 +723,10 @@
       <tr><td>6 月</td><td>52</td><td>19,884</td><td>331.4 hr</td><td>99.84%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>7 月（全月）</td><td>73</td><td>17,608</td><td>293.5 hr</td><td>99.86%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>8 月（截至 8/20）</td><td>33</td><td>24,559</td><td>409.3 hr</td><td>99.70%</td><td style="color:var(--ok)">✅ 達標</td></tr>
+      <tr style="background:rgba(107,70,193,.05)"><td>9 月（預測，尚未開始）</td><td>—</td><td>—</td><td>—</td><td style="color:var(--rma);font-weight:700">97.5～99.6%？</td><td style="color:var(--muted)">－ 待實際資料</td></tr>
     </tbody>
   </table>
+  <div class="arch-callout" style="margin-bottom:16px">💡 9 月預測區間依 8 月截至今日之惡化趨勢（重複故障節點增加、網路告警頻率上升）外推，非正式承諾數字，9 月開始後將依實際資料每日更新。</div>
 
   <div class="chart-box" style="margin-bottom:32px">
     <h3>SLA 達成率趨勢</h3>
@@ -3996,8 +3998,8 @@
 
   <div class="section-title" style="font-size:15px">SLA 趨勢預測</div>
   <div class="chart-box" style="margin-bottom:16px">
-    <h3>月度 SLA 走勢與 8 月預測區間</h3>
-    <svg viewBox="0 0 700 220" style="width:100%;height:auto;overflow:visible" xmlns="http://www.w3.org/2000/svg">
+    <h3>月度 SLA 走勢與 9 月預測區間</h3>
+    <svg viewBox="0 0 700 260" style="width:100%;height:auto;overflow:visible" xmlns="http://www.w3.org/2000/svg">
       <line x1="50" y1="20" x2="650" y2="20" stroke="var(--border)" stroke-width="1"/>
       <line x1="50" y1="60" x2="650" y2="60" stroke="var(--border)" stroke-width="1"/>
       <line x1="50" y1="100" x2="650" y2="100" stroke="var(--border)" stroke-width="1"/>
@@ -4005,28 +4007,31 @@
       <line x1="50" y1="180" x2="650" y2="180" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="5,4"/>
       <text x="44" y="24" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">100.0%</text>
       <text x="44" y="184" text-anchor="end" font-size="11" fill="var(--danger)" font-family="var(--mono)">99.5% 目標</text>
-      <polyline points="120,45.6 300,71.2 480,61.6" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <polyline points="480,61.6 600,65" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
+      <polyline points="120,45.6 245,71.2 370,64.8 495,116" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="495,116 620,148" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
       <circle cx="120" cy="45.6" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="300" cy="71.2" r="5" fill="var(--warn)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="480" cy="61.6" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="600" cy="65" r="5" fill="var(--rma)" stroke="var(--surface)" stroke-width="2" stroke-dasharray="2,2"/>
+      <circle cx="245" cy="71.2" r="5" fill="var(--warn)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="370" cy="64.8" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="495" cy="116" r="5" fill="var(--warn)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="620" cy="148" r="5" fill="var(--rma)" stroke="var(--surface)" stroke-width="2" stroke-dasharray="2,2"/>
       <text x="120" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.92%</text>
-      <text x="300" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)" font-family="var(--mono)">99.84%</text>
-      <text x="480" y="47" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.87%</text>
-      <text x="600" y="50" text-anchor="middle" font-size="12" font-weight="700" fill="var(--rma)" font-family="var(--mono)">≈99.9%？</text>
+      <text x="245" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)" font-family="var(--mono)">99.84%</text>
+      <text x="370" y="48" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.86%</text>
+      <text x="495" y="134" text-anchor="middle" font-size="12" font-weight="700" fill="var(--warn)" font-family="var(--mono)">99.70%</text>
+      <text x="620" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="var(--rma)" font-family="var(--mono)">97.5～99.6%？</text>
       <text x="120" y="205" text-anchor="middle" font-size="12" fill="var(--text)">5 月</text>
-      <text x="300" y="205" text-anchor="middle" font-size="12" fill="var(--text)">6 月</text>
-      <text x="480" y="205" text-anchor="middle" font-size="12" fill="var(--text)">7 月（全月）</text>
-      <text x="600" y="205" text-anchor="middle" font-size="12" fill="var(--rma)">8 月（預測）</text>
+      <text x="245" y="205" text-anchor="middle" font-size="12" fill="var(--text)">6 月</text>
+      <text x="370" y="205" text-anchor="middle" font-size="12" fill="var(--text)">7 月（全月）</text>
+      <text x="495" y="205" text-anchor="middle" font-size="12" fill="var(--text)">8 月（截至8/20）</text>
+      <text x="620" y="205" text-anchor="middle" font-size="12" fill="var(--rma)">9 月（預測）</text>
     </svg>
   </div>
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 預測依據與限制</h4>
     <ul>
-      <li>三個月呈現「先降後升再微降」型態：6 月因 288 節點交付週暴露大量硬體問題，7 月起雖趨於穩定，但 VOTS-150 因備品短缺延宕近 4.5 天，拉低月度 SLA</li>
-      <li>若無新一輪大規模交付或架構變更，<strong>8 月 SLA 預期維持 99.9% 左右</strong>，主要不確定因素為現場備品水位是否改善、10.227.0.23 節點是否持續劣化、GB300 導入時程</li>
-      <li>⚠️ 此為簡單趨勢外推，非時間序列模型，僅供方向性參考，不應作為 SLA 合約承諾依據</li>
+      <li>⚠️ 上一輪「8 月預期維持 99.9% 左右」的預測明顯過於樂觀，實際截至 8/20 僅 99.70%，主因是月中密集出現的重複故障節點（gpusrv061/017/121 等）與網路監控告警頻率上升（8/17～18 單日多達 5 起），此次預測已依實際趨勢下修</li>
+      <li><strong>9 月 SLA 預估區間為 97.5%～99.6%</strong>：下緣情境為當前重複故障節點（gpusrv061 已 9 次、gpusrv017 已 5 次）未汰換且持續惡化，加上網路告警若確認為鏈路早期劣化訊號；上緣情境為 8 月底前完成重點節點汰換與告警根因排查後趨於穩定</li>
+      <li>⚠️ 此為簡單趨勢外推，非時間序列模型，僅供方向性參考，不應作為 SLA 合約承諾依據；建議 9 月初依實際前 5 天資料重新校準</li>
     </ul>
   </div>
 

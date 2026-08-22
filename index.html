@@ -617,27 +617,27 @@
 <div class="tab-panel active" id="tab-overview">
 
   <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">總覽</div>
-  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">8 月截至 8/21：叢集整體穩定運行，SLA 持續達標，惟餘裕已較先前收窄</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">8 月截至 8/22：⚠️ SLA 已跌破 99.5% 目標門檻，需立即檢視</div>
   <div class="sla-hero">
-    <div class="stat-card highlight">
-      <div class="stat-label">8 月 SLA（截至 8/21）</div>
-      <div class="stat-value green" id="sla-counter">99.72%</div>
-      <div class="stat-sub">目標 ≥ 99.5%，解約門檻 95%</div>
+    <div class="stat-card danger-top" style="border-left:3px solid var(--danger)">
+      <div class="stat-label">8 月 SLA（截至 8/22）</div>
+      <div class="stat-value" id="sla-counter" style="color:var(--danger)">99.27%</div>
+      <div class="stat-sub" style="color:var(--danger);font-weight:600">⚠️ 低於目標 ≥ 99.5%（解約門檻 95%）</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">8 月已解決事件數</div>
-      <div class="stat-value" style="font-size:28px">20</div>
-      <div class="stat-sub">另有 14 件仍在處理中</div>
+      <div class="stat-value" style="font-size:28px">22</div>
+      <div class="stat-sub">另有 12 件仍在處理中</div>
     </div>
     <div class="stat-card danger-top">
       <div class="stat-label">8 月累計停機分鐘</div>
-      <div class="stat-value warn">24,559</div>
-      <div class="stat-sub">≈ 409.3 hr｜採「解決時間－開始時間」計算已解決事件</div>
+      <div class="stat-value warn">66,537</div>
+      <div class="stat-sub">≈ 1,109.0 hr｜採「解決時間－開始時間」計算已解決事件</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">未解決事件</div>
-      <div class="stat-value" style="color:var(--danger)">31 件</div>
-      <div class="stat-sub">⚠️ gpusrv017 本季第 6 次異常（VOTS-265），與gpusrv061並列全站最高</div>
+      <div class="stat-value" style="color:var(--danger)">29 件</div>
+      <div class="stat-sub">⚠️ VOTS-225／236 分別延宕16／13天才完成更換，是8月SLA下滑主因</div>
     </div>
   </div>
 
@@ -652,8 +652,8 @@
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
       <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">⚠️ 8/2就診斷確認要換的NVLink故障，8/10同一張卡又發作了——中間是不是漏了執行更換</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">10.227.0.160這台機器的GPU7，8/2已經用dcgmi diag完整診斷確認是NVLink SerDes實體鏈路故障（1071次nvlink_symbol_err），照理說應該直接換卡。結果8/10同一張GPU7又報錯，這次錯誤數字更誇張（Effective BER達1e-5，FEC Errors是兆筆等級），代表8天前的診斷結論很可能沒有真的落地執行更換。建議立刻查這8天中間卡在哪個環節（是還在等備品、還是判定後沒有排入更換排程），並檢討RMA判定完成後到實際更換之間的追蹤機制。另外，「單節點8張GPU同時全掉」這個月也已經第3次發生（7/24、7/25、8/5），加上gpusrv053另一起NVLink確診案例，本季累計已有2起NVLink硬體故障靠診斷工具實測confirmed，建議一併列入跨案調查是否為同批機台的共通缺陷。<strong>8/17當天網路監控告警（nv-networking-alarm）一口氣冒出5起</strong>，比先前單日最多3起的頻率明顯升高，建議優先排查是不是特定交換器或鏈路開始劣化，而不是單純當雜訊處理掉。</div>
+        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">⚠️ 8月SLA正式跌破99.5%目標，降到99.27%——主因是2起硬體故障拖了16天跟13天才換</div>
+        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">8/21一次補上兩張大單：VOTS-225（8張GPU同時全掉）8/5發現、8/21才完成更換，整整拖了16天；VOTS-236（NVLink鏈路故障）8/8診斷確診、8/21才換完，也拖了13天。這兩筆單筆停機都超過2萬分鐘，遠遠蓋過先前記錄裡最大的VOTS-150（6,339分鐘），直接把8月SLA從原本還算穩的99.7%拉到跌破目標的99.27%。這不是單一事件的問題，是「確診之後多久才真的動手換」這個環節出了狀況，建議查清楚16天跟13天中間卡在哪（備品調度？排程優先順序？跨部門溝通延遲？），這攸關類似的10.227.0.160（VOTS-239，8/10就確診同樣問題，至今12天仍未處理）會不會又拖出下一筆超長延宕。</div>
       </div>
     </div>
     <div style="display:flex;gap:12px;margin-bottom:14px">
@@ -673,7 +673,7 @@
     </div>
   </div>
 
-  <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–08/21，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
+  <div class="section-title">維運分類：InfraOps ／ CloudOps <span style="color:var(--muted);font-size:10px">累計 2026/05/01–08/22，InfraOps＝硬體＋網路＋設施；CloudOps＝維運</span></div>
   <div class="charts-row" style="margin-bottom:32px">
     <div class="chart-box" style="border-left:3px solid var(--danger)">
       <h3 style="color:var(--danger)">☁️ CloudOps <span style="font-weight:400;color:var(--muted);font-size:11px">運算平台（維運）</span></h3>
@@ -693,17 +693,17 @@
       <h3 style="color:var(--accent2)">🏗️ InfraOps <span style="font-weight:400;color:var(--muted);font-size:11px">實體基礎設施（硬體＋網路＋設施）</span></h3>
       <div style="display:flex;gap:24px;margin:10px 0 16px;flex-wrap:wrap">
         <div><div style="font-size:22px;font-weight:700;color:var(--accent2);font-family:var(--mono)">109 件</div><div style="font-size:11px;color:var(--muted)">佔累計事件 64.5%</div></div>
-        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">887.5 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 73.6%</div></div>
+        <div><div style="font-size:22px;font-weight:700;color:var(--warn);font-family:var(--mono)">1,587.1 hr</div><div style="font-size:11px;color:var(--muted)">佔累計停機 83.3%</div></div>
         <div><div style="font-size:22px;font-weight:700;color:var(--ok);font-family:var(--mono)">99.871%</div><div style="font-size:11px;color:var(--muted)">分組 SLA 達成率</div></div>
       </div>
       <div class="cat-grid" style="margin-bottom:0">
         <div class="cat-card" data-cat="hw">
           <div class="cat-icon hw">🖥️</div>
-          <div class="cat-info"><div class="cat-name">硬體</div><div class="cat-stats">45 件 · 540.10 hr</div></div>
+          <div class="cat-info"><div class="cat-name">硬體</div><div class="cat-stats">45 件 · 924.5 hr</div></div>
         </div>
         <div class="cat-card" data-cat="net">
           <div class="cat-icon net">🌐</div>
-          <div class="cat-info"><div class="cat-name">網路</div><div class="cat-stats">45 件 · 314.9 hr</div></div>
+          <div class="cat-info"><div class="cat-name">網路</div><div class="cat-stats">45 件 · 630.1 hr</div></div>
         </div>
         <div class="cat-card" data-cat="cool">
           <div class="cat-icon cool">❄️</div>
@@ -722,7 +722,7 @@
       <tr><td>5 月</td><td>10</td><td>10,302</td><td>171.7 hr</td><td>99.92%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>6 月</td><td>52</td><td>19,884</td><td>331.4 hr</td><td>99.84%</td><td style="color:var(--ok)">✅ 達標</td></tr>
       <tr><td>7 月（全月）</td><td>73</td><td>17,608</td><td>293.5 hr</td><td>99.86%</td><td style="color:var(--ok)">✅ 達標</td></tr>
-      <tr><td>8 月（截至 8/21）</td><td>34</td><td>24,559</td><td>409.3 hr</td><td>99.72%</td><td style="color:var(--ok)">✅ 達標</td></tr>
+      <tr style="background:rgba(220,38,38,.05)"><td>8 月（截至 8/22）</td><td>34</td><td>66,537</td><td>1,109.0 hr</td><td style="color:var(--danger);font-weight:700">99.27%</td><td style="color:var(--danger);font-weight:700">❌ 未達標</td></tr>
       <tr style="background:rgba(107,70,193,.05)"><td>9 月（預測，尚未開始）</td><td>—</td><td>—</td><td>—</td><td style="color:var(--rma);font-weight:700">97.5～99.6%？</td><td style="color:var(--muted)">－ 待實際資料</td></tr>
     </tbody>
   </table>
@@ -848,32 +848,33 @@
   </div>
   <div class="arch-callout" style="margin-bottom:32px">💡 整合後可清楚看出：硬體類是唯一有明顯波動的分類（6 月降至 99.847%），其餘三類全年幾乎貼著 100% 天花板；這與「風險登記冊」中硬體類平均解決時間為其他分類 3 倍以上的結論一致。</div>
 
-  <div class="section-title">Top 3 停機事件（累計至今） <span style="color:var(--muted);font-size:10px">8 月至今尚無停機事件，以下為歷史累計最大 3 起</span></div>
+  <div class="section-title">Top 3 停機事件（累計至今）</div>
   <div class="road-card">
     <div class="road-num" style="color:var(--danger)">01</div>
     <div style="flex:1">
-      <div class="road-title"><a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--text);text-decoration:none">VOTS-150</a> — 10.227.0.181 GPU 掉卡</div>
-      <div class="road-body">BMC cold power cycle 無效，現場無備品待料，最終完成 GPU Tray 更換。7/10 08:08 → 7/14 17:47，歷時近 4.5 天。<strong style="color:var(--danger)">6,339 分鐘</strong>停機。<span style="color:var(--ok)">已解決</span></div>
+      <div class="road-title"><a href="https://visionbay.atlassian.net/browse/VOTS-225" target="_blank" style="color:var(--text);text-decoration:none">VOTS-225</a> — 10.227.0.26 8張GPU全數同時掉卡</div>
+      <div class="road-body">本季第3起「單節點8GPU同時全掉」案例，研判為主機板/電源層級故障。8/5 15:52 → 8/21 16:18，歷時16天完成硬體更換。<strong style="color:var(--danger)">23,066 分鐘</strong>停機。<span style="color:var(--ok)">已解決</span></div>
     </div>
   </div>
   <div class="road-card">
-    <div class="road-num" style="color:var(--accent2)">02</div>
+    <div class="road-num" style="color:var(--danger)">02</div>
     <div style="flex:1">
-      <div class="road-title"><a href="https://visionbay.atlassian.net/browse/VOTS-127" target="_blank" style="color:var(--text);text-decoration:none">VOTS-127</a> — Vrf_6 缺 VPN pool 回程路由</div>
-      <div class="road-body">存取路徑降級（非中斷）。VRF migration 缺 static route，經 Netris 設定修正解決。<strong style="color:var(--warn)">1,072 分鐘</strong>停機。<span style="color:var(--ok)">已解決</span></div>
+      <div class="road-title"><a href="https://visionbay.atlassian.net/browse/VOTS-236" target="_blank" style="color:var(--text);text-decoration:none">VOTS-236</a> — 10.227.0.53 GPU2 NVLink SerDes鏈路故障</div>
+      <div class="road-body">dcgmi diag診斷確認29次nvlink_symbol_err（門檻為0），確診實體鏈路故障。8/8 13:05 → 8/21 16:18，歷時13天完成更換。<strong style="color:var(--danger)">18,912 分鐘</strong>停機。<span style="color:var(--ok)">已解決</span></div>
     </div>
   </div>
   <div class="road-card">
     <div class="road-num" style="color:var(--accent2)">03</div>
     <div style="flex:1">
-      <div class="road-title"><a href="https://visionbay.atlassian.net/browse/VOTS-160" target="_blank" style="color:var(--text);text-decoration:none">VOTS-160</a> — 10.227.0.177 gpu_xid_error（Xid 94+154）</div>
-      <div class="road-body">GSP Contained + GPU Reset Required 併發，GPU 進入 ERR! 狀態，經原廠確認後排除。<strong style="color:var(--warn)">1,054 分鐘</strong>停機。<span style="color:var(--ok)">已解決</span></div>
+      <div class="road-title"><a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--text);text-decoration:none">VOTS-150</a> — 10.227.0.181 GPU 掉卡</div>
+      <div class="road-body">BMC cold power cycle 無效，現場無備品待料，最終完成 GPU Tray 更換。7/10 08:08 → 7/14 17:47，歷時近 4.5 天。<strong style="color:var(--warn)">6,339 分鐘</strong>停機。<span style="color:var(--ok)">已解決</span></div>
     </div>
   </div>
+  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger)">⚠️ 前2大停機事件皆為8月新發生，且都超過VOTS-150（先前累計最大單筆）3倍以上，共同拉低8月SLA至99.27%（跌破99.5%目標）。兩者共通點：均為硬體確診故障（非軟體可排除），從確診到實際完成更換分別耗時16天與13天，建議檢討硬體確診後的備品調度與更換排程流程是否可加速。</div>
 
   <div class="section-title">P1–P4 優先級分級統計 <span style="color:var(--muted);font-size:10px">依全部 169 起事件的停機時間與優先級自動分級（非 Jira 原生欄位，規則見下方說明）</span></div>
   <div class="sla-hero">
-    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">43 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 688.0 hr</div></div>
+    <div class="sla-card p1"><div class="sla-badge">P1 緊急</div><div class="sla-time" id="p1-count">43 件</div><div class="sla-desc">停機 ≥500 分或標記高優先級｜累計 1,387.6 hr</div></div>
     <div class="sla-card p2"><div class="sla-badge">P2 重大</div><div class="sla-time" id="p2-count">70 件</div><div class="sla-desc">停機 100–499 分或仍未解決｜累計 303.6 hr</div></div>
     <div class="sla-card p3"><div class="sla-badge">P3 警告</div><div class="sla-time" id="p3-count">10 件</div><div class="sla-desc">停機 1–99 分｜累計 3.7 hr</div></div>
     <div class="sla-card p4"><div class="sla-badge">P4 一般</div><div class="sla-time" id="p4-count">44 件</div><div class="sla-desc">⚠️ 標籤為「無停機」但改用實際計算後累計 209.9 hr，P 分級尚未依新停機時間重新校準</div></div>
@@ -980,7 +981,7 @@
     </div>
   </div>
 
-  <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–08/21，依事件內容判讀之 RMA 相關工單</span></div>
+  <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–08/22，依事件內容判讀之 RMA 相關工單</span></div>
   <div class="sla-hero">
     <div class="stat-card danger-top">
       <div class="stat-label">RMA 相關事件數</div>
@@ -1965,7 +1966,7 @@
 
     <div class="arch-group" style="--group-color:var(--accent2)">
       <div class="arch-group-label">🏗️ InfraOps 實體基礎設施</div>
-      <div class="arch-group-sub">109 件事件（64.5%）· 887.5 hr 停機（佔總停機73.6%）</div>
+      <div class="arch-group-sub">109 件事件（64.5%）· 1,587.1 hr 停機（佔總停機83.3%）</div>
 
       <div class="arch-layer" data-filtercat="hw" style="--layer-color:var(--danger)">
         <div class="arch-layer-head">
@@ -3382,7 +3383,7 @@
         <div>
           <div class="flow-num">PHASE 06</div>
           <div class="flow-title">Done（結案）</div>
-          <div class="flow-body">填寫 Lesson Learned 並同步至 Confluence 知識庫。截至 8/21 已累積 22 條 Lesson Learned（page 73170946），形成可複用的維運知識積累，並反向驅動 SOP 手冊更新。</div>
+          <div class="flow-body">填寫 Lesson Learned 並同步至 Confluence 知識庫。截至 8/22 已累積 22 條 Lesson Learned（page 73170946），形成可複用的維運知識積累，並反向驅動 SOP 手冊更新。</div>
           <span class="flow-tag" style="border-color:var(--ok);color:var(--ok)">✓ 22 條 Lesson Learned</span><span class="flow-tag">知識庫同步</span>
         </div>
       </div>
@@ -3763,7 +3764,7 @@
     <div class="principle-grid">
       <div class="principle-card"><div class="principle-num">PRINCIPLE 01</div><div class="principle-title">Focus on Value</div><div class="principle-body">在最關鍵的時機採取行動，聚焦於信任、導入與安全。7/2 全量交付當下為爭取時程維持 RAID 現狀，但 7/3 客戶正式推翻要求調整（VOTS-121）——顯示「價值」須以客戶最終驗收標準為準，而非單方權宜判斷。</div><div class="principle-signal">權宜決策需第一時間取得客戶同意，而非事後補救。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 02</div><div class="principle-title">Start Where You Are</div><div class="principle-body">善用現有工具與流程，不等待完美平台。發現 VOTS-143 資料清除風險後，未待自動化開機判斷機制完成，即以既有 BIOS 手動設定 + grub 確認建立暫行對策，7/13 已於 .23/.222 節點驗證可行。</div><div class="principle-signal">以今日可用的工具（BIOS/grub）先行止血，而非等待長期方案。</div></div>
-      <div class="principle-card"><div class="principle-num">PRINCIPLE 03</div><div class="principle-title">Progress Iteratively with Feedback</div><div class="principle-body">每雙週回顧使用真實案例與指標，以短週期迭代強化 SOP 與知識庫。截至 8/21 已累積 22 條 Lesson Learned，其中 Lesson 21 更直接指出：VOTS-133/141/143 同日密集結案時仍應完整記錄驗證證據，不因效率犧牲稽核軌跡。</div><div class="principle-signal">22 條 Lesson Learned 持續回饋 SOP 與監控規則。</div></div>
+      <div class="principle-card"><div class="principle-num">PRINCIPLE 03</div><div class="principle-title">Progress Iteratively with Feedback</div><div class="principle-body">每雙週回顧使用真實案例與指標，以短週期迭代強化 SOP 與知識庫。截至 8/22 已累積 22 條 Lesson Learned，其中 Lesson 21 更直接指出：VOTS-133/141/143 同日密集結案時仍應完整記錄驗證證據，不因效率犧牲稽核軌跡。</div><div class="principle-signal">22 條 Lesson Learned 持續回饋 SOP 與監控規則。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 04</div><div class="principle-title">Collaborate and Promote Visibility</div><div class="principle-body">Vendor、Visionbay、IDC 三方協作，確保變更對所有利害關係人公開透明。7/13 B300 ops tier1&2 群組即時協調 .23/.222 節點維護重啟，Tony／Johnny 逐台確認並公開回報完成狀態，變更全程可追溯。</div><div class="principle-signal">維護作業於群組即時公開確認，而非單點口頭約定。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 05</div><div class="principle-title">Think and Work Holistically</div><div class="principle-body">檢查上下游銜接點，避免將痛點轉移至其他環節。VOTS-133 GPU Xid 154 觸發後，OS 重啟流程與 BMC Power On 控制間出現短暫異常互動，若僅單獨排查 GPU 或 BMC 均無法定位根因，需跨層（GPU + OS + BMC）整體診斷。</div><div class="principle-signal">跨層根因判斷取代單點排查，減少誤判與重工。</div></div>
       <div class="principle-card"><div class="principle-num">PRINCIPLE 06</div><div class="principle-title">Keep It Simple and Practical</div><div class="principle-body">簡化流程步驟，使用清楚語言，降低認知負荷。VOTS-143 暫行對策僅兩步驟即可避免重大資料遺失：① 重啟前確認本地 grub 已裝、② 重啟後於 BIOS 手動選 Hard Disk 開機，無需複雜工具即可執行。</div><div class="principle-signal">兩步驟 checklist，現場人員可立即執行不需額外訓練。</div></div>
@@ -3897,7 +3898,7 @@
 </div><div class="tab-panel" id="tab-beforeafter">
 
   <div class="section-title" style="font-size:24px;font-weight:800;letter-spacing:-.3px;text-transform:none;font-family:var(--sans);color:var(--text);border-bottom:2px solid var(--accent2);padding-bottom:12px;margin-bottom:16px">前後對比</div>
-  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">維運優化前後對比：2026 Q2 → 2026 Q3（截至 8/21）給管理層的關鍵重點</div>
+  <div style="color:var(--muted);font-size:12px;margin-bottom:20px">維運優化前後對比：2026 Q2 → 2026 Q3（截至 8/22）給管理層的關鍵重點</div>
 
   <div class="ba-hero">
     <div class="ba-card before">
@@ -3910,13 +3911,13 @@
       <div class="ba-item"><div class="ba-item-icon">🔴</div><div>SLA 99.76%，其中風險項目一度僅 97.65%，尚未達到全面穩定水準</div></div>
     </div>
     <div class="ba-card after">
-      <div class="ba-label">🚀 AFTER — 2026 Q3（截至 8/21）</div>
+      <div class="ba-label">🚀 AFTER — 2026 Q3（截至 8/22）</div>
       <div class="ba-title">Q3 迄今：交付達標＋風險排除期</div>
       <div class="ba-subtitle">關鍵交付里程碑達成，重大風險主動排除</div>
       <div class="ba-item"><div class="ba-item-icon">🎯</div><div><strong>準時完成 288 台 GPU 伺服器全量交付</strong>，並在高強度驗證中提前抓出、修復多項潛在問題，不留到客戶端才爆發</div></div>
       <div class="ba-item"><div class="ba-item-icon">🛡</div><div><strong>主動發現並排除一項可能導致客訴的重大資料風險</strong>，且已建立防呆機制、零再犯，同步列為下一代叢集的必要驗收條件</div></div>
       <div class="ba-item"><div class="ba-item-icon">🩺</div><div>維運團隊診斷能力全面升級，異常應變從「事後補救」轉為「主動預防」，並將經驗系統化沉澱供全團隊複用</div></div>
-      <div class="ba-item"><div class="ba-item-icon">✅</div><div>累計處理 169 起事件，整體 SLA 為 <strong>99.84%</strong>（8月已解決事件改採「解決時間－開始時間」計算），穩定優於 99.5% 目標門檻，惟8月單月餘裕已收窄至99.69%</div></div>
+      <div class="ba-item"><div class="ba-item-icon">⚠️</div><div>累計處理 169 起事件，整體 SLA 為 <strong>99.74%</strong>（8月已解決事件改採「解決時間－開始時間」計算），累計仍優於 99.5% 目標門檻，但<strong style="color:var(--danger)">8月單月已跌破目標降至99.27%</strong>，主因為2起硬體故障延宕16／13天才完成更換（VOTS-225、236）</div></div>
     </div>
   </div>
 
@@ -4029,7 +4030,7 @@
   <div class="field-callout" style="margin-bottom:32px">
     <h4>📌 預測依據與限制</h4>
     <ul>
-      <li>⚠️ 上一輪「8 月預期維持 99.9% 左右」的預測明顯過於樂觀，實際截至 8/21 僅 99.70%，主因是月中密集出現的重複故障節點（gpusrv061/017/121 等）與網路監控告警頻率上升（8/17～18 單日多達 5 起），此次預測已依實際趨勢下修</li>
+      <li>⚠️ 上一輪「8 月預期維持 99.9% 左右」的預測明顯過於樂觀，實際截至 8/22 僅 99.70%，主因是月中密集出現的重複故障節點（gpusrv061/017/121 等）與網路監控告警頻率上升（8/17～18 單日多達 5 起），此次預測已依實際趨勢下修</li>
       <li><strong>9 月 SLA 預估區間為 97.5%～99.6%</strong>：下緣情境為當前重複故障節點（gpusrv061 已 9 次、gpusrv017 已 5 次）未汰換且持續惡化，加上網路告警若確認為鏈路早期劣化訊號；上緣情境為 8 月底前完成重點節點汰換與告警根因排查後趨於穩定</li>
       <li>⚠️ 此為簡單趨勢外推，非時間序列模型，僅供方向性參考，不應作為 SLA 合約承諾依據；建議 9 月初依實際前 5 天資料重新校準</li>
     </ul>
@@ -5041,7 +5042,7 @@ const INCIDENTS = [
   {date:'08/02',cat:'net',title:'10.227.0.160 GPU7 NVLink SerDes 鏈路故障（確診，同節點第 2 起）',down:'0',prio:'中',p:'P1',status:'open',scope:'gn-10-227-0-160（10.227.0.160，同 VOTS-221 節點）',action:'dcgmi diag -r 3 執行完整診斷，PCIe/Integration 測試項目 GPU7 Fail：偵測到 1071 次 nvlink_symbol_err（門檻為0），且 effective BER 超出 NVLink 最低門檻，判斷為 GPU7↔NVSwitch 間某路 NVLink SerDes 實體鏈路問題',lesson:'⚠️ 24小時內同節點第2起事件（VOTS-221 BER告警→本案診斷確診），症狀吻合且已有明確診斷數據（nvlink_symbol_err遠超門檻），建議直接判定需更換 GPU7 或相關鏈路元件，不宜僅靠軟體重置排除。',tool:'dcgm',owner:'tier2',jira:'VOTS-222'},
   {date:'08/04',cat:'ops',title:'gn-10-227-0-59 gpu_xid_error/0000:fa:00/48 等問題',down:'1356',prio:'中',p:'P2',status:'fixed',scope:'gpusrv059（10.227.0.59，同 VOTS-184／219 節點）',action:'nvidia-smi 確認 DRAM Uncorrectable=12、Remapped Rows Uncorrectable=3/Pending=Yes；dcgmi diag -r 3 確認 GPU7 Fail（Page Retirement/Row Remap 異常，761,936 rows remapped），已確認完成處理',lesson:'gpusrv059 本季第 3 次事件記錄（VOTS-184、219、本案），建議列入重複故障觀察名單。',tool:'dcgm',owner:'tier2',jira:'VOTS-223'},
   {date:'08/04',cat:'ops',title:'gn-10-227-0-17 gpu_xid_error/0000:fa:00/48 等問題',down:'1060',prio:'中',p:'P2',status:'fixed',scope:'gpusrv017（10.227.0.17，同 VOTS-190／204／216 節點）',action:'nvidia-smi 確認 DRAM Uncorrectable=48、Remapped Rows Uncorrectable=1/Pending=Yes；dcgmi diag -r 3 確認 GPU7 Fail（Page Retirement/Row Remap 異常，761,936 rows remapped），已確認完成處理',lesson:'⚠️ gpusrv017 本季已達第 4 次事件記錄（VOTS-190、204、216、本案），為全站重複故障最頻繁節點之一，強烈建議優先排入整機汰換評估，不宜再逐次個別維修。',tool:'dcgm',owner:'tier2',jira:'VOTS-224'},
-  {date:'08/05',cat:'hw',title:'10.227.0.26 8 張 GPU 全數同時掉卡（fallen off bus）',down:'0',prio:'中',p:'P1',status:'open',scope:'gn-10-227-0-26（10.227.0.26）',action:'journalctl 確認 8 張 GPU 於同一秒（09:30:51）同時觸發 Xid 79（fallen off bus）+154（Node Reboot Required），nvidia-smi 顯示全數 Unable to determine device handle，已請協助確認是否需要重啟',lesson:'⚠️ 本季第 3 起「單節點 8 GPU 全數同時掉卡」案例（前兩起為 VOTS-203 gpusrv044、VOTS-205 gpusrv097），型態高度一致（同秒觸發、同樣 Xid 79+154），已非個案，強烈建議跨案比對是否為同批機台的主機板／PCIe root complex／電源共通缺陷，並列為重大調查項目。',tool:'dcgm',owner:'tier2',jira:'VOTS-225'},
+  {date:'08/05',cat:'hw',title:'10.227.0.26 8 張 GPU 全數同時掉卡（fallen off bus）',down:'23066',prio:'中',p:'P1',status:'fixed',scope:'gn-10-227-0-26（10.227.0.26）',action:'journalctl 確認 8 張 GPU 於同一秒（09:30:51）同時觸發 Xid 79（fallen off bus）+154（Node Reboot Required），研判為主機板/電源層級故障，經 16 天後完成硬體更換並確認恢復',lesson:'⚠️ 本季第 3 起「單節點 8 GPU 全數同時掉卡」案例（前兩起為 VOTS-203 gpusrv044、VOTS-205 gpusrv097），型態高度一致（同秒觸發、同樣 Xid 79+154）。本案處理耗時達 16 天（8/5→8/21），為本季次長延宕案例，建議檢討此類主機板層級故障的備品與更換流程是否可加速，並持續跨案調查是否為同批機台共通缺陷。',tool:'dcgm',owner:'tier2',jira:'VOTS-225'},
   {date:'08/06',cat:'ops',title:'10.227.1.10 gpu_xid_error/0000:7d:00/48 等問題',down:'1029',prio:'中',p:'P2',status:'fixed',scope:'gn-10-227-1-10（10.227.1.10）',action:'dcgmi diag -r 3 確認 GPU3 Page Retirement/Row Remap 異常，累計 7,761,936 rows remapped，DRAM Uncorrectable=3，已請協助判斷是否需要 RMA',lesson:'Row Remap 數量級異常偏高（近776萬次），建議優先排入下次維護窗口。',tool:'dcgm',owner:'tier2',jira:'VOTS-229'},
   {date:'08/06',cat:'ops',title:'10.227.1.21 gpu_xid_error/0000:7d:00/48+63+94+171 等問題',down:'986',prio:'中',p:'P2',status:'fixed',scope:'gpusrv121（10.227.1.21，同 VOTS-210／218 節點）',action:'journalctl 確認多重 Xid（48 DBE、63 Row Remapper、94 Contained SM、171 HBM Uncorrectable、154 Drain and Reset），DRAM Uncorrectable累計已達15，已請協助判斷是否需要RMA',lesson:'⚠️ gpusrv121 本季第 3 次異常記錄（VOTS-210、218、本案），症狀持續為多重Xid併發，建議直接判定RMA而非持續觀察。',tool:'dcgm',owner:'tier2',jira:'VOTS-230'},
   {date:'08/07',cat:'ops',title:'10.227.0.61 gpu_xid_error/0000:da:00/48 等問題',down:'0',prio:'中',p:'P1',status:'open',scope:'gpusrv061（10.227.0.61，本季重複故障最高節點）',action:'journalctl 確認多重 Xid（48 DBE、171 HBM Uncorrectable、63 Row Remapper、94 Contained SM×7、154 Drain and Reset），DRAM Uncorrectable累計已達136，Remapped Rows Uncorrectable=4/Pending=Yes，已請協助判斷是否需要RMA',lesson:'⚠️ gpusrv061 本季累計已達第 9 次事件記錄，DRAM Uncorrectable數值持續攀升且遠超一般案例（136次），強烈建議立即安排整機汰換，不宜再等待或重啟觀察。',tool:'dcgm',owner:'tier2',jira:'VOTS-231'},
@@ -5049,7 +5050,7 @@ const INCIDENTS = [
   {date:'08/08',cat:'ops',title:'10.227.0.149 gpu_xid_error/0000:f3:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gn-10-227-0-149（10.227.0.149）',action:'nvidia-smi 確認 DRAM Uncorrectable=39；dcgmi diag -r 3 確認 GPU6 Fail（Page Retirement/Row Remap 異常，累計7,761,936 rows remapped，與VOTS-229同量級），已請協助判斷是否需要RMA',lesson:'Row Remap數量與VOTS-229幾乎一致（皆為776萬次量級），建議一併檢視是否為同批GPU韌體或料件的共通缺陷模式。',tool:'dcgm',owner:'tier2',jira:'VOTS-233'},
   {date:'08/08',cat:'ops',title:'10.227.0.240 gpu_xid_error/0000:1a:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gn-10-227-0-240（10.227.0.240）',action:'nvidia-smi 確認 DRAM Uncorrectable=4、Remapped Rows Uncorrectable=1/Pending=Yes，已請協助判斷是否需要RMA',lesson:'Row Remapper Pending早期預警案例，建議儘速排入下次維護窗口套用。',tool:'dcgm',owner:'tier2',jira:'VOTS-234'},
   {date:'08/08',cat:'ops',title:'10.227.0.17 gpu_xid_error/0000:76:00/48 等問題',down:'0',prio:'中',p:'P1',status:'open',scope:'gpusrv017（10.227.0.17，同 VOTS-190／204／216／224 節點）',action:'journalctl 確認多重 Xid（48 DBE、171 HBM Uncorrectable、63 Row Remapper、94 Contained SM×7、154 Drain and Reset），Remapped Rows Uncorrectable=10/Pending=Yes，已請協助判斷是否需要RMA',lesson:'⚠️ gpusrv017 本季累計已達第 5 次事件記錄，為全站重複故障次數最高節點之一（與gpusrv061並列前二），強烈建議優先安排整機汰換，不宜再逐次個別維修。',tool:'dcgm',owner:'tier2',jira:'VOTS-235'},
-  {date:'08/08',cat:'net',title:'10.227.0.53 GPU2 NVLink SerDes 鏈路故障（確診）',down:'0',prio:'中',p:'P1',status:'open',scope:'gpusrv053（10.227.0.53，同 VOTS-162 節點）',action:'dcgmi diag -r 3 執行完整診斷，PCIe/Integration 測試項目 GPU2 Fail：偵測到 29 次 nvlink_symbol_err（門檻為0），且 effective BER 超出 NVLink 最低門檻，判斷為 GPU2↔NVSwitch 間某路 NVLink SerDes 實體鏈路問題',lesson:'⚠️ 本季第 2 起經 dcgmi diag 診斷數據明確confirmed的NVLink SerDes硬體故障案例（前一起為VOTS-222），建議直接判定需更換GPU2或相關鏈路元件；同節點7月已有VOTS-162異常記錄，建議一併檢視。',tool:'dcgm',owner:'tier2',jira:'VOTS-236'},
+  {date:'08/08',cat:'net',title:'10.227.0.53 GPU2 NVLink SerDes 鏈路故障（確診）',down:'18912',prio:'中',p:'P1',status:'fixed',scope:'gpusrv053（10.227.0.53，同 VOTS-162 節點）',action:'dcgmi diag -r 3 執行完整診斷，PCIe/Integration 測試項目 GPU2 Fail：偵測到 29 次 nvlink_symbol_err（門檻為0），且 effective BER 超出 NVLink 最低門檻，判斷為 GPU2↔NVSwitch 間某路 NVLink SerDes 實體鏈路問題，經 13 天後完成更換並確認恢復',lesson:'本季第 2 起經 dcgmi diag 診斷數據明確confirmed的NVLink SerDes硬體故障案例（前一起為VOTS-222），本案從診斷確認到實際更換完成耗時 13 天，相較VOTS-222／239（10.227.0.160案例，診斷後未及時更換導致同節點反覆發作）算是有落實更換，建議將此案列為「診斷後有落實處理」的正面對照組。',tool:'dcgm',owner:'tier2',jira:'VOTS-236'},
   {date:'08/09',cat:'ops',title:'10.227.0.232 gpu_xid_error/0000:9a:00/48 等問題',down:'0',prio:'中',p:'P2',status:'open',scope:'gpusrv232（10.227.0.232，同 VOTS-25／201 節點）',action:'journalctl 確認多重 Xid（48 DBE、171 HBM Uncorrectable、63 Row Remapper、94 Contained SM×7、154 Drain and Reset），DRAM Uncorrectable累計已達63，已請協助判斷是否需要RMA',lesson:'gpusrv232 本季第 3 次事件記錄（VOTS-25、201、本案），建議一併列入重複故障觀察名單，該節點6/15曾因燈號自滅完成過一次RMA更換。',tool:'dcgm',owner:'tier2',jira:'VOTS-237'},
   {date:'08/10',cat:'ops',title:'10.227.1.21 gpu_xid_error/0000:7d:00/48 等問題',down:'416',prio:'中',p:'P2',status:'fixed',scope:'gpusrv121（10.227.1.21，同 VOTS-210／218／230 節點）',action:'journalctl 確認 Xid 48（DBE）+171（HBM Uncorrectable）+63（Row Remapper）+94（Contained SM）+154（Drain and Reset），已確認完成處理',lesson:'gpusrv121 本季第 4 次事件記錄（VOTS-210、218、230、本案），持續為重複故障觀察名單成員，建議優先評估整機汰換。',tool:'dcgm',owner:'tier2',jira:'VOTS-238'},
   {date:'08/10',cat:'net',title:'10.227.0.160 GPU7 NVLink Link 1 error（同節點第 3 起）',down:'0',prio:'中',p:'P1',status:'open',scope:'gn-10-227-0-160（10.227.0.160，同 VOTS-221／222 節點）',action:'NVLink error counter 確認 GPU7 Link 1 Effective BER=1e-5（遠高於正常水準）、Symbol Errors=198,750、FEC Errors 各Bin累計逾兆次量級、Link recovery events=1845次，已請協助確認',lesson:'⚠️ 10.227.0.160 本季累計已達第 3 次事件記錄，且皆集中在同一張GPU7的NVLink鏈路（VOTS-221 BER告警→VOTS-222診斷確診nvlink_symbol_err→本案Link 1持續劣化），強烈證實VOTS-222判定之GPU7實體鏈路故障應盡速執行更換，目前僅監控未處理將持續影響訓練穩定性。',tool:'dcgm',owner:'tier2',jira:'VOTS-239'},

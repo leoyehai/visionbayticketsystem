@@ -649,24 +649,17 @@
   </div>
 
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
-    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 4 件事</h4>
+    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 3 件事</h4>
 
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
-      <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">重新算完7月的真實停機時間，SLA從原本以為的99.86%直接掉到97.05%</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">先前只挑幾筆大案例算過7月停機時間，這次把7月全部73起事件都用「解決時間－開始時間」重新算了一遍，結果差很多：原本算出來的17,608分鐘變成378,819分鐘，7月SLA從99.86%直接掉到97.05%（還是有守住95%解約門檻，但已經遠遠低於99.5%目標）。最大宗原因是7/27那天一次結掉了24起事件，裡面很多張單其實是7/14~7/26就開的，拖到7/27才正式關單——最誇張的VOTS-205拖了24.3天，VOTS-151也拖了15.6天。<strong>但這裡有個重要但書</strong>：這批單裡至少有一張（VOTS-161）我後來去查留言才發現，機器其實在7/15重開機就已經恢復正常了，只是單子因為後續RMA政策追蹤又重開，才拖到7/27才正式結案——換句話說，這批「拖很久」的單，有一部分可能是工單流程本身的延遲，不是機器真的停擺那麼久。建議如果要拿這個數字去跟客戶談，先抽查幾張確認實際留言紀錄，避免高估我們自己的問題。同一套邏輯也適用在8月：8月SLA同樣改算後持續下修，最終全月定案97.43%，跟95%解約門檻的距離已經不算太遠。</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">8月最終定案了：SLA落在97.43%，追蹤了整整一個月的VOTS-221/222終於8/28結案，但也創了新紀錄——延宕26.4天</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">這是本月第5次「一次補一批大單」（7/27、8/21、8/24、8/27、8/28），這次補的正是先前在給長官摘要裡被追蹤了好幾輪的10.227.0.160案例——VOTS-221（BER告警）跟VOTS-222（診斷確診NVLink故障）從8/2就開始追，一路看著它8/10還沒換、8/17還沒換⋯⋯終於在8/28一併完成更換結案，但也雙雙成為目前累計停機時數最長的兩筆單（26.4天、25.5天），超越先前的紀錄保持者VOTS-205（24.3天）。加上VOTS-220、232、235等同樣延宕逾19天的案例，前5大延宕案例合計貢獻了118.8天停機，占全部累計停機的23.1%。8月全月SLA最終落在<strong>97.43%</strong>（仍優於95%解約門檻），但這已經是連續第2個月跌破99.5%目標。這個「確診後排程延宕」的問題橫跨整個8月且沒有改善跡象，建議正式列為Q3檢討的核心議題，不要再等下次批次結案才發現。</div>
       </div>
     </div>
     <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">3</div>
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">⚠️ 8/31下午33分鐘內湧入25起網路監控告警，是本季規模最大的單次告警潮</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">先前這類「nv-networking-alarm」告警最多是單日3~5起，8/17、8/18連續兩天各出現5起時就已經在摘要裡提醒要注意趨勢。這次8/31下午16:29~17:02，短短33分鐘內一口氣冒出25起（VOTS-275~299），全部同型態、全部自動解決，本季累計相關告警已經超過35起。這種規模的集中爆發已經不太可能是單純雜訊，強烈建議立即排查是不是特定交換器、鏈路，或監控系統本身出現大規模異常（例如告警規則誤觸發、設備韌體問題），並確認是否對實際訓練任務造成影響，不要等下次爆發才處理。另外同一天gpusrv061也再度發作（VOTS-273/274），累計已達11次相關工單，全站最高。</div>
@@ -674,7 +667,7 @@
     </div>
 
     <div style="display:flex;gap:12px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">4</div>
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">3</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">RMA案件「什麼算修好」跟客戶認知不一樣，需要拍板</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">客戶認為要驗證通過才算完成，我們認為廠商換完檢查就算完成。這個落差直接影響停機時數怎麼算，客戶目前不接受我們提的方案，需要找人定案後再跟客戶談。</div>
@@ -783,7 +776,6 @@
     </div>
   </div>
 
-  <div class="arch-callout" style="margin-bottom:16px">✅ 7/27 一次性結案 24 起事件（含 CDU 冷卻水質事件 VOTS-189 及其衍生案例），未解決事件數從 33 件大幅降至 <strong>9 件</strong>。以下為目前仍在追蹤的項目。</div>
   <div class="charts-row" style="margin-bottom:32px">
     <div class="chart-box" style="border-left:3px solid var(--warn)">
       <h3 style="color:var(--warn)">🔭 持續追蹤・第三方海纜斷線 — <a href="https://visionbay.atlassian.net/browse/VOTS-164" target="_blank" style="color:inherit;text-decoration:none">VOTS-164</a></h3>

@@ -732,10 +732,11 @@
       <tr style="background:rgba(220,38,38,.05)"><td>7 月（全月）</td><td>73</td><td>378,819</td><td>6,313.6 hr</td><td style="color:var(--danger);font-weight:700">97.05%</td><td style="color:var(--danger);font-weight:700">❌ 未達標</td></tr>
       <tr style="background:rgba(220,38,38,.05)"><td>8 月（全月）</td><td>69</td><td>330,283</td><td>5,504.7 hr</td><td style="color:var(--danger);font-weight:700">97.43%</td><td style="color:var(--danger);font-weight:700">❌ 未達標</td></tr>
       <tr style="background:rgba(37,99,235,.05)"><td>9 月（截至 9/1）</td><td>0</td><td>0</td><td>0.0 hr</td><td style="color:var(--ok);font-weight:700">100.00%</td><td style="color:var(--ok)">✅ 達標（剛起算）</td></tr>
+      <tr style="background:rgba(107,70,193,.05)"><td>10 月（預測，尚未開始）</td><td>—</td><td>—</td><td>—</td><td style="color:var(--rma);font-weight:700">97.0～99.3%？</td><td style="color:var(--muted)">－ 待實際資料</td></tr>
     </tbody>
   </table>
   <div class="arch-callout" style="margin-bottom:16px;border-left-color:var(--danger)">⚠️ <strong>7月數字大幅修正說明</strong>：本表格7月停機分鐘已改採「解決時間－開始時間」重新計算全部73起事件，較先前僅選取部分重大事件計算的舊值（17,608分鐘）大幅增加至378,819分鐘。主因是7/27一次性批次結案的24起事件（多為7/14~7/26開立），許多工單的正式解決時間拖到7/27才確認，其中最長的VOTS-151、VOTS-205分別達15.6天與24.3天。<strong style="color:var(--danger)">與VOTS-161案例相同的疑慮</strong>：部分事件的節點本身可能已透過重啟等方式提前恢復服務，但工單延遲至批次結案時才正式關閉，此計算方式可能高估實際服務中斷時間，建議謹慎解讀此數字，若需更精確數字應逐筆比對留言紀錄確認實際恢復時間點。</div>
-  <div class="arch-callout" style="margin-bottom:16px">💡 9 月已開始實際追蹤，數字將依每日 Jira 資料更新（已解決事件採「解決時間－開始時間」計算）。8 月最終落在97.43%，7 月為97.05%，兩個月皆未達99.5%目標，9 月能否止跌是接下來的觀察重點。</div>
+  <div class="arch-callout" style="margin-bottom:16px">💡 9 月已開始實際追蹤，數字將依每日 Jira 資料更新（已解決事件採「解決時間－開始時間」計算）。8 月最終落在97.43%，7 月為97.05%，兩個月皆未達99.5%目標，9 月能否止跌是接下來的觀察重點。10 月預測區間（97.0～99.3%）將依 9 月實際資料每週滾動校準，目前僅為初步方向性估計。</div>
 
   <div class="chart-box" style="margin-bottom:32px">
     <h3>SLA 達成率趨勢</h3>
@@ -4009,45 +4010,49 @@
 
   <div class="section-title" style="font-size:15px">SLA 趨勢預測</div>
   <div class="chart-box" style="margin-bottom:16px">
-    <h3>月度 SLA 走勢與 9 月預測區間</h3>
+    <h3>月度 SLA 走勢與 10 月預測區間</h3>
     <div style="font-size:11px;color:var(--danger);margin-bottom:8px">⚠️ 座標尺度已於本次更新調整（96.5%～100.0%），以容納 7 月重新計算後大幅下修的數值</div>
     <svg viewBox="0 0 700 280" style="width:100%;height:auto;overflow:visible" xmlns="http://www.w3.org/2000/svg">
-      <line x1="50" y1="20" x2="650" y2="20" stroke="var(--border)" stroke-width="1"/>
-      <line x1="50" y1="83" x2="650" y2="83" stroke="var(--border)" stroke-width="1"/>
-      <line x1="50" y1="146" x2="650" y2="146" stroke="var(--border)" stroke-width="1"/>
-      <line x1="50" y1="209" x2="650" y2="209" stroke="var(--border)" stroke-width="1"/>
-      <line x1="50" y1="51" x2="650" y2="51" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="5,4"/>
+      <line x1="50" y1="20" x2="680" y2="20" stroke="var(--border)" stroke-width="1"/>
+      <line x1="50" y1="83" x2="680" y2="83" stroke="var(--border)" stroke-width="1"/>
+      <line x1="50" y1="146" x2="680" y2="146" stroke="var(--border)" stroke-width="1"/>
+      <line x1="50" y1="209" x2="680" y2="209" stroke="var(--border)" stroke-width="1"/>
+      <line x1="50" y1="51" x2="680" y2="51" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="5,4"/>
       <text x="44" y="24" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">100.0%</text>
       <text x="44" y="87" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">99.0%</text>
       <text x="44" y="150" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">98.0%</text>
       <text x="44" y="213" text-anchor="end" font-size="11" fill="var(--muted)" font-family="var(--mono)">97.0%</text>
       <text x="44" y="55" text-anchor="end" font-size="11" fill="var(--danger)" font-family="var(--mono)">99.5% 目標</text>
-      <polyline points="120,25 245,30.1 370,205.4 495,181.5" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <polyline points="495,181.5 620,20" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="3,3" stroke-linecap="round"/>
+      <polyline points="120,25 226,30.1 332,205.4 438,181.5 544,20" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="544,20 650,136.3" fill="none" stroke="var(--accent2)" stroke-width="2.5" stroke-dasharray="6,4" stroke-linecap="round"/>
       <circle cx="120" cy="25" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="245" cy="30.1" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="370" cy="205.4" r="5" fill="var(--danger)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="495" cy="181.5" r="5" fill="var(--danger)" stroke="var(--surface)" stroke-width="2"/>
-      <circle cx="620" cy="20" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="226" cy="30.1" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="332" cy="205.4" r="5" fill="var(--danger)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="438" cy="181.5" r="5" fill="var(--danger)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="544" cy="20" r="5" fill="var(--ok)" stroke="var(--surface)" stroke-width="2"/>
+      <circle cx="650" cy="136.3" r="5" fill="var(--rma)" stroke="var(--surface)" stroke-width="2" stroke-dasharray="2,2"/>
       <text x="120" y="14" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.92%</text>
-      <text x="245" y="19" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.84%</text>
-      <text x="370" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="var(--danger)" font-family="var(--mono)">97.05%</text>
-      <text x="495" y="169" text-anchor="middle" font-size="12" font-weight="700" fill="var(--danger)" font-family="var(--mono)">97.43%</text>
-      <text x="620" y="14" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">100.00%</text>
+      <text x="226" y="19" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">99.84%</text>
+      <text x="332" y="225" text-anchor="middle" font-size="12" font-weight="700" fill="var(--danger)" font-family="var(--mono)">97.05%</text>
+      <text x="438" y="169" text-anchor="middle" font-size="12" font-weight="700" fill="var(--danger)" font-family="var(--mono)">97.43%</text>
+      <text x="544" y="14" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ok)" font-family="var(--mono)">100.00%</text>
+      <text x="650" y="155" text-anchor="middle" font-size="12" font-weight="700" fill="var(--rma)" font-family="var(--mono)">97.0～99.3%？</text>
       <text x="120" y="245" text-anchor="middle" font-size="12" fill="var(--text)">5 月</text>
-      <text x="245" y="245" text-anchor="middle" font-size="12" fill="var(--text)">6 月</text>
-      <text x="370" y="245" text-anchor="middle" font-size="12" fill="var(--text)">7 月（全月）</text>
-      <text x="495" y="245" text-anchor="middle" font-size="12" fill="var(--text)">8 月（全月）</text>
-      <text x="620" y="245" text-anchor="middle" font-size="12" fill="var(--text)">9 月（截至9/1）</text>
+      <text x="226" y="245" text-anchor="middle" font-size="12" fill="var(--text)">6 月</text>
+      <text x="332" y="245" text-anchor="middle" font-size="12" fill="var(--text)">7 月（全月）</text>
+      <text x="438" y="245" text-anchor="middle" font-size="12" fill="var(--text)">8 月（全月）</text>
+      <text x="544" y="245" text-anchor="middle" font-size="12" fill="var(--text)">9 月（截至9/1）</text>
+      <text x="650" y="245" text-anchor="middle" font-size="12" fill="var(--rma)">10 月（預測）</text>
     </svg>
   </div>
   <div class="field-callout" style="margin-bottom:32px">
-    <h4>📌 8月教訓與9月觀察重點</h4>
+    <h4>📌 8月教訓、9月觀察重點與10月預測</h4>
     <ul>
       <li>⚠️ 7月數字已依「解決時間－開始時間」全面重新計算，從先前顯示的99.86%大幅下修至<strong style="color:var(--danger)">97.05%</strong>，主因為7/27批次結案的24起事件中，多筆正式解決時間拖延逾10天，詳見上方表格說明</li>
       <li>⚠️ 8月最終定案<strong style="color:var(--danger)">97.43%</strong>，連續第2個月跌破99.5%目標，主因是重複故障節點持續累積（gpusrv061/017/121等）與多起硬體故障延宕逾15天才完成更換，最長的VOTS-221拖了26.4天</li>
       <li><strong>9月已開始實際追蹤</strong>：截至9/1尚無事件記錄，SLA暫為100.00%，數字尚不具參考意義，需累積至少一週資料才能觀察出趨勢</li>
       <li>💡 9月能否止跌，關鍵在於：①重複故障節點（gpusrv061已11次、gpusrv017已7次等）是否於本月完成汰換；②確診後更換排程是否能縮短（7、8月多起案例都拖逾15天）；③8/31爆發的25起網路告警若確認是設備問題，是否會演變為持續性故障</li>
+      <li><strong>10月SLA預估區間為97.0%～99.3%</strong>：這是連續第2個月僅用趨勢外推、無當月實際資料的預測，不確定性比先前更高。下緣情境為9月延續7、8月的模式（重複故障節點未汰換、確診後排程持續延宕）；上緣情境為9月成功處理積壓的重複故障節點與確診案例，趨勢止跌回穩。建議10月初依9月實際全月資料重新校準，屆時預測準確度應可大幅提升</li>
     </ul>
   </div>
 

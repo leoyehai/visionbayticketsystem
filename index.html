@@ -822,156 +822,192 @@
   <div class="sla-hero">
     <div class="stat-card danger-top">
       <div class="stat-label">RMA 相關事件數</div>
-      <div class="stat-value warn">47 件</div>
-      <div class="stat-sub">佔累計 138 件事件的 34.1%</div>
+      <div class="stat-value warn">77 件</div>
+      <div class="stat-sub">佔累計 204 件事件的 37.7%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">已完成 RMA 更換／確認</div>
-      <div class="stat-value" style="color:var(--ok);font-size:28px">30 件</div>
-      <div class="stat-sub">累計 396.6 hr</div>
+      <div class="stat-value" style="color:var(--ok);font-size:28px">66 件</div>
+      <div class="stat-sub">累計 8,661.5 hr</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">RMA 相關累計停機</div>
-      <div class="stat-value warn">23,795</div>
-      <div class="stat-sub">分鐘（≈396.6 hr）</div>
+      <div class="stat-value warn">519,691</div>
+      <div class="stat-sub">分鐘（≈8,661.5 hr）</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">待確認／處理中</div>
-      <div class="stat-value" style="color:var(--danger)">17 件</div>
-      <div class="stat-sub">⚠️ 較上輪（7件）大幅增加，多為7/24後新開案件</div>
+      <div class="stat-value" style="color:var(--danger)">11 件</div>
+      <div class="stat-sub">⚠️ 主要為7月底、8月底重複故障節點（gpusrv061/017等），待RMA判定</div>
     </div>
   </div>
   <table class="gov-table" style="margin-bottom:16px">
     <thead><tr><th>工單</th><th>節點</th><th>狀態</th><th>停機分鐘</th><th>說明</th></tr></thead>
     <tbody>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-4" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-4</a></td><td>4 台節點</td><td style="color:var(--ok)">已完成</td><td>480</td><td>過熱掉卡，技鋼原廠讀取log分析後確認換料</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-23" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-23</a></td><td>單機 (065)</td><td style="color:var(--ok)">已完成</td><td>12</td><td>CX8網卡損壞，備品庫拔插替換</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-28" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-28</a></td><td>單機 (040)</td><td style="color:var(--ok)">已完成</td><td>111</td><td>偵測不到CX8 GPU，確認硬體異常後更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-23" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-23</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>12</td><td>CX8網卡損壞，備品庫拔插替換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-28" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-28</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>111</td><td>偵測不到CX8 GPU，確認硬體異常後更換</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-3" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-3</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>400</td><td>GPU Tray深度清潔與重新鎖附後完成，效能驗證通過</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-24" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-24</a></td><td>單機 (160)</td><td style="color:var(--ok)">已完成</td><td>6,080</td><td>GPU掉卡（Xid 79），RMA更換</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-34" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-34</a></td><td>單機 (023)</td><td style="color:var(--ok)">已完成</td><td>330</td><td>頻發NVLink錯誤，RMA更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-24" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-24</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>6080</td><td>GPU掉卡（Xid 79），RMA更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-34" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-34</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>330</td><td>頻發NVLink錯誤，RMA更換</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-5" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-5</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>480</td><td>節點多次NVLink error，更換GPU Tray</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-39" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-39</a></td><td>單機 (255)</td><td style="color:var(--ok)">已完成</td><td>20</td><td>BMC不通，硬體更換</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-43" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-43</a></td><td>單機 (225)</td><td style="color:var(--ok)">已完成</td><td>0</td><td>PCIe鏈路偏離，已排除</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-25" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-25</a></td><td>單機 (232)</td><td style="color:var(--ok)">已完成</td><td>5,760</td><td>鏈路不穩（燈號自滅），RMA替換</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-33" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-33</a></td><td>單機 (181)</td><td style="color:var(--ok)">已完成</td><td>10</td><td>電源拔插無效</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-39" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-39</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>20</td><td>BMC不通，硬體更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-43" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-43</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>0</td><td>PCIe鏈路偏離，已排除</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-25" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-25</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>5760</td><td>鏈路不穩（燈號自滅），RMA替換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-33" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-33</a></td><td>單機</td><td style="color:var(--ok)">已完成</td><td>10</td><td>電源拔插無效</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-48" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-48</a></td><td>單一計算節點</td><td style="color:var(--ok)">已完成</td><td>0</td><td>GPU Tray RMA驗證交付（SN: GQG5R8312A0046）</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-100" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-100</a></td><td>單一計算節點</td><td style="color:var(--ok)">已完成</td><td>0</td><td>GPU Tray硬體更換與鏈路指標恢復驗證</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-147" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-147</a></td><td>gpusrv173</td><td style="color:var(--ok)">已完成</td><td>894</td><td>NVLink異常，dcgmi/fabricmanager/power cycle均無效後RMA換Tray</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-150</a></td><td>gpusrv181</td><td style="color:var(--ok)">已完成</td><td>6,339</td><td>同節點6/22才完成上次RMA，此次現場無備品延宕4.5天完成第二次更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-150</a></td><td>gpusrv181</td><td style="color:var(--ok)">已完成</td><td>6339</td><td>同節點6/22才完成上次RMA，此次現場無備品延宕4.5天完成第二次更換</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-153" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-153</a></td><td>gpusrv278</td><td style="color:var(--ok)">已完成</td><td>353</td><td>DRAM Uncorrectable累計165，已確認完成處理</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-160" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-160</a></td><td>gpusrv177</td><td style="color:var(--ok)">已完成</td><td>1,054</td><td>gpusrv177 Xid異常，已完成處理</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-161</a></td><td>gpusrv061-2</td><td style="color:var(--ok)">已完成</td><td>1,399</td><td>gpusrv061異常重啟，已完成處理</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-165</a></td><td>gpusrv283</td><td style="color:var(--ok)">已完成</td><td>0</td><td>GPU fallen off bus，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-175" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-175</a></td><td>gpusrv283</td><td style="color:var(--ok)">已完成</td><td>0</td><td>PCIe降速案例，與VOTS-165同卡，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-176" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-176</a></td><td>gpusrv006</td><td style="color:var(--ok)">已完成</td><td>0</td><td>Row Remapper Pending，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-178" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-178</a></td><td>gpusrv228</td><td style="color:var(--ok)">已完成</td><td>0</td><td>Row Remapper Pending，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-181" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-181</a></td><td>gpusrv053／283／278／061／006／228</td><td style="color:var(--ok)">已完成</td><td>0</td><td>6節點RMA彙整單，全數確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-182" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-182</a></td><td>gpusrv177</td><td style="color:var(--ok)">已完成</td><td>0</td><td>gpusrv177 Channel/TPC Repair Pending，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-183" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-183</a></td><td>gpusrv222</td><td style="color:var(--ok)">已完成</td><td>0</td><td>DRAM Uncorrectable案例，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-184" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-184</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>0</td><td>Row Remapper Pending，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-185" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-185</a></td><td>gpusrv250</td><td style="color:var(--ok)">已完成</td><td>0</td><td>Remapped Rows Correctable，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-190" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-190</a></td><td>gpusrv017</td><td style="color:var(--ok)">已完成</td><td>0</td><td>DRAM Uncorrectable=30，已確認處理完成</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-202" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-202</a></td><td>gpusrv101</td><td style="color:var(--ok)">已完成</td><td>0</td><td>GPU5 fallen off bus，已確認處理完成</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-160" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-160</a></td><td>gpusrv177</td><td style="color:var(--ok)">已完成</td><td>1054</td><td>gpusrv177 Xid異常，已完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-161</a></td><td>gpusrv061-2</td><td style="color:var(--ok)">已完成</td><td>1895</td><td>gpusrv061異常重啟，8/14重開機後恢復正常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-165</a></td><td>gpusrv283</td><td style="color:var(--ok)">已完成</td><td>17309</td><td>GPU fallen off bus，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-175" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-175</a></td><td>gpusrv283</td><td style="color:var(--ok)">已完成</td><td>15824</td><td>PCIe降速案例，與VOTS-165同卡</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-176" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-176</a></td><td>gpusrv006</td><td style="color:var(--ok)">已完成</td><td>15714</td><td>Row Remapper Pending，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-178" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-178</a></td><td>gpusrv228</td><td style="color:var(--ok)">已完成</td><td>15500</td><td>Row Remapper Pending，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-181" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-181</a></td><td>gpusrv053／283／278／061／006／228</td><td style="color:var(--ok)">已完成</td><td>14320</td><td>6節點RMA彙整單，全數確認處理完成</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-182" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-182</a></td><td>gpusrv177</td><td style="color:var(--ok)">已完成</td><td>13042</td><td>Channel/TPC Repair Pending，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-183" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-183</a></td><td>gpusrv222</td><td style="color:var(--ok)">已完成</td><td>9871</td><td>DRAM Uncorrectable案例，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-184" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-184</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>9866</td><td>Row Remapper Pending，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-185" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-185</a></td><td>gpusrv250</td><td style="color:var(--ok)">已完成</td><td>9858</td><td>Remapped Rows Correctable，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-190" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-190</a></td><td>gpusrv017</td><td style="color:var(--ok)">已完成</td><td>8827</td><td>DRAM Uncorrectable=30，7/27批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-202" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-202</a></td><td>gpusrv101</td><td style="color:var(--ok)">已完成</td><td>7190</td><td>GPU5 fallen off bus，7/27批次結案</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-169" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-169</a></td><td>gpusrv181</td><td style="color:var(--ok)">已完成</td><td>73</td><td>網路卡故障mlx5_2/mlx5_3，已排除</td></tr>
-      <tr><td colspan="5" style="background:var(--surface2);font-weight:700;font-size:12px;color:var(--warn);padding:10px 14px">⏳ 待確認是否符合 RMA 標準／處理中（17 件）</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-203" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-203</a></td><td>gpusrv044</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ 8張GPU一次全數掉卡，疑主機板/PCIe層級異常</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-204" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-204</a></td><td>gpusrv017</td><td style="color:var(--warn)">處理中</td><td>0</td><td>DRAM Uncorrectable累計攀升至46/114，同節點第2、3次異常</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-205" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-205</a></td><td>gpusrv097</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ 8張GPU一次全數掉卡，與VOTS-203型態相同</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-206" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-206</a></td><td>gpusrv061</td><td style="color:var(--warn)">處理中</td><td>0</td><td>本季第7次事件記錄，建議評估整機汰換</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-208" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-208</a></td><td>gpusrv177</td><td style="color:var(--warn)">處理中</td><td>0</td><td>本季第5次事件記錄，建議一併評估整機汰換</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-209" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-209</a></td><td>gpusrv024</td><td style="color:var(--warn)">處理中</td><td>0</td><td>DRAM Correctable累計異常偏高（近194萬次）</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-210" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-210</a></td><td>gpusrv121</td><td style="color:var(--warn)">處理中</td><td>0</td><td>Row Remapper Pending早期預警</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-211" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-211</a></td><td>gpusrv085</td><td style="color:var(--warn)">處理中</td><td>0</td><td>DRAM Correctable累計逾5,600萬次，連續3次觸發Xid</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-212" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-212</a></td><td>gpusrv023</td><td style="color:var(--warn)">處理中</td><td>0</td><td>GPU0掉卡，同節點已達6次事件記錄</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-213" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-213</a></td><td>gpusrv040</td><td style="color:var(--warn)">處理中</td><td>0</td><td>GPU1掉卡（fallen off bus）</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-203" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-203</a></td><td>gpusrv044</td><td style="color:var(--ok)">已完成</td><td>6940</td><td>⚠️ 8張GPU一次全數掉卡，疑主機板/PCIe層級異常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-204" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-204</a></td><td>gpusrv017</td><td style="color:var(--ok)">已完成</td><td>6370</td><td>DRAM Uncorrectable累計攀升，同節點多次異常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-205" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-205</a></td><td>gpusrv097</td><td style="color:var(--ok)">已完成</td><td>34954</td><td>⚠️ 8張GPU一次全數掉卡，延宕24.3天完成更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-206" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-206</a></td><td>gpusrv061</td><td style="color:var(--ok)">已完成</td><td>5687</td><td>gpusrv061本季多次事件記錄</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-209" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-209</a></td><td>gpusrv024</td><td style="color:var(--ok)">已完成</td><td>4342</td><td>DRAM Correctable累計異常偏高</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-210" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-210</a></td><td>gpusrv121</td><td style="color:var(--ok)">已完成</td><td>2841</td><td>Row Remapper Pending早期預警</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-211" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-211</a></td><td>gpusrv085</td><td style="color:var(--ok)">已完成</td><td>1401</td><td>DRAM Correctable累計逾5,600萬次</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-212" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-212</a></td><td>gpusrv023</td><td style="color:var(--ok)">已完成</td><td>1109</td><td>GPU0掉卡，同節點多次事件記錄</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-213" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-213</a></td><td>gpusrv040</td><td style="color:var(--ok)">已完成</td><td>13171</td><td>GPU1掉卡（fallen off bus）</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-219" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-219</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>5373</td><td>gpusrv059重複異常</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-220" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-220</a></td><td>gn-10-227-1-4</td><td style="color:var(--ok)">已完成</td><td>32848</td><td>⚠️ 延宕22.8天，8/24批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-222" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-222</a></td><td>gn-10-227-0-160</td><td style="color:var(--ok)">已完成</td><td>36788</td><td>⚠️ 診斷confirmed NVLink SerDes故障，延宕25.5天終於8/28完成更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-223" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-223</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>1356</td><td>gpusrv059重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-224" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-224</a></td><td>gpusrv017</td><td style="color:var(--ok)">已完成</td><td>1060</td><td>gpusrv017重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-225" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-225</a></td><td>gn-10-227-0-26</td><td style="color:var(--ok)">已完成</td><td>23066</td><td>⚠️ 8張GPU一次全數掉卡，延宕16天完成更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-229" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-229</a></td><td>gn-10-227-1-10</td><td style="color:var(--ok)">已完成</td><td>1029</td><td>新節點Row Remap異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-230" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-230</a></td><td>gpusrv121</td><td style="color:var(--ok)">已完成</td><td>986</td><td>gpusrv121重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-232" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-232</a></td><td>gn-10-227-0-16</td><td style="color:var(--ok)">已完成</td><td>28465</td><td>⚠️ 延宕19.8天，8/24批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-233" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-233</a></td><td>gn-10-227-0-149</td><td style="color:var(--ok)">已完成</td><td>23979</td><td>延宕16.7天，8/24批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-234" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-234</a></td><td>gn-10-227-0-240</td><td style="color:var(--ok)">已完成</td><td>23965</td><td>延宕16.6天，8/24批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-235" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-235</a></td><td>gpusrv017</td><td style="color:var(--ok)">已完成</td><td>27338</td><td>⚠️ gpusrv017延宕19.0天，8/24批次結案</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-236" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-236</a></td><td>gpusrv053</td><td style="color:var(--ok)">已完成</td><td>18912</td><td>⚠️ NVLink SerDes鏈路故障確診，延宕13.1天完成更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-237" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-237</a></td><td>gpusrv232</td><td style="color:var(--ok)">已完成</td><td>21276</td><td>gpusrv232重複異常，延宕14.8天完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-238" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-238</a></td><td>gpusrv121</td><td style="color:var(--ok)">已完成</td><td>416</td><td>gpusrv121重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-239" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-239</a></td><td>gn-10-227-0-160</td><td style="color:var(--ok)">已完成</td><td>24121</td><td>⚠️ NVLink Link 1異常，同節點第3起，延宕16.8天終於完成更換</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-240" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-240</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>1046</td><td>自檢失敗，重啟後恢復</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-241" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-241</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>1035</td><td>與VOTS-240同一起事件後續追蹤，重啟已恢復</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-245" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-245</a></td><td>gn-10-227-1-17</td><td style="color:var(--ok)">已完成</td><td>1204</td><td>Row Remapper Pending，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-251" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-251</a></td><td>gpusrv177</td><td style="color:var(--ok)">已完成</td><td>28</td><td>gpusrv177重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-266" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-266</a></td><td>gpusrv121</td><td style="color:var(--ok)">已完成</td><td>3145</td><td>gpusrv121重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-267" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-267</a></td><td>gpusrv121</td><td style="color:var(--ok)">已完成</td><td>870</td><td>gpusrv121第6起事件，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-268" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-268</a></td><td>gpusrv017</td><td style="color:var(--ok)">已完成</td><td>0</td><td>⚠️ gpusrv017全站重複故障最高節點，第7次事件</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-269" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-269</a></td><td>gn-10-227-0-174</td><td style="color:var(--ok)">已完成</td><td>885</td><td>新節點GPU fallen off bus，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-270" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-270</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>78</td><td>gpusrv059重複異常，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-271" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-271</a></td><td>gn-10-227-0-206</td><td style="color:var(--ok)">已完成</td><td>1034</td><td>新節點GPU fallen off bus，已確認完成處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-272" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-272</a></td><td>gpusrv059</td><td style="color:var(--ok)">已完成</td><td>961</td><td>gpusrv059重複異常，已確認完成處理</td></tr>
+      <tr><td colspan="5" style="background:var(--surface2);font-weight:700;font-size:12px;color:var(--warn);padding:10px 14px">⏳ 待確認是否符合 RMA 標準／處理中（11 件）</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-208" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-208</a></td><td>gpusrv177</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv177本季重複事件記錄，待確認處理</td></tr>
       <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-214" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-214</a></td><td>gpusrv023</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ 同一張GPU連續2天故障，客戶端已主動點名</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-216" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-216</a></td><td>gpusrv017</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv017本季第3次異常，DRAM Uncorrectable持續攀升</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-217" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-217</a></td><td>gpusrv061</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ 本季第8次事件記錄，客戶端主動指出3個歷史報錯日期</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-218" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-218</a></td><td>gpusrv121</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv121第2次異常，症狀較上次更多重</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-219" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-219</a></td><td>gpusrv059</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv059第2次異常</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-220" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-220</a></td><td>gn-10-227-1-4</td><td style="color:var(--warn)">處理中</td><td>0</td><td>8月首起事件，Row Remapper Pending早期預警</td></tr>
-      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-222" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-222</a></td><td>gn-10-227-0-160</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ 診斷confirmed：GPU7偵測1071次nvlink_symbol_err，NVSwitch鏈路故障</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-216" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-216</a></td><td>gpusrv017</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv017本季重複異常，DRAM Uncorrectable持續攀升</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-217" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-217</a></td><td>gpusrv061</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ gpusrv061本季多次事件記錄，客戶端主動指出歷史報錯日期</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-218" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-218</a></td><td>gpusrv121</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv121重複異常，症狀較上次更多重</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-231" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-231</a></td><td>gpusrv061</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ gpusrv061本季累計已達10次相關工單，全站最高</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-262" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-262</a></td><td>gpusrv142</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv142 driver無法掛載＋Xid異常，待確認處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-265" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-265</a></td><td>gpusrv017</td><td style="color:var(--warn)">處理中</td><td>0</td><td>gpusrv017本季重複異常，待確認處理</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-273" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-273</a></td><td>gpusrv061</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ gpusrv061再度發作，累計達10次相關工單</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-274" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-274</a></td><td>gpusrv061</td><td style="color:var(--warn)">處理中</td><td>0</td><td>⚠️ gpusrv061再度發作，累計達11次相關工單，全站最高</td></tr>
+      <tr><td><a href="https://visionbay.atlassian.net/browse/VOTS-300" target="_blank" style="color:var(--accent2);text-decoration:none;font-weight:600">VOTS-300</a></td><td>gn-10-227-0-23</td><td style="color:var(--warn)">處理中</td><td>0</td><td>新節點Row Remapper Failure，待確認處理</td></tr>
     </tbody>
   </table>
-  <div class="arch-callout" style="margin-bottom:32px">💡 全面重新盤點：RMA相關事件從上輪的24件（7件完成+17件待確認）大幅擴增至<strong>47件</strong>（30件完成+17件待確認），新增的23件多為7月中下旬起密集出現、先前未納入統計的GPU Xid/ECC歷史案例。待確認件數雖與上輪同為17件，但組成已完全更新為近期新案（多數為7/24後開立），顯示RMA判定流程本身處理速度尚可，問題在於新案持續湧入的速度。</div>
-  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger)">⚠ <strong>gpusrv181 / 10.227.0.181 已完成二次 RMA</strong>：6/20 電源異常 → 6/22 完成第一次 GPU Tray RMA → 7/10 同節點再次掉卡 → 因現場無備品延宕 4.5 天 → 7/14 完成第二次 GPU Tray 更換。同一節點 25 天內兩度更換 GPU Tray，強烈建議追查是否為同批料件品質問題，並將此節點列入長期觀察名單。</div>
+  <div class="arch-callout" style="margin-bottom:32px">💡 全面重新盤點：RMA相關事件從上輪的47件（30件完成+17件待確認）大幅擴增至<strong>77件</strong>（66件完成+11件待確認），新增的30件涵蓋8月新開的重複故障節點案例與VOTS-221/222等長期延宕案例。已完成事件的累計停機時數也同步大幅上修至8,661.5 hr，主因是多起8月案例（VOTS-221/222/225/232/235等）在確診到實際更換之間延宕逾15天，單筆停機動輒2萬分鐘以上。待確認件數從17件降至11件，主要集中在gpusrv061、gpusrv017等重複故障最高的節點。</div>
+  <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger)">⚠ <strong>gpusrv061 已累計11次相關工單，全站最高</strong>：從6月整機更換起算，經歷VOTS-161、206、217、231、237、266、267、273、274等多次事件，其中VOTS-273、274於8月底再度發作，累計已達11次相關工單。同一節點反覆出包已非個案問題，強烈建議優先安排整機汰換，而非持續逐次個別維修。gpusrv181（先前25天內兩度更換GPU Tray）與gpusrv017（累計7次）亦同列重複故障觀察名單。</div>
 
   <div class="section-title">重複發生的硬體 <span style="color:var(--muted);font-size:10px">同一節點／設備出現 2 次以上事件</span></div>
   <table class="gov-table" style="margin-bottom:32px">
     <thead><tr><th>節點／設備</th><th>事件次數</th><th>相關工單</th><th>累計停機</th><th>備註</th></tr></thead>
     <tbody>
       <tr>
-        <td style="font-family:var(--mono)">gpusrv061</td><td><span class="case-sev p1">8 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-42" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-42</a> <a href="https://visionbay.atlassian.net/browse/VOTS-6" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-6</a> <a href="https://visionbay.atlassian.net/browse/VOTS-18" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-18</a> <a href="https://visionbay.atlassian.net/browse/VOTS-20" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-20</a> <a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-161</a> <a href="https://visionbay.atlassian.net/browse/VOTS-168" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-168</a> <a href="https://visionbay.atlassian.net/browse/VOTS-206" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-206</a> <a href="https://visionbay.atlassian.net/browse/VOTS-217" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-217</a></td>
-        <td>27.7 hr</td>
-        <td>⚠️ 全站累計次數最高節點（8次）；06/08–06/10連續異常後更換整機，換機後7/14起持續出現新異常，7/31客戶端已主動指出「該節點自7/14、7/22、7/27均有ECC報錯」，強烈建議立即安排整機汰換</td>
+        <td style="font-family:var(--mono)">gpusrv061</td><td><span class="case-sev p1">11 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-42" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-42</a> <a href="https://visionbay.atlassian.net/browse/VOTS-6" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-6</a> <a href="https://visionbay.atlassian.net/browse/VOTS-18" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-18</a> <a href="https://visionbay.atlassian.net/browse/VOTS-20" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-20</a> <a href="https://visionbay.atlassian.net/browse/VOTS-161" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-161</a> <a href="https://visionbay.atlassian.net/browse/VOTS-206" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-206</a> <a href="https://visionbay.atlassian.net/browse/VOTS-217" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-217</a> <a href="https://visionbay.atlassian.net/browse/VOTS-231" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-231</a> <a href="https://visionbay.atlassian.net/browse/VOTS-273" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-273</a> <a href="https://visionbay.atlassian.net/browse/VOTS-274" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-274</a> <a href="https://visionbay.atlassian.net/browse/VOTS-168" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-168</a></td>
+        <td style="color:var(--danger);font-weight:700">130.8 hr</td>
+        <td>⚠️ 全站累計次數最高節點（11次）；06/08整機更換後仍持續出包，7/31客戶端已主動指出多次歷史報錯日期，8/28、8/30再度發作（VOTS-273/274），強烈建議立即安排整機汰換</td>
       </tr>
       <tr>
-        <td style="font-family:var(--mono)">gpusrv181 / .181</td><td><span class="case-sev p1">4 件</span></td>
+        <td style="font-family:var(--mono)">gpusrv017</td><td><span class="case-sev p1">7 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-190" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-190</a> <a href="https://visionbay.atlassian.net/browse/VOTS-204" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-204</a> <a href="https://visionbay.atlassian.net/browse/VOTS-216" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-216</a> <a href="https://visionbay.atlassian.net/browse/VOTS-224" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-224</a> <a href="https://visionbay.atlassian.net/browse/VOTS-235" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-235</a> <a href="https://visionbay.atlassian.net/browse/VOTS-265" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-265</a> <a href="https://visionbay.atlassian.net/browse/VOTS-268" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-268</a></td>
+        <td style="color:var(--danger);font-weight:700">726.6 hr</td>
+        <td>⚠️ 累計7次，且累計停機時數高達726.6hr（8/8 VOTS-235延宕19天為主因），已是全站重複故障+停機時數雙高的節點，建議優先安排整機汰換</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv059</td><td><span class="case-sev p1">7 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-184" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-184</a> <a href="https://visionbay.atlassian.net/browse/VOTS-219" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-219</a> <a href="https://visionbay.atlassian.net/browse/VOTS-223" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-223</a> <a href="https://visionbay.atlassian.net/browse/VOTS-240" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-240</a> <a href="https://visionbay.atlassian.net/browse/VOTS-241" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-241</a> <a href="https://visionbay.atlassian.net/browse/VOTS-270" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-270</a> <a href="https://visionbay.atlassian.net/browse/VOTS-272" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-272</a></td>
+        <td style="color:var(--danger);font-weight:700">328.6 hr</td>
+        <td>累計7次相關工單，8月中下旬（VOTS-240/241/270/272）密集發作，建議一併列入整機汰換評估</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">10.227.0.160</td><td><span class="case-sev p2">3 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-221" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-221</a> <a href="https://visionbay.atlassian.net/browse/VOTS-222" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-222</a> <a href="https://visionbay.atlassian.net/browse/VOTS-239" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-239</a></td>
+        <td style="color:var(--danger);font-weight:700">1648.4 hr</td>
+        <td>⚠️ 全站累計停機時數最高節點（1,648.4hr）；VOTS-221（BER告警）→VOTS-222（診斷確診）→VOTS-239（同節點第3起），從8/2確診到8/28才完成更換，延宕逾25天</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv053</td><td><span class="case-sev p2">3 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-181" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-181</a> <a href="https://visionbay.atlassian.net/browse/VOTS-236" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-236</a> <a href="https://visionbay.atlassian.net/browse/VOTS-162" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-162</a></td>
+        <td style="color:var(--danger);font-weight:700">863.5 hr</td>
+        <td>累計3次但停機時數達863.5hr；VOTS-162異常重啟、VOTS-181併入RMA彙整單、VOTS-236 NVLink SerDes確診故障（延宕13.1天）</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv097</td><td><span class="case-sev p2">3 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-133" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-133</a> <a href="https://visionbay.atlassian.net/browse/VOTS-199" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-199</a> <a href="https://visionbay.atlassian.net/browse/VOTS-205" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-205</a></td>
+        <td style="color:var(--danger);font-weight:700">726.0 hr</td>
+        <td>⚠️ 本季「單節點8GPU全掉」案例之一（VOTS-205），延宕24.3天，是目前累計單筆停機第3長的紀錄</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv222</td><td><span class="case-sev p3">2 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-151" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-151</a> <a href="https://visionbay.atlassian.net/browse/VOTS-183" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-183</a></td>
+        <td style="color:var(--danger);font-weight:700">538.1 hr</td>
+        <td>VOTS-151、183皆為DRAM Uncorrectable案例，7/27批次結案時同步處理</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv283</td><td><span class="case-sev p3">2 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-165</a> <a href="https://visionbay.atlassian.net/browse/VOTS-175" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-175</a></td>
+        <td style="color:var(--danger);font-weight:700">552.2 hr</td>
+        <td>VOTS-165 GPU掉卡、VOTS-175同一張卡PCIe降速，同插槽連續異常，7/27批次結案</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv232</td><td><span class="case-sev p2">3 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-25" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-25</a> <a href="https://visionbay.atlassian.net/browse/VOTS-201" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-201</a> <a href="https://visionbay.atlassian.net/browse/VOTS-237" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-237</a></td>
+        <td style="color:var(--danger);font-weight:700">479.4 hr</td>
+        <td>VOTS-25（燈號自滅RMA）、VOTS-201、VOTS-237三次事件跨越6~8月，累計停機479.4hr</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv177</td><td><span class="case-sev p1">6 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-160" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-160</a> <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-167</a> <a href="https://visionbay.atlassian.net/browse/VOTS-182" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-182</a> <a href="https://visionbay.atlassian.net/browse/VOTS-208" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-208</a> <a href="https://visionbay.atlassian.net/browse/VOTS-251" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-251</a> <a href="https://visionbay.atlassian.net/browse/VOTS-171" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-171</a></td>
+        <td style="color:var(--danger);font-weight:700">246.8 hr</td>
+        <td>累計6次，8/14（VOTS-251）為最新一次，症狀類型從網卡問題演變為GPU硬體層級異常</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv121</td><td><span class="case-sev p1">6 件</span></td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-210" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-210</a> <a href="https://visionbay.atlassian.net/browse/VOTS-218" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-218</a> <a href="https://visionbay.atlassian.net/browse/VOTS-230" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-230</a> <a href="https://visionbay.atlassian.net/browse/VOTS-238" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-238</a> <a href="https://visionbay.atlassian.net/browse/VOTS-266" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-266</a> <a href="https://visionbay.atlassian.net/browse/VOTS-267" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-267</a></td>
+        <td style="color:var(--danger);font-weight:700">137.6 hr</td>
+        <td>累計6次，8月密集發作（VOTS-230/238/266/267），建議與gpusrv061/017一併評估整機汰換</td>
+      </tr>
+      <tr>
+        <td style="font-family:var(--mono)">gpusrv181</td><td><span class="case-sev p2">4 件</span></td>
         <td><a href="https://visionbay.atlassian.net/browse/VOTS-33" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-33</a> <a href="https://visionbay.atlassian.net/browse/VOTS-48" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-48</a> <a href="https://visionbay.atlassian.net/browse/VOTS-150" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-150</a> <a href="https://visionbay.atlassian.net/browse/VOTS-169" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-169</a></td>
         <td style="color:var(--danger);font-weight:700">107.0 hr</td>
-        <td>全站累計停機貢獻最高單一節點；25 天內二度 RMA 換 Tray（第二次延宕 4.5 天），第 4 次為網卡命名批次事件（與硬體案例無關）</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv177</td><td><span class="case-sev p1">4 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-160" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-160</a> <a href="https://visionbay.atlassian.net/browse/VOTS-167" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-167</a> <a href="https://visionbay.atlassian.net/browse/VOTS-171" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-171</a> <a href="https://visionbay.atlassian.net/browse/VOTS-182" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-182</a></td>
-        <td>29.0 hr</td>
-        <td>7/18 新增 GPU 硬體層級異常（Channel/TPC Repair Pending），與前 3 次網卡類問題型態不同，<span style="color:var(--danger);font-weight:600">目前仍有 1 件進行中</span></td>
+        <td>25天內二度RMA換Tray（第二次延宕4.5天），是本季最早發現的重複RMA案例</td>
       </tr>
       <tr>
         <td style="font-family:var(--mono)">gpusrv023</td><td><span class="case-sev p1">6 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-34" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-34</a> <a href="https://visionbay.atlassian.net/browse/VOTS-38" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-38</a> <a href="https://visionbay.atlassian.net/browse/VOTS-159" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-159</a> <a href="https://visionbay.atlassian.net/browse/VOTS-163" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-163</a> <a href="https://visionbay.atlassian.net/browse/VOTS-212" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-212</a> <a href="https://visionbay.atlassian.net/browse/VOTS-214" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-214</a></td>
-        <td>27.5 hr</td>
-        <td>06/02 頻發 NVLink 錯誤；06/21 IB 端口異常；7/14 節點心跳中斷＋同日再發 IB 埠 Down；7/28、7/29 連續2天同一張GPU0掉卡，客戶端已點名重複性，待確認 RMA</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv003</td><td><span class="case-sev p2">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-30" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-30</a> <a href="https://visionbay.atlassian.net/browse/VOTS-122" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-122</a></td>
-        <td>24.7 hr</td>
-        <td>06/01 健康檢查失敗當機；07/02 交付週 IB Link Down+BGP/BFD+BMC 連線異常</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv171</td><td><span class="case-sev p2">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-29" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-29</a> <a href="https://visionbay.atlassian.net/browse/VOTS-124" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-124</a></td>
-        <td>12.6 hr</td>
-        <td>06/18 接口引導失敗；07/04 重啟測試 BMC 連線異常+mlx5_bond 速率異常</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv154</td><td><span class="case-sev p3">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-32" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-32</a> <a href="https://visionbay.atlassian.net/browse/VOTS-128" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-128</a></td>
-        <td>5.0 hr</td>
-        <td>06/20 節點離線；07/06 CX8 網卡+GPU Node 硬體更換</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv066</td><td><span class="case-sev p3">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-170" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-170</a> <a href="https://visionbay.atlassian.net/browse/VOTS-186" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-186</a></td>
-        <td>2.0 hr</td>
-        <td>7/15 網卡命名問題已解決；7/20 同櫃批次 net_link_down（#65~72），<span style="color:var(--danger);font-weight:600">目前進行中</span></td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv222</td><td><span class="case-sev p2">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-151" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-151</a> <a href="https://visionbay.atlassian.net/browse/VOTS-183" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-183</a></td>
-        <td>0（進行中）</td>
-        <td>7/11 Xid 48 DBE、7/20 Xid 171 併發（DRAM Uncorrectable 累計 11），<span style="color:var(--danger);font-weight:600">兩件皆進行中</span>，建議併案判定同一張卡是否持續劣化</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv283</td><td><span class="case-sev p2">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-165" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-165</a> <a href="https://visionbay.atlassian.net/browse/VOTS-175" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-175</a></td>
-        <td>0（進行中）</td>
-        <td>7/15 GPU 掉卡、7/16 同一張卡（0000:fa:00.0）PCIe 降速，<span style="color:var(--danger);font-weight:600">兩件皆進行中</span>，同插槽連續異常</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv053</td><td><span class="case-sev p2">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-162" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-162</a> <a href="https://visionbay.atlassian.net/browse/VOTS-181" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-181</a></td>
-        <td>0（進行中）</td>
-        <td>7/14 異常重啟（NVLink RPC 失敗，疑似驅動缺陷）；7/17 起併入 6 節點 RMA 彙整追蹤單</td>
-      </tr>
-      <tr>
-        <td style="font-family:var(--mono)">gpusrv225</td><td><span class="case-sev p3">2 件</span></td>
-        <td><a href="https://visionbay.atlassian.net/browse/VOTS-40" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-40</a> <a href="https://visionbay.atlassian.net/browse/VOTS-43" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-43</a></td>
-        <td>0.2 hr</td>
-        <td>06/05 網線接反；06/08 PCIE 鏈路偏離</td>
+        <td><a href="https://visionbay.atlassian.net/browse/VOTS-34" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-34</a> <a href="https://visionbay.atlassian.net/browse/VOTS-38" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-38</a> <a href="https://visionbay.atlassian.net/browse/VOTS-159" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-159</a> <a href="https://visionbay.atlassian.net/browse/VOTS-212" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-212</a> <a href="https://visionbay.atlassian.net/browse/VOTS-214" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-214</a> <a href="https://visionbay.atlassian.net/browse/VOTS-163" target="_blank" style="color:var(--accent2);text-decoration:none">VOTS-163</a></td>
+        <td >46.0 hr</td>
+        <td>6次事件橫跨NVLink、IB端口、心跳中斷、GPU掉卡等多種型態，7/28、7/29連續2天同一張GPU故障，客戶端已點名</td>
       </tr>
     </tbody>
   </table>

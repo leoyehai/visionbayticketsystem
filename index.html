@@ -51,7 +51,8 @@
   .layout{display:flex;align-items:flex-start}
   .side-nav{background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;gap:2px;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;padding:20px 12px;flex-shrink:0;width:220px;z-index:100}
   .nav-tab{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.01em;padding:13px 14px;cursor:pointer;color:var(--muted);border-left:2px solid transparent;border-radius:0 6px 6px 0;transition:color .2s,background .2s,border-color .2s;white-space:nowrap;user-select:none;display:flex;align-items:center;gap:10px}
-  .nav-tab-icon{font-size:16px;line-height:1;flex-shrink:0}
+  .nav-tab-icon{font-size:16px;line-height:1;flex-shrink:0;filter:grayscale(1) opacity(.55)}
+  .nav-tab.active .nav-tab-icon{filter:grayscale(1) opacity(.85)}
   .nav-tab:hover{color:var(--text);background:var(--surface2)}
   .nav-tab.active{color:var(--accent2);border-left-color:var(--accent2);background:rgba(37,99,235,.08)}
   @media(max-width:760px){
@@ -543,7 +544,7 @@
   #login-form input:focus{border-color:var(--accent2)}
   #login-error{display:none;color:var(--danger);font-size:12px;margin-top:10px;text-align:center}
   #login-error.show{display:block}
-  #login-form button{margin-top:20px;padding:11px;border:none;border-radius:8px;background:var(--cta);color:#fff;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s}
+  #login-form button{margin-top:20px;padding:11px;border:none;border-radius:8px;background:var(--accent2);color:#fff;font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s}
   #login-form button:hover{opacity:.9}
 
   #login-alert-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(15,23,42,.45);display:none;align-items:center;justify-content:center;padding:20px}

@@ -647,24 +647,17 @@
   </div>
 
   <div class="arch-callout" style="margin-bottom:32px;border-left-color:var(--danger);border-left-width:4px;background:rgba(220,38,38,.04)">
-    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 4 件事</h4>
+    <h4 style="margin:0 0 14px;font-size:14px;color:var(--danger)">🔔 給長官：本週 3 件事</h4>
 
     <div style="display:flex;gap:12px;margin-bottom:14px">
       <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">1</div>
-      <div>
-        <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">🚨 又挖出5張沉睡在7月的大單，7月SLA從97.05%再度下修到95.52%——距離95%解約門檻只剩0.52個百分點</div>
-        <div style="font-size:12.5px;color:var(--muted);line-height:1.6">例行查核未解決事件清單時，發現VOTS-208、214、216、217、218這5張7月下旬開立的工單，其實早在8/24、8/27就已經在Jira上被標記解決，只是先前的追蹤清單沒有覆蓋到它們，導致停機時間一直停留在0分鐘沒有納入計算。實際核算後，這5張單分別延宕了29.4、28.8、28.0、27.1、24.0天才完成處理——其中VOTS-208的29.4天，是目前全站累計<strong>最長</strong>的單筆延宕紀錄，超越先前的VOTS-221（26.4天）。5張單合計貢獻了近3,300小時的停機時間，直接把7月SLA從97.05%再壓低到<strong style="color:var(--danger)">95.52%</strong>，只比95%的解約門檻高出0.52個百分點。建議這周就去比對一次現有的其他「未解決」清單，確認是否還有類似漏網的已結案工單，並且把「確診後多久才真的動手換」這個問題正式升級為需要管理層介入的專案，不能再靠人工每天翻清單。</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">8月最終定案了：SLA落在97.43%，追蹤了整整一個月的VOTS-221/222終於8/28結案，但也創了新紀錄——延宕26.4天</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">這是本月第5次「一次補一批大單」（7/27、8/21、8/24、8/27、8/28），這次補的正是先前在給長官摘要裡被追蹤了好幾輪的10.227.0.160案例——VOTS-221（BER告警）跟VOTS-222（診斷確診NVLink故障）從8/2就開始追，一路看著它8/10還沒換、8/17還沒換⋯⋯終於在8/28一併完成更換結案，但也雙雙成為目前累計停機時數最長的兩筆單（26.4天、25.5天），超越先前的紀錄保持者VOTS-205（24.3天）。加上VOTS-220、232、235等同樣延宕逾19天的案例，前5大延宕案例合計貢獻了118.8天停機，占全部累計停機的23.1%。8月全月SLA最終落在<strong>97.43%</strong>（仍優於95%解約門檻），但這已經是連續第2個月跌破99.5%目標。這個「確診後排程延宕」的問題橫跨整個8月且沒有改善跡象，建議正式列為Q3檢討的核心議題，不要再等下次批次結案才發現。</div>
       </div>
     </div>
     <div style="display:flex;gap:12px;margin-bottom:14px">
-      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">3</div>
+      <div style="flex:0 0 28px;height:28px;border-radius:50%;background:var(--danger);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">2</div>
       <div>
         <div style="font-weight:700;font-size:13px;color:var(--text);margin-bottom:3px">⚠️ 8/31下午33分鐘內湧入25起網路監控告警，是本季規模最大的單次告警潮</div>
         <div style="font-size:12.5px;color:var(--muted);line-height:1.6">先前這類「nv-networking-alarm」告警最多是單日3~5起，8/17、8/18連續兩天各出現5起時就已經在摘要裡提醒要注意趨勢。這次8/31下午16:29~17:02，短短33分鐘內一口氣冒出25起（VOTS-275~299），全部同型態、全部自動解決，本季累計相關告警已經超過35起。這種規模的集中爆發已經不太可能是單純雜訊，強烈建議立即排查是不是特定交換器、鏈路，或監控系統本身出現大規模異常（例如告警規則誤觸發、設備韌體問題），並確認是否對實際訓練任務造成影響，不要等下次爆發才處理。另外同一天gpusrv061也再度發作（VOTS-273/274），累計已達11次相關工單，全站最高。</div>

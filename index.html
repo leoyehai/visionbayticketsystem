@@ -774,52 +774,6 @@
     </div>
   </div>
 
-  <div class="charts-row" style="margin-bottom:32px">
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🔭 持續追蹤・第三方海纜斷線 — <a href="https://visionbay.atlassian.net/browse/VOTS-164" target="_blank" style="color:inherit;text-decoration:none">VOTS-164</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>客戶端專線 BGP Down（SJC2 台新海纜斷裂，近樟宜約 27km）</strong><br>開始日：7/14 19:18　分類：網路<br>我方系統確認正常，根因為上游電信商海纜斷裂，<strong>目前無 ETR（預估 20~200 天）</strong>。是方已調度臨時 1G 線路供客戶過渡，需持續追蹤是方修復進度、RCA 與臨時線路頻寬狀況。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🌐 待辦事項・雙方量測落差 — <a href="https://visionbay.atlassian.net/browse/VOTS-179" target="_blank" style="color:inherit;text-decoration:none">VOTS-179</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>客戶端 10G 公網實測僅 2G</strong><br>開始日：7/16 22:28　分類：網路<br>客戶端 speedtest 僅測得約 2G，是方以備援線路測試同線路實測為 9.46G，兩邊結果落差達 5 倍，待釐清是測試方法論不一致還是原線路確實有品質問題。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3 style="color:var(--danger)">🔴 處理中・8 張 GPU 同時掉卡（1/2） — <a href="https://visionbay.atlassian.net/browse/VOTS-203" target="_blank" style="color:inherit;text-decoration:none">VOTS-203</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv044（10.227.0.44）PCI slot unavailable，8 張 GPU 全數掉卡</strong><br>開始日：7/24　分類：硬體<br>疑似 PCIe root complex 或主機板層級異常，與 VOTS-205 型態相同，建議併案排查是否為同批機台共通瑕疵。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3 style="color:var(--danger)">🔴 處理中・8 張 GPU 同時掉卡（2/2） — <a href="https://visionbay.atlassian.net/browse/VOTS-205" target="_blank" style="color:inherit;text-decoration:none">VOTS-205</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv097（10.227.0.97）8 張 GPU 全數掉卡（Xid 79+154）</strong><br>開始日：7/25　分類：硬體<br>與 VOTS-203 型態高度相似，且本身為短期內第 2 次異常（VOTS-199），建議列為重大觀察案例。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3 style="color:var(--danger)">🔴 處理中・本季重複故障最高節點 — <a href="https://visionbay.atlassian.net/browse/VOTS-206" target="_blank" style="color:inherit;text-decoration:none">VOTS-206</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv061（10.227.0.61）第 7 度事件記錄</strong><br>開始日：7/25　分類：維運<br>本季累計已達 7 次，全站重複故障次數最高，強烈建議評估整機汰換而非逐次個別維修。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🟡 處理中・第 5 度異常 — <a href="https://visionbay.atlassian.net/browse/VOTS-208" target="_blank" style="color:inherit;text-decoration:none">VOTS-208</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv177（10.227.0.177）Xid 94+154</strong><br>開始日：7/26　分類：維運<br>本季第 5 次事件記錄，建議與 gpusrv061 一併列入整機汰換評估。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🟡 處理中・數值異常偏高 — <a href="https://visionbay.atlassian.net/browse/VOTS-209" target="_blank" style="color:inherit;text-decoration:none">VOTS-209</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv024（10.227.0.24）DRAM Correctable 累計近 194 萬次</strong><br>開始日：7/26　分類：維運<br>數量級遠超一般案例，雖屬可修正等級，建議列入重點觀察避免惡化。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🟡 待確認 — <a href="https://visionbay.atlassian.net/browse/VOTS-204" target="_blank" style="color:inherit;text-decoration:none">VOTS-204</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv017（10.227.0.17）DRAM Uncorrectable 累計攀升至 46</strong><br>開始日：7/24　分類：維運<br>同節點短期內第 2 次異常（VOTS-190），建議優先排入下次維護窗口。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🟡 待確認 — <a href="https://visionbay.atlassian.net/browse/VOTS-210" target="_blank" style="color:inherit;text-decoration:none">VOTS-210</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv121（10.227.1.21）Row Remapper Pending</strong><br>開始日：7/27　分類：維運<br>DRAM Uncorrectable=6，早期預警案例，建議儘速排入下次維護窗口套用。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3 style="color:var(--warn)">🟡 待確認 — <a href="https://visionbay.atlassian.net/browse/VOTS-211" target="_blank" style="color:inherit;text-decoration:none">VOTS-211</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv085（10.227.0.85）DRAM Correctable 累計逾 5,600 萬次</strong><br>開始日：7/28　分類：維運<br>短期內連續3次觸發Xid事件，數量級遠超一般案例，建議優先排入下次維護窗口。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3 style="color:var(--danger)">🔴 待確認・本季第5次異常 — <a href="https://visionbay.atlassian.net/browse/VOTS-212" target="_blank" style="color:inherit;text-decoration:none">VOTS-212</a></h3>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>gpusrv023（10.227.0.23）GPU0 掉卡</strong><br>開始日：7/28　分類：硬體<br>本季累計已達5次事件記錄（含VOTS-163等），建議併入該節點歷史一併檢視是否為重複故障熱點。</p>
-    </div>
-  </div>
 
   <div class="section-title">RMA 統計 <span style="color:var(--muted);font-size:10px">累計 05/01–09/03，依事件內容判讀之 RMA 相關工單</span></div>
   <div class="sla-hero">

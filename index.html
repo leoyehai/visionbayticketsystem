@@ -969,25 +969,6 @@
       </tr>
     </tbody>
   </table>
-  <div class="arch-callout" style="margin-bottom:32px">💡 <strong>12 個節點／設備</strong>累計貢獻 <strong>34 件事件（31.5%）</strong>與 <strong>235.9 hr 停機（30.6%）</strong>；gpusrv181（二次 RMA，107.0 hr）、gpusrv061（本季最多次，6 度異常）、gpusrv177（4 度異常，仍有進行中工單）為目前風險最高的三個節點。另有 <strong>5 個節點目前仍有進行中工單</strong>（gpusrv177／222／283／053／066），建議優先排入下次維護窗口深度健檢。</div>
-
-  <div class="charts-row" style="margin-bottom:32px">
-    <div class="chart-box" style="border-left:3px solid var(--danger)">
-      <h3>🔴 建議與供應商協商備品水位</h3>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：本季單一節點（gpusrv181）因現場無備品，延宕近 4.5 天才完成更換，單一事件就佔了全季停機的 15%。這不是技術問題，是供應鏈問題。</p>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否編列預算與廠商協商提高關鍵料件（GPU Tray）現場備品水位？若不投資，類似延宕預期會重演，直接反映在 SLA 數字上。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--warn)">
-      <h3>🟠 建議正式書面告知客戶架構限制</h3>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：目前架構下，伺服器重啟會清除本機資料，這件事客戶可能不知情。若客戶自行重啟導致資料遺失，會變成信任問題而非技術問題。</p>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否授權以正式書面（而非口頭）通知客戶此架構限制？主動告知的成本遠低於事後被動處理客訴。</p>
-    </div>
-    <div class="chart-box" style="border-left:3px solid var(--accent)">
-      <h3>🟡 建議提前規劃下一代機台交付檢查機制</h3>
-      <p style="font-size:12.5px;color:var(--muted);line-height:1.7"><strong>為什麼重要</strong>：288 節點交付當週一次暴露 11 起問題，事後才緊急處理。若下一代機台（GB300）規模更大，同樣模式重演的代價會更高。</p>
-      <p style="font-size:12.5px;color:var(--text);line-height:1.7"><strong>需要的決策</strong>：是否同意將本季發現的問題整理為正式的「交付前檢查清單」，作為下一次大型交付的驗收標準？這是把本季的教訓轉化為資產，而不是繳學費就算了。</p>
-    </div>
-  </div>
 
 </div><div class="tab-panel" id="tab-incidents">
 

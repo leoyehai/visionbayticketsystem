@@ -2469,8 +2469,9 @@ html[data-theme="night"] #tab-incidents h2:first-of-type {
   line-height:1.15!important;
   letter-spacing:-0.02em!important;
   margin:0 0 8px!important;
-  padding:0!important;
-  border:0!important;
+  padding-bottom:8px!important;
+  border-bottom:1px solid var(--border)!important;
+  border-top:0!important;border-left:0!important;border-right:0!important;
 }
 html[data-theme="day"] #tab-incidents .section-title.incident-page-title{
   color:#000!important;
@@ -2480,6 +2481,51 @@ html[data-theme="night"] #tab-incidents .section-title.incident-page-title{
 }
 @media(max-width:640px){
   #tab-incidents .section-title.incident-page-title{
+    font-size:28px!important;
+  }
+}
+
+/* Actual fix for Problems / SLA / Runbook / Workflow / Architecture / ITIL titles —
+   unify all page titles to match Weekly Ops exactly: 32px/800/-.02em tracking,
+   plus the same 1px bottom border that Weekly Ops inherits from .section-title. */
+#tab-risk .section-title,
+#tab-overview .section-title,
+#tab-sop .section-title,
+#tab-workflow .section-title,
+#tab-architecture .arch-simple-title,
+#tab-itil .section-title.itil7-title{
+  font-size:32px!important;
+  font-weight:800!important;
+  line-height:1.15!important;
+  letter-spacing:-0.02em!important;
+  margin:0 0 8px!important;
+  padding-bottom:8px!important;
+  border-bottom:1px solid var(--border)!important;
+  border-top:0!important;border-left:0!important;border-right:0!important;
+}
+html[data-theme="day"] #tab-risk .section-title,
+html[data-theme="day"] #tab-overview .section-title,
+html[data-theme="day"] #tab-sop .section-title,
+html[data-theme="day"] #tab-workflow .section-title,
+html[data-theme="day"] #tab-architecture .arch-simple-title,
+html[data-theme="day"] #tab-itil .section-title.itil7-title{
+  color:#000!important;
+}
+html[data-theme="night"] #tab-risk .section-title,
+html[data-theme="night"] #tab-overview .section-title,
+html[data-theme="night"] #tab-sop .section-title,
+html[data-theme="night"] #tab-workflow .section-title,
+html[data-theme="night"] #tab-architecture .arch-simple-title,
+html[data-theme="night"] #tab-itil .section-title.itil7-title{
+  color:#fff!important;
+}
+@media(max-width:640px){
+  #tab-risk .section-title,
+  #tab-overview .section-title,
+  #tab-sop .section-title,
+  #tab-workflow .section-title,
+  #tab-architecture .arch-simple-title,
+  #tab-itil .section-title.itil7-title{
     font-size:28px!important;
   }
 }

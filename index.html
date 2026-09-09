@@ -2614,6 +2614,150 @@ a:focus-visible,
   .tab-panel{padding-left:12px!important;padding-right:12px!important}
   th,td{padding:8px 9px!important}
 }
+</style><style>
+html[data-theme="night"] header,
+html[data-theme="night"] .topbar,
+html[data-theme="night"] .app-header,
+html[data-theme="night"] .site-header,
+html[data-theme="night"] .banner,
+html[data-theme="night"] .top-banner,
+html[data-theme="night"] .header-banner{
+background:#000!important;color:#fff!important;border-color:#222!important}
+html[data-theme="night"] header *,
+html[data-theme="night"] .topbar *,
+html[data-theme="night"] .app-header *,
+html[data-theme="night"] .site-header *,
+html[data-theme="night"] .banner *,
+html[data-theme="night"] .top-banner *{color:#fff!important}
+html[data-theme="night"] header img[class*="logo"],
+html[data-theme="night"] .topbar img[class*="logo"],
+html[data-theme="night"] .app-header img[class*="logo"],
+html[data-theme="night"] .site-header img[class*="logo"],
+html[data-theme="night"] .banner img[class*="logo"],
+html[data-theme="night"] .brand img,
+html[data-theme="night"] .logo img{
+filter:grayscale(1) brightness(0) invert(1)!important;opacity:1!important}
+html[data-theme="night"] header [class*="logo"] svg,
+html[data-theme="night"] .topbar [class*="logo"] svg,
+html[data-theme="night"] .app-header [class*="logo"] svg,
+html[data-theme="night"] .brand svg,
+html[data-theme="night"] .logo svg{
+color:#fff!important;fill:currentColor!important;stroke:currentColor!important}
+</style><style>
+/* Architecture / 維運資料流：
+   將 Observe → Respond → Improve 之間的箭頭由垂直置中移到卡片最下緣 */
+#tab-architecture .arch-simple-flow{
+  align-items:stretch!important;
+}
+#tab-architecture .arch-simple-flowarrow{
+  align-self:end!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  justify-content:center!important;
+  padding-bottom:10px!important;
+  min-height:100%!important;
+}
+
+/* Mobile：箭頭維持流程方向，置於每張卡片下方 */
+@media(max-width:720px){
+  #tab-architecture .arch-simple-flowarrow{
+    min-height:auto!important;
+    padding:0!important;
+    margin:2px 0 4px!important;
+    align-self:center!important;
+    transform:rotate(90deg)!important;
+  }
+}
+</style><style>
+/* Architecture flow — actual reordered arrows */
+#tab-architecture .arch-simple-flow{
+  align-items:center!important;
+}
+#tab-architecture .arch-simple-flowarrow{
+  align-self:center!important;
+  min-height:auto!important;
+  padding:0!important;
+  margin:0!important;
+}
+
+/* Mobile sequence follows DOM:
+   Observe
+   Respond
+   ↓
+   Improve
+   ↓  (moved former top arrow) */
+@media(max-width:720px){
+  #tab-architecture .arch-simple-flow{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+  #tab-architecture .arch-simple-flowbox{
+    width:100%!important;
+  }
+  #tab-architecture .arch-simple-flowarrow{
+    display:block!important;
+    align-self:center!important;
+    transform:rotate(90deg)!important;
+    margin:10px 0!important;
+    padding:0!important;
+    min-height:auto!important;
+  }
+  #tab-architecture .arch-simple-flowarrow:last-child{
+    margin:10px 0 0!important;
+  }
+}
+</style><style>
+@media(max-width:720px){
+  #tab-architecture .arch-simple-flow{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+  }
+  #tab-architecture .arch-simple-flowarrow{
+    display:block!important;
+    align-self:center!important;
+    transform:rotate(90deg)!important;
+    margin:10px 0!important;
+  }
+}
+</style><style>
+/* Actual top bar used by this site */
+html[data-theme="night"] .logo-bar{
+  background:#000!important;
+  background-color:#000!important;
+  border-bottom:1px solid #222!important;
+  box-shadow:none!important;
+}
+
+/* Make the embedded Visionbay logo white in night mode */
+html[data-theme="night"] .logo-bar .logo-bar-img{
+  filter:grayscale(1) brightness(0) invert(1)!important;
+  opacity:1!important;
+}
+
+/* Keep the theme switch readable on the black top bar */
+html[data-theme="night"] .logo-bar #vb-theme-switch,
+html[data-theme="night"] #vb-theme-switch{
+  background:#000!important;
+  border:1px solid #fff!important;
+}
+html[data-theme="night"] #vb-theme-switch button{
+  background:#000!important;
+  color:#fff!important;
+}
+html[data-theme="night"] #vb-theme-switch button.active,
+html[data-theme="night"] #vb-theme-switch button[aria-pressed="true"]{
+  background:#fff!important;
+  color:#000!important;
+}
+
+/* Day mode stays white */
+html[data-theme="day"] .logo-bar{
+  background:#fff!important;
+  color:#000!important;
+  border-bottom:1px solid #000!important;
+}
 </style></head>
 <body class="">
 <div aria-label="主題切換" id="vb-theme-switch">
@@ -2815,12 +2959,7 @@ a:focus-visible,
 </div>
 <div class="arch-simple-section-title">維運資料流</div>
 <div class="arch-simple-flow">
-<div class="arch-simple-flowbox"><strong>Observe</strong><span>監控與告警</span></div>
-<div class="arch-simple-flowarrow">→</div>
-<div class="arch-simple-flowbox"><strong>Respond</strong><span>Incident / 工單</span></div>
-<div class="arch-simple-flowarrow">→</div>
-<div class="arch-simple-flowbox"><strong>Improve</strong><span>Problem / RCA / SOP</span></div>
-</div>
+<div class="arch-simple-flowbox"><strong>Observe</strong><span>監控與告警</span></div><div class="arch-simple-flowarrow">→</div><div class="arch-simple-flowbox"><strong>Respond</strong><span>Incident / 工單</span></div><div class="arch-simple-flowarrow">→</div><div class="arch-simple-flowbox"><strong>Improve</strong><span>Problem / RCA / SOP</span></div></div>
 <div class="arch-simple-section-title">維運責任</div>
 <div class="arch-simple-owners">
 <div class="arch-simple-owner-card"><strong>CloudOps</strong><span>應用、排程、工作負載與平台服務</span></div>

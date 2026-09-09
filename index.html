@@ -1062,11 +1062,29 @@ body.login-locked { overflow: hidden; }
 
 
 /* Visionbay sidebar accessibility fix */
-#nav-toggle{position:fixed;top:14px;left:14px;z-index:300;width:42px;height:42px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);display:flex!important;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+#nav-toggle{
+  position:fixed;top:50%;left:220px;z-index:300;
+  width:28px;height:28px;
+  transform:translate(-50%,-50%);
+  border:1px solid var(--border);border-radius:50%;
+  background:var(--surface);color:var(--text);
+  display:flex!important;align-items:center;justify-content:center;
+  font-size:14px;line-height:1;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
+  transition:left .2s ease;
+}
+body.nav-collapsed #nav-toggle{left:14px}
 .side-nav{padding-top:68px}
 body.nav-collapsed .side-nav{width:0;padding-left:0;padding-right:0;border-right:0;overflow:hidden;transform:translateX(-100%)}
 body.nav-collapsed .page{max-width:1500px}
-@media(max-width:760px){#nav-toggle{left:14px;right:auto}.side-nav{padding-top:68px}body.nav-collapsed .side-nav{width:250px;padding-left:12px;padding-right:12px;border-right:1px solid var(--border);transform:translateX(-100%)}body:not(.nav-collapsed) .side-nav{transform:translateX(0)}body:not(.nav-collapsed) .nav-overlay{opacity:1;pointer-events:auto}}
+@media(max-width:760px){
+  #nav-toggle{left:14px;top:75px;transform:translate(0,0)}
+  body.nav-collapsed #nav-toggle{left:14px}
+  .side-nav{padding-top:68px}
+  body.nav-collapsed .side-nav{width:250px;padding-left:12px;padding-right:12px;border-right:1px solid var(--border);transform:translateX(-100%)}
+  body:not(.nav-collapsed) .side-nav{transform:translateX(0)}
+  body:not(.nav-collapsed) .nav-overlay{opacity:1;pointer-events:auto}
+}
 
 /* Concise Incident View */
 #tab-incidents .inc-brief{color:var(--muted);font-size:12px;margin-bottom:16px;}

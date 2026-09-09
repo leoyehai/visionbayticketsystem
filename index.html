@@ -2744,6 +2744,15 @@ html[data-theme="day"] .logo-bar{
   border-bottom:1px solid #000!important;
 }
 
+/* Make the embedded Visionbay logo black in day mode */
+html[data-theme="day"] .logo-bar .logo-bar-img{
+  filter:grayscale(1) brightness(0)!important;
+  opacity:1!important;
+}
+html[data-theme="day"] #login-overlay .login-logo{
+  filter:grayscale(1) brightness(0)!important;
+}
+
 </style></head>
 <body class="">
 <div aria-label="主題切換" id="vb-theme-switch">
@@ -3860,6 +3869,15 @@ const I18N_EN = {
 "gpusrv061（10.227.0.61，本季重複故障最高節點）":"gpusrv061 (10.227.0.61, this season's most repeat-failing node)",
 "NVIDIA 網路監控告警":"NVIDIA network monitoring alert",
 "gn-10-227-0-23（10.227.0.23）":"gn-10-227-0-23 (10.227.0.23)",
+"B300 維運報告登入":"B300 Ops Report Login",
+"請輸入帳號密碼以檢視 SLA 分析報告":"Enter your username and password to view the SLA report",
+"帳號":"Username",
+"密碼":"Password",
+"請輸入密碼":"Enter your password",
+"帳號或密碼錯誤，請再試一次":"Incorrect username or password, please try again",
+"登入":"Log In",
+"登入失敗":"Login Failed",
+"確定":"OK",
 "3F-C01-PDU06（172.16.1.156）":"3F-C01-PDU06 (172.16.1.156)"
 };
 </script>
@@ -3906,13 +3924,33 @@ const I18N_EN = {
     }
   }
 
+  function translateAttr(el, attr){
+    var zh=el.getAttribute(attr);
+    if(!zh) return;
+    var en=(typeof I18N_EN!=='undefined' && I18N_EN[zh]);
+    if(en){
+      if(!el.dataset.i18nOrig) el.dataset.i18nOrig=zh;
+      el.setAttribute(attr, en);
+    }
+  }
+  function revertAttr(el, attr){
+    if(el.dataset.i18nOrig){
+      el.setAttribute(attr, el.dataset.i18nOrig);
+    }
+  }
+
   function applyLang(lang){
     var layout=document.querySelector('.layout');
-    if(!layout) return;
+    var loginOverlay=document.getElementById('login-overlay');
+    var loginAlert=document.getElementById('login-alert-backdrop');
+    var passInput=document.getElementById('login-pass');
+    var targets=[layout, loginOverlay, loginAlert].filter(Boolean);
     if(lang==='en'){
-      walk(layout, translateNode);
+      targets.forEach(function(t){ walk(t, translateNode); });
+      if(passInput) translateAttr(passInput, 'placeholder');
     } else {
-      walk(layout, revertNode);
+      targets.forEach(function(t){ walk(t, revertNode); });
+      if(passInput) revertAttr(passInput, 'placeholder');
     }
     document.querySelectorAll('#vb-lang-switch button').forEach(function(btn){
       btn.classList.toggle('active', btn.dataset.langChoice===lang);

@@ -1556,6 +1556,26 @@ html[data-theme="night"] textarea{
   #vb-theme-switch{right:10px;top:10px}
   #vb-theme-switch button{padding:6px 7px}
 }
+/* Language switch */
+#vb-lang-switch{
+  position:fixed;right:112px;top:14px;z-index:10000;
+  display:flex;align-items:center;gap:2px;
+  padding:3px;background:var(--vb-surface);
+  border:1px solid var(--vb-border);border-radius:8px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+#vb-lang-switch button{
+  appearance:none;border:0;background:transparent;color:var(--vb-muted);
+  padding:6px 9px;border-radius:5px;cursor:pointer;
+  font-size:11px;font-weight:700;line-height:1;
+}
+#vb-lang-switch button.active{
+  background:var(--vb-text);color:var(--vb-surface);
+}
+@media(max-width:680px){
+  #vb-lang-switch{right:78px;top:10px}
+  #vb-lang-switch button{padding:6px 7px}
+}
 </style><style>
 /* Night login — black-first */
 html[data-theme="night"] #login-overlay{
@@ -2785,6 +2805,10 @@ html[data-theme="day"] .logo-bar{
 <button data-theme-choice="day" title="日間模式" type="button">日間</button>
 <button data-theme-choice="night" title="夜間模式" type="button">夜間</button>
 </div>
+<div aria-label="語言切換" id="vb-lang-switch">
+<button data-lang-choice="zh" title="中文" type="button">中</button>
+<button data-lang-choice="en" title="English" type="button">EN</button>
+</div>
 <div id="login-overlay">
 <div class="login-card">
 <div class="login-logo">
@@ -3675,4 +3699,301 @@ html[data-theme="day"] .logo-bar{
     apply(theme);
   });
 })();
-</script></body></html>
+</script>
+<script>
+const I18N_EN = {
+"先看影響，再看優先級、Owner、Next Action 與 ETA。":"Check impact first, then priority, Owner, Next Action and ETA.",
+"先確認服務 / 節點影響":"Confirm service / node impact first",
+"P1 / P2 優先":"P1 / P2 priority",
+"一定要有 Owner":"Must have an Owner",
+"整體狀態":"Overall Status",
+"有 4 項需要追蹤":"4 items need tracking",
+"目前達標":"Currently on target",
+"持續處理中":"In progress",
+"優先確認":"Priority check",
+"依影響與阻塞程度排序，只看目前最需要處理的事情。":"Sorted by impact and blocking severity — shows only what needs attention right now.",
+"Facility / PDU 管理介面異常":"Facility / PDU management interface issue",
+"確認 PDU 網路連線與電源狀態":"Check PDU network connection and power status",
+"GPU / 重複故障":"GPU / Repeat failure",
+"建立 RCA 與永久改善項目":"Create RCA and permanent improvement item",
+"Network / 大量告警":"Network / Alert storm",
+"確認是否再次出現相同模式":"Check whether the same pattern recurs",
+"補齊完成定義與 ETA":"Complete the definition of done and ETA",
+"本週需要注意":"Needs attention this week",
+"重複故障":"Repeat failure",
+"gpusrv061 等節點需轉 Problem / RCA":"gpusrv061 and other nodes need to move to Problem / RCA",
+"網路穩定性":"Network stability",
+"Spine / Link 事件持續觀察":"Spine / Link events under continued observation",
+"Blocked 項目":"Blocked items",
+"Vendor / RMA 必須有 Owner + ETA":"Vendor / RMA must have Owner + ETA",
+"目前無立即超標風險":"No immediate breach risk right now",
+"原則":"Principle",
+"接近門檻立即升級":"Escalate immediately when nearing threshold",
+"值班原則：":"On-call principle: ",
+"先處理高影響，再處理重複故障；每個事件都要有 Owner、Next Action，Blocked 一定要有 ETA。":"Handle high-impact issues first, then repeat failures; every incident needs an Owner and Next Action, and every Blocked item must have an ETA.",
+"先看是否達標，再看風險與下一步。":"Check whether targets are met first, then risks and next steps.",
+"最低目標":"Minimum target",
+"本月停機":"Downtime this month",
+"持續追蹤":"Ongoing tracking",
+"目前無立即風險":"No immediate risk right now",
+"本週判斷":"This week's assessment",
+"達標":"On target",
+"未結案事件":"Unclosed incidents",
+"需持續追蹤":"Needs continued tracking",
+"注意":"Attention",
+"需 Problem / RCA":"Needs Problem / RCA",
+"維運要做什麼":"What Ops needs to do",
+"確認高影響事件是否持續影響 SLA":"Check whether high-impact incidents keep affecting SLA",
+"追蹤未結案與重複故障節點":"Track unclosed incidents and repeat-failure nodes",
+"接近門檻時立即升級並評估變更風險":"Escalate immediately near threshold and assess change risk",
+"每週更新 Availability / Performance SLA":"Update Availability / Performance SLA weekly",
+"快速判斷：":"Quick take: ",
+"SLA 達標不代表沒有風險；未結案、重複故障與長時間停機仍需持續處理。":"Meeting SLA doesn't mean zero risk; unclosed incidents, repeat failures, and long outages still need ongoing attention.",
+"依時間由新到舊；先處理 P1 / P2、未恢復、重複事件。":"Sorted newest to oldest; handle P1/P2, unrecovered, and repeat incidents first.",
+"值班原則：先恢復服務，再找根因；相同事件再次發生就轉 Problems / RCA。":"On-call principle: restore service first, then find root cause; if the same incident recurs, move it to Problems / RCA.",
+"顯示事件":"Incidents shown",
+"最近事件":"Recent incidents",
+"高優先":"High priority",
+"處理中":"In progress",
+"尚未完成":"Not yet resolved",
+"類別":"Category",
+"設施":"Facility",
+"影響":"Impact",
+"停機":"Downtime",
+"已修復":"Resolved",
+"網路":"Network",
+"維運":"Ops",
+"操作原則：事件依時間由新到舊排列；先處理高優先與尚未恢復的事件，重複事件轉 Problems / RCA。":"Operating principle: incidents are listed newest to oldest; handle high-priority and unrecovered incidents first, and move repeat incidents to Problems / RCA.",
+"從機房基礎設施到應用負載，一頁掌握主要依賴與維運責任。":"From facility infrastructure to application workloads — key dependencies and ops ownership on one page.",
+"技術層級":"Tech layers",
+"維運責任域":"Ops ownership domains",
+"共同治理層":"Shared governance layer",
+"技術堆疊":"Technology Stack",
+"安全與治理":"Security & Governance",
+"門禁、CCTV、FortiGate、電信線路":"Access control, CCTV, FortiGate, telecom circuits",
+"Slurm、LLM / BERT、NFS、GPU 工作負載":"Slurm, LLM / BERT, NFS, GPU workloads",
+"B300 GPU、NVLink / NVSwitch、InfiniBand / Spectrum-X":"B300 GPU, NVLink / NVSwitch, InfiniBand / Spectrum-X",
+"Compute、Storage、Network、BMC、Switch":"Compute, Storage, Network, BMC, Switch",
+"Power、Cooling、Rack、PDU、Facility":"Power, Cooling, Rack, PDU, Facility",
+"應用與工作負載":"Applications & Workloads",
+"GPU 與高速互連":"GPU & High-Speed Interconnect",
+"IT 基礎設施":"IT Infrastructure",
+"機房與基礎機電":"Facility & Base Electro-mechanical",
+"維運資料流":"Ops Data Flow",
+"監控與告警":"Monitoring & Alerting",
+"Incident / 工單":"Incident / Ticket",
+"維運責任":"Ops Ownership",
+"應用、排程、工作負載與平台服務":"Applications, scheduling, workloads and platform services",
+"GPU、伺服器、網路、儲存與機房設施":"GPU, servers, network, storage and facility",
+"安全、權限、SLA、變更與供應商協作":"Security, access, SLA, change and vendor coordination",
+"判讀原則：":"How to read this: ",
+"先定位故障層級，再確認責任域，最後進入 Incident / Problem / SOP 處理。":"Locate the failing layer first, confirm the ownership domain, then proceed to Incident / Problem / SOP handling.",
+"目標：事件進來後，快速知道「誰處理、現在在哪一步、下一步是什麼」。":"Goal: as soon as an incident comes in, quickly know \u201cwho owns it, what stage it's at, and what's next.\u201d",
+"發現":"Detect",
+"告警 / 使用者回報":"Alert / user report",
+"建單":"Create ticket",
+"影響、設備、Severity":"Impact, device, severity",
+"處理":"Handle",
+"Owner 接手與排障":"Owner takes over and troubleshoots",
+"驗證":"Verify",
+"服務與監控恢復":"Service and monitoring restored",
+"結案":"Close",
+"補齊原因與處置":"Complete cause and resolution",
+"工單只看 6 個欄位":"A ticket only needs 6 fields",
+"欄位":"Field",
+"維運要知道什麼":"What Ops needs to know",
+"影響哪些服務或節點":"Which services or nodes are affected",
+"目前誰負責":"Who currently owns it",
+"下一步要做什麼":"What's the next step",
+"預計何時更新或恢復":"Expected update or recovery time",
+"什麼時候要升級？":"When to escalate?",
+"服務中斷 / 大範圍影響":"Service outage / wide-scale impact",
+"立即升級":"Escalate immediately",
+"部分服務受影響 / 有風險":"Partial service impact / at risk",
+"相同設備或原因再次發生":"Same device or cause recurs",
+"重複":"Repeat",
+"轉 Problem / RCA":"Move to Problem / RCA",
+"阻塞":"Blocked",
+"等待 Vendor / RMA / Change":"Waiting on Vendor / RMA / Change",
+"標記 Blocked + ETA":"Mark Blocked + ETA",
+"結案前確認":"Pre-closure checklist",
+"✓ 服務恢復":"\u2713 Service restored",
+"✓ 監控正常":"\u2713 Monitoring normal",
+"✓ 原因已記錄":"\u2713 Cause documented",
+"✓ 處置已記錄":"\u2713 Resolution documented",
+"✓ 重複問題已建立 Problem":"\u2713 Problem created for repeat issue",
+"值班只看四件事：症狀、第一步、升級條件、結案條件。":"On-call only needs 4 things: symptom, first step, escalation trigger, closure condition.",
+"症狀：":"Symptom: ",
+"GPU 掉卡、Xid、PCIe、Host 異常":"GPU dropped, Xid, PCIe, Host anomaly",
+"先做：":"First step: ",
+"確認影響節點 → 收集 Log → Isolate":"Confirm affected node \u2192 collect logs \u2192 isolate",
+"升級：":"Escalate when: ",
+"多卡 / 多節點 / 重複故障":"Multi-GPU / multi-node / repeat failure",
+"Switch、Link、BMC、OOB 異常":"Switch, Link, BMC, OOB anomaly",
+"確認範圍 → Port / Link / Route 檢查":"Confirm scope \u2192 check Port / Link / Route",
+"多節點或服務中斷":"Multi-node or service outage",
+"Power、Cooling、CDU、溫度異常":"Power, Cooling, CDU, temperature anomaly",
+"確認告警 → 降低服務風險":"Confirm alert \u2192 reduce service risk",
+"影響機櫃 / 多設備 / 持續惡化":"Rack-wide impact / multi-device / worsening",
+"Restart、Change、維運操作":"Restart, Change, Ops action",
+"確認授權 → 執行 → 驗證":"Confirm authorization \u2192 execute \u2192 verify",
+"生產服務或大範圍影響":"Production service or wide-scale impact",
+"標準處置流程":"Standard Resolution Flow",
+"確認影響":"Confirm impact",
+"服務、節點、範圍":"Service, node, scope",
+"執行處置":"Execute resolution",
+"依對應 Runbook":"Follow the matching Runbook",
+"確認恢復":"Confirm recovery",
+"服務 + 監控正常":"Service + monitoring normal",
+"更新工單":"Update ticket",
+"原因、處置、下一步":"Cause, resolution, next step",
+"什麼時候不能直接結案？":"When can't you close directly?",
+"相同問題再次發生":"Same issue recurs",
+"還在等 Vendor / RMA":"Still waiting on Vendor / RMA",
+"保持 Blocked + ETA":"Keep as Blocked + ETA",
+"監控仍有異常":"Monitoring still shows anomalies",
+"繼續觀察，不結案":"Keep observing, don't close",
+"服務未完全恢復":"Service not fully restored",
+"維持 Incident":"Keep as Incident",
+"只看三件事：現在有什麼風險、影響多大、下一步做什麼。":"Only 3 things matter: what's the risk now, how big is the impact, what's next.",
+"整體風險":"Overall risk",
+"中":"Medium",
+"優先處理":"Priority handling",
+"重複故障 / 網路異常":"Repeat failure / network anomaly",
+"目前最需要注意":"Needs the most attention right now",
+"重複故障節點":"Repeat-failure nodes",
+"gpusrv061 等節點持續發生異常。":"gpusrv061 and other nodes keep showing anomalies.",
+"建立 Problem / RCA":"Create Problem / RCA",
+"網路異常":"Network anomaly",
+"Spine / Link 類事件需持續觀察是否再次發生。":"Spine / Link events need continued observation for recurrence.",
+"追蹤告警與修復結果":"Track alerts and resolution outcome",
+"RMA / 修復等待":"RMA / repair wait",
+"長時間等待可能放大服務與 SLA 風險。":"Long waits can amplify service and SLA risk.",
+"確認 Owner 與 ETA":"Confirm Owner and ETA",
+"什麼情況要升級？":"When should this escalate?",
+"服務中斷":"Service outage",
+"立即升級 P1 / Incident Owner":"Escalate immediately to P1 / Incident Owner",
+"相同問題重複":"Same issue repeats",
+"轉 Problem / RCA ":"Move to Problem / RCA ",
+"接近 SLA 門檻":"Nearing SLA threshold",
+"通知 Service Manager":"Notify Service Manager",
+"等待 Vendor / RMA":"Waiting on Vendor / RMA",
+"本週行動":"This Week's Actions",
+"先處理高影響與重複故障":"Handle high-impact and repeat failures first",
+"確認每個風險都有 Owner":"Confirm every risk has an Owner",
+"下週確認風險是否下降":"Check next week whether risk has decreased",
+"判斷原則：":"Guiding principle: ",
+"風險頁不是預測所有可能事件，而是讓值班人員快速知道「現在最可能出問題的地方，以及今天要做什麼」。":"This page isn't about predicting every possible incident \u2014 it's about letting on-call staff quickly know \u201cwhere problems are most likely right now, and what to do today.\u201d",
+"ITIL 4 的 7 大指導原則，用日常維運語言快速理解。":"ITIL 4's 7 guiding principles, explained in everyday ops language.",
+"聚焦價值":"Focus on Value",
+"先確認對服務與使用者的影響。":"Confirm the impact on service and users first.",
+"維運：優先處理高影響事件與 SLA 風險。":"Ops: prioritize high-impact incidents and SLA risk.",
+"從現況開始":"Start Where You Are",
+"先使用現有資料，不急著全部重做。":"Use existing data first, don't rush to rebuild everything.",
+"維運：先看監控、Log、Jira、CMDB 與 Runbook。":"Ops: check monitoring, logs, Jira, CMDB and Runbook first.",
+"迭代前進並取得回饋":"Progress Iteratively with Feedback",
+"小步處理，每一步都驗證。":"Take small steps, verify each one.",
+"維運：修復 → 驗證 → 觀察 → 改善。":"Ops: fix \u2192 verify \u2192 observe \u2192 improve.",
+"協作並提高可視性":"Collaborate and Promote Visibility",
+"讓相關團隊看到相同狀態與責任。":"Let related teams see the same status and ownership.",
+"維運：Incident、Owner、進度與下一步要清楚。":"Ops: Incident, Owner, progress and next step must be clear.",
+"整體思考與工作":"Think and Work Holistically",
+"不要只修單一設備，要看完整服務。":"Don't just fix a single device \u2014 look at the whole service.",
+"維運：同時確認 GPU、Network、Facility 與服務影響。":"Ops: check GPU, Network, Facility and service impact together.",
+"保持簡單實用":"Keep It Simple and Practical",
+"只保留真正有助於決策的流程與資訊。":"Keep only the processes and information that genuinely help decisions.",
+"維運：能 3 步完成，就不要設計成 10 步。":"Ops: if it can be done in 3 steps, don't design 10.",
+"最佳化並自動化":"Optimize and Automate",
+"先把流程做好，再自動化重複工作。":"Get the process right first, then automate repetitive work.",
+"維運：告警聚合、自動蒐證、健康檢查與週報。":"Ops: alert aggregation, auto-evidence collection, health checks and weekly reports.",
+"值班快速記憶":"Quick On-Call Recap",
+"價值 → 現況 → 小步改善 → 協作透明 → 看整體 → 保持簡單 → 再自動化":"Value \u2192 Current state \u2192 Small steps \u2192 Transparency \u2192 See the whole \u2192 Keep it simple \u2192 Automate",
+"隱私權政策":"Privacy Policy",
+"Cookies 使用政策":"Cookie Policy",
+"TAN-Spine04 OS hang（無法遠端連線）":"TAN-Spine04 OS hang (unable to connect remotely)",
+"TAN-Spine04（Spine交換器）":"TAN-Spine04 (Spine switch)",
+"gpusrv061（10.227.0.61，本季重複故障最高節點）":"gpusrv061 (10.227.0.61, this season's most repeat-failing node)",
+"NVIDIA 網路監控告警":"NVIDIA network monitoring alert",
+"gn-10-227-0-23（10.227.0.23）":"gn-10-227-0-23 (10.227.0.23)",
+"3F-C01-PDU06（172.16.1.156）":"3F-C01-PDU06 (172.16.1.156)"
+};
+</script>
+
+<script>
+(function(){
+  var LANG_KEY='vb-lang';
+  var root=document.documentElement;
+  var originalText=new WeakMap();
+
+  function regexEN(zh){
+    var m;
+    m = zh.match(/^nv-networking-alarm（tca_dom event，第\s*(\d+)\s*起）$/);
+    if(m) return 'nv-networking-alarm (tca_dom event, #'+m[1]+')';
+    m = zh.match(/^(.*)\s*等問題$/);
+    if(m) return m[1]+' and related issues';
+    return null;
+  }
+
+  function translateNode(node){
+    var zh=node.nodeValue;
+    var trimmed=zh.trim();
+    if(!trimmed) return;
+    var en=(typeof I18N_EN!=='undefined' && I18N_EN[trimmed]) || regexEN(trimmed);
+    if(en){
+      if(!originalText.has(node)) originalText.set(node, zh);
+      // preserve surrounding whitespace
+      var lead=zh.match(/^\s*/)[0], trail=zh.match(/\s*$/)[0];
+      node.nodeValue=lead+en+trail;
+    }
+  }
+
+  function revertNode(node){
+    if(originalText.has(node)){
+      node.nodeValue=originalText.get(node);
+    }
+  }
+
+  function walk(root, fn){
+    var tw=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var n;
+    while(n=tw.nextNode()){
+      fn(n);
+    }
+  }
+
+  function applyLang(lang){
+    var layout=document.querySelector('.layout');
+    if(!layout) return;
+    if(lang==='en'){
+      walk(layout, translateNode);
+    } else {
+      walk(layout, revertNode);
+    }
+    document.querySelectorAll('#vb-lang-switch button').forEach(function(btn){
+      btn.classList.toggle('active', btn.dataset.langChoice===lang);
+      btn.setAttribute('aria-pressed', btn.dataset.langChoice===lang?'true':'false');
+    });
+    root.setAttribute('lang', lang==='en'?'en':'zh-Hant');
+  }
+
+  function preferred(){
+    var saved=localStorage.getItem(LANG_KEY);
+    if(saved==='zh'||saved==='en') return saved;
+    return 'zh';
+  }
+
+  applyLang(preferred());
+
+  document.addEventListener('click', function(e){
+    var btn=e.target.closest('#vb-lang-switch [data-lang-choice]');
+    if(!btn) return;
+    var lang=btn.dataset.langChoice;
+    localStorage.setItem(LANG_KEY, lang);
+    applyLang(lang);
+  });
+
+  // re-apply translation to newly-rendered incident timeline items etc.
+  // (content is static HTML here, no dynamic re-render needed post-load)
+})();
+</script>
+</body></html>
